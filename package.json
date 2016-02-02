@@ -1,0 +1,42 @@
+{
+  "name": "PracticalStartpage",
+  "version": "2.0.0",
+  "description": "Practical Startpage",
+  "main": "index.js",
+  "scripts": {
+    "install": "gulp install",
+    "update": "gulp update"
+  },
+  "author": "Paul Dhillon",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1",
+    "jquery": "2",
+    "jstree": "3",
+    "ng-js-tree": "0",
+    "semantic-ui": "2"
+  },
+  "devDependencies": {
+    "del": "*",
+    "eslint": "^1.10.3",
+    "eslint-config-angular": "^0.4.0",
+    "eslint-plugin-angular": "^0.15.0",
+    "eslint-plugin-html": "^1.1.0",
+    "gulp": "*",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-concat": "*",
+    "gulp-cssnano": "*",
+    "gulp-html-replace": "*",
+    "gulp-jshint": "*",
+    "gulp-json-editor": "*",
+    "gulp-less": "*",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-minify-css": "*",
+    "gulp-ng-annotate": "*",
+    "gulp-rename": "*",
+    "gulp-replace": "*",
+    "gulp-uglify": "*",
+    "gulp-zip": "*",
+    "run-sequence": "^1.1.5"
+  }
+}

@@ -1,0 +1,7 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.inverted.blue.menu .active.item {
+  background: @invertedActiveBackground!important;
+}

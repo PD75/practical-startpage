@@ -1,0 +1,62 @@
+<i class="right floated close icon"></i>
+<div class="header">
+  Help
+</div>
+<div class="content">
+  <div class="ui list segment" ps-help>
+    <div class="ui blue ribbon label">Practical Startpage</div>
+    <div class="item">
+      <div class="content">
+        <div class="description">
+          Practical Startpage is designed to fit links and other functionality best possible on a single page.
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <div class="header">Responsive design</div>
+        <div class="description">
+          To accomplish this the design is built responsive, i.e. the content adjust to give best fit for different screen sizes. The columns and content adjusts to give best viewing experience for all screen widths.
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <div class="header">Content</div>
+        <div class="description">
+          The page consists of three columns, but for smaller screens the right column merges with the center column to allow the content to be usable.
+          <br/>
+          In the case of the link lists content is spread over two columns, which collapse to one for small screens.
+        </div>
+      </div>
+    </div>
+
+    <div class="ui blue ribbon label">Tabs</div>
+
+    <div class="item" ng-repeat="help in vm.helpTexts">
+      <i class="large icon" ng-class="help.icon"></i>
+      <div class="content">
+        <div class="header">{{help.title}}</div>
+        <div class="description" ng-bind-html="help.html">
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <i class="large ellipsis horizontal icon"></i>
+      <div class="content">
+        <div class="header">More to come...</div>
+        <div class="description">
+          Have any ideas, please submit them in chrome stores support tab. If I like them and they are technical feasible they will be added. More flexibity is asked by the users so the the code is now modular and will be uploaded to GitHub for others to contribute. Upcoming features are:
+          <ul>
+            <li>Ability to choose which widgets goes in which column.</li>
+            <li>Change color and add background picture</li>
+            <li>Ability to develop own widgets to show.</li>
+            <li>And more</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
