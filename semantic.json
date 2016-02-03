@@ -1,0 +1,43 @@
+{
+  "base": "dist/semantic-ui",
+  "paths": {
+    "source": {
+      "config": "src/theme.config",
+      "definitions": "src/definitions/",
+      "site": "src/site/",
+      "themes": "src/themes/"
+    },
+    "output": {
+      "packaged": "../../appdev/dist/semantic-ui/",
+      "uncompressed": "./dist/components/",
+      "compressed": "./dist/components/",
+      "themes": "../../appdev/dist/semantic-ui/themes/"
+    },
+    "clean": "../../appdev/dist/semantic-ui/"
+  },
+  "permission": false,
+  "rtl": false,
+  "components": [
+    "font",
+    "reset",
+    "site",
+    "button",
+    "divider",
+    "icon",
+    "input",
+    "label",
+    "list",
+    "loader",
+    "segment",
+    "grid",
+    "menu",
+    "item",
+    "dimmer",
+    "dropdown",
+    "modal",
+    "popup",
+    "tab",
+    "transition"
+  ],
+  "version": "2.1.8"
+}

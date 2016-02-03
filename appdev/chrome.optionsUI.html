@@ -1,0 +1,31 @@
+<html ng-app="ChromeOptions">
+
+  <head>
+    <!-- build:html -->
+    <title>Practical Startpage Options</title>
+    <!-- endbuild -->
+    <link rel="icon" type="image/png" href="img/icon16.png">
+    <link rel="stylesheet" href="dist/semantic-ui/semantic.min.css"/>
+    <!-- build:css -->
+    <link rel="stylesheet" href="app/components/layout/layout.css"/>
+    <!-- endbuild -->
+  </head>
+
+  <body style="min-width:500px">
+    <ps-options></ps-options>
+
+    <!--Load Distribution Scripts-->
+    <script src="dist/jquery.min.js"></script>
+    <script src="dist/semantic-ui/semantic.min.js"></script>
+    <script src="dist/angular.min.js"></script>
+
+    <!--Load Application specific scripts-->
+    <!-- build:js -->
+    <script src="app/components/options/options.js"></script>
+    <script src="app/_chrome/chrome.optionsUI.js"></script>
+    <script src="app/_chrome/chrome.app.module.js"></script>
+    <script src="app/_chrome/chrome.StorageServices.js"></script>
+    <!-- endbuild -->
+  </body>
+
+</html>

@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Practical Startpage Dev",
+  "short_name": "Practical Startpage",
+  "version": "2.0.0",
+  "description": "Startpage focused on practical features rather then flashy look.",
+  "web_accessible_resources": ["chrome-extension://"],
+  "permissions": [
+    "topSites",
+    "chrome://favicon/",
+    "tabs",
+    "bookmarks",
+    "management",
+    "history",
+    "sessions",
+    "storage"
+  ],
+  "icons": {
+    "16": "img/icon16.png",
+    "32": "img/icon32.png",
+    "48": "img/icon48.png",
+    "128": "img/icon128.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "startpage.html"
+  },
+  "options_ui": {
+    "page": "chrome.optionsUI.html",
+    "open_in_tab": true
+  }
+}

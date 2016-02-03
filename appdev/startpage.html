@@ -1,0 +1,69 @@
+<html ng-app="PracticalStartpage">
+
+<head>
+  <!-- build:html -->
+  <title>Practical Startpage Dev</title>
+  <!-- endbuild -->
+  <link rel="icon" type="image/png" href="img/icon16.png">
+  <link rel="stylesheet" href="dist/jstree/themes/default/style.min.css" />
+  <link rel="stylesheet" href="dist/semantic-ui/semantic.min.css" />
+  <!-- build:css -->
+  <link rel="stylesheet" href="app/components/bookmarkTree/bookmarkTree.css" />
+  <link rel="stylesheet" href="app/components/layout/layout.css" />
+  <!-- endbuild -->
+</head>
+
+<body>
+
+    <ps-layout class="ui padded grid"></ps-layout>
+
+  <!--Load Distribution Scripts-->
+  <script src="dist/jquery.js"></script>
+  <script src="dist/jstree/jstree.js"></script>
+  <script src="dist/semantic-ui/semantic.js"></script>
+  <script src="dist/angular.js"></script>
+  <script src="dist/ngJsTree.js"></script>
+
+  <!--Load Application specific scripts-->
+  <!-- build:js -->
+  <script src="app/_chrome/chrome.app.module.js"></script>
+  <script src="app/_chrome/chrome.UrlsServices.js"></script>
+  <script src="app/_chrome/chrome.StorageServices.js"></script>
+  <script src="app/_chrome/chrome.BookmarkService.js"></script>
+
+  <script src="app/_semantic-ui/semantic-ui.js"></script>
+  <script src="app/_semantic-ui/popup.js"></script>
+  <script src="app/_semantic-ui/dropdown.js"></script>
+  <script src="app/_semantic-ui/modal.js"></script>
+
+  <script src="app/app.module.js"></script>
+  <script src="app/shared/dataService.js"></script>
+
+  <script src="app/components/layout/layout.js"></script>
+  <script src="app/components/layout/segmentBottomLayout.js"></script>
+  <script src="app/components/layout/segmentLayout.js"></script>
+  <script src="app/shared/widget.js"></script>
+
+  <script src="app/components/bottomMenu.js"></script>
+  <script src="app/components/help.js"></script>
+  <script src="app/components/options/options.js"></script>
+
+
+  <script src="app/components/browserApps.js"></script>
+  <script src="app/components/browserHistory.js"></script>
+  <script src="app/components/browserClosedTabs.js"></script>
+  <script src="app/components/browserTopSites.js"></script>
+  <script src="app/components/browserQuickLink.js"></script>
+
+  <script src="app/components/bookmarkTree/bookmarkTreeServices.js"></script>
+  <script src="app/components/bookmarkTree/bookmarkTree.js"></script>
+
+  <script src="app/components/bookmarkTree/commonBookmarkService.js"></script>
+
+  <script src="app/components/bookmarkTree/editBookmarks.js"></script>
+  <script src="app/components/bookmarkTree/editBookmarksService.js"></script>
+  <script src="app/components/bookmarkTree/editBookmarkUrl.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

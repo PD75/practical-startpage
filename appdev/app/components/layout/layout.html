@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="column" ng-class="col.colTitle" ng-repeat="col in Layout.layout">
+    <div class="ui menu" ng-class="Layout.priMenuClasses" ng-init="colIndex=$index">
+      <a class="item" ng-class="tab.classes" ng-click="Layout.onClickTab(tab,colIndex)" ng-repeat="tab in col.tabs">
+        <i class="icon" ng-class="tab.icon"></i>
+        <span>{{tab.title}}</span>
+      </a>
+      <div class="right menu">
+        <a class="item" ng-show="col.edit" ng-click="Layout.activateEditor(col, colIndex)">
+          <i class="edit icon"></i>
+        </a>
+        <a class="item" ui-popup="col.helpPopup">
+          <i class="help circle icon"></i>
+        </a>
+      </div>
+    </div>
+    <div class="ui tab cover" ng-class="col.coverClasses">
+      <ps-segment-layout ng-class="Layout.styles.primaryCol"></ps-segment-layout>
+    </div>
+    <div ng-repeat="tab in col.tabs">
+      <ps-widget ps-widget-input="tab.directive" class="ui tab" ng-class="tab.classes"></ps-widget>
+    </div>
+  </div>
+  <ui-modal ui-modal-show="Layout.showModal" ui-modal-url="Layout.modalUrl" ui-modal-data="Layout.modalData"></ui-modal>
+</div>
+<ps-bottom-menu class="row" ps-data="Layout.bottomMenu"></ps-bottom-menu>

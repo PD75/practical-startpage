@@ -1,0 +1,103 @@
+/*Variables*/
+
+
+/*Semantic-UI*/
+
+.segment {
+  overflow: auto;
+  margin-bottom: 0 !important;
+}
+.ui.modal > .close {
+  top: .905rem;
+  right: 1rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+#optionsMenu .item i.icon {
+  margin: 0;
+}
+img.ui.logo.image {
+  height: 40px;
+  width: auto;
+  font-size: .71428571rem;
+}
+
+/*.popup .description {
+  max-width: 300px;
+}*/
+
+.browser {
+  display: inline-block;
+}
+.ui.basic.browser.button {
+  box-shadow: 0 0 0 1px #cccccc !important;
+  color: #888888 !important;
+  margin: 2px;
+  padding: .6em;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 99%;
+}
+.browser.button > img {
+  margin: -0.1em 0.2em -0.1em 0.1em;
+  height: 16px;
+}
+
+/*Media Queries*/
+
+
+/*All columns etc*/
+
+div.browser {
+  width: 100%;
+}
+.left.column, .middle.column, .right.column {
+  width: 50% !important;
+}
+@media (max-width: 1000px) {
+  .middle a.item span {
+    display: none !important;
+  }
+}
+@media (min-width: 1001px) {
+  div.browser.middle {
+    width: 50%;
+  }
+  .left.column {
+    width: 37% !important;
+  }
+  .middle.column {
+    width: 63% !important;
+  }
+}
+@media (max-width: 1300px) {
+  .right.column, .cover {
+    display: none !important;
+  }
+}
+@media (min-width: 1301px) {
+  .cover {
+    display: block;
+  }
+  .left.column, .right.column {
+    width: 26% !important;
+  }
+  .middle.column {
+    width: 48% !important;
+  }
+  .delegate {
+    display: none !important;
+  }
+}
+@media (min-width: 2001px) {
+  .left.column {
+    width: 20% !important;
+  }
+  .middle.column, .right.column {
+    width: 40% !important;
+  }
+  div.browser.right {
+    width: 50%;
+  }
+}
