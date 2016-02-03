@@ -27,7 +27,6 @@
     "gulp-concat": "*",
     "gulp-cssnano": "*",
     "gulp-html-replace": "*",
-    "gulp-jshint": "*",
     "gulp-json-editor": "*",
     "gulp-less": "*",
     "gulp-load-plugins": "^1.2.0",

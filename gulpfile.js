@@ -16,13 +16,13 @@ var runSequence = require('run-sequence');
 //npm install
 //Copy libraries to correct place from node_modules during npm install
 gulp.task('installJSTree', function() {
-  return gulp.src([srcNode + '/jstree/dist/**/*(*.min.js)', srcNode + '/jstree/dist/themes/default/**/*(*.min.css|*.png|*.gif)'], {
+  return gulp.src([srcNode + '/jstree/dist/**/*(*.js)', srcNode + '/jstree/dist/themes/default/**/*(*.min.css|*.png|*.gif)'], {
       base: srcNode + '/jstree/dist',
     })
     .pipe(gulp.dest(dist + '/jstree'));
 });
 gulp.task('installjs', function() {
-  return gulp.src([srcNode + '/jquery/dist/*.min.js', srcNode + '/angular/angular.min.js'])
+  return gulp.src([srcNode + '/jquery/dist/*.js', srcNode + '/angular/angular*.js'])
     .pipe(gulp.dest(dist));
 });
 gulp.task('installngjstree', function() {
@@ -98,6 +98,9 @@ gulp.task('buildConfig', function(cb) {
       'js': 'app/startpage.min.js',
       'html': '<title>' + manifest.short_name + '</title>',
     }))
+    // .pipe(plugins.replace('*', function(path) {
+    //   return path + 'balle';
+    // }))
     .pipe(plugins.rename(manifest.chrome_url_overrides.newtab))
     .pipe(gulp.dest(build));
 
@@ -140,5 +143,5 @@ gulp.task('watch', function() {
 gulp.task('default', ['build', 'watch']);
 // gulp.task('build', ['buildScripts', 'getDist', 'buildCss', 'buildCode']);
 gulp.task('build', function(cb) {
-  runSequence(['clean', 'update'], ['buildScripts', 'getDist', 'buildCss', 'buildConfig', 'getHtml'], cb);
+  runSequence('clean', ['buildScripts', 'getDist', 'buildCss', 'buildConfig', 'getHtml'], cb);
 });
