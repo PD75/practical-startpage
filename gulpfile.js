@@ -98,12 +98,19 @@ gulp.task('buildConfig', function(cb) {
       'js': 'app/startpage.min.js',
       'html': '<title>' + manifest.short_name + '</title>',
     }))
-    // .pipe(plugins.replace('*', function(path) {
-    //   return path + 'balle';
-    // }))
-    .pipe(plugins.rename(manifest.chrome_url_overrides.newtab))
+    .pipe(plugins
+      .replace(/(dist.*\.)(js)/gm, function(r1, r2, r3) {
+        return r2 + 'min.' + r3;
+      })
+    )
+    // .pipe(plugins.rename(manifest.chrome_url_overrides.newtab))
     .pipe(gulp.dest(build));
 
+  gulp.task('templates', function() {
+    gulp.src(['file.txt'])
+      .pipe(replace(/foo(.{3})/g))
+      .pipe(gulp.dest('build/file.txt'));
+  });
   gulp.src(src + '/' + manifest.options_ui.page)
     .pipe(plugins.htmlReplace({
       'css': 'app/startpage.min.css',
