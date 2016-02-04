@@ -1,5 +1,5 @@
 angular.module('PracticalStartpage')
-  .service('dataService', function($http, $q, storageService) {
+  .service('dataService', function($http, $q, storageService, dataServiceWidgets) {
     'use strict';
 
     var s = this;
@@ -19,9 +19,16 @@ angular.module('PracticalStartpage')
           s.data = response[1].data;
           s.data.styles = getDefaultStyles();
           s.data.layout = getDefaultLayout();
+          s.data.widgets = dataServiceWidgets.getWidgets();
           angular.merge(s.data, response[0]);
+
         });
     }
+
+    function createColumns() {
+      var c, t;
+    }
+
 
     function setData(newData) {
       return storageService.setLocalData(newData)
@@ -49,14 +56,20 @@ angular.module('PracticalStartpage')
 
     function getDefaultLayout() {
       return [{
-        colTitle: "left",
+        title: "Left",
+        label: "left",
         tabs: ['bookmarkTree'],
+        items: 2,
       }, {
-        colTitle: "middle",
+        title: "Middle",
+        label: "middle",
         tabs: ['quicklinks', 'history', 'topSites'],
+        items: 4,
       }, {
-        colTitle: "right",
+        title: "Right",
+        label: "right",
         tabs: ['closedTabs', 'chromeApps'],
+        items: 2,
       }];
     }
   });

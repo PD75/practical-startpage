@@ -1,0 +1,17 @@
+/**
+ * Handle positioning
+ */
+
+.options.layout .item {
+  cursor: move;
+}
+/**
+ * The dndDraggingSource class will be applied to
+ * the source element of a drag operation. It makes
+ * sense to hide it to give the user the feeling
+ * that he's actually moving it.
+ */
+
+.options.layout .item.dndDraggingSource {
+  display: none;
+}

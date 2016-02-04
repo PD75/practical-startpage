@@ -1,4 +1,4 @@
-angular.module('PracticalStartpage', ['ngJsTree', 'chromeModule', 'ngSemanticUi', 'PracticalStartpage.options']);
+angular.module('PracticalStartpage', ['ngJsTree', 'chromeModule', 'ngSemanticUi', 'dndLists', 'PracticalStartpage.options']);
 
 angular.module('PracticalStartpage')
   .config(function($compileProvider) {

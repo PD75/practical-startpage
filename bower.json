@@ -1,0 +1,28 @@
+{
+  "name": "PracticalStartpage",
+  "description": "Practical Startpage",
+  "main": "index.js",
+  "authors": [
+    "Paul Dhillon"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "chrome",
+    "extension",
+    "startpage",
+    "angular"
+  ],
+  "homepage": "https://github.com/PD75/practical-startpage",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-drag-and-drop-lists": "~1.3.0"
+  }
+}

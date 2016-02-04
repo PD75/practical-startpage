@@ -21,6 +21,7 @@ angular.module('PracticalStartpage')
           title: "Quicklinks",
           icon: "external link",
           directive: "browser-quicklinks",
+          defaultData:['1'],
           help: "A list of links chosen by the user. The links are chosen by right clicking a folder in the bookmark tree. <br /> <b>Note:</b> You can only select one folder and only the bookmarks directly in that folder are shown, not in sub folders.",
         },
         history: {
