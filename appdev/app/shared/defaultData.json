@@ -1,6 +1,6 @@
 {
   "quicklinks": ["1"],
-  "layout": [{
+  "columns": [{
     "colTitle": "left",
     "tabs": [{
       "title": "Bookmarks",
@@ -61,28 +61,5 @@
     }],
     "activeTab": "Apps",
     "tabRefreshed": 0
-  }],
-  "styles": {
-    "primaryCol": "blue",
-    "primaryInv": true,
-    "secondaryCol": "black",
-    "secondaryInv": true
-  },
-  "bottomMenu": [{
-    "title": "options",
-    "icon": "options",
-    "url": "app/components/options/optionsModal.html"
-  }, {
-    "title": "help",
-    "icon": "help",
-    "url": "app/components/help.html"
-  }, {
-    "title": "about",
-    "icon": "info",
-    "url": "app/components/about.html"
-  }, {
-    "title": "revision",
-    "icon": "code",
-    "url": "app/components/revision.html"
   }]
 }

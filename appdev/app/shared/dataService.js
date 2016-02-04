@@ -17,6 +17,8 @@ angular.module('PracticalStartpage')
         ])
         .then(function(response) {
           s.data = response[1].data;
+          s.data.styles = getDefaultStyles();
+          s.data.layout = getDefaultLayout();
           angular.merge(s.data, response[0]);
         });
     }
@@ -28,12 +30,33 @@ angular.module('PracticalStartpage')
         });
     }
 
+    function getManifest() {
+      return storageService.getManifest();
+    }
+
     function getDefaultData() {
       return $http.get('app/shared/defaultData.json');
     }
 
+    function getDefaultStyles() {
+      return {
+        primaryCol: "purple",
+        primaryInv: true,
+        secondaryCol: "black",
+        secondaryInv: true,
+      };
+    }
 
-    function getManifest() {
-      return storageService.getManifest();
+    function getDefaultLayout() {
+      return [{
+        colTitle: "left",
+        tabs: ['bookmarkTree'],
+      }, {
+        colTitle: "middle",
+        tabs: ['quicklinks', 'history', 'topSites'],
+      }, {
+        colTitle: "right",
+        tabs: ['closedTabs', 'chromeApps'],
+      }];
     }
   });

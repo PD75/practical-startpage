@@ -7,7 +7,7 @@
       <div class="ui bottom right dropdown item" ui-dropdown>
         <i class="content white icon"></i>
         <div class="menu">
-          <div class="item" ng-repeat="menuItem in Layout.bottomMenu" ng-click="vm.activateModal(menuItem)">
+          <div class="item" ng-repeat="menuItem in vm.bottomMenu" ng-click="vm.activateModal(menuItem)">
             <i class="icon" ng-class="menuItem.icon"></i>
             {{menuItem.title}}
           </div>

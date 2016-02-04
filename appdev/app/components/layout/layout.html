@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="column" ng-class="col.colTitle" ng-repeat="col in Layout.layout">
+  <div class="column" ng-class="col.colTitle" ng-repeat="col in Layout.columns">
     <div class="ui menu" ng-class="Layout.priMenuClasses" ng-init="colIndex=$index">
       <a class="item" ng-class="tab.classes" ng-click="Layout.onClickTab(tab,colIndex)" ng-repeat="tab in col.tabs">
         <i class="icon" ng-class="tab.icon"></i>

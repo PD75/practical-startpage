@@ -11,7 +11,7 @@
     getHelpText();
 
     function getHelpText() {
-      var layout = dataService.data.layout;
+      var layout = dataService.data.columns;
       var i, j, help;
       vm.helpTexts = [];
       for (i = 0; i < layout.length; i++) {

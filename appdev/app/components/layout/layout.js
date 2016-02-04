@@ -10,7 +10,7 @@
     vm.onClickTab = onClickTab;
     vm.activateEditor = activateEditor;
 
-    vm.layout = [];
+    vm.columns = [];
     vm.popup = {};
     vm.showModal = false;
     vm.bottomMenu = [];
@@ -32,7 +32,7 @@
       vm.modalUrl = 'app/components/bookmarkTree/editBookmarks.html';
       vm.modalData = {
         onHide: function() {
-          vm.layout[colIndex].tabRefreshed++;
+          vm.columns[colIndex].tabRefreshed++;
         },
         closable: false,
       };
@@ -41,17 +41,17 @@
     //Tab functions
     function onClickTab(tab, colIndex) {
       var data = {};
-      vm.layout[colIndex].activeTab = tab.title;
-      vm.layout[colIndex].tabRefreshed++;
+      vm.columns[colIndex].activeTab = tab.title;
+      vm.columns[colIndex].tabRefreshed++;
       if (tab.delegate) {
-        vm.layout[colIndex].cover = true;
-        vm.layout[colIndex + 1].activeTab = tab.title;
-        vm.layout[colIndex + 1].tabRefreshed++;
+        vm.columns[colIndex].cover = true;
+        vm.columns[colIndex + 1].activeTab = tab.title;
+        vm.columns[colIndex + 1].tabRefreshed++;
       } else {
-        vm.layout[colIndex].cover = false;
+        vm.columns[colIndex].cover = false;
       }
 
-      data.layout = vm.layout;
+      data.columns = vm.columns;
       setTabClasses();
       setHelpPopup();
       dataService.setData(data);
@@ -60,26 +60,26 @@
     function setTabClasses() {
       var i = 0;
       var j = 0;
-      for (i = 0; i < vm.layout.length; i++) {
-        for (j = 0; j < vm.layout[i].tabs.length; j++) {
-          vm.layout[i].tabs[j].classes = [];
-          if (vm.layout[i].activeTab === vm.layout[i].tabs[j].title) {
-            vm.layout[i].tabs[j].classes.push('active');
-            if (angular.isDefined(vm.layout[i].tabs[j].edit)) {
-              vm.layout[i].edit = true;
+      for (i = 0; i < vm.columns.length; i++) {
+        for (j = 0; j < vm.columns[i].tabs.length; j++) {
+          vm.columns[i].tabs[j].classes = [];
+          if (vm.columns[i].activeTab === vm.columns[i].tabs[j].title) {
+            vm.columns[i].tabs[j].classes.push('active');
+            if (angular.isDefined(vm.columns[i].tabs[j].edit)) {
+              vm.columns[i].edit = true;
             } else {
-              vm.layout[i].edit = false;
+              vm.columns[i].edit = false;
             }
           }
-          if (angular.isDefined(vm.layout[i].tabs[j].delegate) && vm.layout[i].tabs[j].delegate) {
-            vm.layout[i].tabs[j].classes.push('delegate');
+          if (angular.isDefined(vm.columns[i].tabs[j].delegate) && vm.columns[i].tabs[j].delegate) {
+            vm.columns[i].tabs[j].classes.push('delegate');
           }
         }
         //Cover Tabs
-        if (vm.layout[i].cover) {
-          vm.layout[i].coverClasses.push('active');
+        if (vm.columns[i].cover) {
+          vm.columns[i].coverClasses.push('active');
         } else {
-          vm.layout[i].coverClasses = [];
+          vm.columns[i].coverClasses = [];
         }
 
       }
@@ -98,16 +98,16 @@
 
     //Data functions
     function getLayout() {
-      vm.layout = dataService.data.layout;
+      vm.columns = dataService.data.columns;
       vm.styles = dataService.data.styles;
       vm.bottomMenu = dataService.data.bottomMenu;
     }
 
     function setHelpPopup() {
       var popup = {};
-      for (var i = 0; i < vm.layout.length; i++) {
-        var actTab = vm.layout[i].activeTab;
-        var tabs = vm.layout[i].tabs;
+      for (var i = 0; i < vm.columns.length; i++) {
+        var actTab = vm.columns[i].activeTab;
+        var tabs = vm.columns[i].tabs;
         for (var j = 0; j < tabs.length; j++) {
           if (tabs[j].title === actTab) {
             popup = {
@@ -118,7 +118,7 @@
             };
           }
         }
-        vm.layout[i].helpPopup = popup;
+        vm.columns[i].helpPopup = popup;
       }
     }
 
