@@ -27,8 +27,17 @@
         for (t = 0; t < layout[c].tabs.length; t++) {
           tab = layout[c].tabs[t];
           vm.columns[c].tabs[t] = widgets[tab];
+          widgets[tab].used = true;
         }
       }
+      vm.widgets = [];
+      var w = 0;
+      angular.forEach(widgets, function(widget, key) {
+        if (angular.isUndefined(widget.used) || !widget.used) {
+          vm.widgets[w] = widget;
+          w++;
+        }
+      });
     }
 
     function checkDisabledCol(col) {

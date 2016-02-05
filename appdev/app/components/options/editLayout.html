@@ -1,11 +1,16 @@
 <div class="ui grid options layout">
 
-  <div ng-repeat="col in vm.columns" class="five wide column">
-    <h3 class="panel-title">
-    {{col.title}} column</h3>
+  <div ng-repeat="col in vm.columns" class="four wide column">
+    <div class="ui fluid one item  menu">
+      <div class="header item">
+        {{col.title}}
+        column
+      </div>
+    </div>
     <div class="ui segment">
       <div class="ui relaxed divided list" dnd-list="col.tabs" dnd-disable-if="vm.checkDisabledCol(col)">
 
+        <div class="item"></div>
         <div ng-repeat="tab in col.tabs" dnd-draggable="tab" dnd-moved="col.tabs.splice($index, 1)" dnd-effect-allowed="move" dnd-disable-if="vm.checkDisabledTab(col)" class="item">
           <i class="large middle aligned icon" ng-class="tab.icon"></i>
           {{tab.title}}
@@ -16,8 +21,30 @@
 
         </div>
 
+        <div class="item"></div>
       </div>
     </div>
   </div>
+  <div class="four wide column">
+    <div class="ui fluid one item  menu">
+      <div class="header item">
+        Widgets
+      </div>
+    </div>
+    <div class="ui segment">
+      <div class="ui relaxed divided list" dnd-list="vm.widgets">
+        <div class="item"></div>
+        <div ng-repeat="widget in vm.widgets" dnd-draggable="widget" dnd-moved="vm.widgets.splice($index, 1)" dnd-effect-allowed="move" class="item">
+          <i class="large middle aligned icon" ng-class="widget.icon"></i>
+          {{widget.title}}
+        </div>
+        <div class="item"></div>
+        <div class="item dndPlaceholder">
+          <i class="large plus square middle aligned icon"></i>
 
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>

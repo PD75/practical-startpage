@@ -2,7 +2,7 @@
  * Handle positioning
  */
 
-.options.layout .item {
+.options.layout [draggable="true"].item {
   cursor: move;
 }
 /**
@@ -14,4 +14,8 @@
 
 .options.layout .item.dndDraggingSource {
   display: none;
+}
+
+.ui.grid.options.layout{
+  min-width: 700px
 }
