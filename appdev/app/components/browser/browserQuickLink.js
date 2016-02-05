@@ -15,8 +15,10 @@
       //Enough to watch when quicklinks changes. Initial load by style.js
       $scope.$watch(function() {
           return dataService.data.quicklinks;
-        }, function(x, y) {
-          getQuicklinks();
+        }, function(newValue) {
+          if (angular.isDefined(newValue)) {
+            getQuicklinks();
+          }
         },
         true);
     }

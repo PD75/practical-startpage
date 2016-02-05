@@ -16,19 +16,11 @@ angular.module('PracticalStartpage')
           getDefaultData(),
         ])
         .then(function(response) {
-          s.data = response[1].data;
-          s.data.styles = getDefaultStyles();
-          s.data.layout = getDefaultLayout();
-          s.data.widgets = dataServiceWidgets.getWidgets();
+          s.data = response[1];
           angular.merge(s.data, response[0]);
 
         });
     }
-
-    function createColumns() {
-      var c, t;
-    }
-
 
     function setData(newData) {
       return storageService.setLocalData(newData)
@@ -42,7 +34,11 @@ angular.module('PracticalStartpage')
     }
 
     function getDefaultData() {
-      return $http.get('app/shared/defaultData.json');
+      return {
+        styles: getDefaultStyles(),
+        layout: getDefaultLayout(),
+        widgets: dataServiceWidgets.getWidgets(),
+      };
     }
 
     function getDefaultStyles() {

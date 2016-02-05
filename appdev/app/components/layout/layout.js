@@ -41,21 +41,23 @@
     //Tab functions
     function onClickTab(tab, colIndex) {
       var data = {};
-      vm.columns[colIndex].activeTab = tab.title;
+      vm.columns[colIndex].activeTab = tab.label;
       vm.columns[colIndex].tabRefreshed++;
       if (tab.delegate) {
         vm.columns[colIndex].cover = true;
-        vm.columns[colIndex + 1].activeTab = tab.title;
+        vm.columns[colIndex + 1].activeTab = tab.label;
         vm.columns[colIndex + 1].tabRefreshed++;
       } else {
         vm.columns[colIndex].cover = false;
       }
+      vm.layout[colIndex].activeTab = tab.label;
 
-      data.columns = vm.columns;
+      data.layout = vm.layout;
       setTabClasses();
       setHelpPopup();
       dataService.setData(data);
     }
+
 
     function setTabClasses() {
       var i = 0;
@@ -63,7 +65,7 @@
       for (i = 0; i < vm.columns.length; i++) {
         for (j = 0; j < vm.columns[i].tabs.length; j++) {
           vm.columns[i].tabs[j].classes = [];
-          if (vm.columns[i].activeTab === vm.columns[i].tabs[j].title) {
+          if (vm.columns[i].activeTab === vm.columns[i].tabs[j].label) {
             vm.columns[i].tabs[j].classes.push('active');
             if (angular.isDefined(vm.columns[i].tabs[j].edit)) {
               vm.columns[i].edit = true;
@@ -98,27 +100,44 @@
 
     //Data functions
     function getLayout() {
-      vm.columns = dataService.data.columns;
+      // vm.columns = dataService.data.columns;
+      vm.layout = dataService.data.layout;
       vm.styles = dataService.data.styles;
+      vm.widgets = dataService.data.widgets;
       vm.bottomMenu = dataService.data.bottomMenu;
+      // var widgets = dataService.data.widgets;
+      var c, t;
+      for (c = 0; c < vm.layout.length; c++) {
+        vm.columns[c] = {
+          title: vm.layout[c].title,
+          label: vm.layout[c].label,
+          tabs: [],
+          refreshed: 0,
+          colTitle: vm.layout[c].title, //to be removed
+          tabRefreshed: 0, //to be removed
+        };
+        if (angular.isDefined(vm.layout[c].activeTab)) {
+          vm.columns[c].activeTab = vm.layout[c].activeTab;
+        } else {
+          vm.columns[c].activeTab = vm.layout[c].tabs[0];
+        }
+        for (t = 0; t < vm.layout[c].tabs.length; t++) {
+          var y = vm.layout[c].tabs[t];
+          vm.columns[c].tabs[t] = vm.widgets[vm.layout[c].tabs[t]];
+          vm.columns[c].tabs[t].label = vm.layout[c].tabs[t];
+        }
+      }
     }
 
     function setHelpPopup() {
-      var popup = {};
       for (var i = 0; i < vm.columns.length; i++) {
-        var actTab = vm.columns[i].activeTab;
+        var activeTab = vm.columns[i].activeTab;
         var tabs = vm.columns[i].tabs;
-        for (var j = 0; j < tabs.length; j++) {
-          if (tabs[j].title === actTab) {
-            popup = {
-              'html': '<div class="header">' + actTab + '</div><div class="description">' + tabs[j].help + '</div>',
-              'position': 'bottom right',
-              'title': actTab,
-              'variation': 'basic tiny',
-            };
-          }
-        }
-        vm.columns[i].helpPopup = popup;
+        vm.columns[i].helpPopup = {
+          'html': '<div class="header">' + vm.widgets[activeTab].title + '</div><div class="description">' + vm.widgets[activeTab].help + '</div>',
+          'position': 'bottom right',
+          'variation': 'basic tiny',
+        };
       }
     }
 
