@@ -29,28 +29,6 @@
   padding-left: 0px;
 }
 
-/**
- * The dndDraggingSource class will be applied to
- * the source element of a drag operation. It makes
- * sense to hide it to give the user the feeling
- * that he's actually moving it.
- */
-
-.typesDemo ul[dnd-list] .dndDraggingSource {
-  display: none;
-}
-
-/**
- * An element with .dndPlaceholder class will be
- * added to the dnd-list while the user is dragging
- * over it.
- */
-
-.typesDemo ul[dnd-list] .dndPlaceholder {
-  display: block;
-  background-color: #ddd;
-  min-height: 42px;
-}
 
 /**
  * The dnd-lists's child elements currently MUST have

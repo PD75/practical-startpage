@@ -10,9 +10,30 @@
     vm.columns = [];
     vm.checkDisabledCol = checkDisabledCol;
     vm.checkDisabledTab = checkDisabledTab;
-    activate();
+    vm.setData = setData;
+    vm.saveData = saveData;
+    vm.styles = {
+      priMenu: [
+        dataService.data.styles.primaryCol, {
+          inverted: dataService.data.styles.primaryInv,
+        },
+      ],
+      secMenu: [
+        dataService.data.styles.secondaryCol, {
+          inverted: dataService.data.styles.secondaryInv,
+        },
+      ],
+      priButton: [
+        dataService.data.styles.primaryCol,
+      ],
+      secButton: [
+        dataService.data.styles.secondaryCol,
+      ],
 
-    function activate() {
+    };
+    setData();
+
+    function setData() {
       var widgets = dataService.data.widgets;
       var layout = dataService.data.layout;
       var c = 0,
@@ -22,6 +43,7 @@
         vm.columns[c] = {
           title: layout[c].title,
           items: layout[c].items,
+          label: layout[c].label,
           tabs: [],
         };
         for (t = 0; t < layout[c].tabs.length; t++) {
@@ -37,6 +59,26 @@
           vm.widgets[w] = widget;
           w++;
         }
+      });
+    }
+
+    function saveData() {
+      var layout = [],
+        c = 0,
+        t = 0;
+      for (c = 0; c < vm.columns.length; c++) {
+        layout[c] = {
+          title: vm.columns[c].title,
+          items: vm.columns[c].items,
+          label: vm.columns[c].label,
+          tabs: [],
+        };
+        for (t = 0; t < vm.columns[c].tabs.length; t++) {
+          layout[c].tabs[t] = vm.columns[c].tabs[t].label;
+        }
+      }
+      dataService.setData({
+        layout: layout,
       });
     }
 

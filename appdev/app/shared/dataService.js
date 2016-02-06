@@ -17,7 +17,10 @@ angular.module('PracticalStartpage')
         ])
         .then(function(response) {
           s.data = response[1];
-          angular.merge(s.data, response[0]);
+          angular.forEach(response[0], function(value, key) {
+            s.data[key] = value;
+          });
+          // angular.merge(s.data, response[0]);
 
         });
     }
@@ -25,7 +28,11 @@ angular.module('PracticalStartpage')
     function setData(newData) {
       return storageService.setLocalData(newData)
         .then(function() {
-          angular.merge(s.data, newData);
+          angular.forEach(newData, function(value, key) {
+            s.data[key] = value;
+          });
+          // angular.merge(s.data, newData);
+          getData();
         });
     }
 
@@ -54,12 +61,12 @@ angular.module('PracticalStartpage')
       return [{
         title: "Left",
         label: "left",
-        tabs: ['bookmarkTree'],
+        tabs: ['bookmarkTree', 'topSites'],
         items: 2,
       }, {
         title: "Middle",
         label: "middle",
-        tabs: ['quicklinks', 'history', 'topSites'],
+        tabs: ['quicklinks', 'history'],
         items: 4,
       }, {
         title: "Right",
