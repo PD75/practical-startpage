@@ -5,7 +5,7 @@
     .controller('EditLayoutCtrl', EditLayoutCtrl)
     .directive('psEditLayout', EditLayoutDirective);
 
-  function EditLayoutCtrl($scope, $timeout, dataService) {
+  function EditLayoutCtrl($scope, $timeout, $log, dataService) {
     var vm = this;
     vm.columns = [];
     vm.checkDisabledCol = checkDisabledCol;
@@ -45,6 +45,7 @@
         for (t = 0; t < layout[c].tabs.length; t++) {
           tab = layout[c].tabs[t];
           vm.columns[c].tabs[t] = widgets[tab];
+          vm.columns[c].tabs[t].label = tab;
           widgets[tab].used = true;
         }
       }
@@ -80,12 +81,19 @@
     }
 
     function checkDisabledCol(col) {
-      var x = 1;
-      return (col.tabs.length === col.items);
+      var disabled = false;
+      if (col.tabs.length === col.items) {
+        disabled = true;
+        for (var t = 0; t < col.tabs.length; t++) {
+          if (angular.isDefined(col.tabs[t].drag) && col.tabs[t].drag) {
+            disabled = false;
+          }
+        }
+      }
+      return disabled;
     }
 
     function checkDisabledTab(col) {
-      var x = 1;
       return (col.tabs.length === 1);
     }
   }

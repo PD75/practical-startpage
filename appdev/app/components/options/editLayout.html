@@ -9,7 +9,7 @@
     </div>
     <div class="ui segment" dnd-list="col.tabs" dnd-disable-if="vm.checkDisabledCol(col)">
 
-      <div ng-repeat="tab in col.tabs" dnd-draggable="tab" dnd-moved="col.tabs.splice($index, 1)" dnd-effect-allowed="move" dnd-disable-if="vm.checkDisabledTab(col)" class="ui basic label">
+      <div ng-repeat="tab in col.tabs" dnd-draggable="tab" dnd-moved="col.tabs.splice($index, 1)" dnd-effect-allowed="move" dnd-disable-if="vm.checkDisabledTab(col)" class="ui basic label" dnd-dragstart="tab.drag=true" dnd-dragend="tab.drag=false">
         <i class="large middle aligned icon" ng-class="tab.icon"></i>
         {{tab.title}}
       </div>
