@@ -43,9 +43,9 @@
 
     function link(scope, el, attr, ctrl) {
       scope.$watch(function() {
-        return ctrl.col.tabRefreshed;
+        return ctrl.col.refreshed;
       }, function(n, o) {
-        if (ctrl.col.activeTab === 'History') {
+        if (ctrl.col.activeTab === ctrl.tab.label) {
           ctrl.getHistory();
         }
       });

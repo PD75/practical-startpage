@@ -61,12 +61,12 @@ angular.module('PracticalStartpage')
       return [{
         title: "Left",
         label: "left",
-        tabs: ['bookmarkTree', 'topSites'],
+        tabs: ['bookmarkTree'],
         items: 2,
       }, {
         title: "Middle",
         label: "middle",
-        tabs: ['quicklinks', 'history'],
+        tabs: ['quicklinks', 'history', 'topSites'],
         items: 4,
       }, {
         title: "Right",

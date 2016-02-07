@@ -120,9 +120,9 @@
 
     function link(scope, el, attr, ctrl) {
       scope.$watch(function() {
-        return ctrl.col.tabRefreshed;
+        return ctrl.col.refreshed;
       }, function() {
-        if (ctrl.col.activeTab === 'Bookmarks') {
+        if (ctrl.col.activeTab === ctrl.tab.label) {
           ctrl.getTreeData();
         }
       });

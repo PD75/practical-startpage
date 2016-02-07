@@ -40,9 +40,6 @@
       scope: {
         modal: "=psModal",
       },
-      link: function(s, e, a, c) {
-        var test = 2;
-      },
     };
   }
 

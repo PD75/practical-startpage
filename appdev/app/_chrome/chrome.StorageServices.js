@@ -27,15 +27,24 @@
       return deferred.promise;
     }
 
-    function clearData() {
+    function clearData(keys) {
       var d1 = $q.defer();
-      chrome.storage.local.clear(function() {
-        d1.resolve();
-      });
       var d2 = $q.defer();
-      chrome.storage.local.clear(function() {
-        d2.resolve();
-      });
+      if (angular.isDefined(keys)) {
+        chrome.storage.local.remove(keys, function() {
+          d1.resolve();
+        });
+        chrome.storage.sync.remove(keys, function() {
+          d2.resolve();
+        });
+      } else {
+        chrome.storage.local.clear(function() {
+          d1.resolve();
+        });
+        chrome.storage.sync.clear(function() {
+          d2.resolve();
+        });
+      }
       return $q.all([d1, d2]);
     }
 

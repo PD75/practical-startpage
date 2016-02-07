@@ -23,14 +23,10 @@
           inverted: dataService.data.styles.secondaryInv,
         },
       ],
-      priButton: [
-        dataService.data.styles.primaryCol,
-      ],
-      secButton: [
-        dataService.data.styles.secondaryCol,
-      ],
-
+      priButton: dataService.data.styles.primaryCol,
+      secButton: dataService.data.styles.secondaryCol,
     };
+
     setData();
 
     function setData() {
@@ -57,6 +53,7 @@
       angular.forEach(widgets, function(widget, key) {
         if (angular.isUndefined(widget.used) || !widget.used) {
           vm.widgets[w] = widget;
+          vm.widgets[w].label = key;
           w++;
         }
       });
@@ -83,10 +80,12 @@
     }
 
     function checkDisabledCol(col) {
+      var x = 1;
       return (col.tabs.length === col.items);
     }
 
     function checkDisabledTab(col) {
+      var x = 1;
       return (col.tabs.length === 1);
     }
   }

@@ -32,7 +32,7 @@
       vm.modalUrl = 'app/components/bookmarkTree/editBookmarks.html';
       vm.modalData = {
         onHide: function() {
-          vm.columns[colIndex].tabRefreshed++;
+          vm.columns[colIndex].refreshed++;
         },
         closable: false,
       };
@@ -42,11 +42,11 @@
     function onClickTab(tab, colIndex) {
       var data = {};
       vm.columns[colIndex].activeTab = tab.label;
-      vm.columns[colIndex].tabRefreshed++;
+      vm.columns[colIndex].refreshed++;
       if (tab.delegate) {
         vm.columns[colIndex].cover = true;
         vm.columns[colIndex + 1].activeTab = tab.label;
-        vm.columns[colIndex + 1].tabRefreshed++;
+        vm.columns[colIndex + 1].refreshed++;
       } else {
         vm.columns[colIndex].cover = false;
       }
@@ -114,7 +114,6 @@
           tabs: [],
           refreshed: 0,
           colTitle: vm.layout[c].title, //to be removed
-          tabRefreshed: 0, //to be removed
         };
         if (angular.isDefined(vm.layout[c].activeTab)) {
           vm.columns[c].activeTab = vm.layout[c].activeTab;
