@@ -110,7 +110,7 @@
   function EditLayoutDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/components/options/editLayout.html',
+      templateUrl: 'app/core/options/editLayout.html',
       controller: 'EditLayoutCtrl',
       controllerAs: 'vm',
       scope: {},

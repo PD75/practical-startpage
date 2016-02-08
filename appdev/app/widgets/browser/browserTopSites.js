@@ -24,7 +24,7 @@
   function psBrowserTopSites() {
     return {
       restrict: 'E',
-      templateUrl: 'app/shared/widgetUrlList.html',
+      templateUrl: 'app/widgets/widgetUrlList.html',
       controller: 'BrowserTopSitesCtrl',
       controllerAs: 'vm',
       scope: {

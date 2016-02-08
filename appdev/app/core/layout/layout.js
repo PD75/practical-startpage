@@ -38,7 +38,7 @@
     }
 
     function activateEditor(col, colIndex) {
-      vm.modalUrl = 'app/components/bookmarkTree/editBookmarks.html';
+      vm.modalUrl = 'app/widgets/bookmarkTree/editBookmarks.html';
       vm.modalData = {
         onHide: function() {
           vm.columns[colIndex].refreshed++;
@@ -154,7 +154,7 @@
       var manifest = dataService.getManifest();
       if (angular.isUndefined(dataService.data.version) || dataService.data.version !== manifest.version) {
         $timeout(function() {
-          vm.modalUrl = 'app/components/revision.html';
+          vm.modalUrl = 'app/core/revision.html';
           vm.modalData = {};
           vm.showModal = true;
         });
@@ -173,7 +173,7 @@
   function layoutDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/components/layout/layout.html',
+      templateUrl: 'app/core/layout/layout.html',
       controller: 'LayoutCtrl',
       controllerAs: 'Layout',
     };

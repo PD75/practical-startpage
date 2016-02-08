@@ -300,7 +300,7 @@
         modalEvents: '=psEvents',
       },
       replace: true,
-      templateUrl: 'app/components/bookmarkTree/editBookmarksForm.html',
+      templateUrl: 'app/widgets/bookmarkTree/editBookmarksForm.html',
       controller: 'editBookmarksCtrl',
       controllerAs: 'vm',
       bindToController: true,

@@ -33,7 +33,7 @@
   function optionsDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/components/options/options.html',
+      templateUrl: 'app/core/options/options.html',
       controller: 'OptionsCtrl',
       controllerAs: 'vm',
       bindToController: true,

@@ -13,19 +13,19 @@
     vm.bottomMenu = [{
       "title": "options",
       "icon": "options",
-      "url": "app/components/options/optionsModal.html",
+      "url": "app/core/options/optionsModal.html",
     }, {
       "title": "help",
       "icon": "help",
-      "url": "app/components/help.html",
+      "url": "app/core/help.html",
     }, {
       "title": "about",
       "icon": "info",
-      "url": "app/components/about.html",
+      "url": "app/core/about.html",
     }, {
       "title": "revision",
       "icon": "code",
-      "url": "app/components/revision.html",
+      "url": "app/core/revision.html",
     }];
 
     function activateModal(menuItem) {
@@ -40,7 +40,7 @@
       restrict: 'E',
       controller: 'BottomMenuCtrl',
       controllerAs: 'vm',
-      templateUrl: 'app/components/bottomMenu.html',
+      templateUrl: 'app/core/bottomMenu.html',
     };
   }
 })();

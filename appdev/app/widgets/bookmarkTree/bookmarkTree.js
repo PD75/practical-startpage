@@ -111,7 +111,7 @@
         col: '=psCol',
         style: '=psStyle',
       },
-      templateUrl: 'app/components/bookmarkTree/bookmarkTree.html',
+      templateUrl: 'app/widgets/bookmarkTree/bookmarkTree.html',
       controller: 'bookmarkTreeCtrl',
       controllerAs: 'vm',
       bindToController: true,

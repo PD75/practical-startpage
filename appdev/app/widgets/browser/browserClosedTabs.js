@@ -28,7 +28,7 @@
   function BrowserClosedTabsDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/shared/widgetUrlList.html',
+      templateUrl: 'app/widgets/widgetUrlList.html',
       controller: 'BrowserClosedCtrl',
       controllerAs: 'vm',
       scope: {

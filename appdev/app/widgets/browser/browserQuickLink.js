@@ -35,7 +35,7 @@
   function BrowserQuicklinksDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/shared/widgetUrlList.html',
+      templateUrl: 'app/widgets/widgetUrlList.html',
       controller: 'quicklLinksCtrl',
       controllerAs: 'vm',
       scope: {

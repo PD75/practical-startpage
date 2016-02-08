@@ -14,7 +14,7 @@ angular.module('PracticalStartpage')
           help: "A Treeview of all the bookmarks, with full text search.<br /><b>Note:</b> You select the Quicklinks from here by right clicking the folder you want to get your quicklinks from.<br /> Click edit button to get bookmark editor.",
           edit: {
             type: "modal",
-            url: "app/components/bookmarkTree/editBookmarkTree.html",
+            url: "app/widgets/bookmarkTree/editBookmarkTree.html",
           },
         },
         quicklinks: {
