@@ -8,21 +8,23 @@
   function BrowserTopSitesCtrl(topSitesService) {
     var vm = this;
     vm.loading = true;
+    vm.getTopSites = getTopSites;
 
-    vm.getTopSites = function() {
+    vm.getTopSites();
+
+    function getTopSites() {
       var promise = topSitesService.topSitesList();
       promise.then(function(topSitesList) {
         vm.list = topSitesList;
         vm.loading = false;
       });
-    };
-    vm.getTopSites();
+    }
   }
 
   function psBrowserTopSites() {
     return {
       restrict: 'E',
-      templateUrl: 'app/shared/widgetUrlList.html',
+      templateUrl: 'app/widgets/widgetUrlList.html',
       controller: 'BrowserTopSitesCtrl',
       controllerAs: 'vm',
       scope: {
@@ -36,9 +38,9 @@
 
     function link(scope, el, attr, ctrl) {
       scope.$watch(function() {
-        return ctrl.col.tabRefreshed;
+        return ctrl.col.refreshed;
       }, function(n, o) {
-        if (ctrl.col.activeTab === 'Top Sites') {
+        if (ctrl.col.activeTab === ctrl.tab.label) {
           ctrl.getTopSites();
         }
       });

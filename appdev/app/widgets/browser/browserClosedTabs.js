@@ -28,7 +28,7 @@
   function BrowserClosedTabsDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/shared/widgetUrlList.html',
+      templateUrl: 'app/widgets/widgetUrlList.html',
       controller: 'BrowserClosedCtrl',
       controllerAs: 'vm',
       scope: {
@@ -42,9 +42,9 @@
 
     function link(scope, el, attr, ctrl) {
       scope.$watch(function() {
-        return ctrl.col.tabRefreshed;
+        return ctrl.col.refreshed;
       }, function(n, o) {
-        if (ctrl.col.activeTab === 'Closed') {
+        if (ctrl.col.activeTab === ctrl.tab.label) {
           ctrl.getClosed();
         }
       });

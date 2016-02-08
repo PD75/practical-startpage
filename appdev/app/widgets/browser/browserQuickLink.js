@@ -7,18 +7,21 @@
 
   function quicklLinksCtrl($scope, quickLinksService, dataService) {
     var vm = this;
-    vm.getQuicklinks = getQuicklinks;
     vm.list = [];
     activate();
 
     function activate() {
-      //Enough to watch when quicklinks changes. Initial load by style.js
-      $scope.$watch(function() {
-          return dataService.data.quicklinks;
-        }, function(x, y) {
-          getQuicklinks();
-        },
-        true);
+      $scope.$watchCollection(function() {
+        return [
+          dataService.data.quicklinks,
+          vm.col.refreshed,
+        ];
+      }, function(newValue) {
+        if (angular.isUndefined(dataService.data.quicklinks)) {
+          dataService.data.quicklinks = [0];
+        }
+        getQuicklinks();
+      });
     }
 
     function getQuicklinks() {
@@ -32,7 +35,7 @@
   function BrowserQuicklinksDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/shared/widgetUrlList.html',
+      templateUrl: 'app/widgets/widgetUrlList.html',
       controller: 'quicklLinksCtrl',
       controllerAs: 'vm',
       scope: {
@@ -41,17 +44,6 @@
         style: '=psStyle',
       },
       bindToController: true,
-      link: link,
     };
-
-    function link(scope, el, attr, ctrl) {
-      scope.$watch(function() {
-        return ctrl.col.tabRefreshed;
-      }, function(n, o) {
-        if (ctrl.col.activeTab === 'Quicklinks') {
-          ctrl.getQuicklinks();
-        }
-      });
-    }
   }
 })(angular);

@@ -88,7 +88,7 @@
         urlData: '=psData',
         log: '=psLog',
       },
-      templateUrl: 'app/components/bookmarkTree/editBookmarkUrl.html',
+      templateUrl: 'app/widgets/bookmarkTree/editBookmarkUrl.html',
       controller: 'editBookmarkUrlCtrl',
       controllerAs: 'url',
       bindToController: true,

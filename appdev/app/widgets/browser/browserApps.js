@@ -8,22 +8,23 @@
   function BrowserAppCtrl(appService) {
     var vm = this;
     vm.loading = true;
+    vm.getApps = getApps;
 
-    vm.getApps = function() {
+    vm.getApps();
+
+    function getApps() {
       appService.appList()
         .then(function(appList) {
           vm.list = appList;
           vm.loading = false;
         });
-    };
-
-    vm.getApps();
+    }
   }
 
   function BrowserAppsDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/shared/widgetUrlList.html',
+      templateUrl: 'app/widgets/widgetUrlList.html',
       controller: 'BrowserAppCtrl',
       controllerAs: 'vm',
       scope: {
@@ -37,9 +38,9 @@
 
     function link(scope, el, attr, ctrl) {
       scope.$watch(function() {
-        return ctrl.col.tabRefreshed;
+        return ctrl.col.refreshed;
       }, function(n, o) {
-        if (ctrl.col.activeTab === 'Apps') {
+        if (ctrl.col.activeTab === ctrl.tab.label) {
           ctrl.getApps();
         }
       });

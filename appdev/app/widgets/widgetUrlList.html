@@ -1,5 +1,5 @@
 <ps-segment-layout ng-class="[vm.style.primaryCol]">
-  <div class="browser" ng-class="[vm.col.colTitle]" ng-repeat="item in vm.list" ng-show="item.url">
+  <div class="browser" ng-class="[vm.col.label]" ng-repeat="item in vm.list" ng-show="item.url">
     <a class="ui basic browser button" ng-class="vm.style.primaryCol" ng-href="{{item.url}}">
       <img ng-src="{{item.icon}}">
       <!-- <img ng-src="{{item.icon || 'chrome://favicon/'+item.url}}"> -->

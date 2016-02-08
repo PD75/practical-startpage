@@ -1,0 +1,47 @@
+/**
+ * change cursor to move
+ */
+
+.options.layout .ui.label {
+  margin: 1px 0px 1px 0px;
+  font-size: .9rem;
+  width: 100%;
+}
+.options.layout [draggable="true"].ui.label {
+  cursor: move;
+}
+.options.layout [draggable="false"].ui.label {
+  background-color: #ddd;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.options.layout .ui.label>.icon {
+  margin-right: .25em;
+}
+
+/**
+ * The dnd-list should always have a min-height,
+ * otherwise you can't drop to it once it's empty
+ */
+
+.options.layout [dnd-list] {
+  min-height: 180px;
+}
+
+/**
+ * The dndDraggingSource class will be applied to
+ * the source element of a drag operation. It makes
+ * sense to hide it to give the user the feeling
+ * that he's actually moving it.
+ */
+
+.options.layout .dndDraggingSource {
+  display: none;
+}
+.ui.grid.options.layout {
+  min-width: 700px
+}

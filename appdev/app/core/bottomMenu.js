@@ -10,12 +10,29 @@
     vm.activateModal = activateModal;
     vm.showModal = false;
 
-    vm.modalUrl = 'app/components/help.html';
+    vm.bottomMenu = [{
+      "title": "options",
+      "icon": "options",
+      "url": "app/core/options/optionsModal.html",
+    }, {
+      "title": "help",
+      "icon": "help",
+      "url": "app/core/help.html",
+    }, {
+      "title": "about",
+      "icon": "info",
+      "url": "app/core/about.html",
+    }, {
+      "title": "revision",
+      "icon": "code",
+      "url": "app/core/revision.html",
+    }];
 
     function activateModal(menuItem) {
       vm.modalUrl = menuItem.url;
       vm.showModal = true;
     }
+
   }
 
   function bottomMenuDirective() {
@@ -23,7 +40,7 @@
       restrict: 'E',
       controller: 'BottomMenuCtrl',
       controllerAs: 'vm',
-      templateUrl: 'app/components/bottomMenu.html',
+      templateUrl: 'app/core/bottomMenu.html',
     };
   }
 })();
