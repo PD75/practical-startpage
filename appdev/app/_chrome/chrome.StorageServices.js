@@ -9,6 +9,7 @@
       setLocalData: setLocalData,
       clearData: clearData,
       getManifest: getManifest,
+      setDataCB: setDataCB,
     };
 
     function getLocalData() {
@@ -50,6 +51,12 @@
 
     function getManifest() {
       return chrome.runtime.getManifest();
+    }
+
+    function setDataCB(CB) {
+      chrome.storage.onChanged.addListener(function(changes, areaName) {
+        CB(changes);
+      });
     }
   }
 

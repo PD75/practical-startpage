@@ -5,13 +5,14 @@
     .controller('EditLayoutCtrl', EditLayoutCtrl)
     .directive('psEditLayout', EditLayoutDirective);
 
-  function EditLayoutCtrl($scope, $timeout, $log, dataService) {
+  function EditLayoutCtrl(dataService) {
     var vm = this;
     vm.columns = [];
     vm.checkDisabledCol = checkDisabledCol;
     vm.checkDisabledTab = checkDisabledTab;
-    vm.setData = setData;
+    vm.getData = getData;
     vm.saveData = saveData;
+    vm.getDefaults = getDefaults;
     vm.styles = {
       priMenu: [
         dataService.data.styles.primaryCol, {
@@ -27,9 +28,9 @@
       secButton: dataService.data.styles.secondaryCol,
     };
 
-    setData();
+    getData();
 
-    function setData() {
+    function getData() {
       var widgets = dataService.data.widgets;
       var layout = dataService.data.layout;
       var c = 0,
@@ -60,8 +61,14 @@
       });
     }
 
+    function getDefaults() {
+      dataService.data.layout = dataService.getDefaultLayout();
+      getData();
+    }
+
     function saveData() {
       var layout = [],
+        activeTabs = [],
         c = 0,
         t = 0;
       for (c = 0; c < vm.columns.length; c++) {
@@ -71,12 +78,14 @@
           label: vm.columns[c].label,
           tabs: [],
         };
+        activeTabs[c] = vm.columns[c].tabs[0].label;
         for (t = 0; t < vm.columns[c].tabs.length; t++) {
           layout[c].tabs[t] = vm.columns[c].tabs[t].label;
         }
       }
       dataService.setData({
         layout: layout,
+        activeTabs: activeTabs,
       });
     }
 

@@ -7,7 +7,22 @@ angular.module('PracticalStartpage')
     s.getData = getData;
     s.setData = setData;
     s.getManifest = getManifest;
-    s.data = {};
+    s.getDefaultLayout = getDefaultLayout;
+    s.setDataChangeCB = setDataChangeCB;
+    s.data = {
+      dataChangeCB: {},
+      layout: [],
+      styles: [],
+      widgets: [],
+      activeTabs: [],
+    };
+
+    activate();
+
+    function activate() {
+      s.dataCB = {};
+      storageService.setDataCB(runDataChangeCB);
+    }
 
     function getData(objName) {
       return $q
@@ -20,20 +35,14 @@ angular.module('PracticalStartpage')
           angular.forEach(response[0], function(value, key) {
             s.data[key] = value;
           });
-          // angular.merge(s.data, response[0]);
-
         });
     }
 
     function setData(newData) {
-      return storageService.setLocalData(newData)
-        .then(function() {
-          angular.forEach(newData, function(value, key) {
-            s.data[key] = value;
-          });
-          // angular.merge(s.data, newData);
-          getData();
-        });
+      angular.forEach(newData, function(value, key) {
+        s.data[key] = value;
+      });
+      storageService.setLocalData(newData);
     }
 
     function getManifest() {
@@ -41,11 +50,33 @@ angular.module('PracticalStartpage')
     }
 
     function getDefaultData() {
-      return {
+      var data = {
         styles: getDefaultStyles(),
         layout: getDefaultLayout(),
         widgets: dataServiceWidgets.getWidgets(),
       };
+      return data;
+    }
+
+    function setDataChangeCB(key, fnCB) {
+      if (angular.isUndefined(s.dataCB[key])) {
+        s.dataCB[key] = [];
+      }
+      s.dataCB[key].push(fnCB);
+    }
+
+    function runDataChangeCB(changes) {
+      var f = 0;
+      angular.forEach(changes, function(value, key) {
+        s.data[key] = value.newValue;
+        if (angular.isDefined(s.dataCB) && angular.isDefined(s.dataCB[key])) {
+          var x = 1;
+          for (f = 0; f < s.dataCB[key].length; f++) {
+            s.dataCB[key][f]();
+          }
+        }
+      });
+
     }
 
     function getDefaultStyles() {

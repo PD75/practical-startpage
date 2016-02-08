@@ -38,8 +38,11 @@
     </div>
   </div>
   <div class="sixteen wide column">
-    <button class="ui right floated button" ng-class="vm.styles.secButton" ng-click="vm.setData()">
-      Reset
+    <button class="ui right floated button" ng-class="vm.styles.secButton" ng-click="vm.getData()">
+      Reset Changes
+    </button>
+    <button class="ui right floated button" ng-class="vm.styles.secButton" ng-click="vm.getDefaults()">
+      Load Default
     </button>
     <button class="ui left floated button" ng-class="vm.styles.priButton" ng-click="vm.saveData()">
       Save

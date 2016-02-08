@@ -20,12 +20,21 @@
     function activate() {
       dataService.getData()
         .then(function() {
+          getStyles();
           getLayout();
-          setMenuClasses();
           setTabClasses();
           setHelpPopup();
           checkVersion();
         });
+      //set watch if layout changes
+      dataService.setDataChangeCB('layout', function() {
+        getLayout();
+        setTabClasses();
+        setHelpPopup();
+        $timeout(function() {
+          $scope.$apply();
+        });
+      });
     }
 
     function activateEditor(col, colIndex) {
@@ -50,9 +59,9 @@
       } else {
         vm.columns[colIndex].cover = false;
       }
-      vm.layout[colIndex].activeTab = tab.label;
+      vm.activeTabs[colIndex] = tab.label;
 
-      data.layout = vm.layout;
+      data.activeTabs = vm.activeTabs;
       setTabClasses();
       setHelpPopup();
       dataService.setData(data);
@@ -87,36 +96,37 @@
       }
     }
 
-    function setMenuClasses() {
-      vm.priMenuClasses = [dataService.data.styles.primaryCol];
-      if (dataService.data.styles.primaryInv) {
+    function getStyles() {
+      vm.styles = dataService.data.styles;
+      vm.priMenuClasses = [vm.styles.primaryCol];
+      if (vm.styles.primaryInv) {
         vm.priMenuClasses[1] = "inverted";
       }
-      vm.secMenuClasses = [dataService.data.styles.secondaryCol];
-      if (dataService.data.styles.secondaryInv) {
+      vm.secMenuClasses = [vm.styles.secondaryCol];
+      if (vm.styles.secondaryInv) {
         vm.secMenuClasses[1] = "inverted";
       }
     }
 
     //Data functions
     function getLayout() {
-      // vm.columns = dataService.data.columns;
       vm.layout = dataService.data.layout;
-      vm.styles = dataService.data.styles;
       vm.widgets = dataService.data.widgets;
       vm.bottomMenu = dataService.data.bottomMenu;
-      // var widgets = dataService.data.widgets;
+      vm.activeTabs = dataService.data.activeTabs;
       var c, t;
+      if (angular.isUndefined(vm.activeTabs)) {
+        vm.activeTabs = [];
+      }
       for (c = 0; c < vm.layout.length; c++) {
         vm.columns[c] = {
           title: vm.layout[c].title,
           label: vm.layout[c].label,
           tabs: [],
           refreshed: 0,
-          colTitle: vm.layout[c].title, //to be removed
         };
-        if (angular.isDefined(vm.layout[c].activeTab)) {
-          vm.columns[c].activeTab = vm.layout[c].activeTab;
+        if (angular.isDefined(vm.activeTabs[c])) {
+          vm.columns[c].activeTab = vm.activeTabs[c];
         } else {
           vm.columns[c].activeTab = vm.layout[c].tabs[0];
         }
