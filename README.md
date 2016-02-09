@@ -4,7 +4,7 @@
 Chrome Extension that replaces the default newtab. Install from [Practical Startpage in chrome store]
 
 ### About
-Startpage focuses on making you existing data available to you simple way.
+Startpage focuses on making your existing data available to you simple way.
 
 Practical Startpage is for those that want a functional startpage, allowing easy access to chrome data, such as bookmarks and history.
 
