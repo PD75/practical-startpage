@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('PracticalStartpage')
+  angular.module('ps.core')
     .controller('BottomMenuCtrl', BottomMenuCtrl)
     .directive('psBottomMenu', bottomMenuDirective);
 

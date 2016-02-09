@@ -1,7 +1,7 @@
 (function(angular) {
   "use strict";
 
-  angular.module('PracticalStartpage')
+  angular.module('ps.core')
     .directive('psSegmentBottomLayout', segmentBottomLayoutDirective);
 
   function segmentBottomLayoutDirective($window, $timeout) {

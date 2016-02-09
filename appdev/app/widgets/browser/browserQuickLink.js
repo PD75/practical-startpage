@@ -1,7 +1,7 @@
 (function(angular) {
   "use strict";
 
-  angular.module('PracticalStartpage')
+  angular.module('ps.widgets')
     .controller("quicklLinksCtrl", quicklLinksCtrl)
     .directive('psBrowserQuicklinks', BrowserQuicklinksDirective);
 

@@ -1,4 +1,4 @@
-angular.module('PracticalStartpage')
+angular.module('ps.core')
   .service('dataService', function($http, $q, storageService, widgetConstants) {
     'use strict';
 

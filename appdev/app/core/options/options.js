@@ -1,7 +1,7 @@
 (function(angular) {
   'use strict';
 
-  angular.module('PracticalStartpage.options', ['chromeModule'])
+  angular.module('ps.core')
     .controller('OptionsCtrl', OptionsCtrl)
     .directive('psOptions', optionsDirective);
 

@@ -1,5 +1,5 @@
 /*eslint camelcase: 0*/
-angular.module('PracticalStartpage')
+angular.module('ps.widgets')
   .factory('commonBookmarkService', function() {
     "use strict";
 

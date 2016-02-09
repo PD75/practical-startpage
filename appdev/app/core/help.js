@@ -1,7 +1,7 @@
 (function(angular) {
   "use strict";
 
-  angular.module('PracticalStartpage')
+  angular.module('ps.core')
     .controller("HelpCtrl", HelpCtrl)
     .directive('psHelp', helpDirective);
 

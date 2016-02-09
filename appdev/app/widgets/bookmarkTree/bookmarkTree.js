@@ -2,7 +2,7 @@
 (function(angular) {
   "use strict";
 
-  angular.module('PracticalStartpage')
+  angular.module('ps.widgets')
     .controller('bookmarkTreeCtrl', bookmarkTreeCtrl)
     .directive('psBrowserBookmarkTree', browserBookmarkTreeDirective);
 

@@ -1,6 +1,6 @@
-angular.module('ps', ['ps.core', 'ps.widgets']);
+angular.module('ps.core', [ 'chrome', 'ngSemanticUi', 'dndLists']);
 
-angular.module('ps')
+angular.module('ps.core')
   .config(function($compileProvider) {
     'use strict';
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file):|data:image\/|chrome:/);

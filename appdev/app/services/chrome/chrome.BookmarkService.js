@@ -1,7 +1,7 @@
 (function(angular) {
   'use strict';
   /*eslint camelcase: 0*/
-  angular.module('chromeModule').factory('bookmarkService', bookmarkService);
+  angular.module('chrome').factory('bookmarkService', bookmarkService);
 
   function bookmarkService($q) {
 

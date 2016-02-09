@@ -2,7 +2,7 @@
 (function(angular) {
   "use strict";
 
-  angular.module('PracticalStartpage')
+  angular.module('ps.widgets')
     .controller('editBookmarkUrlCtrl', editBookmarkUrlCtrl)
     .directive('psEditBookmarkUrl', editBookmarkUrlDirective);
 

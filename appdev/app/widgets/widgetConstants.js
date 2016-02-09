@@ -1,4 +1,4 @@
-angular.module('PracticalStartpage')
+angular.module('ps.widgets')
   .constant('widgetConstants', function() {
     'use strict';
     return {

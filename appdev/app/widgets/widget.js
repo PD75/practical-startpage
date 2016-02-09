@@ -1,5 +1,5 @@
 
-angular.module('PracticalStartpage')
+angular.module('ps.widgets')
   .directive('psWidget', function($compile) {
     "use strict";
     return {
