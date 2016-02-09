@@ -1,5 +1,5 @@
 angular.module('PracticalStartpage')
-  .service('dataService', function($http, $q, storageService, dataServiceWidgets) {
+  .service('dataService', function($http, $q, storageService, widgetConstants) {
     'use strict';
 
     var s = this;
@@ -53,7 +53,7 @@ angular.module('PracticalStartpage')
       var data = {
         styles: getDefaultStyles(),
         layout: getDefaultLayout(),
-        widgets: dataServiceWidgets.getWidgets(),
+        widgets: widgetConstants(),
       };
       return data;
     }
