@@ -1,14 +1,16 @@
 angular.module('ps.core')
-  .service('dataService', function($http, $q, storageService, widgetConstants) {
+  .service('dataService', function($q, storageService, widgetConstants) {
     'use strict';
 
     var s = this;
 
     s.getData = getData;
     s.setData = setData;
+    s.clearData = clearData;
     s.getManifest = getManifest;
-    s.getDefaultLayout = getDefaultLayout;
+    s.getDefaultData = getDefaultData;
     s.setDataChangeCB = setDataChangeCB;
+    s.getStorageData = getStorageData;
     s.data = {
       dataChangeCB: {},
       layout: [],
@@ -27,7 +29,7 @@ angular.module('ps.core')
     function getData(objName) {
       return $q
         .all([
-          storageService.getLocalData(),
+          getStorageData(),
           getDefaultData(),
         ])
         .then(function(response) {
@@ -35,6 +37,13 @@ angular.module('ps.core')
           angular.forEach(response[0], function(value, key) {
             s.data[key] = value;
           });
+        });
+    }
+
+    function getStorageData() {
+      return storageService.getLocalData()
+        .then(function(data) {
+          return data;
         });
     }
 
@@ -49,12 +58,17 @@ angular.module('ps.core')
       return storageService.getManifest();
     }
 
-    function getDefaultData() {
-      var data = {
-        styles: getDefaultStyles(),
-        layout: getDefaultLayout(),
-        widgets: widgetConstants(),
-      };
+    function getDefaultData(key) {
+      var data = {};
+      if (angular.isUndefined(key) || key === 'styles') {
+        data.styles = getDefaultStyles();
+      }
+      if (angular.isUndefined(key) || key === 'layout') {
+        data.layout = getDefaultLayout();
+      }
+      if (angular.isUndefined(key) || key === 'widgets') {
+        data.widgets = widgetConstants();
+      }
       return data;
     }
 
@@ -68,7 +82,11 @@ angular.module('ps.core')
     function runDataChangeCB(changes) {
       var f = 0;
       angular.forEach(changes, function(value, key) {
-        s.data[key] = value.newValue;
+        if (angular.isDefined(value.newValue)) {
+          s.data[key] = value.newValue;
+        } else {
+          s.data[key] = getDefaultData(key)[key];
+        }
         if (angular.isDefined(s.dataCB) && angular.isDefined(s.dataCB[key])) {
           var x = 1;
           for (f = 0; f < s.dataCB[key].length; f++) {
@@ -76,7 +94,10 @@ angular.module('ps.core')
           }
         }
       });
+    }
 
+    function clearData(keys) {
+      return storageService.clearData(keys);
     }
 
     function getDefaultStyles() {

@@ -8,7 +8,7 @@
 
   function OptionsCtrl($timeout, storageService) {
     var vm = this;
-    vm.tab = 1;
+    vm.tab = 3;
     vm.setTab = setTab;
     vm.clearData = clearData;
 
