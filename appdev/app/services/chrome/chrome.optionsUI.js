@@ -1,1 +1,1 @@
-angular.module('ChromeOptions', ['ps.core.options']);
+angular.module('ChromeOptions', ['ps.core.options.clear']);

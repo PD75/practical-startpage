@@ -1,7 +1,7 @@
 (function(angular) {
   'use strict';
 
-  angular.module('ps.core.options')
+  angular.module('ps.core.options.clear', ['ps.core.data'])
     .controller('ClearDataCtrl', ClearDataCtrl)
     .directive('psClearData', ClearDataDirective);
 

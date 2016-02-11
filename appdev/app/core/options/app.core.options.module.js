@@ -1,1 +1,1 @@
-angular.module('ps.core.options', ['ps.core.data', 'dndLists']);
+angular.module('ps.core.options', ['ps.core.data', 'ps.core.options.clear', 'dndLists']);

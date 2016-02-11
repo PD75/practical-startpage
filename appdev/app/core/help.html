@@ -3,60 +3,102 @@
   Help
 </div>
 <div class="content">
-  <div class="ui list segment" ps-help>
-    <div class="ui blue ribbon label">Practical Startpage</div>
-    <div class="item">
-      <div class="content">
-        <div class="description">
-          Practical Startpage is designed to fit links and other functionality best possible on a single page.
+  <div class="ui segment" ps-help>
+    <h3 class="ui  centered header">
+      <img class="ui centered image" src="img/icon48.png">
+      Practical Startpage
+    </h3>
+    <div class="ui list">
+      <div class="item">
+        <i class="big block layout icon"></i>
+        <div class="content">
+          <div class="header">Configurable Data Lists</div>
+          <div class="description">
+            You can configure what data goes wherethrough the options menu.
+          </div>
         </div>
       </div>
-    </div>
-    <div class="item">
-      <div class="content">
-        <div class="header">Responsive design</div>
-        <div class="description">
-          To accomplish this the design is built responsive, i.e. the content adjust to give best fit for different screen sizes. The columns and content adjusts to give best viewing experience for all screen widths.
+      <div class="item">
+        <i class="big maximize icon"></i>
+        <div class="content">
+          <div class="header">Responsive design</div>
+          <div class="description">
+            The columns and content adjusts to give best viewing experience for all screen widths.
+          </div>
         </div>
       </div>
-    </div>
-    <div class="item">
-      <div class="content">
-        <div class="header">Content</div>
-        <div class="description">
-          The page consists of three columns, but for smaller screens the right column merges with the center column to allow the content to be usable.
-          <br/>
-          In the case of the link lists content is spread over two columns, which collapse to one for small screens.
+      <div class="item">
+        <i class="big columns icon"></i>
+        <div class="content">
+          <div class="header">Content</div>
+          <div class="description">
+            The page consists of three columns, but for smaller screens the right column merges with the center column to allow the content to be usable.
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="ui blue ribbon label">Tabs</div>
-
-    <div class="item" ng-repeat="help in vm.helpTexts">
-      <i class="large icon" ng-class="help.icon"></i>
-      <div class="content">
-        <div class="header">{{help.title}}</div>
-        <div class="description" ng-bind-html="help.html">
-        </div>
-      </div>
     </div>
-
-    <div class="item">
-      <i class="large ellipsis horizontal icon"></i>
-      <div class="content">
-        <div class="header">More to come...</div>
-        <div class="description">
-          Have any ideas, please submit them in chrome stores support tab. If I like them and they are technical feasible they will be added. More flexibity is asked by the users so the the code is now modular and will be uploaded to GitHub for others to contribute. Upcoming features are:
-          <ul>
-            <li>Ability to choose which widgets goes in which column.</li>
-            <li>Change color and add background picture</li>
-            <li>Ability to develop own widgets to show.</li>
-            <li>And more</li>
-          </ul>
+    <h3 class="ui horizontal divider header">
+      <i class="linkify icon"></i>
+      Tab Widgets
+    </h3>
+    <div class="ui list">
+      <div class="item" ng-repeat="help in vm.helpTexts | orderBy:'title'">
+        <i class="big icon" ng-class="help.icon"></i>
+        <div class="content">
+          <div class="header">{{help.title}}</div>
+          <div class="description" ng-bind-html="help.html"></div>
         </div>
-
       </div>
+
+      <div class="item">
+        <i class="large ellipsis horizontal icon"></i>
+        <div class="content">
+          <div class="header">More to come...</div>
+          <div class="description">
+            <p>
+              Have any ideas, please submit them in GitHub or the chrome stores support tab. If I like them and they are technical feasible they will be added. Or write them your self!
+            </p>
+            <p>
+              More flexibity is asked by the users so this is the present focus. Upcoming features are:
+            </p>
+            <div class="list">
+              <div class="item">
+                <i class="checkmark box icon"></i>
+                <div class="content">
+                  <div class="description">Option to choose which widgets goes in which column.</div>
+                </div>
+              </div>
+              <div class="item">
+                <i class="checkmark box icon"></i>
+                <div class="content">
+                  <div class="description">Support to develop own widgets.</div>
+                </div>
+              </div>
+              <div class="item">
+                <i class="square outline icon"></i>
+                <div class="content">
+                  <div class="description">Improved columna layout and customization</div>
+                </div>
+              </div>
+              <div class="item">
+                <i class="square outline icon"></i>
+                <div class="content">
+                  <div class="description">Change color and add background picture</div>
+                </div>
+              </div>
+              <div class="item">
+                <i class="square outline icon"></i>
+                <div class="content">
+                  <div class="description">More Widgets</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

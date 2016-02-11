@@ -5,30 +5,16 @@
     .controller('OptionsCtrl', OptionsCtrl)
     .directive('psOptions', optionsDirective);
 
-
-  function OptionsCtrl($timeout, storageService) {
+  function OptionsCtrl($timeout) {
     var vm = this;
-    vm.tab = 3;
-    vm.setTab = setTab;
-    vm.clearData = clearData;
+    vm.tab = 1;
 
-    function setTab(tab) {
-      vm.tab = tab;
-      if (angular.isDefined(vm.modal)) {
-        $timeout(function() {
-          vm.modal.modal('refresh');
-        }, 10);
-      }
-    }
+    activate();
 
-    function clearData() {
-      storageService.clearData()
-        .then(function() {
-          vm.dataCleared = 'Cleared!!!';
-          $timeout(function() {
-            vm.dataCleared = '';
-          }, 3000);
-        });
+    function activate() {
+      $timeout(function() {
+        vm.modal.modal('refresh');
+      });
     }
   }
 
