@@ -54,7 +54,7 @@
     }
 
     function setDataCB(CB) {
-      chrome.storage.onChanged.addListener(function(changes, areaName) {
+      chrome.storage.onChanged.addListener(function(changes) {
         CB(changes);
       });
     }

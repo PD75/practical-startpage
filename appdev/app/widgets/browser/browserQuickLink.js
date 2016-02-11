@@ -5,26 +5,21 @@
     .controller("quicklLinksCtrl", quicklLinksCtrl)
     .directive('psBrowserQuicklinks', BrowserQuicklinksDirective);
 
-  function quicklLinksCtrl($scope, quickLinksService, dataService) {
+  function quicklLinksCtrl(quickLinksService, dataService, layoutService) {
     var vm = this;
     vm.list = [];
     activate();
 
     function activate() {
-      $scope.$watchCollection(function() {
-        return [
-          dataService.data.quicklinks,
-          vm.col.refreshed,
-        ];
-      }, function(newValue) {
-        if (angular.isUndefined(dataService.data.quicklinks)) {
-          dataService.data.quicklinks = [0];
-        }
-        getQuicklinks();
-      });
+      getQuicklinks();
+      dataService.setOnChangeData('quicklinks', getQuicklinks);
+      layoutService.setOnTabClick('quicklinks', getQuicklinks);
     }
 
     function getQuicklinks() {
+      if (angular.isUndefined(dataService.data.quicklinks)) {
+        dataService.data.quicklinks = [0];
+      }
       quickLinksService.quickLinksList(dataService.data.quicklinks[0])
         .then(function(quickLinksList) {
           vm.list = quickLinksList;

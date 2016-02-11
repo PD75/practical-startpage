@@ -58,6 +58,7 @@
       vm.segmentHeight = {
         'height': ($window.innerHeight - 200) + 'px',
       };
+      vm.modalInstance.modal('refresh');
       vm.treeConfig = editBookmarksService.getTreeConfig(getTree, editUrl);
       getTreeData();
     }
@@ -177,7 +178,7 @@
         vm.activeButtons.undoAll = "";
         vm.activeButtons.saveChanges = "";
         vm.activeButtons.saveClose = "";
-    }
+      }
       $timeout(function() {
         $scope.$apply();
       });

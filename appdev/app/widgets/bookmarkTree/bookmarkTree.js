@@ -6,7 +6,7 @@
     .controller('bookmarkTreeCtrl', bookmarkTreeCtrl)
     .directive('psBrowserBookmarkTree', browserBookmarkTreeDirective);
 
-  function bookmarkTreeCtrl($window, $document, $timeout, bookmarkTreeService) {
+  function bookmarkTreeCtrl($window, bookmarkTreeService, layoutService) {
     var vm = this;
     vm.getTreeData = getTreeData;
     vm.getTreeConfig = getTreeConfig;
@@ -33,6 +33,7 @@
     function activate() {
       vm.getTreeData();
       vm.treeConfig = getTreeConfig();
+      layoutService.setOnTabClick('bookmarkTree', getTreeData);
     }
 
     function getTreeData() {
@@ -115,18 +116,7 @@
       controller: 'bookmarkTreeCtrl',
       controllerAs: 'vm',
       bindToController: true,
-      link: link,
     };
-
-    function link(scope, el, attr, ctrl) {
-      scope.$watch(function() {
-        return ctrl.col.refreshed;
-      }, function() {
-        if (ctrl.tab.active) {
-          ctrl.getTreeData();
-        }
-      });
-    }
   }
 
 })(angular);

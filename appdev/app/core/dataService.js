@@ -9,7 +9,7 @@ angular.module('ps.core.data', ['ps.widgets.constants', 'chrome'])
     s.clearData = clearData;
     s.getManifest = getManifest;
     s.getDefaultData = getDefaultData;
-    s.setDataChangeCB = setDataChangeCB;
+    s.setOnChangeData = setOnChangeData;
     s.getStorageData = getStorageData;
     s.data = {
       dataChangeCB: {},
@@ -23,10 +23,10 @@ angular.module('ps.core.data', ['ps.widgets.constants', 'chrome'])
 
     function activate() {
       s.dataCB = {};
-      storageService.setDataCB(runDataChangeCB);
+      storageService.setDataCB(runOnChangeData);
     }
 
-    function getData(objName) {
+    function getData() {
       return $q
         .all([
           getStorageData(),
@@ -72,14 +72,14 @@ angular.module('ps.core.data', ['ps.widgets.constants', 'chrome'])
       return data;
     }
 
-    function setDataChangeCB(key, fnCB) {
+    function setOnChangeData(key, fnCB) {
       if (angular.isUndefined(s.dataCB[key])) {
         s.dataCB[key] = [];
       }
       s.dataCB[key].push(fnCB);
     }
 
-    function runDataChangeCB(changes) {
+    function runOnChangeData(changes) {
       var f = 0;
       angular.forEach(changes, function(value, key) {
         if (angular.isDefined(value.newValue)) {
@@ -88,7 +88,6 @@ angular.module('ps.core.data', ['ps.widgets.constants', 'chrome'])
           s.data[key] = getDefaultData(key)[key];
         }
         if (angular.isDefined(s.dataCB) && angular.isDefined(s.dataCB[key])) {
-          var x = 1;
           for (f = 0; f < s.dataCB[key].length; f++) {
             s.dataCB[key][f]();
           }

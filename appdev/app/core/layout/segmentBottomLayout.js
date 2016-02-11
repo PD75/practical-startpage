@@ -9,7 +9,7 @@
       replace: true,
       transclude: true,
       template: '<div class="ui bottom attached segment" ng-transclude></div>',
-      link: function(scope, element, attr) {
+      link: function(scope, element) {
         setBottomSegmentHeight(element);
         $timeout(function() { //redo when top modal has been rendered
           setBottomSegmentHeight(element);

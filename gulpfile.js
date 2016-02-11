@@ -69,6 +69,8 @@ gulp.task('clean', function() {
 //combine .js Files
 gulp.task('buildScripts', function() {
   return gulp.src(src + '/app/**/*.js')
+    .pipe(plugins.eslint())
+    .pipe(plugins.eslint.format())
     .pipe(plugins.ngAnnotate())
     .pipe(plugins.angularFilesort())
     .pipe(plugins.concat('startpage.js'))

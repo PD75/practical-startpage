@@ -5,7 +5,7 @@
     .controller('LayoutCtrl', LayoutCtrl)
     .directive('psLayout', layoutDirective);
 
-  function LayoutCtrl($scope, $timeout, dataService) {
+  function LayoutCtrl($scope, $timeout, dataService, layoutService) {
     var vm = this;
     vm.onClickTab = onClickTab;
     vm.activateEditor = activateEditor;
@@ -27,7 +27,7 @@
           checkVersion();
         });
       //set watch if layout changes
-      dataService.setDataChangeCB('layout', function() {
+      dataService.setOnChangeData('layout', function() {
         getLayout();
         setTabClasses();
         setHelpPopup();
@@ -64,6 +64,7 @@
       setTabClasses();
       setHelpPopup();
       dataService.setData(data);
+      layoutService.runOnTabClick(tab.label);
     }
 
 
@@ -132,7 +133,6 @@
           refreshed: 0,
         };
         for (t = 0; t < vm.layout[c].tabs.length; t++) {
-          var y = vm.layout[c].tabs[t];
           vm.columns[c].tabs[t] = vm.widgets[vm.layout[c].tabs[t]];
           vm.columns[c].tabs[t].label = vm.layout[c].tabs[t];
         }

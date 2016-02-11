@@ -5,11 +5,14 @@
     .controller("BrowserHistoryCtrl", BrowserHistoryCtrl)
     .directive('psBrowserHistory', BrowserHistoryDirective);
 
-  function BrowserHistoryCtrl(historyService) {
+  function BrowserHistoryCtrl(historyService, layoutService) {
     var vm = this;
-    vm.getHistory = getHistory;
-    // Initialize
-    vm.getHistory();
+    activate();
+
+    function activate() {
+      getHistory();
+      layoutService.setOnTabClick('history', getHistory);
+    }
 
     function getHistory(historyParam) {
       if (!historyParam) {
@@ -38,17 +41,6 @@
         style: '=psStyle',
       },
       bindToController: true,
-      link: link,
     };
-
-    function link(scope, el, attr, ctrl) {
-      scope.$watch(function() {
-        return ctrl.col.refreshed;
-      }, function(n, o) {
-        if (ctrl.tab.active) {
-          ctrl.getHistory();
-        }
-      });
-    }
   }
 })(angular);

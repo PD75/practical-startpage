@@ -5,18 +5,19 @@
     .controller("BrowserTopSitesCtrl", BrowserTopSitesCtrl)
     .directive('psBrowserTopSites', psBrowserTopSites);
 
-  function BrowserTopSitesCtrl(topSitesService) {
+  function BrowserTopSitesCtrl(topSitesService, layoutService) {
     var vm = this;
-    vm.loading = true;
-    vm.getTopSites = getTopSites;
+    activate();
 
-    vm.getTopSites();
+    function activate() {
+      getTopSites();
+      layoutService.setOnTabClick('topSites', getTopSites);
+    }
 
     function getTopSites() {
       var promise = topSitesService.topSitesList();
       promise.then(function(topSitesList) {
         vm.list = topSitesList;
-        vm.loading = false;
       });
     }
   }
@@ -33,17 +34,6 @@
         style: '=psStyle',
       },
       bindToController: true,
-      link: link,
     };
-
-    function link(scope, el, attr, ctrl) {
-      scope.$watch(function() {
-        return ctrl.col.refreshed;
-      }, function(n, o) {
-        if (ctrl.tab.active) {
-          ctrl.getTopSites();
-        }
-      });
-    }
   }
 })(angular);
