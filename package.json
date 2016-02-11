@@ -18,10 +18,11 @@
   },
   "devDependencies": {
     "del": "*",
-    "eslint": "*",
+    "eslint": "^1.10.3",
     "eslint-config-angular": "*",
     "eslint-plugin-angular": "*",
     "eslint-plugin-html": "*",
+    "eslint-plugin-markdown": "^1.0.0-beta.1",
     "gulp": "*",
     "gulp-angular-filesort": "*",
     "gulp-concat": "*",

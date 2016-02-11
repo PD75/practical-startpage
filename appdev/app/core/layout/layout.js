@@ -20,11 +20,11 @@
     function activate() {
       dataService.getData()
         .then(function() {
+          checkVersion();
           getStyles();
           getLayout();
           setTabClasses();
           setHelpPopup();
-          checkVersion();
         });
       //set watch if layout changes
       dataService.setOnChangeData('layout', function() {
@@ -37,11 +37,11 @@
       });
     }
 
-    function activateEditor(col, colIndex) {
+    function activateEditor() {
       vm.modalUrl = 'app/widgets/bookmarkTree/editBookmarks.html';
       vm.modalData = {
         onHide: function() {
-          vm.columns[colIndex].refreshed++;
+          layoutService.runOnTabClick('bookmarkTree');
         },
         closable: false,
       };
@@ -51,11 +51,9 @@
     function onClickTab(tab, colIndex) {
       var data = {};
       vm.activeTabs[colIndex] = tab.label;
-      vm.columns[colIndex].refreshed++;
       if (tab.delegate) {
         vm.activeTabs[colIndex + 1] = tab.label;
         vm.columns[colIndex].cover = true;
-        vm.columns[colIndex + 1].refreshed++;
       } else {
         vm.columns[colIndex].cover = false;
       }
@@ -130,7 +128,6 @@
           title: vm.layout[c].title,
           label: vm.layout[c].label,
           tabs: [],
-          refreshed: 0,
         };
         for (t = 0; t < vm.layout[c].tabs.length; t++) {
           vm.columns[c].tabs[t] = vm.widgets[vm.layout[c].tabs[t]];
@@ -152,19 +149,16 @@
     function checkVersion() {
       var manifest = dataService.getManifest();
       if (angular.isUndefined(dataService.data.version) || dataService.data.version !== manifest.version) {
+        vm.layout = dataService.getDefaultData('layout').layout;
+        dataService.clearData('layout');
         $timeout(function() {
-          vm.modalUrl = 'app/core/revision.html';
+          vm.modalUrl = 'app/core/whatsNew.html';
           vm.modalData = {};
           vm.showModal = true;
         });
         dataService.setData({
           'version': manifest.version,
         });
-        if (angular.isDefined(dataService.data.bookmarkid)) {
-          var data = {};
-          data.quicklinks = [dataService.data.bookmarkid];
-          dataService.setData(data);
-        }
       }
     }
   }

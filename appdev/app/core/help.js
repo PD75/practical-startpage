@@ -8,23 +8,20 @@
   function HelpCtrl($sce, dataService) {
     var vm = this;
 
-    getHelpText();
+    activate();
 
-    function getHelpText() {
-      var layout = dataService.data.layout;
+    function activate() {
       var widgets = dataService.data.widgets;
-      var i, j, help;
+      var h = 0;
       vm.helpTexts = [];
-      for (i = 0; i < layout.length; i++) {
-        for (j = 0; j < layout[i].tabs.length; j++) {
-            help = {
-              icon: widgets[layout[i].tabs[j]].icon,
-              title: widgets[layout[i].tabs[j]].title,
-              html: $sce.trustAsHtml(widgets[layout[i].tabs[j]].help),
-            };
-            vm.helpTexts.push(help);
-        }
-      }
+      angular.forEach(widgets, function(widget) {
+        vm.helpTexts[h] = {
+          icon: widget.icon,
+          title: widget.title,
+          html: $sce.trustAsHtml(widget.help),
+        };
+        h++;
+      });
     }
   }
 

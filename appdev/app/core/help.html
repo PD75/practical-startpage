@@ -39,11 +39,11 @@
 
     </div>
     <h3 class="ui horizontal divider header">
-      <i class="linkify icon"></i>
+      <i class="help icon"></i>
       Tab Widgets
     </h3>
     <div class="ui list">
-      <div class="item" ng-repeat="help in vm.helpTexts | orderBy:'title'">
+      <div class="item" ng-repeat="help in vm.helpTexts">
         <i class="big icon" ng-class="help.icon"></i>
         <div class="content">
           <div class="header">{{help.title}}</div>
