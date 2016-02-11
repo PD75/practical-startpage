@@ -44,7 +44,7 @@
       scope.$watch(function() {
         return ctrl.col.refreshed;
       }, function(n, o) {
-        if (ctrl.col.activeTab === ctrl.tab.label) {
+        if (ctrl.tab.active) {
           ctrl.getClosed();
         }
       });

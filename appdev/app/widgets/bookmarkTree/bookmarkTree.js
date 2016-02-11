@@ -122,7 +122,7 @@
       scope.$watch(function() {
         return ctrl.col.refreshed;
       }, function() {
-        if (ctrl.col.activeTab === ctrl.tab.label) {
+        if (ctrl.tab.active) {
           ctrl.getTreeData();
         }
       });
