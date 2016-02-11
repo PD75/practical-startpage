@@ -1,4 +1,4 @@
-angular.module('ps.core')
+angular.module('ps.core.data', ['ps.widgets.constants', 'chrome'])
   .service('dataService', function($q, storageService, widgetConstants) {
     'use strict';
 

@@ -1,7 +1,7 @@
 (function(angular) {
   'use strict';
 
-  angular.module('ps.core')
+  angular.module('ps.core.options')
     .controller('OptionsCtrl', OptionsCtrl)
     .directive('psOptions', optionsDirective);
 
@@ -14,9 +14,11 @@
 
     function setTab(tab) {
       vm.tab = tab;
-      $timeout(function() {
-        vm.modal.modal('refresh');
-      }, 10);
+      if (angular.isDefined(vm.modal)) {
+        $timeout(function() {
+          vm.modal.modal('refresh');
+        }, 10);
+      }
     }
 
     function clearData() {

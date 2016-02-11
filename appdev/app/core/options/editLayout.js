@@ -1,7 +1,7 @@
 (function(angular) {
   'use strict';
 
-  angular.module('ps.core')
+  angular.module('ps.core.options')
     .controller('EditLayoutCtrl', EditLayoutCtrl)
     .directive('psEditLayout', EditLayoutDirective);
 

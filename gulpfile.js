@@ -13,7 +13,15 @@ var del = require('del');
 var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 
-//npm install
+var htmlmin = {
+  removeComments: true,
+  collapseWhitespace: true,
+  conservativeCollapse: true,
+  collapseInlineTagWhitespace: true,
+  removeTagWhitespace: true,
+  removeScriptTypeAttributes: true,
+  removeStyleLinkTypeAttributes: true,
+};
 //Copy libraries to correct place from node_modules during npm install
 gulp.task('installJSTree', function() {
   return gulp.src([srcNode + '/jstree/dist/**/*(*.js)', srcNode + '/jstree/dist/themes/default/**/*(*.min.css|*.png|*.gif)'], {
@@ -67,7 +75,7 @@ gulp.task('buildScripts', function() {
     .pipe(plugins.rename({
       suffix: '.min',
     }))
-    // .pipe(plugins.uglify())
+    .pipe(plugins.uglify())
     .pipe(gulp.dest(build + '/app'));
 });
 //CSS
@@ -87,7 +95,8 @@ gulp.task('getDist', function() {
 });
 //Get code pieces
 gulp.task('getHtml', function() {
-  return gulp.src([src + '/app/**/*.html', src + '/app/**/*.json'])
+  return gulp.src([src + '/app/**/*.html'])
+    .pipe(plugins.htmlmin(htmlmin))
     .pipe(gulp.dest(build + '/app'));
 });
 
@@ -103,19 +112,20 @@ gulp.task('buildConfig', function(cb) {
         return r2 + 'min.' + r3;
       })
     )
-    // .pipe(plugins.rename(manifest.chrome_url_overrides.newtab))
+    .pipe(plugins.htmlmin(htmlmin))
     .pipe(gulp.dest(build));
 
-  gulp.task('templates', function() {
-    gulp.src(['file.txt'])
-      .pipe(replace(/foo(.{3})/g))
-      .pipe(gulp.dest('build/file.txt'));
-  });
   gulp.src(src + '/' + manifest.options_ui.page)
     .pipe(plugins.htmlReplace({
       'css': 'app/startpage.min.css',
       'js': 'app/startpage.min.js',
     }))
+    .pipe(plugins
+      .replace(/(dist.*\.)(js)/gm, function(r1, r2, r3) {
+        return r2 + 'min.' + r3;
+      })
+    )
+    .pipe(plugins.htmlmin(htmlmin))
     .pipe(gulp.dest(build));
 
   gulp.src(src + '/manifest.json')

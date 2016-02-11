@@ -1,4 +1,4 @@
-angular.module('ps.widgets')
+angular.module('ps.widgets.constants', [])
   .constant('widgetConstants', function() {
     'use strict';
     return {

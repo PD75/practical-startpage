@@ -1,4 +1,4 @@
-angular.module('ps.widgets', ['chrome', 'ngJsTree', 'ngSemanticUi', 'dndLists']);
+angular.module('ps.widgets', ['ps.widgets.constants', 'chrome', 'ngJsTree', 'ngSemanticUi']);
 
 angular.module('ps.widgets')
   .config(function($compileProvider) {
