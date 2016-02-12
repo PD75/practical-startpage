@@ -180,7 +180,7 @@
         vm.activeButtons.saveClose = "";
       }
       $timeout(function() {
-        $scope.$apply();
+        $scope.$digest();
       });
     }
 

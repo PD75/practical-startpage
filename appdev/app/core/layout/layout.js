@@ -32,7 +32,7 @@
         setTabClasses();
         setHelpPopup();
         $timeout(function() {
-          $scope.$apply();
+          $scope.$digest();
         });
       });
     }
