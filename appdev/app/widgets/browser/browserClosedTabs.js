@@ -1,16 +1,21 @@
 (function(angular) {
   "use strict";
 
-  angular.module('PracticalStartpage')
+  angular.module('ps.widgets')
     .controller("BrowserClosedCtrl", BrowserClosedCtrl)
     .directive('psBrowserClosedTabs', BrowserClosedTabsDirective);
 
-  function BrowserClosedCtrl(closedTabsService) {
+  function BrowserClosedCtrl(closedTabsService, layoutService) {
     var vm = this;
     vm.loading = true;
-    vm.getClosed = getClosed;
     vm.callbackSet = false;
     activate();
+
+    function activate() {
+      getClosed();
+      closedTabsService.monitorClosedTabs(getClosed);
+      layoutService.setOnTabClick('closedTabs', getClosed);
+    }
 
     function getClosed() {
       var promise = closedTabsService.closedTabsList();
@@ -18,10 +23,6 @@
         vm.list = closedTabsList;
         vm.loading = false;
       });
-    }
-
-    function activate() {
-      closedTabsService.monitorClosedTabs(getClosed);
     }
   }
 
@@ -37,17 +38,6 @@
         style: '=psStyle',
       },
       bindToController: true,
-      link: link,
     };
-
-    function link(scope, el, attr, ctrl) {
-      scope.$watch(function() {
-        return ctrl.col.refreshed;
-      }, function(n, o) {
-        if (ctrl.col.activeTab === ctrl.tab.label) {
-          ctrl.getClosed();
-        }
-      });
-    }
   }
 })(angular);

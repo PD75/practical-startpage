@@ -1,32 +1,20 @@
 (function(angular) {
   'use strict';
 
-  angular.module('PracticalStartpage.options', ['chromeModule'])
+  angular.module('ps.core.options')
     .controller('OptionsCtrl', OptionsCtrl)
     .directive('psOptions', optionsDirective);
 
-
-  function OptionsCtrl($timeout, storageService) {
+  function OptionsCtrl($timeout) {
     var vm = this;
     vm.tab = 1;
-    vm.setTab = setTab;
-    vm.clearData = clearData;
 
-    function setTab(tab) {
-      vm.tab = tab;
+    activate();
+
+    function activate() {
       $timeout(function() {
         vm.modal.modal('refresh');
-      }, 10);
-    }
-
-    function clearData() {
-      storageService.clearData()
-        .then(function() {
-          vm.dataCleared = 'Cleared!!!';
-          $timeout(function() {
-            vm.dataCleared = '';
-          }, 3000);
-        });
+      });
     }
   }
 

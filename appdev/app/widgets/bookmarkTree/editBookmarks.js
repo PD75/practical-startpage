@@ -1,7 +1,7 @@
 (function(angular) {
   'use strict';
 
-  angular.module('PracticalStartpage')
+  angular.module('ps.widgets')
     .controller('editBookmarksCtrl', editBookmarksCtrl)
     .directive('psEditBookmarks', editBookmarksDirective);
 
@@ -58,6 +58,7 @@
       vm.segmentHeight = {
         'height': ($window.innerHeight - 200) + 'px',
       };
+      vm.modalInstance.modal('refresh');
       vm.treeConfig = editBookmarksService.getTreeConfig(getTree, editUrl);
       getTreeData();
     }
@@ -177,9 +178,9 @@
         vm.activeButtons.undoAll = "";
         vm.activeButtons.saveChanges = "";
         vm.activeButtons.saveClose = "";
-    }
+      }
       $timeout(function() {
-        $scope.$apply();
+        $scope.$digest();
       });
     }
 

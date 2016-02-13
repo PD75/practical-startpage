@@ -1,1 +1,1 @@
-angular.module('ChromeOptions', ['PracticalStartpage.options']);
+angular.module('ChromeOptions', ['ps.core.options.clear']);

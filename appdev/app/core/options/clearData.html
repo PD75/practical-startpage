@@ -1,0 +1,30 @@
+<div class="ui grid">
+  <div class="row">
+    <div class="six wide column">
+      <div class="ui list">
+        <div class="item">
+          <div class="ui master checkbox">
+            <input type="checkbox" ng-model="vm.allSelected" ng-click="vm.allselectedCB()">
+            <label>Select All</label>
+          </div>
+          <div class="list">
+
+            <div class="item" ng-repeat="object in vm.data  | orderBy: 'order'">
+              <div class="ui child checkbox">
+                <input type="checkbox" ng-model="object.selected" ng-click="vm.checkboxCB()">
+                <label>{{object.title}}</label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ten wide column">
+      <button class="ui  button" ng-click="vm.clearData()" ng-class="[vm.primaryCol,{disabled:vm.buttonDisabled}]">
+        Clear Settings Data
+      </button>
+      {{vm.dataCleared}}
+    </div>
+  </div>
+</div>

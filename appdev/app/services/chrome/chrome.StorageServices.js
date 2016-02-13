@@ -1,7 +1,7 @@
 (function(angular) {
   'use strict';
 
-  angular.module('chromeModule').factory('storageService', storageService);
+  angular.module('chrome').factory('storageService', storageService);
 
   function storageService($q) {
     return {
@@ -54,7 +54,7 @@
     }
 
     function setDataCB(CB) {
-      chrome.storage.onChanged.addListener(function(changes, areaName) {
+      chrome.storage.onChanged.addListener(function(changes) {
         CB(changes);
       });
     }

@@ -1,7 +1,7 @@
 (function(angular) {
   'use strict';
 
-  angular.module('chromeModule')
+  angular.module('chrome')
     .factory('appService', appService)
     .factory('historyService', historyService)
     .factory('closedTabsService', closedTabsService)

@@ -1,14 +1,14 @@
 <div class="ui padded grid">
   <div class="three wide column">
     <div class="ui vertical fluid menu">
-      <a class="item" ng-class="{'active' : vm.tab === 1}" ng-click="vm.setTab(1)">
-        Layout
+      <a class="item" ng-class="{'active' : vm.tab === 1}" ng-click="vm.tab = 1">
+        Edit Layout
       </a>
-      <a class="item" ng-class="{'active' : vm.tab === 2}" ng-click="vm.setTab(2)">
-        Style
+      <a class="item" ng-class="{'active' : vm.tab === 2}" ng-click="vm.tab = 2">
+        Edit Style
       </a>
-      <a class="item" ng-class="{'active' : vm.tab === 3}" ng-click="vm.setTab(3)">
-        Reset
+      <a class="item" ng-class="{'active' : vm.tab === 3}" ng-click="vm.tab = 3">
+        Clear Data
       </a>
     </div>
   </div>
@@ -21,10 +21,7 @@
         The theme colors will be configurable from here in the future.
       </div>
       <div class="ui tab" ng-class="{'active' : vm.tab === 3}">
-        <p>
-          If you have problems with the application you can reset all settings here
-        </p>
-        <button class="negative ui button" ng-click="vm.clearData()">Reset All Settings</button>{{vm.dataCleared}}
+        <ps-clear-data></ps-clear-data>
       </div>
     </div>
   </div>

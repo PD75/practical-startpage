@@ -1,1 +1,1 @@
-angular.module('chromeModule', []);
+angular.module('chrome', []);

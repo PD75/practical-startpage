@@ -1,14 +1,16 @@
-angular.module('PracticalStartpage')
-  .service('dataService', function($http, $q, storageService, dataServiceWidgets) {
+angular.module('ps.core.data', ['ps.widgets.constants', 'chrome'])
+  .service('dataService', function($q, storageService, widgetConstants) {
     'use strict';
 
     var s = this;
 
     s.getData = getData;
     s.setData = setData;
+    s.clearData = clearData;
     s.getManifest = getManifest;
-    s.getDefaultLayout = getDefaultLayout;
-    s.setDataChangeCB = setDataChangeCB;
+    s.getDefaultData = getDefaultData;
+    s.setOnChangeData = setOnChangeData;
+    s.getStorageData = getStorageData;
     s.data = {
       dataChangeCB: {},
       layout: [],
@@ -21,13 +23,13 @@ angular.module('PracticalStartpage')
 
     function activate() {
       s.dataCB = {};
-      storageService.setDataCB(runDataChangeCB);
+      storageService.setDataCB(runOnChangeData);
     }
 
-    function getData(objName) {
+    function getData() {
       return $q
         .all([
-          storageService.getLocalData(),
+          getStorageData(),
           getDefaultData(),
         ])
         .then(function(response) {
@@ -35,6 +37,13 @@ angular.module('PracticalStartpage')
           angular.forEach(response[0], function(value, key) {
             s.data[key] = value;
           });
+        });
+    }
+
+    function getStorageData() {
+      return storageService.getLocalData()
+        .then(function(data) {
+          return data;
         });
     }
 
@@ -49,39 +58,50 @@ angular.module('PracticalStartpage')
       return storageService.getManifest();
     }
 
-    function getDefaultData() {
-      var data = {
-        styles: getDefaultStyles(),
-        layout: getDefaultLayout(),
-        widgets: dataServiceWidgets.getWidgets(),
-      };
+    function getDefaultData(key) {
+      var data = {};
+      if (angular.isUndefined(key) || key === 'styles') {
+        data.styles = getDefaultStyles();
+      }
+      if (angular.isUndefined(key) || key === 'layout') {
+        data.layout = getDefaultLayout();
+      }
+      if (angular.isUndefined(key) || key === 'widgets') {
+        data.widgets = widgetConstants();
+      }
       return data;
     }
 
-    function setDataChangeCB(key, fnCB) {
+    function setOnChangeData(key, fnCB) {
       if (angular.isUndefined(s.dataCB[key])) {
         s.dataCB[key] = [];
       }
       s.dataCB[key].push(fnCB);
     }
 
-    function runDataChangeCB(changes) {
+    function runOnChangeData(changes) {
       var f = 0;
       angular.forEach(changes, function(value, key) {
-        s.data[key] = value.newValue;
+        if (angular.isDefined(value.newValue)) {
+          s.data[key] = value.newValue;
+        } else {
+          s.data[key] = getDefaultData(key)[key];
+        }
         if (angular.isDefined(s.dataCB) && angular.isDefined(s.dataCB[key])) {
-          var x = 1;
           for (f = 0; f < s.dataCB[key].length; f++) {
             s.dataCB[key][f]();
           }
         }
       });
+    }
 
+    function clearData(keys) {
+      return storageService.clearData(keys);
     }
 
     function getDefaultStyles() {
       return {
-        primaryCol: "purple",
+        primaryCol: "blue",
         primaryInv: true,
         secondaryCol: "black",
         secondaryInv: true,

@@ -1,7 +1,7 @@
 (function(angular) {
   "use strict";
 
-  angular.module('PracticalStartpage')
+  angular.module('ps.core')
     .directive('psSegmentBottomLayout', segmentBottomLayoutDirective);
 
   function segmentBottomLayoutDirective($window, $timeout) {
@@ -9,7 +9,7 @@
       replace: true,
       transclude: true,
       template: '<div class="ui bottom attached segment" ng-transclude></div>',
-      link: function(scope, element, attr) {
+      link: function(scope, element) {
         setBottomSegmentHeight(element);
         $timeout(function() { //redo when top modal has been rendered
           setBottomSegmentHeight(element);

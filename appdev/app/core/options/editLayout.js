@@ -1,7 +1,7 @@
 (function(angular) {
   'use strict';
 
-  angular.module('PracticalStartpage')
+  angular.module('ps.core.options')
     .controller('EditLayoutCtrl', EditLayoutCtrl)
     .directive('psEditLayout', EditLayoutDirective);
 
@@ -31,8 +31,17 @@
     getData();
 
     function getData() {
-      var widgets = dataService.data.widgets;
       var layout = dataService.data.layout;
+      consolidateData(layout);
+    }
+
+    function getDefaults() {
+      var layout = dataService.getDefaultData('layout').layout;
+      consolidateData(layout);
+    }
+
+    function consolidateData(layout) {
+      var widgets = angular.copy(dataService.data.widgets);
       var c = 0,
         t = 0,
         tab = {};
@@ -59,11 +68,6 @@
           w++;
         }
       });
-    }
-
-    function getDefaults() {
-      dataService.data.layout = dataService.getDefaultLayout();
-      getData();
     }
 
     function saveData() {

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('PracticalStartpage')
+  angular.module('ps.core')
     .controller('BottomMenuCtrl', BottomMenuCtrl)
     .directive('psBottomMenu', bottomMenuDirective);
 
@@ -23,9 +23,9 @@
       "icon": "info",
       "url": "app/core/about.html",
     }, {
-      "title": "revision",
-      "icon": "code",
-      "url": "app/core/revision.html",
+      "title": "whats new",
+      "icon": "announcement",
+      "url": "app/core/whatsNew.html",
     }];
 
     function activateModal(menuItem) {

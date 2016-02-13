@@ -1,8 +1,8 @@
 {
   "name": "PracticalStartpage",
-  "version": "2.0.0",
-  "description": "Practical Startpage",
-  "main": "index.js",
+  "version": "2.1.0",
+  "description": "Flexible start page that makes your data available in a single view.",
+  "main": "startpage.js",
   "scripts": {
     "install": "gulp install",
     "update": "gulp update"
@@ -19,23 +19,25 @@
   "devDependencies": {
     "del": "*",
     "eslint": "^1.10.3",
-    "eslint-config-angular": "^0.4.0",
-    "eslint-plugin-angular": "^0.15.0",
-    "eslint-plugin-html": "^1.1.0",
+    "eslint-config-angular": "*",
+    "eslint-plugin-angular": "*",
+    "eslint-plugin-html": "*",
+    "eslint-plugin-markdown": "^1.0.0-beta.1",
     "gulp": "*",
-    "gulp-angular-filesort": "^1.1.1",
+    "gulp-angular-filesort": "*",
     "gulp-concat": "*",
     "gulp-cssnano": "*",
+    "gulp-eslint": "^1.1.1",
     "gulp-html-replace": "*",
+    "gulp-htmlmin": "*",
     "gulp-json-editor": "*",
     "gulp-less": "*",
-    "gulp-load-plugins": "^1.2.0",
-    "gulp-minify-css": "*",
+    "gulp-load-plugins": "*",
     "gulp-ng-annotate": "*",
     "gulp-rename": "*",
     "gulp-replace": "*",
     "gulp-uglify": "*",
     "gulp-zip": "*",
-    "run-sequence": "^1.1.5"
+    "run-sequence": "*"
   }
 }

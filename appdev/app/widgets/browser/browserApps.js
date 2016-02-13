@@ -1,22 +1,23 @@
 (function(angular) {
   "use strict";
 
-  angular.module('PracticalStartpage')
+  angular.module('ps.widgets')
     .controller("BrowserAppCtrl", BrowserAppCtrl)
     .directive('psBrowserApps', BrowserAppsDirective);
 
-  function BrowserAppCtrl(appService) {
+  function BrowserAppCtrl(appService, layoutService) {
     var vm = this;
-    vm.loading = true;
-    vm.getApps = getApps;
+    activate();
 
-    vm.getApps();
+    function activate() {
+      getApps();
+      layoutService.setOnTabClick('chromeApps', getApps);
+    }
 
     function getApps() {
       appService.appList()
         .then(function(appList) {
           vm.list = appList;
-          vm.loading = false;
         });
     }
   }
@@ -33,17 +34,6 @@
         style: '=psStyle',
       },
       bindToController: true,
-      link: link,
     };
-
-    function link(scope, el, attr, ctrl) {
-      scope.$watch(function() {
-        return ctrl.col.refreshed;
-      }, function(n, o) {
-        if (ctrl.col.activeTab === ctrl.tab.label) {
-          ctrl.getApps();
-        }
-      });
-    }
   }
 })(angular);
