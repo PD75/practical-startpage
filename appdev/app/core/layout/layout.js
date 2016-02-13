@@ -80,6 +80,13 @@
             } else {
               vm.columns[c].edit = false;
             }
+
+            if (vm.columns[c].tabs[t].delegate) {
+              vm.columns[c].cover = true;
+            } else {
+              vm.columns[c].cover = false;
+            }
+            
           } else {
             vm.columns[c].tabs[t].active = false;
           }
@@ -88,12 +95,10 @@
           }
         }
         //Cover Tabs
+        vm.columns[c].coverClasses = [];
         if (vm.columns[c].cover) {
           vm.columns[c].coverClasses.push('active');
-        } else {
-          vm.columns[c].coverClasses = [];
         }
-
       }
     }
 
@@ -132,6 +137,15 @@
         for (t = 0; t < vm.layout[c].tabs.length; t++) {
           vm.columns[c].tabs[t] = vm.widgets[vm.layout[c].tabs[t]];
           vm.columns[c].tabs[t].label = vm.layout[c].tabs[t];
+        }
+        if (c === 1) {
+          var tab;
+          for (t = 0; t < vm.layout[c + 1].tabs.length; t++) {
+            tab = angular.copy(vm.widgets[vm.layout[c + 1].tabs[t]]);
+            tab.label = vm.layout[c + 1].tabs[t];
+            tab.delegate = true;
+            vm.columns[c].tabs.push(tab);
+          }
         }
       }
     }
