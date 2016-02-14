@@ -5,7 +5,7 @@
     .controller("rssFeedCtrl", rssFeedCtrl)
     .directive('psRssFeed', RssFeedDirective);
 
-  function rssFeedCtrl($http, historyService, layoutService) {
+  function rssFeedCtrl($http, rssFeedService, layoutService) {
     var vm = this;
     activate();
 
@@ -15,16 +15,9 @@
     }
 
     function getFeed() {
-      var url = 'http://rss.cnn.com/rss/cnn_topstories.rss';
-      var url = 'http://feeds.feedburner.com/TechCrunch';
-      var url = 'http://www.dn.se/rss/nyheter/';
-      $http.get('http:' + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=30&q=' + encodeURIComponent(url))
+      rssFeedService.getFeeds()
         .then(function(data) {
-          vm.feed = data.data.responseData.feed;
-          angular.forEach(vm.feed.entries, function(value) {
-            var s = value.link.split('/');
-            value.icon = s[0]+'//'+s[2]+'/favicon.ico';
-          });
+          vm.rss = data;
         });
 
 

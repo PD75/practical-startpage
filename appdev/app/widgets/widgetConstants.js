@@ -43,7 +43,7 @@ angular.module('ps.widgets.constants', [])
         help: "A list of chrome apps presently installed in the browser.<br /> <b>Note:</b> only apps with a page are listed.",
       },
       rssFeed: {
-        title: "rss",
+        title: "RSS",
         icon: "rss",
         directive: "rss-feed",
         help: "rss feed",

@@ -1,11 +1,15 @@
 <ps-segment-layout ng-class="[vm.style.primaryCol]">
+
   <div class="ui comments">
-    <div class="comment" ng-repeat="entry in vm.feed.entries">
+    <div class="comment" ng-repeat="entry in vm.rss">
+      <div class="avatar">
+        <!-- <img ng-src="{{entry.icon}}"> -->
+        <img src="http://semantic-ui.com/images/avatar/small/matt.jpg"/>
+      </div>
       <div class="content">
-        <img ng-src="{{entry.icon}}">
         <a class="author" ng-href="{{entry.link}}">{{entry.title}}</a>
         <div class="metadata">
-          <span class="date">{{entry.publishedDate}}</span>
+          <span class="date">{{entry.timeStamp}}</span>
         </div>
         <div class="text">
           {{entry.contentSnippet}}

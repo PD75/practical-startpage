@@ -15,8 +15,135 @@
   </head>
 
   <body>
+    <div class="ui padded grid">
+        <div class="row">
+            <div class="six wide column">
+                <div class="ui blue inverted menu">
+                    <a class="active item">
+                            Bookmarks
+                    </a>
+                    <div id="leftHelp" class="item right floated"> <i class="help circle icon"></i>
+                </div>
+            </div>
+            <div class="ui blue segment">
+                <div class="ui fluid icon input">
+                    <input id="bookmarksearch" type="text" placeholder="Search..." />
+                    <i class="remove icon"></i>
+                 </div>
+                <div class="sp-bookmark-frame">
+                    <div id="bookmarktree"></div>
+                </div>
+                <div class="ui comments">
+        <h3 class="ui dividing header">Comments</h3>
+        <div class="comment">
+          <a class="avatar">
+            <img src="/images/avatar/small/matt.jpg">
+          </a>
+          <div class="content">
+            <a class="author">Matt</a>
+            <div class="metadata">
+              <span class="date">Today at 5:42PM</span>
+            </div>
+            <div class="text">
+              How artistic!
+            </div>
+            <div class="actions">
+              <a class="reply">Reply</a>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <a class="avatar">
+            <img src="/images/avatar/small/elliot.jpg">
+          </a>
+          <div class="content">
+            <a class="author">Elliot Fu</a>
+            <div class="metadata">
+              <span class="date">Yesterday at 12:30AM</span>
+            </div>
+            <div class="text">
+              <p>This has been very useful for my research. Thanks as well!</p>
+            </div>
+            <div class="actions">
+              <a class="reply">Reply</a>
+            </div>
+          </div>
+          <div class="comments">
+            <div class="comment">
+              <a class="avatar">
+                <img src="/images/avatar/small/jenny.jpg">
+              </a>
+              <div class="content">
+                <a class="author">Jenny Hess</a>
+                <div class="metadata">
+                  <span class="date">Just now</span>
+                </div>
+                <div class="text">
+                  Elliot you are always so right :)
+                </div>
+                <div class="actions">
+                  <a class="reply">Reply</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <a class="avatar">
+            <img src="http://semantic-ui.com/images/avatar/small/matt.jpg">
+          </a>
+          <div class="content">
+            <a class="author">Joe Henderson</a>
+            <div class="metadata">
+              <span class="date">5 days ago</span>
+            </div>
+            <div class="text">
+              Dude, this is awesome. Thanks so much
+            </div>
+            <div class="actions">
+              <a class="reply">Reply</a>
+            </div>
+          </div>
+        </div>
+        <form class="ui reply form">
+          <div class="field">
+            <textarea></textarea>
+          </div>
+          <div class="ui blue labeled submit icon button">
+            <i class="icon edit"></i>
+            Add Reply
+          </div>
+        </form>
+      </div>
+            </div>
+        </div>
+        <div class="ten wide column">
+            <div class="ui purple inverted menu">
+                <a class="active item">
+                        <i class="home icon"></i> Home
+                   </a>
+                   <a class="item">
+                        <i class="mail icon"></i> Messages
+                   </a>
+                   <a class="item">
+                       <i class="user icon"></i> Friends
+                  </a>
+                  <div id="centerHelp" class="item right floated">
+                      <i class="help circle icon"></i>
+                  </div>
+             </div>
+             <div class="ui purple segment">
 
-    <ps-layout class="ui padded grid"></ps-layout>
+             </div>
+         </div>
+      </div>
+
+    <div class="ui popup">
+        <div class="header">pop-up</div>this is the text.</div>
+    <div id="popup2" class="ui popup">
+        <div class="header">pop-up</div>this is the text.</div>
+     </div>
+    <!-- <ps-layout class="ui padded grid"></ps-layout> -->
 
     <!--Load Distribution Scripts-->
     <script src="dist/jquery.js"></script>
@@ -74,6 +201,7 @@
     <script src="app/widgets/bookmarkTree/editBookmarkUrl.js"></script>
 
     <script src="app/widgets/rssFeed/rssFeed.js"></script>
+    <script src="app/widgets/rssFeed/rssFeedService.js"></script>
     <!-- endbuild -->
   </body>
 
