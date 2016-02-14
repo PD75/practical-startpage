@@ -1,0 +1,17 @@
+<ps-segment-layout ng-class="[vm.style.primaryCol]">
+  <div class="ui comments">
+    <div class="comment" ng-repeat="entry in vm.feed.entries">
+      <div class="content">
+        <img ng-src="{{entry.icon}}">
+        <a class="author" ng-href="{{entry.link}}">{{entry.title}}</a>
+        <div class="metadata">
+          <span class="date">{{entry.publishedDate}}</span>
+        </div>
+        <div class="text">
+          {{entry.contentSnippet}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ps-segment-layout>

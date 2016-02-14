@@ -13,7 +13,8 @@
     "management",
     "history",
     "sessions",
-    "storage"
+    "storage",
+    "http://ajax.googleapis.com/ajax/services/feed/load*"
   ],
   "icons": {
     "16": "img/icon16.png",

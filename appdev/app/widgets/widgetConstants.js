@@ -38,9 +38,15 @@ angular.module('ps.widgets.constants', [])
       },
       chromeApps: {
         title: "Apps",
-        icon: "grid layout",
+        icon: "grid layout ",
         directive: "browser-apps",
         help: "A list of chrome apps presently installed in the browser.<br /> <b>Note:</b> only apps with a page are listed.",
+      },
+      rssFeed: {
+        title: "rss",
+        icon: "rss",
+        directive: "rss-feed",
+        help: "rss feed",
       },
     };
   });
