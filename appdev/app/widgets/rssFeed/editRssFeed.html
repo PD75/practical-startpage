@@ -1,59 +1,77 @@
 <div class="ui two column grid">
-  <div class="column">
-    <div class="ui segment">
-      <form name="feedForm" class="ui one column grid">
-        <div class="column">
-          <div class="ui fluid labeled input">
-            <div class="ui label">
-              Title
+  <div class="stretched row">
+    <div class="column">
+      <div class="ui segment">
+        <form name="feedForm" class="ui one column grid">
+          <div class="column">
+            <div class="ui fluid labeled input">
+              <div class="ui label">
+                Title
+              </div>
+              <input type="text" placeholder="Title" name="title" ng-model="vm.feed.title">
             </div>
-            <input type="text" placeholder="Title" name="title" ng-model="vm.feed.title">
+
+          </div>
+          <div class="column">
+            <div class="ui fluid labeled input">
+              <div class="ui label">
+                Url
+              </div>
+              <input type="url" placeholder="mysite.com" name="url" ng-model="vm.feed.url" required>
+              <button class="ui button" ng-class="{disabled : !feedForm.url.$valid}" ng-click="vm.checkFeedUrl(!feedForm.url.$valid)">
+                Check
+              </button>
+            </div>
+
           </div>
 
-        </div>
-        <div class="column">
-          <div class="ui fluid labeled input">
-            <div class="ui label">
-              Url
-            </div>
-            <input type="url" placeholder="mysite.com" name="url" ng-model="vm.feed.url" required>
-            <button class="ui button" ng-class="{disabled : !feedForm.url.$valid}" ng-click="vm.checkFeedUrl(!feedForm.url.$valid)">
-              Check
+        </form>
+        <div class="ui one column grid">
+          <div class="column">
+            <button class="ui button" ng-class="{disabled:vm.addButtonDisabled}" ng-click="vm.addFeed()">
+              <i class="plus icon"></i>
+              Add Feed
+            </button>
+            <button class="ui aligned button" ng-class="{disabled:vm.saveButtonDisabled}">
+              <i class="save icon"></i>
+              Save
+            </button>
+            <button class="ui button">
+              <i class="remove icon"></i>
+              Close
             </button>
           </div>
-
-        </div>
-        <div class="column">
-          <button class="ui right aligned button" ng-class="vm.addButtonClass">
-            <i class="plus icon"></i>
-            Add Feed
-          </button>
-          <button class="ui right aligned button" ng-class="vm.addButtonClass">
-            <i class="save icon"></i>
-            Save
-          </button>
-          <button class="ui right aligned button">
-            <i class="remove icon"></i>
-            Close
-          </button>
-        </div>
-
-      </form>
-
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui segment">
-      <div class="ui comments">
-        <div class="comment" ng-repeat="entry in vm.feed.entries">
-          <div class="content">
-            <img ng-src="{{entry.icon}}" height="16"/>
-            <a class="author" ng-href="{{entry.link}}">{{entry.title}}</a>
-            <div class="metadata">
-              <span class="date">{{entry.timeStamp}}</span>
+          <div class="column">
+            <div class="ui selection middle divided aligned list" style="innerHeight:100px">
+              <div class="item" ng-repeat="item in vm.feeds">
+                <div class="right floated content" ng-click="vm.feeds.splice($index, 1)">
+                  <i class="remove icon"></i>
+                </div>
+                <img class="ui image" ng-src="{{item.icon}}" height="16"/>
+                <div class="content">
+                  <div class="header">{{item.title}}</div>
+                  <div class="description">{{item.url}}</div>
+                </div>
+              </div>
             </div>
-            <div class="text">
-              {{entry.contentSnippet}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui segment">
+        <div class="ui comments">
+          <div class="comment" ng-repeat="entry in vm.feed.entries">
+            <div class="content">
+              <img ng-src="{{entry.icon}}" height="16"/>
+              <a class="author" ng-href="{{entry.link}}">{{entry.title}}</a>
+              <div class="metadata">
+                <span class="date">{{entry.timeStamp}}</span>
+              </div>
+              <div class="text">
+                {{entry.contentSnippet}}
+              </div>
             </div>
           </div>
         </div>

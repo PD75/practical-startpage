@@ -5,18 +5,17 @@
     .controller('EditRssFeedCtrl', EditRssFeedCtrl)
     .directive('psEditRssFeed', EditRssFeedDirective);
 
-  function EditRssFeedCtrl(rssFeedService, layoutService) {
+  function EditRssFeedCtrl(rssFeedService, dataService) {
     var vm = this;
     vm.checkFeedUrl = checkFeedUrl;
-    acctivate();
+    vm.addFeed = addFeed;
+    activate();
 
     function activate() {
       vm.feed = {};
-      vm.addButtonClass = 'disabled';
+      vm.addButtonDisabled = true;
       vm.feeds = [];
-      vm.saveButtonClass = 'disabled';
-
-
+      vm.saveButtonDisabled = true;
     }
 
     function checkFeedUrl(disabled) {
@@ -24,17 +23,25 @@
         rssFeedService.getFeed(vm.feed.url, 3)
           .then(function(data) {
             vm.feed.entries = data.entries;
-            vm.addButtonClass = '';
+            vm.addButtonDisabled = false;
           });
       }
     }
 
     function addFeed(disabled) {
-      var x = 1;
+      var ico = vm.feed.url.split('/');
+      vm.feed.icon = ico[0] + '//' + ico[2] + '/favicon.ico';
+      vm.feeds.push(vm.feed);
+      vm.feed = {};
+      vm.addButtonDisabled = true;
+      vm.saveButtonDisabled = false;
     }
 
     function saveFeeds(disabled) {
-      var x = 1;
+      dataService.setData({
+        rssFeed: vm.feeds,
+      });
+      vm.saveButtonDisabled = true;
 
     }
 
