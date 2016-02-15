@@ -7,16 +7,17 @@
   function rssFeedService($http, $q) {
     var s = this;
     s.getFeeds = getFeeds;
+    s.getFeed = getFeed;
 
     function getFeeds() {
       var urls = [
-        'http:' + '//rss.cnn.com/rss/cnn_topstories.rss',
-        'http:' + '//feeds.feedburner.com/TechCrunch',
-        'http:' + '//www.dn.se/rss/nyheter/',
+        'http://rss.cnn.com/rss/cnn_topstories.rss',
+        'http://feeds.feedburner.com/TechCrunch',
+        'http://www.dn.se/rss/nyheter/',
       ];
       var promises = [];
       for (var u = 0; u < urls.length; u++) {
-        promises[u] = getFeed(urls[u]);
+        promises[u] = getFeed(urls[u], 30);
       }
       return $q
         .all(promises)
@@ -31,9 +32,6 @@
             }
           }
           rss.sort(function(a, b) {
-            // var x = new Date(a.publishedDate);
-            // var y = new Date(b.publishedDate);
-            // return new Date(b.publishedDate) - new Date(a.publishedDate);
             return b.timeStamp - a.timeStamp;
           });
           return rss;
@@ -41,8 +39,11 @@
     }
 
 
-    function getFeed(url) {
-      return $http.get('http:' + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=30&q=' + encodeURIComponent(url))
+    function getFeed(url, num) {
+      var queryUrl = 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0';
+      queryUrl += '&num=' + num;
+      queryUrl += '&q=' + encodeURIComponent(url);
+      return $http.get(queryUrl)
         .then(function(data) {
           var feed = data.data.responseData.feed;
           angular.forEach(feed.entries, function(value) {

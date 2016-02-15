@@ -37,8 +37,18 @@
       });
     }
 
-    function activateEditor() {
-      vm.modalUrl = 'app/widgets/bookmarkTree/editBookmarks.html';
+    function activateEditor(colIndex) {
+      switch (vm.widgets[vm.activeTabs[colIndex]].edit.type) {
+        case 'url':
+          vm.modalUrl = vm.widgets[vm.activeTabs[colIndex]].edit.url;
+          break;
+        case 'directive':
+          vm.modalUrl = 'app/widgets/widgets/editWidget.html';
+          vm.modalDirective = vm.widgets[vm.activeTabs[colIndex]].edit.directive;
+          vm.modalTitle = 'Edit ' + vm.widgets[vm.activeTabs[colIndex]].title;
+          break;
+
+      }
       vm.modalData = {
         onHide: function() {
           layoutService.runOnTabClick('bookmarkTree');
@@ -86,7 +96,7 @@
             } else {
               vm.columns[c].cover = false;
             }
-            
+
           } else {
             vm.columns[c].tabs[t].active = false;
           }

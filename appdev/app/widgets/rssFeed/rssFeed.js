@@ -19,8 +19,6 @@
         .then(function(data) {
           vm.rss = data;
         });
-
-
     }
   }
 

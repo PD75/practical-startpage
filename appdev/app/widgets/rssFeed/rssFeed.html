@@ -2,11 +2,8 @@
 
   <div class="ui comments">
     <div class="comment" ng-repeat="entry in vm.rss">
-      <div class="avatar">
-        <!-- <img ng-src="{{entry.icon}}"> -->
-        <img src="http://semantic-ui.com/images/avatar/small/matt.jpg"/>
-      </div>
       <div class="content">
+        <img ng-src="{{entry.icon}}" height="16"/>
         <a class="author" ng-href="{{entry.link}}">{{entry.title}}</a>
         <div class="metadata">
           <span class="date">{{entry.timeStamp}}</span>
