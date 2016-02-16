@@ -4,20 +4,19 @@
   angular.module('ps.widgets')
     .service('rssFeedService', rssFeedService);
 
-  function rssFeedService($http, $q) {
+  function rssFeedService($http, $q, dataService) {
     var s = this;
     s.getFeeds = getFeeds;
     s.getFeed = getFeed;
 
     function getFeeds() {
-      var urls = [
-        'http://rss.cnn.com/rss/cnn_topstories.rss',
-        'http://feeds.feedburner.com/TechCrunch',
-        'http://www.dn.se/rss/nyheter/',
-      ];
+      if (angular.isUndefined(dataService.data.rssFeed)) {
+        dataService.data.rssFeed = [];
+      }
+      var feeds = dataService.data.rssFeed;
       var promises = [];
-      for (var u = 0; u < urls.length; u++) {
-        promises[u] = getFeed(urls[u], 30);
+      for (var u = 0; u < feeds.length; u++) {
+        promises[u] = getFeed(feeds[u].url, 30);
       }
       return $q
         .all(promises)
@@ -26,8 +25,8 @@
           var i, j,
             k = 0;
           for (i = 0; i < data.length; i++) {
-            for (j = 0; j < data[i].entries.length; j++) {
-              rss[k] = data[i].entries[j];
+            for (j = 0; j < data[i].feed.entries.length; j++) {
+              rss[k] = data[i].feed.entries[j];
               k++;
             }
           }
@@ -38,23 +37,38 @@
         });
     }
 
-
     function getFeed(url, num) {
       var queryUrl = 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0';
       queryUrl += '&num=' + num;
       queryUrl += '&q=' + encodeURIComponent(url);
       return $http.get(queryUrl)
         .then(function(data) {
-          var feed = data.data.responseData.feed;
-          angular.forEach(feed.entries, function(value) {
-            var s = value.link.split('/');
-            value.icon = s[0] + '//' + s[2] + '/favicon.ico';
-            value.timeStamp = new Date(value.publishedDate);
-          });
-          return feed;
+          var result = {};
+          if (angular.isDefined(data.data.responseData)) {
+            result.feed = data.data.responseData.feed;
+            var ico, icon;
+            if (angular.isDefined(data.data.responseData.feed.link)) {
+              ico = data.data.responseData.feed.link.split('/');
+            } else {
+              ico = data.data.responseData.feed.feedUrl.split('/');
+            }
+            icon = ico[0] + '//' + ico[2] + '/favicon.ico';
+            angular.forEach(result.feed.entries, function(value) {
+              value.icon = icon;
+              value.timeStamp = new Date(value.publishedDate);
+            });
+          } else { // Error from googleapis
+            result.message = data.data.responseDetails;
+            result.feed = []; // Avoid crash if error
+          }
+          return result;
+        })
+        .catch(function(response) {
+          return {
+            message: 'Unable to connect to google api Service, check network. If this persists please report the issue to practical startpage.',
+            feed: [],
+          };
         });
-
-
     }
   }
 })(angular);

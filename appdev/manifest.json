@@ -14,7 +14,8 @@
     "history",
     "sessions",
     "storage",
-    "http://ajax.googleapis.com/ajax/services/feed/load*"
+    "http://ajax.googleapis.com/ajax/services/feed/load*",
+    "http://ajax.google1234pis.com/ajax/services/feed/load*"
   ],
   "icons": {
     "16": "img/icon16.png",

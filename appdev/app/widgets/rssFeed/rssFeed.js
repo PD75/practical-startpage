@@ -5,16 +5,17 @@
     .controller("rssFeedCtrl", rssFeedCtrl)
     .directive('psRssFeed', RssFeedDirective);
 
-  function rssFeedCtrl($http, rssFeedService, layoutService) {
+  function rssFeedCtrl($http, rssFeedService, layoutService, dataService) {
     var vm = this;
     activate();
 
     function activate() {
-      getFeed();
-      layoutService.setOnTabClick('rssFeed', getFeed);
+      getFeeds();
+      dataService.setOnChangeData('rssFeed', getFeeds);
+      layoutService.setOnTabClick('rssFeed', getFeeds);
     }
 
-    function getFeed() {
+    function getFeeds() {
       rssFeedService.getFeeds()
         .then(function(data) {
           vm.rss = data;
