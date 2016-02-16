@@ -11,33 +11,56 @@
     vm.addFeed = addFeed;
     vm.saveFeeds = saveFeeds;
     vm.checkFeed = checkFeed;
+    vm.typeUrl = typeUrl;
+    vm.closeForm = closeForm;
     activate();
+    vm.modalInstance.modal('refresh');
+    vm.modalEvents = {
+      "onShow": activate(),
+    };
 
     function activate() {
       vm.feed = {};
       vm.addButtonDisabled = true;
-      vm.feeds = [];
-      vm.feeds = dataService.data.rssFeed;
+      vm.feeds = angular.copy(dataService.data.rssFeed);
       vm.saveButtonDisabled = true;
+      vm.feedSample = [];
+      vm.errorShow = false;
     }
 
     function checkFeedUrl(disabled) {
       if (!disabled) {
-        vm.feedSample = [];
         rssFeedService.getFeed(vm.feed.url, 3)
           .then(function(data) {
-            vm.feedSample = data.feed.entries;
-            vm.addButtonDisabled = false;
-            var ico;
-            if (angular.isDefined(data.feed.link)) {
-              ico = data.feed.link.split('/');
-              vm.feed.icon = ico[0] + '//' + ico[2] + '/favicon.ico';
+            if (angular.isUndefined(data.message)) {
+              vm.feedSample = data.feed.entries;
+              vm.addButtonDisabled = false;
+              var ico;
+              if (angular.isDefined(data.feed.link)) {
+                ico = data.feed.link.split('/');
+                vm.feed.icon = ico[0] + '//' + ico[2] + '/favicon.ico';
+              } else {
+                ico = data.feed.feedUrl.split('/');
+                vm.feed.icon = ico[0] + '//' + ico[2] + '/favicon.ico';
+              }
             } else {
-              ico = data.feed.feedUrl.split('/');
-              vm.feed.icon = ico[0] + '//' + ico[2] + '/favicon.ico';
+              vm.errorMsg = data.message;
+              vm.errorShow = true;
+              vm.addButtonDisabled = false;
+            }
+            if (angular.isDefined(vm.feeds.filter(function(feed) {
+                return feed.url === vm.feed.url;
+              }))) {
+              vm.addButtonDisabled = true;
             }
           });
       }
+    }
+
+    function typeUrl() {
+      vm.errorShow = false;
+      vm.feedSample = [];
+      vm.addButtonDisabled = true;
     }
 
     function checkFeed(feed) {
@@ -47,7 +70,6 @@
 
     function addFeed() {
       if (!vm.addButtonDisabled) {
-
         vm.feeds.push(vm.feed);
         vm.feed = {};
         vm.addButtonDisabled = true;
@@ -66,8 +88,7 @@
     }
 
     function closeForm() {
-      var x = 1;
-
+      vm.modalInstance.modal('hide');
     }
   }
 

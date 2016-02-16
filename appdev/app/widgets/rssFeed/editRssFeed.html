@@ -17,7 +17,7 @@
               <div class="ui label">
                 Url
               </div>
-              <input type="url" placeholder="mysite.com" name="url" ng-model="vm.feed.url" required>
+              <input type="url" placeholder="mysite.com" name="url" ng-model="vm.feed.url" ng-keyup="vm.typeUrl()" required>
               <button class="ui button" ng-class="{disabled : !feedForm.url.$valid}" ng-click="vm.checkFeedUrl(!feedForm.url.$valid)">
                 Check
               </button>
@@ -36,7 +36,7 @@
               <i class="save icon"></i>
               Save
             </button>
-            <button class="ui button">
+            <button class="ui button" ng-click="vm.closeForm()">
               <i class="remove icon"></i>
               Close
             </button>
@@ -74,6 +74,14 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="ui negative message" ng-show="vm.errorShow">
+          <div class="header">
+            Error Loading Feed:
+          </div>
+          <p>
+            {{vm.errorMsg}}
+          </p>
         </div>
       </div>
     </div>
