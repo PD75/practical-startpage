@@ -5,6 +5,9 @@
   "version": "2.2.0",
   "description": "Flexible start page that makes your data available in a single view.",
   "homepage_url": "https://github.com/PD75/practical-startpage",
+  "optional_permissions": [
+    "http://ajax.googleapis.com/*"
+  ],
   "permissions": [
     "topSites",
     "chrome://favicon/",
@@ -13,8 +16,7 @@
     "management",
     "history",
     "sessions",
-    "storage",
-    "http://ajax.googleapis.com/ajax/services/feed/load*"
+    "storage"
   ],
   "icons": {
     "16": "img/icon16.png",

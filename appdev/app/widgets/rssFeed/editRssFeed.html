@@ -1,3 +1,11 @@
+<div class="ui negative message" ng-if="!vm.permission" ng-click="vm.authorizePermissions()">
+  <div class="header">
+    Permission to access <i>http://ajax.googleapis.com/</i> required!!!
+  </div>
+  <p>
+    RSS uses google apis to get a consistent data structure from the various feeds and will not function without. Click here to proceed and authorize the widget.
+  </p>
+</div>
 <div class="ui two column grid">
   <div class="stretched row">
     <div class="column">
@@ -79,7 +87,7 @@
             </a>
           </div>
         </div>
-        <div class="ui negative message" ng-show="vm.errorShow">
+        <div class="ui negative message" ng-if="vm.errorShow">
           <div class="header">
             Error Loading Feed:
           </div>

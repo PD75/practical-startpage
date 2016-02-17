@@ -5,7 +5,7 @@
     .controller('EditRssFeedCtrl', EditRssFeedCtrl)
     .directive('psEditRssFeed', EditRssFeedDirective);
 
-  function EditRssFeedCtrl(rssFeedService, dataService) {
+  function EditRssFeedCtrl(rssFeedService, dataService, permissionService) {
     var vm = this;
     vm.checkFeedUrl = checkFeedUrl;
     vm.addFeed = addFeed;
@@ -13,19 +13,39 @@
     vm.checkFeed = checkFeed;
     vm.typeUrl = typeUrl;
     vm.closeForm = closeForm;
+    vm.authorizePermissions = authorizePermissions;
+
+
     activate();
-    vm.modalInstance.modal('refresh');
-    vm.modalEvents = {
-      "onShow": activate(),
-    };
 
     function activate() {
+      vm.modalInstance.modal('refresh');
+      vm.modalEvents = {
+        "onShow": initiate(),
+      };
+      initiate();
+    }
+
+    function initiate() {
       vm.feed = {};
       vm.addButtonDisabled = true;
       vm.feeds = angular.copy(dataService.data.rssFeed);
       vm.saveButtonDisabled = true;
       vm.feedSample = [];
       vm.errorShow = false;
+      permissionService
+        .checkPermissions(['http://ajax.googleapis.com/'])
+        .then(function(result) {
+          vm.permission = result;
+        });
+    }
+
+    function authorizePermissions() {
+      permissionService
+        .requestPermissions(['http://ajax.googleapis.com/'])
+        .then(function(result) {
+          vm.permission = result;
+        });
     }
 
     function checkFeedUrl(disabled) {
@@ -105,9 +125,6 @@
         modalEvents: '=psEvents',
       },
       bindToController: true,
-      link: function(s, e, a, c) {
-        var x = 1;
-      },
     };
   }
 })(angular);
