@@ -38,7 +38,7 @@
     }
 
     function getFeed(url, num) {
-      var queryUrl = 'http://ajax.google1234pis.com/ajax/services/feed/load?v=1.0';
+      var queryUrl = 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0';
       queryUrl += '&num=' + num;
       queryUrl += '&q=' + encodeURIComponent(url);
       return $http.get(queryUrl)

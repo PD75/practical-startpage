@@ -48,9 +48,10 @@
               vm.errorShow = true;
               vm.addButtonDisabled = false;
             }
-            if (angular.isDefined(vm.feeds.filter(function(feed) {
-                return feed.url === vm.feed.url;
-              }))) {
+            var duplicate = vm.feeds.filter(function(feed) {
+              return feed.url === vm.feed.url;
+            });
+            if (angular.isDefined(duplicate) && duplicate.length > 0) {
               vm.addButtonDisabled = true;
             }
           });
