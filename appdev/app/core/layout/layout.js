@@ -173,8 +173,6 @@
     function checkVersion() {
       var manifest = dataService.getManifest();
       if (angular.isUndefined(dataService.data.version) || dataService.data.version !== manifest.version) {
-        vm.layout = dataService.getDefaultData('layout').layout;
-        dataService.clearData('layout');
         $timeout(function() {
           vm.modalUrl = 'app/core/whatsNew.html';
           vm.modalData = {};
