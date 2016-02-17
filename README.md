@@ -32,10 +32,10 @@ appdev/       - development Folder
 dist/         - distribution that need adaptation
 ```
 
-E.g. a mail checker would have the base logic and rendering code in _ widgets/ _ while the interfaces to outlook, Gmail and yahoo api would be under _ services/ _
+E.g. a mail checker would have the base logic and rendering code in _widgets/_ while the interfaces to outlook, Gmail and yahoo api would be under _services/_
 
 ### Configuration data
-For the startpage to notice the widget it needs to be registered in _ widgetConstants.js _
+For the startpage to notice the widget it needs to be registered in _widgetConstants.js_
 
 ```javascript
 [label of widget]: {
@@ -84,9 +84,9 @@ callback    //the callback function
 ### Clone
 - branch code and clone locally
 - load the development folder to continuously monitor
-  - in chrome to to Extensions ( _ More toole -> Extensions _ )
-  - tick _ [x] Developer mode_
-  - _ Load unpacked extensions _ and select _ appdev/ _
+  - in chrome to to Extensions ( _More toole -> Extensions_ )
+  - tick _Developer mode_
+  - _Load unpacked extensions_ and select _appdev/_
 
 ### Build
 Install all dependencies
@@ -95,7 +95,7 @@ Install all dependencies
 > npm install
 ```
 
-Build code to _ build/ _
+Build code to _build/_
 
 ```
 > gulp build
