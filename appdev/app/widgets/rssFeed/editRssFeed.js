@@ -67,7 +67,8 @@
             } else {
               vm.errorMsg = data.message;
               vm.errorShow = true;
-              vm.addButtonDisabled = false;
+              vm.addButtonDisabled = true;
+              vm.feedSample = [];
             }
             var duplicate = vm.feeds.filter(function(feed) {
               return feed.url === vm.feed.url;
