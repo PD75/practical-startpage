@@ -9,6 +9,7 @@
     var vm = this;
     vm.checkFeedUrl = checkFeedUrl;
     vm.addFeed = addFeed;
+    vm.removeFeed = removeFeed;
     vm.saveFeeds = saveFeeds;
     vm.checkFeed = checkFeed;
     vm.typeUrl = typeUrl;
@@ -96,6 +97,11 @@
         vm.addButtonDisabled = true;
         vm.saveButtonDisabled = false;
       }
+    }
+
+    function removeFeed(index) {
+      vm.feeds.splice(index, 1);
+      vm.saveButtonDisabled = false;
     }
 
     function saveFeeds() {

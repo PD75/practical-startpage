@@ -52,7 +52,7 @@
           <div class="column">
             <div class="ui selection middle divided aligned list" style="innerHeight:100px">
               <div class="item" ng-repeat="item in vm.feeds" ng-click="vm.checkFeed(item)">
-                <div class="right floated content" ng-click="vm.feeds.splice($index, 1)">
+                <div class="right floated content" ng-click="vm.removeFeed($index)">
                   <i class="remove icon"></i>
                 </div>
                 <img class="ui image" ng-src="{{item.icon}}" height="16"/>

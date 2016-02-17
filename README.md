@@ -80,6 +80,35 @@ tabLabel    //the label of the tab = label of widget on that tab (string)
 callback    //the callback function
 ```
 
+### Permissions
+New widgets will need additional permissions, however to avoid bloating the default permissions, optional permissions will be used for new widgets.
+```json
+"optional_permissions": [
+  "http://ajax.googleapis.com/*"
+],
+"permissions": [
+  "topSites",
+  "chrome://favicon/",
+  "tabs",
+  "bookmarks",
+  "management",
+  "history",
+  "sessions",
+  "storage"
+],
+```
+In this example ```"optional_permissions": ["http://ajax.googleapis.com/*"]``` are the permission for the RSS feed widget. To check and approve permissions there are two new services.
+
+```javascript
+//check if the permission is authorized, returns boolean
+permissionService.checkPermissions(permissionsList)
+
+//request additional permissions returns boolean
+permissionService.requestPermissions(permissionsList)
+
+permissionsList    //list of oermissions needed
+```
+
 ## Set-up development
 ### Clone
 - branch code and clone locally
