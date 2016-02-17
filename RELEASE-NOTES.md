@@ -1,11 +1,25 @@
 # Revision Log
+
+## v2.2.0 - RSS Feed
+### Enhancements
+- RSS Reader Widget
+- Optional Permission Management Module created to avoid having to approve all new permissions at each release
+- Some minor fixes to improve modularity
+
+## v2.1.0 - Customizable layout
+### Enhancements
+- The widgets can be added or removed from the tabs as needed, from options menu
+- All Data used by Practical Startpage can be cleared if ther are issues
+- Option module working directly in chrome without plugin, to allow recovery if data is currupted
+- Lots of small fixes to the core to make this run as it should, improving modularity
+
 ## v 2.0.0 - Modular back end with AngularJS
 ### Enhancements
 - Rewritten entire application in angularJS, making the application modular and adaptable. Once the stability is confirmed of this application the configuration modules wil be added.
 - Middle mouse button now opens url in new tab from Bookmark Tree
 - Closed tab refreshes directly when the web pages are closed.
 
-## v 1.1.2 - small fixes
+## v 1.1.2 - Small fixes
 ### Enhancements
 - Pop-ups with key combination in Bookmark editor buttons
 - Folder open timing decreased for drag and drop in bookmark editor
