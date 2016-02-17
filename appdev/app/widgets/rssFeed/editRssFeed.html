@@ -62,17 +62,21 @@
     <div class="column">
       <div class="ui segment">
         <div class="ui comments">
-          <div class="comment" ng-repeat="entry in vm.feedSample">
-            <div class="content">
-              <img ng-src="{{entry.icon}}" height="16"/>
-              <a class="author" ng-href="{{entry.link}}">{{entry.title}}</a>
-              <div class="metadata">
-                <span class="date">{{entry.timeStamp}}</span>
+          <div class="ui middle aligned divided list">
+            <a class="item" ng-repeat="entry in vm.feedSample" ng-href="{{entry.link}}">
+              <div class="content">
+                <div class="header">
+                  <img ng-src="{{entry.icon}}" height="16"/>
+                  {{entry.title}}
+                </div>
+                <div class="description">
+                  {{entry.contentSnippet}}
+                </div>
+                <div class="meta">
+                  <span class="date">{{entry.timeStamp.toLocaleString()}}</span>
+                </div>
               </div>
-              <div class="text">
-                {{entry.contentSnippet}}
-              </div>
-            </div>
+            </a>
           </div>
         </div>
         <div class="ui negative message" ng-show="vm.errorShow">
