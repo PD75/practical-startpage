@@ -1,0 +1,20 @@
+<ps-segment-layout ng-class="[vm.style.primaryCol]">
+
+  <div class="ui middle aligned divided list">
+    <a class="item" ng-repeat="entry in vm.rss" ng-href="{{entry.link}}">
+      <div class="content">
+        <div class="header">
+          <img ng-src="{{entry.icon}}" height="16"/>
+          {{entry.title}}
+        </div>
+        <div class="description">
+          {{entry.contentSnippet}}
+        </div>
+        <div class="meta">
+          <span class="date">{{entry.timeStamp.toLocaleString()}}</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+</ps-segment-layout>

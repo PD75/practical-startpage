@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html ng-app="ps">
 
   <head>
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="dist/semantic-ui/semantic.min.css"/>
     <!-- build:css -->
     <link rel="stylesheet" href="app/widgets/bookmarkTree/bookmarkTree.css"/>
+    <link rel="stylesheet" href="app/widgets/rssFeed/rssFeed.css"/>
     <link rel="stylesheet" href="app/core/layout/layout.css"/>
     <link rel="stylesheet" href="app/core/options/editLayout.css"/>
     <!-- endbuild -->
@@ -34,6 +36,7 @@
     <script src="app/services/chrome/chrome.UrlsServices.js"></script>
     <script src="app/services/chrome/chrome.StorageServices.js"></script>
     <script src="app/services/chrome/chrome.BookmarkService.js"></script>
+    <script src="app/services/chrome/chrome.permission.service.js"></script>
 
     <script src="app/services/semantic-ui/semantic-ui.js"></script>
     <script src="app/services/semantic-ui/popup.js"></script>
@@ -56,9 +59,10 @@
     <script src="app/core/options/editLayout.js"></script>
     <script src="app/core/options/clearData.js"></script>
 
-    <script src="app/widgets/app.widgets.module.js"></script>
-    <script src="app/widgets/widget.js"></script>
-    <script src="app/widgets/widgetConstants.js"></script>
+    <script src="app/widgets/widgets/app.widgets.module.js"></script>
+    <script src="app/widgets/widgets/widget.js"></script>
+    <script src="app/widgets/widgets/editWidget.js"></script>
+    <script src="app/widgets/widgets/widgetConstants.js"></script>
 
     <script src="app/widgets/browser/browserApps.js"></script>
     <script src="app/widgets/browser/browserHistory.js"></script>
@@ -68,13 +72,14 @@
 
     <script src="app/widgets/bookmarkTree/bookmarkTreeServices.js"></script>
     <script src="app/widgets/bookmarkTree/bookmarkTree.js"></script>
-
     <script src="app/widgets/bookmarkTree/commonBookmarkService.js"></script>
-
     <script src="app/widgets/bookmarkTree/editBookmarks.js"></script>
     <script src="app/widgets/bookmarkTree/editBookmarksService.js"></script>
     <script src="app/widgets/bookmarkTree/editBookmarkUrl.js"></script>
 
+    <script src="app/widgets/rssFeed/rssFeed.js"></script>
+    <script src="app/widgets/rssFeed/rssFeedService.js"></script>
+    <script src="app/widgets/rssFeed/editRssFeed.js"></script>
     <!-- endbuild -->
   </body>
 

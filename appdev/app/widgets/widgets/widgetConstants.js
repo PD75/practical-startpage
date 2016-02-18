@@ -8,8 +8,8 @@ angular.module('ps.widgets.constants', [])
         directive: "browser-bookmark-tree",
         help: "A Treeview of all the bookmarks, with full text search.<br /><b>Note:</b> You select the Quicklinks from here by right clicking the folder you want to get your quicklinks from.<br /> Click edit button to get bookmark editor.",
         edit: {
-          type: "modal",
-          url: "app/widgets/bookmarkTree/editBookmarkTree.html",
+          type: "url",
+          url: "app/widgets/bookmarkTree/editBookmarks.html",
         },
       },
       quicklinks: {
@@ -38,9 +38,19 @@ angular.module('ps.widgets.constants', [])
       },
       chromeApps: {
         title: "Apps",
-        icon: "grid layout",
+        icon: "grid layout ",
         directive: "browser-apps",
         help: "A list of chrome apps presently installed in the browser.<br /> <b>Note:</b> only apps with a page are listed.",
+      },
+      rssFeed: {
+        title: "RSS",
+        icon: "rss",
+        directive: "rss-feed",
+        help: "You have what ever feeds you want here, e.g. news feeds",
+        edit: {
+          type: "directive",
+          directive: "edit-rss-feed",
+        },
       },
     };
   });

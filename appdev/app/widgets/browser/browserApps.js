@@ -25,7 +25,7 @@
   function BrowserAppsDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/widgets/widgetUrlList.html',
+      templateUrl: 'app/widgets/widgets/widgetUrlList.html',
       controller: 'BrowserAppCtrl',
       controllerAs: 'vm',
       scope: {

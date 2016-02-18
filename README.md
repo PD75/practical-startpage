@@ -32,10 +32,10 @@ appdev/       - development Folder
 dist/         - distribution that need adaptation
 ```
 
-E.g. a mail checker would have the base logic and rendering code in _ widgets/ _ while the interfaces to outlook, Gmail and yahoo api would be under _ services/ _
+E.g. a mail checker would have the base logic and rendering code in _widgets/_ while the interfaces to outlook, Gmail and yahoo api would be under _services/_
 
 ### Configuration data
-For the startpage to notice the widget it needs to be registered in _ widgetConstants.js _
+For the startpage to notice the widget it needs to be registered in _widgetConstants.js_
 
 ```javascript
 [label of widget]: {
@@ -80,13 +80,42 @@ tabLabel    //the label of the tab = label of widget on that tab (string)
 callback    //the callback function
 ```
 
+### Permissions
+New widgets will need additional permissions, however to avoid bloating the default permissions, optional permissions will be used for new widgets.
+```json
+"optional_permissions": [
+  "http://ajax.googleapis.com/*"
+],
+"permissions": [
+  "topSites",
+  "chrome://favicon/",
+  "tabs",
+  "bookmarks",
+  "management",
+  "history",
+  "sessions",
+  "storage"
+],
+```
+In this example ```"optional_permissions": ["http://ajax.googleapis.com/*"]``` are the permission for the RSS feed widget. To check and approve permissions there are two new services.
+
+```javascript
+//check if the permission is authorized, returns boolean
+permissionService.checkPermissions(permissionsList)
+
+//request additional permissions returns boolean
+permissionService.requestPermissions(permissionsList)
+
+permissionsList    //list of oermissions needed
+```
+
 ## Set-up development
 ### Clone
 - branch code and clone locally
 - load the development folder to continuously monitor
-  - in chrome to to Extensions ( _ More toole -> Extensions _ )
-  - tick _ [x] Developer mode_
-  - _ Load unpacked extensions _ and select _ appdev/ _
+  - in chrome to to Extensions ( _More toole -> Extensions_ )
+  - tick _Developer mode_
+  - _Load unpacked extensions_ and select _appdev/_
 
 ### Build
 Install all dependencies
@@ -95,7 +124,7 @@ Install all dependencies
 > npm install
 ```
 
-Build code to _ build/ _
+Build code to _build/_
 
 ```
 > gulp build

@@ -2,9 +2,12 @@
   "manifest_version": 2,
   "name": "Practical Startpage Dev",
   "short_name": "Practical Startpage",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Flexible start page that makes your data available in a single view.",
   "homepage_url": "https://github.com/PD75/practical-startpage",
+  "optional_permissions": [
+    "http://ajax.googleapis.com/*"
+  ],
   "permissions": [
     "topSites",
     "chrome://favicon/",
