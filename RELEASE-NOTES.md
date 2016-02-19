@@ -1,5 +1,9 @@
 # Revision Log
 
+## v2.2.1 - Bug fix
+### Bug fixes
+- Handel's the data when upgrading multiple version in one go.
+
 ## v2.2.0 - RSS Feed
 ### Enhancements
 - RSS Reader Widget
@@ -9,8 +13,8 @@
 ## v2.1.0 - Customizable layout
 ### Enhancements
 - The widgets can be added or removed from the tabs as needed, from options menu
-- All Data used by Practical Startpage can be cleared if ther are issues
-- Option module working directly in chrome without plugin, to allow recovery if data is currupted
+- All Data used by Practical Startpage can be cleared if there are issues
+- Option module working directly in chrome without plugin, to allow recovery if data is corrupted
 - Lots of small fixes to the core to make this run as it should, improving modularity
 
 ## v 2.0.0 - Modular back end with AngularJS
