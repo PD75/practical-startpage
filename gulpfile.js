@@ -160,7 +160,6 @@ gulp.task('watch', function() {
 });
 // Default Task
 gulp.task('default', ['build', 'watch']);
-// gulp.task('build', ['buildScripts', 'getDist', 'buildCss', 'buildCode']);
 gulp.task('build', function(cb) {
   runSequence('clean', ['buildScripts', 'getDist', 'buildCss', 'buildConfig', 'getHtml'], cb);
 });

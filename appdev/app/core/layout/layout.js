@@ -5,7 +5,7 @@
     .controller('LayoutCtrl', LayoutCtrl)
     .directive('psLayout', layoutDirective);
 
-  function LayoutCtrl($scope, $timeout, dataService, layoutService) {
+  function LayoutCtrl($scope, $timeout, dataService, layoutService, versionService) {
     var vm = this;
     vm.onClickTab = onClickTab;
     vm.activateEditor = activateEditor;
@@ -173,14 +173,13 @@
     function checkVersion() {
       var manifest = dataService.getManifest();
       if (angular.isUndefined(dataService.data.version) || dataService.data.version !== manifest.version) {
+        versionService.checkVersion(manifest.version, dataService.data.version);
         $timeout(function() {
           vm.modalUrl = 'app/core/whatsNew.html';
           vm.modalData = {};
           vm.showModal = true;
         });
-        dataService.setData({
-          'version': manifest.version,
-        });
+
       }
     }
   }
