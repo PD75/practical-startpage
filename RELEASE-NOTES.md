@@ -1,8 +1,12 @@
 # Revision Log
 
+## v2.2.2 - Bug fix
+### Bug fixes
+- Fixed problem to clear individual data entries when upgraded from pre 2.0.0
+
 ## v2.2.1 - Bug fix
 ### Bug fixes
-- Handel's the data when upgrading multiple version in one go.
+- Handle's the data when upgrading multiple version in one go.
 
 ## v2.2.0 - RSS Feed
 ### Enhancements
