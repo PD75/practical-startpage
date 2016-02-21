@@ -13,11 +13,11 @@
    height="560"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.5 r10040"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="promotional marquee.svg"
-   inkscape:export-filename="D:\Documents\Dropbox\Programming\screenshots\promotional marquee.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-filename="D:\GitHub\practical-startpage\img\chrome store\promotional marquee.png"
+   inkscape:export-xdpi="89.980003"
+   inkscape:export-ydpi="89.980003">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -28,14 +28,14 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="515.66265"
+     inkscape:cx="264.94836"
      inkscape:cy="210.81772"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1058"
-     inkscape:window-x="1912"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      showguides="true"
@@ -89,9 +89,12 @@
        xml:space="preserve"
        x="1068.4432"
        y="967.03381"
-       style="font-size:42.57149506px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#ffffff;font-family:Lato"
+       style="font-size:42.57124899px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#ffffff;font-family:Lato;-inkscape-font-specification:'Lato, Normal';font-stretch:normal;font-variant:normal;writing-mode:lr;line-height:125%;"
        id="text3005"
-       transform="scale(1.0005737,0.99942663)">Functional</text>
+       transform="scale(1.0005737,0.99942663)"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3533">Customizable</tspan></text>
     <path
        inkscape:connector-curvature="0"
        style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
