@@ -31,7 +31,6 @@
                   order: 0,
                   selected: false,
                 };
-                i++;
                 break;
               case 'activeTabs':
                 vm.data[i] = {
@@ -40,7 +39,6 @@
                   order: 1,
                   selected: false,
                 };
-                i++;
                 break;
               case 'layout':
                 vm.data[i] = {
@@ -49,7 +47,6 @@
                   order: 2,
                   selected: false,
                 };
-                i++;
                 break;
               case 'styles':
                 vm.data[i] = {
@@ -58,17 +55,20 @@
                   order: 3,
                   selected: false,
                 };
-                i++;
                 break;
               default:
                 vm.data[i] = {
                   label: key,
-                  title: vm.widgets[key].title,
                   order: 10 + i,
                   selected: false,
                 };
-                i++;
+                if (angular.isDefined(vm.widgets[key]) && angular.isDefined(vm.widgets[key].title)) {
+                  vm.data[i].title = vm.widgets[key].title;
+                } else {
+                  vm.data[i].title = key;
+                }
             }
+            i++;
           });
         });
     }
