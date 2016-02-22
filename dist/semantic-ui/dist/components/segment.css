@@ -501,10 +501,10 @@
 
 /* Red */
 .ui.red.segment:not(.inverted) {
-  border-top: 2px solid #DB2828;
+  border-top: 2px solid #bd1d15;
 }
 .ui.inverted.red.segment {
-  background-color: #DB2828 !important;
+  background-color: #bd1d15 !important;
   color: #FFFFFF !important;
 }
 
@@ -573,10 +573,10 @@
 
 /* Purple */
 .ui.purple.segment:not(.inverted) {
-  border-top: 2px solid #A333C8;
+  border-top: 2px solid #9b15bd;
 }
 .ui.inverted.purple.segment {
-  background-color: #A333C8 !important;
+  background-color: #9b15bd !important;
   color: #FFFFFF !important;
 }
 

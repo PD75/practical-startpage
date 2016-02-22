@@ -1,0 +1,65 @@
+html, body {
+  height: 100hv;
+}
+.main.grid {
+  flex-direction: column;
+  height: 100%;
+}
+.main.row {
+  display: flex;
+  flex: 2;
+  height: 100vh;
+  min-height: 0;
+  /* new; resolves Firefox bug */
+  min-width: 0;
+  /* new; resolves Firefox bug */
+}
+.menu.row {
+  display: flex;
+}
+
+/*******************/
+
+.grid.main {
+  background-color: black;
+}
+.main.row {
+  background-color: pink;
+}
+.menu.row {
+  background-color: yellow;
+}
+.column.left {
+  background-color: yellow;
+}
+.column.right {
+  background-color: black;
+}
+
+/*********************************/
+
+.topbar2 {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.section2 {
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+  height: 100vh;
+}
+
+/*************************************/
+
+.section-nav {
+  order: -1;
+  background-color: blue;
+}
+.section-nav, .section-content, .section-ads {
+  overflow-y: auto;
+  padding: 2em;
+}
+.section-ads {
+  flex: 1;
+}
