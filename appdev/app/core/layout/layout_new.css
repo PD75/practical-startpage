@@ -6,9 +6,7 @@ html, body {
   height: 100%;
 }
 .main.row {
-  /*display: flex;*/
   flex: 1;
-  /*height: 100vh;*/
   min-height: 0;
   /* new; resolves Firefox bug */
   min-width: 0;
@@ -18,26 +16,24 @@ html, body {
   display: flex !important;
   flex-direction: column;
 }
-.main.row>.column>.segment {
+.main.row>.column .segment {
   width: 100%;
   flex: 1;
-  /*margin: 0px*/
+  overflow-y: auto;
 }
-
-/*******************/
-
-/*.grid.main {
-  background-color: black;
-}*/
-/*.main.row {
-  background-color: pink;
-}*/
-/*.menu.row {
-  background-color: blue;
-}*/
-/*.column.left {
-  background-color: yellow;
-}*/
-/*.column.right {
-  background-color: black;
-}*/
+.search1 {
+  /*width: auto;*/
+  position: fixed;
+}
+.search2 {
+  /*width: auto;*/
+  position: relative;
+  left: -1.75em;
+  top: -.75em;
+}
+.search3 {
+  /*width: auto;*/
+  position: relative;
+  left: -16em;
+  top: -3.6em;
+}
