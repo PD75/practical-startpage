@@ -12,16 +12,16 @@
     <link rel="stylesheet" href="dist/jstree/themes/default/style.min.css"/>
     <link rel="stylesheet" href="dist/semantic-ui/semantic.min.css"/>
     <!-- build:css -->
-    <!-- <link rel="stylesheet" href="app/widgets/bookmarkTree/bookmarkTree.css"/> -->
-    <!-- <link rel="stylesheet" href="app/widgets/rssFeed/rssFeed.css"/> -->
-    <!-- <link rel="stylesheet" href="app/core/layout/layout.css"/> -->
+    <link rel="stylesheet" href="app/widgets/bookmarkTree/bookmarkTree.css"/>
+    <link rel="stylesheet" href="app/widgets/rssFeed/rssFeed.css"/>
+    <link rel="stylesheet" href="app/core/layout/layout.css"/>
     <link rel="stylesheet" href="app/core/layout/layout_new.css"/>
-    <!-- <link rel="stylesheet" href="app/core/options/editLayout.css"/> -->
+    <link rel="stylesheet" href="app/core/options/editLayout.css"/>
     <!-- endbuild -->
   </head>
 
   <body>
-    <ps-layout class=" ui padded main grid">
+    <ps2-layout class=" ui padded main grid">
       <div class="main row">
         <div class="four wide column left">
           <div class="ui menu inverted red" ng-class="Layout.secMenuClasses">
@@ -35,79 +35,10 @@
                 <a class="blue circular ui icon button search2">
                   <i class="search icon"></i>
                 </a>
-                <div class="ui  small input search3">
-                  <input type="text" placeholder="Search...">
-                </div>
-
               </div>
 
             </div>
             twergest dfsg sdfg dsf gsdfg sdfsg dfsg dsfg sdfg sdfg
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
-            <br/>content section
           </div>
         </div>
         <div class="eight wide column middle">
@@ -117,21 +48,6 @@
             </div>
           </div>
           <div class="ui segment">
-            <div style="float:right;">
-              <!-- <div class="search1">
-                <a class="blue circular ui icon button search2">
-                  <i class="search icon"></i>
-                </a>
-              </div> -->
-
-              <div class="ui action input" style="float:right;">
-                <input type="text" placeholder="Search...">
-                <button class="ui icon button">
-                  <i class="search icon"></i>
-                </button>
-              </div>
-
-            </div>
             test
           </div>
         </div>
@@ -146,28 +62,28 @@
           </div>
         </div>
       </div>
-      <ps-menu class="menu row">
+      <div class="menu row">
         <div class="column">
-          <div class="ui menu inverted blue" ng-class="Layout.secMenuClasses">
-            <div class="header item">
+          <ps-bottom-menu class="ui menu inverted blue" ng-class="Layout.secMenuClasses">
+            <!-- <div class="header item">
               Practical Startpage
-            </div>
+            </div> -->
+          </ps-bottom-menu>
           </div>
         </div>
-      </ps-menu>
-    </ps-layout>
+    </ps2-layout>
 
     <!--Load Distribution Scripts-->
-    <!-- <script src="dist/jquery.js"></script>
+    <script src="dist/jquery.js"></script>
     <script src="dist/jstree/jstree.js"></script>
     <script src="dist/semantic-ui/semantic.js"></script>
     <script src="dist/angular.js"></script>
     <script src="dist/ngJsTree.js"></script>
-    <script src="dist/angular-drag-and-drop-lists.js"></script> -->
+    <script src="dist/angular-drag-and-drop-lists.js"></script>
 
     <!--Load Application specific scripts-->
     <!-- build:js -->
-    <!-- <script src="app/app.module.js"></script>
+    <script src="app/app.module.js"></script>
 
     <script src="app/services/chrome/chrome.app.module.js"></script>
     <script src="app/services/chrome/chrome.UrlsServices.js"></script>
@@ -188,8 +104,6 @@
 
     <script src="app/core/layout/layout.js"></script>
     <script src="app/core/layout/layout.service.js"></script>
-    <script src="app/core/layout/segmentBottomLayout.js"></script>
-    <script src="app/core/layout/segmentLayout.js"></script>
 
     <script src="app/core/options/app.core.options.module.js"></script>
     <script src="app/core/options/options.js"></script>
@@ -216,7 +130,7 @@
 
     <script src="app/widgets/rssFeed/rssFeed.js"></script>
     <script src="app/widgets/rssFeed/rssFeedService.js"></script>
-    <script src="app/widgets/rssFeed/editRssFeed.js"></script> -->
+    <script src="app/widgets/rssFeed/editRssFeed.js"></script>
     <!-- endbuild -->
   </body>
 
