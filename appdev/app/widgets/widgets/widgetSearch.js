@@ -5,15 +5,55 @@
     .controller('WidgetSearchCtrl', WidgetSearchCtrl)
     .directive('psWidgetSearch', SearchDirective);
 
-  function WidgetSearchCtrl() {
+  function WidgetSearchCtrl($timeout, dataService) {
     var vm = this;
+    vm.searching = searching;
+    vm.resetSearch = resetSearch;
+    vm.activateSearch = activateSearch;
     vm.popupData = {
       on: 'click',
+      closable: false,
+      exclusive: true,
       position: 'top right',
-      html: '<div class="ui fluid icon input" ng-keyup="vm.searchTree()" style="width:100px">    <input placeholder="Search..." type="text" ng-model="vm.searchString">    <i class="remove link icon transition" ng-class="{hidden:vm.searchString.length===0}" ng-click="vm.resetSearch()"></i> </div>',
+      inline: true,
+      duration: 50,
+      onHidden: function() {
+        $timeout(function() {
+          vm.searchString = '';
+          searching();
+        });
+      },
+      onVisible: function() {
+        vm.inputField.focus();
+      },
     };
+    vm.searchReset = 'hidden';
+    vm.searchString = '';
+    vm.searchColor = dataService.data.styles.primaryCol;
 
+    function searching() {
+      if (vm.searchString.length === 0) {
+        vm.searchReset = 'hidden';
+      } else {
+        vm.searchReset = '';
+      }
+      if (angular.isDefined(vm.cb)) {
+        $timeout(function() {
+          vm.cb();
+        });
+      }
+    }
 
+    function activateSearch() {
+      $timeout(function() {
+        vm.inputField.focus();
+      });
+    }
+
+    function resetSearch() {
+      vm.searchString = '';
+      searching();
+    }
   }
 
   function SearchDirective() {
@@ -21,7 +61,17 @@
       restrict: 'E',
       templateUrl: 'app/widgets/widgets/widgetSearch.html',
       controller: 'WidgetSearchCtrl',
-      controllerAs: 'searchCtrl',
+      controllerAs: 'vm',
+      scope: {
+        cb: '&psSearchCb',
+        searchString: '=?psSearchString',
+      },
+      bindToController: true,
+      link: link,
     };
+
+    function link(scope, el, attr, ctrl) {
+      ctrl.inputField = el.find('input');
+    }
   }
 })(angular);
