@@ -12,66 +12,25 @@
     <link rel="stylesheet" href="dist/jstree/themes/default/style.min.css"/>
     <link rel="stylesheet" href="dist/semantic-ui/semantic.min.css"/>
     <!-- build:css -->
-    <link rel="stylesheet" href="app/widgets/bookmarkTree/bookmarkTree.css"/>
-    <link rel="stylesheet" href="app/widgets/rssFeed/rssFeed.css"/>
     <link rel="stylesheet" href="app/core/layout/layout.css"/>
     <link rel="stylesheet" href="app/core/layout/layout_new.css"/>
     <link rel="stylesheet" href="app/core/options/editLayout.css"/>
+    <link rel="stylesheet" href="app/widgets/bookmarkTree/bookmarkTree.css"/>
+    <link rel="stylesheet" href="app/widgets/rssFeed/rssFeed.css"/>
+    <link rel="stylesheet" href="app/widgets/widgets/widgetSearch.css"/>
     <!-- endbuild -->
   </head>
 
   <body>
-    <ps2-layout class=" ui padded main grid">
-      <div class="main row">
-        <div class="four wide column left">
-          <div class="ui menu inverted red" ng-class="Layout.secMenuClasses">
-            <div class="header item">
-              Practical Startpage
-            </div>
-          </div>
-          <div class="ui segment">
-            <div style="float:right;">
-              <div class="search1">
-                <a class="blue circular ui icon button search2">
-                  <i class="search icon"></i>
-                </a>
-              </div>
-
-            </div>
-            twergest dfsg sdfg dsf gsdfg sdfsg dfsg dsfg sdfg sdfg
-          </div>
-        </div>
-        <div class="eight wide column middle">
-          <div class="ui menu inverted red" ng-class="Layout.secMenuClasses">
-            <div class="header item">
-              Practical Startpage
-            </div>
-          </div>
-          <div class="ui segment">
-            test
-          </div>
-        </div>
-        <div class="four wide column right">
-          <div class="ui menu inverted red" ng-class="Layout.secMenuClasses">
-            <div class="header item">
-              Practical Startpage
-            </div>
-          </div>
-          <div class="ui segment">
-            test
-          </div>
-        </div>
+    <ps-layout class=" ui padded main grid">
+      <div class="main row" ng-include="Layout.tempvar">
       </div>
       <div class="menu row">
         <div class="column">
-          <ps-bottom-menu class="ui menu inverted blue" ng-class="Layout.secMenuClasses">
-            <!-- <div class="header item">
-              Practical Startpage
-            </div> -->
-          </ps-bottom-menu>
-          </div>
+          <ps-bottom-menu class="ui menu" ng-class="Layout.secMenuClasses"></ps-bottom-menu>
         </div>
-    </ps2-layout>
+      </div>
+    </ps-layout>
 
     <!--Load Distribution Scripts-->
     <script src="dist/jquery.js"></script>
@@ -114,6 +73,7 @@
     <script src="app/widgets/widgets/widget.js"></script>
     <script src="app/widgets/widgets/editWidget.js"></script>
     <script src="app/widgets/widgets/widgetConstants.js"></script>
+    <script src="app/widgets/widgets/widgetSearch.js"></script>
 
     <script src="app/widgets/browser/browserApps.js"></script>
     <script src="app/widgets/browser/browserHistory.js"></script>

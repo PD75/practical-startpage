@@ -1,11 +1,2 @@
-<div class="ui top attached segment" ng-class="[vm.style.primaryCol]">
-  <div class="ui fluid icon input" ng-keyup="vm.searchTree()">
-    <input placeholder="Search..." type="text" ng-model="vm.searchString">
-    <i class="remove link icon transition" ng-class="{hidden:vm.searchString.length===0}" ng-click="vm.resetSearch()"></i>
-  </div>
-</div>
-<ps-segment-bottom-layout>
-
-  <div js-tree="vm.treeConfig" ng-click="vm.clickCB($event)" ng-model="vm.treeData" ng-mousedown="vm.mouseDownCB($event)" tree="vm.treeInstance" tree-events-obj="vm.treeEvents"></div>
-
-</ps-segment-bottom-layout>
+<ps-widget-search></ps-widget-search>
+<div js-tree="vm.treeConfig" ng-click="vm.clickCB($event)" ng-model="vm.treeData" ng-mousedown="vm.mouseDownCB($event)" tree="vm.treeInstance" tree-events-obj="vm.treeEvents"></div>

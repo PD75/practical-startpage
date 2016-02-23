@@ -1,0 +1,10 @@
+div.search {
+  /*width: auto;*/
+  position: fixed;
+}
+div.search>a.button {
+  /*width: auto;*/
+  position: relative;
+  left: -1.75em;
+  top: -.75em;
+}

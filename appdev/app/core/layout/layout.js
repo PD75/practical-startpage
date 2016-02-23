@@ -13,7 +13,7 @@
     vm.columns = [];
     vm.popup = {};
     vm.showModal = false;
-    vm.bottomMenu = [];
+    vm.tempvar= 'app/core/layout/layout.html';
 
     activate();
 
@@ -128,7 +128,6 @@
     function getLayout() {
       vm.layout = dataService.data.layout;
       vm.widgets = dataService.data.widgets;
-      vm.bottomMenu = dataService.data.bottomMenu;
       var c, t;
       if (angular.isDefined(dataService.data.activeTabs)) {
         vm.activeTabs = dataService.data.activeTabs;
@@ -187,7 +186,7 @@
   function layoutDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/core/layout/layout.html',
+      // templateUrl: 'app/core/layout/layout.html',
       controller: 'LayoutCtrl',
       controllerAs: 'Layout',
     };
