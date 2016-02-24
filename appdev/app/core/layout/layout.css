@@ -1,20 +1,49 @@
 /*Variables*/
 
 
-/*Semantic-UI*/
+/*Core*/
 
-.segment {
+html, body {
+  height: 100%;
+}
+.main.grid {
+  flex-direction: column;
+  height: 100%;
+}
+.main.row {
+  flex: 1;
+  min-height: 0;
+  /* new; resolves Firefox bug */
+  min-width: 0;
+  /* new; resolves Firefox bug */
+}
+.main.row>.column {
+  display: flex !important;
+  flex-direction: column;
+}
+.main.row>.column .segment {
+  width: 100%;
+  flex: 1;
   overflow: auto;
   margin-bottom: 0 !important;
 }
+
+/*Semantic-UI*/
+/*Modal*/
 .ui.modal > .close {
   top: .905rem;
   right: 1rem;
   color: rgba(0, 0, 0, 0.8);
 }
-#optionsMenu .item i.icon {
-  margin: 0;
+.ui.modal .segment {
+  max-height: calc(100vh - 15em);
+  overflow-y: auto;
 }
+.ui.modal .bottom.attached.segment {
+  max-height: calc(100vh - 18em);
+}
+/*Used in About*/
+
 img.ui.logo.image {
   height: 40px;
   width: auto;
@@ -72,7 +101,7 @@ div.browser {
   }
 }
 @media (max-width: 1300px) {
-  .right.column, .cover {
+  .main.row>.right.column, .cover {
     display: none !important;
   }
 }

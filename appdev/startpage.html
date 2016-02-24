@@ -5,20 +5,31 @@
     <!-- build:html -->
     <title>Practical Startpage Dev</title>
     <!-- endbuild -->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <link rel="icon" type="image/png" href="img/icon16.png">
-    <link rel="stylesheet" href="dist/jstree/themes/default/style.min.css"/>
     <link rel="stylesheet" href="dist/semantic-ui/semantic.min.css"/>
+    <link rel="stylesheet" href="dist/jstree/themes/default/style.min.css"/>
     <!-- build:css -->
-    <link rel="stylesheet" href="app/widgets/bookmarkTree/bookmarkTree.css"/>
-    <link rel="stylesheet" href="app/widgets/rssFeed/rssFeed.css"/>
     <link rel="stylesheet" href="app/core/layout/layout.css"/>
     <link rel="stylesheet" href="app/core/options/editLayout.css"/>
+    <link rel="stylesheet" href="app/widgets/bookmarkTree/bookmarkTree.css"/>
+    <link rel="stylesheet" href="app/widgets/rssFeed/rssFeed.css"/>
+    <link rel="stylesheet" href="app/widgets/widgets/widgetSearch.css"/>
     <!-- endbuild -->
   </head>
 
   <body>
-
-    <ps-layout class="ui padded grid"></ps-layout>
+    <ps-layout class=" ui padded main grid">
+      <div class="main row" ng-include="Layout.tempvar">
+      </div>
+      <div class="menu row">
+        <div class="column">
+          <ps-bottom-menu class="ui menu" ng-class="Layout.secMenuClasses"></ps-bottom-menu>
+        </div>
+      </div>
+    </ps-layout>
 
     <!--Load Distribution Scripts-->
     <script src="dist/jquery.js"></script>
@@ -51,9 +62,6 @@
 
     <script src="app/core/layout/layout.js"></script>
     <script src="app/core/layout/layout.service.js"></script>
-    <script src="app/core/layout/segmentBottomLayout.js"></script>
-    <script src="app/core/layout/segmentLayout.js"></script>
-
 
     <script src="app/core/options/app.core.options.module.js"></script>
     <script src="app/core/options/options.js"></script>
@@ -64,6 +72,7 @@
     <script src="app/widgets/widgets/widget.js"></script>
     <script src="app/widgets/widgets/editWidget.js"></script>
     <script src="app/widgets/widgets/widgetConstants.js"></script>
+    <script src="app/widgets/widgets/widgetSearch.js"></script>
 
     <script src="app/widgets/browser/browserApps.js"></script>
     <script src="app/widgets/browser/browserHistory.js"></script>

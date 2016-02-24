@@ -51,7 +51,7 @@ angular.module('ps.core.data', ['ps.widgets.constants', 'chrome'])
       angular.forEach(newData, function(value, key) {
         s.data[key] = value;
       });
-      storageService.setLocalData(newData);
+      return storageService.setLocalData(newData);
     }
 
     function getManifest() {

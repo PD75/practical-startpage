@@ -77,7 +77,10 @@
     function keypressCB(e) {
       if (e.which === 13) {
         return false;
+      } else {
+        return true;
       }
+
     }
   }
 

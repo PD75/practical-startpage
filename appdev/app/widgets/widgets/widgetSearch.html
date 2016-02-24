@@ -1,0 +1,13 @@
+<div style="float:right;">
+  <div class="search">
+    <a class="circular ui icon button" ui-popup="vm.popupData" ng-class="vm.searchColor">
+      <i class="search icon"></i>
+    </a>
+    <div class="ui popup">
+      <div class="ui fluid icon input" ng-keyup="vm.searching()">
+        <input placeholder="Search..." type="text" ng-model="vm.searchString"/>
+        <i class="remove link icon transition" ng-class="vm.searchReset" ng-click="vm.resetSearch()"></i>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 {
   "name": "PracticalStartpage",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "Flexible start page that makes your data available in a single view.",
   "main": "startpage.js",
   "scripts": {
@@ -18,16 +18,16 @@
   },
   "devDependencies": {
     "del": "*",
-    "eslint": "^1.10.3",
+    "eslint": "*",
     "eslint-config-angular": "*",
     "eslint-plugin-angular": "*",
     "eslint-plugin-html": "*",
-    "eslint-plugin-markdown": "^1.0.0-beta.1",
+    "eslint-plugin-markdown": "*",
     "gulp": "*",
     "gulp-angular-filesort": "*",
     "gulp-concat": "*",
     "gulp-cssnano": "*",
-    "gulp-eslint": "^1.1.1",
+    "gulp-eslint": "*",
     "gulp-html-replace": "*",
     "gulp-htmlmin": "*",
     "gulp-json-editor": "*",

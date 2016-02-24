@@ -4,15 +4,19 @@
       <div class="ui list">
         <div class="item">
           <div class="ui master checkbox">
-            <input type="checkbox" ng-model="vm.allSelected" ng-click="vm.allselectedCB()">
-            <label>Select All</label>
+            <label>
+              <input type="checkbox" ng-model="vm.allSelected" ng-click="vm.allselectedCB()">
+              Select All
+            </label>
           </div>
           <div class="list">
 
             <div class="item" ng-repeat="object in vm.data  | orderBy: 'order'">
               <div class="ui child checkbox">
-                <input type="checkbox" ng-model="object.selected" ng-click="vm.checkboxCB()">
-                <label>{{object.title}}</label>
+                <label>
+                  <input type="checkbox" ng-model="object.selected" ng-click="vm.checkboxCB()">
+                  {{object.title}}
+                </label>
               </div>
             </div>
 

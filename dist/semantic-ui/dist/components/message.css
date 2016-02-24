@@ -354,10 +354,10 @@
 }
 .ui.red.message {
   background-color: #FFE8E6;
-  color: #DB2828;
+  color: #bd1d15;
 }
 .ui.red.message .header {
-  color: #c82121;
+  color: #a61912;
 }
 .ui.orange.message {
   background-color: #FFEDDE;
@@ -410,10 +410,10 @@
 }
 .ui.purple.message {
   background-color: #F6E7FF;
-  color: #A333C8;
+  color: #9b15bd;
 }
 .ui.purple.message .header {
-  color: #922eb4;
+  color: #8812a6;
 }
 .ui.pink.message {
   background-color: #FFE3FB;
