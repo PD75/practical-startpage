@@ -3,30 +3,33 @@
   angular.module('ps.core')
     .factory('versionService', versionService);
 
-  function versionService(dataService) {
+  function versionService($q,dataService) {
     return {
       checkVersion: checkVersion,
     };
 
     function checkVersion(newVersion, oldVersion) {
-      return dataService.setData({
+      var promises = [];
+      var p = 1;
+      promises[0] = dataService.setData({
         'version': newVersion,
-      }).then(function() {
-        //from v1.x.x
-        if (angular.isUndefined(oldVersion) || oldVersion.charAt(0) < '2') {
-          if (angular.isDefined(dataService.data.bookmarkid)) {
-            var data = {};
-            data.quicklinks = [dataService.data.bookmarkid];
-            dataService.setData(data);
-          }
-          oldVersion = '2.0.0';
-        }
-        //from v2.0.0
-        if (oldVersion === '2.0.0') {
-          dataService.clearData('layout');
-        }
-        return;
       });
+      //from v1.x.x
+      if (angular.isUndefined(oldVersion) || oldVersion.charAt(0) < '2') {
+        if (angular.isDefined(dataService.data.bookmarkid)) {
+          var data = {};
+          data.quicklinks = [dataService.data.bookmarkid];
+          promises[p] = dataService.setData(data);
+          p++;
+        }
+        oldVersion = '2.0.0';
+      }
+      //from v2.0.0
+      if (oldVersion === '2.0.0') {
+        promises[p] = dataService.clearData('layout');
+        p++;
+      }
+      return $q.all(promises);
     }
   }
 
