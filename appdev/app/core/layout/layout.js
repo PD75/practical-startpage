@@ -13,7 +13,7 @@
     vm.columns = [];
     vm.popup = {};
     vm.showModal = false;
-    vm.tempvar= 'app/core/layout/layout.html';
+    vm.tempvar = 'app/core/layout/layout.html';
 
     activate();
 
@@ -171,14 +171,14 @@
 
     function checkVersion() {
       var manifest = dataService.getManifest();
-      if (angular.isUndefined(dataService.data.version) || dataService.data.version !== manifest.version) {
-        versionService.checkVersion(manifest.version, dataService.data.version);
-        $timeout(function() {
-          vm.modalUrl = 'app/core/whatsNew.html';
-          vm.modalData = {};
-          vm.showModal = true;
+      if (dataService.data.version !== manifest.version) {
+        versionService.checkVersion(manifest.version, dataService.data.version).then(function() {
+          $timeout(function() {
+            vm.modalUrl = 'app/core/whatsNew.html';
+            vm.modalData = {};
+            vm.showModal = true;
+          });
         });
-
       }
     }
   }

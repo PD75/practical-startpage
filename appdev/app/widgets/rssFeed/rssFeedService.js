@@ -63,7 +63,7 @@
           }
           return result;
         })
-        .catch(function(response) {
+        .catch(function() {
           return {
             message: 'Unable to connect to google api Service, check network. If this persists please report the issue to practical startpage.',
             feed: [],
