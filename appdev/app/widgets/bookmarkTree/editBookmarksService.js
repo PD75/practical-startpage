@@ -178,6 +178,8 @@ angular.module('ps.widgets')
             .then(function() {
               return log;
             });
+        default:
+          return log;
       }
     }
   });
