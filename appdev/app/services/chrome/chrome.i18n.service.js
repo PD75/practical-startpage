@@ -11,7 +11,6 @@
     };
 
     function get(text) {
-      var x = chrome.i18n.getMessage("w_bk");
       return chrome.i18n.getMessage(text);
 
     }

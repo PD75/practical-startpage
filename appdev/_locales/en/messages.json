@@ -40,47 +40,47 @@
     "message": "0Right"
   },
   "widgets": {
-    "message": "widgets",
+    "message": "0widgets",
     "description": "Below Follow all widget specific transalation. Prefix w_xx where xx is a unique abbreviation of that widget"
   },
   "w_bookmarkTree": {
-    "message": "Bookmarks"
+    "message": "0Bookmarks"
   },
   "w_bookmarkTree_help": {
     "message": "A Treeview of all the bookmarks, with full text search.<br /><b>Note:</b> You select the Quicklinks from here by right clicking the folder you want to get your quicklinks from.<br /> Click edit button to get bookmark editor."
   },
   "w_chromeApps": {
-    "message": "Apps"
+    "message": "0Apps"
   },
   "w_chromeApps_help": {
     "message": "A list of chrome apps presently installed in the browser.<br /> <b>Note:</b> only apps with a page are listed."
   },
   "w_closedTabs": {
-    "message": "Closed"
+    "message": "0Closed"
   },
   "w_closedTabs_help": {
     "message": "Recently closed tabs.<br /><b>Note</b>: Is cleared by chrome each time browser is closed."
   },
   "w_history": {
-    "message": "History"
+    "message": "0History"
   },
   "w_history_help": {
     "message": "Last 200 visited sites."
   },
   "w_quicklinks": {
-    "message": "Quicklinks"
+    "message": "0Quicklinks"
   },
   "w_quicklinks_help": {
     "message": "A list of links chosen by the user. The links are chosen by right clicking a folder in the bookmark tree. <br /> <b>Note:</b> You can only select one folder and only the bookmarks directly in that folder are shown, not in sub folders."
   },
   "w_rssFeed": {
-    "message": "RSS"
+    "message": "0RSS"
   },
   "w_rssFeed_help": {
     "message": "You have what ever feeds you want here, e.g. news feeds"
   },
   "w_topSites": {
-    "message": "Top Sites"
+    "message": "0Top Sites"
   },
   "w_topSites_help": {
     "message": "Most visited sites."
