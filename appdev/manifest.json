@@ -3,6 +3,7 @@
   "name": "Practical Startpage Dev",
   "short_name": "Practical Startpage",
   "version": "2.3.0",
+  "default_locale": "en",
   "description": "Flexible start page that makes your data available in a single view.",
   "homepage_url": "https://github.com/PD75/practical-startpage",
   "optional_permissions": [
