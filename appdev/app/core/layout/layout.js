@@ -146,8 +146,6 @@
         for (t = 0; t < vm.layout[c].tabs.length; t++) {
           vm.columns[c].tabs[t] = vm.widgets[vm.layout[c].tabs[t]];
           vm.columns[c].tabs[t].label = vm.layout[c].tabs[t];
-          vm.columns[c].tabs[t].title = i18n.get('w_'+vm.columns[c].tabs[t].label);
-          vm.columns[c].tabs[t].help = i18n.get('w_'+vm.columns[c].tabs[t].label+'_help');
         }
         if (c === 1) {
           var tab;

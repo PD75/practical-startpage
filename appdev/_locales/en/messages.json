@@ -3,20 +3,26 @@
     "message": "0Short Phrases",
     "description": "0Below follow short generic phrases that can be reused"
   },
+  "Close": {
+    "message": "0Close"
+  },
   "Edit": {
     "message": "0Edit"
   },
   "EditUrl": {
     "message": "0Edit Url"
   },
-  "NewFolder": {
-    "message": "0New Folder"
-  },
   "Delete": {
     "message": "0Delete"
   },
-  "UndoAll": {
-    "message": "0Undo All"
+  "LoadDefault": {
+    "message": "0Load Default"
+  },
+  "NewFolder": {
+    "message": "0New Folder"
+  },
+  "Options": {
+    "message": "0Options"
   },
   "Save": {
     "message": "0Save"
@@ -24,24 +30,48 @@
   "SaveAndClose": {
     "message": "0Save and Close"
   },
-  "Close": {
-    "message": "0Close"
-  },
   "Search": {
     "message": "0Search"
   },
-  "Left": {
-    "message": "0Left"
+  "SelectAll": {
+    "message": "0Select All"
   },
-  "Middle": {
-    "message": "0Middle"
+  "UndoAll": {
+    "message": "0Undo All"
   },
-  "Right": {
-    "message": "0Right"
+  "c_o_editLayout": {
+    "message": "0Edit Layout"
   },
-  "widgets": {
-    "message": "0widgets",
-    "description": "Below Follow all widget specific transalation. Prefix w_xx where xx is a unique abbreviation of that widget"
+  "c_o_clearSettings": {
+    "message": "0Clear Settings"
+  },
+  "c_o_cleared": {
+    "message": "0Cleared!!!"
+  },
+  "c_o_version": {
+    "message": "0Version Check"
+  },
+  "c_o_layout": {
+    "message": "0Widget Layout"
+  },
+  "c_o_activeTabs": {
+    "message": "0Active Tabs"
+  },
+  "c_o_styles": {
+    "message": "0Styles, colors"
+  },
+  "c_l_left": {
+    "message": "0Left column"
+  },
+  "c_l_middle": {
+    "message": "0Middle column"
+  },
+  "c_l_right": {
+    "message": "0Right column"
+  },
+  "Widgets": {
+    "message": "0Widgets",
+    "description": "Below Follow all widget specific translation. Prefix w_xx where xx is the widget label"
   },
   "w_bookmarkTree": {
     "message": "0Bookmarks"
@@ -59,7 +89,7 @@
     "message": "0Closed"
   },
   "w_closedTabs_help": {
-    "message": "Recently closed tabs.<br /><b>Note</b>: Is cleared by chrome each time browser is closed."
+    "message": "Recently closed tabs.<br /><b>Note</b>: Is cleared by chrome each time the browser is closed."
   },
   "w_history": {
     "message": "0History"

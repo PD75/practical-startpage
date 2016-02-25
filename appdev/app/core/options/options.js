@@ -5,8 +5,9 @@
     .controller('OptionsCtrl', OptionsCtrl)
     .directive('psOptions', optionsDirective);
 
-  function OptionsCtrl($timeout, dataService) {
+  function OptionsCtrl($timeout, dataService, i18n) {
     var vm = this;
+    vm.locale = locale;
     vm.tab = 1;
 
     activate();
@@ -16,6 +17,10 @@
       $timeout(function() {
         vm.modal.modal('refresh');
       });
+    }
+
+    function locale(text) {
+      return i18n.get(text);
     }
   }
 

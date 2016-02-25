@@ -5,7 +5,7 @@
     .controller('EditLayoutCtrl', EditLayoutCtrl)
     .directive('psEditLayout', EditLayoutDirective);
 
-  function EditLayoutCtrl(dataService) {
+  function EditLayoutCtrl(dataService, i18n) {
     var vm = this;
     vm.columns = [];
     vm.checkDisabledCol = checkDisabledCol;
@@ -13,6 +13,7 @@
     vm.getData = getData;
     vm.saveData = saveData;
     vm.getDefaults = getDefaults;
+    vm.locale = locale;
     vm.styles = {
       priMenu: [
         dataService.data.styles.primaryCol, {
@@ -108,6 +109,10 @@
 
     function checkDisabledTab(col) {
       return (col.tabs.length === 1);
+    }
+
+    function locale(text) {
+      return i18n.get(text);
     }
   }
 
