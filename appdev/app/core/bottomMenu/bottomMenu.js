@@ -17,15 +17,15 @@
     }, {
       "title": "help",
       "icon": "help",
-      "url": "app/core/help.html",
+      "url": "app/core/bottomMenu/help.html",
     }, {
       "title": "about",
       "icon": "info",
-      "url": "app/core/about.html",
+      "url": "app/core/bottomMenu/about.html",
     }, {
       "title": "whats new",
       "icon": "announcement",
-      "url": "app/core/whatsNew.html",
+      "url": "app/core/bottomMenu/whatsNew.html",
     }];
 
     function activateModal(menuItem) {
@@ -40,7 +40,7 @@
       restrict: 'E',
       controller: 'BottomMenuCtrl',
       controllerAs: 'vm',
-      templateUrl: 'app/core/bottomMenu.html',
+      templateUrl: 'app/core/bottomMenu/bottomMenu.html',
     };
   }
 })();
