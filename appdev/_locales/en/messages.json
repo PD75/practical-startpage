@@ -87,6 +87,24 @@
   "c_about_text_4": {
     "message": "0On the waffle board"
   },
+  "c_help_title_0": {
+    "message": "0Configurable Data Lists"
+  },
+  "c_help_text_0": {
+    "message": "0You can configure what data goes where through the options menu."
+  },
+  "c_help_title_1": {
+    "message": "0Responsive design"
+  },
+  "c_help_text_1": {
+    "message": "0he columns and content adjusts to give best viewing experience for all screen widths."
+  },
+  "c_help_title_2": {
+    "message": "0Content"
+  },
+  "c_help_text_2": {
+    "message": "0The page consists of three columns, but for smaller screens the right column merges with the center column to allow the content to be usable."
+  },
   "c_o_editLayout": {
     "message": "0Edit Layout"
   },
