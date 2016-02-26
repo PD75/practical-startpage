@@ -19,7 +19,6 @@
       rssFeedService.getFeeds()
         .then(function(data) {
           vm.rss = data.slice(0,50); //Limit to avoid Perforamnce problems in DOM
-          // vm.rss = data;
         });
     }
   }

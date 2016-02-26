@@ -1,11 +1,7 @@
 <div class="ui negative message" ng-if="!vm.permission" ng-click="vm.authorizePermissions()" style=" cursor: pointer; ">
-  <div class="header">
-    Permission to access
-    <i>http://ajax.googleapis.com/</i>
-    required!!!
-  </div>
+  <div class="header" ng-bind-html="vm.locale('w_rssFeed_auth_title',['<i>http://ajax.googleapis.com/</i>'])"></div>
   <p>
-    RSS uses google apis to get a consistent data structure from the various feeds and will not function without. Click here to proceed and authorize the widget.
+    {{vm.locale("w_rssFeed_auth_text")}}
   </p>
 </div>
 <div class="ui two column grid">
@@ -16,23 +12,22 @@
           <div class="column">
             <div class="ui fluid labeled input">
               <div class="ui label">
-                Title
+                {{vm.locale("Title")}}
               </div>
-              <input type="text" placeholder="Title" name="title" ng-model="vm.feed.title">
+              <input type="text" placeholder="{{vm.locale('Title')}}" name="title" ng-model="vm.feed.title">
             </div>
 
           </div>
           <div class="column">
             <div class="ui fluid labeled input">
               <div class="ui label">
-                Url
+                {{vm.locale("Url")}}
               </div>
-              <input type="url" placeholder="mysite.com" name="url" ng-model="vm.feed.url" ng-keyup="vm.typeUrl()" required>
+              <input type="url" placeholder="rss.com/rss" name="url" ng-model="vm.feed.url" ng-keyup="vm.typeUrl()" required>
               <button class="ui button" ng-class="{disabled : !feedForm.url.$valid}" ng-click="vm.checkFeedUrl(!feedForm.url.$valid)">
-                Check
+                {{vm.locale("Check")}}
               </button>
             </div>
-
           </div>
 
         </form>
@@ -40,17 +35,20 @@
           <div class="column">
             <button class="ui button" ng-class="{disabled:vm.addButtonDisabled}" ng-click="vm.addFeed()">
               <i class="plus icon"></i>
-              Add Feed
+              {{vm.locale("w_rssFeed_addFeed")}}
             </button>
+
             <button class="ui aligned button" ng-class="{disabled:vm.saveButtonDisabled}" ng-click="vm.saveFeeds()">
               <i class="save icon"></i>
-              Save
+              {{vm.locale("Save")}}
             </button>
+
             <button class="ui button" ng-click="vm.closeForm()">
               <i class="remove icon"></i>
-              Close
+              {{vm.locale("Close")}}
             </button>
           </div>
+
           <div class="column">
             <div class="ui selection middle divided aligned list" style="innerHeight:100px">
               <div class="item" ng-repeat="item in vm.feeds" ng-click="vm.checkFeed(item)">
@@ -91,7 +89,7 @@
         </div>
         <div class="ui negative message" ng-if="vm.errorShow">
           <div class="header">
-            Error Loading Feed:
+            {{vm.locale("w_rssFeed_err_title")}}
           </div>
           <p>
             {{vm.errorMsg}}

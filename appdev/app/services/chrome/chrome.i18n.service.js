@@ -10,8 +10,8 @@
       get: get,
     };
 
-    function get(text) {
-      return chrome.i18n.getMessage(text);
+    function get(text, placeholders) {
+      return chrome.i18n.getMessage(text, placeholders);
 
     }
 

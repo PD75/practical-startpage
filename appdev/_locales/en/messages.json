@@ -6,6 +6,9 @@
   "About": {
     "message": "0About"
   },
+  "Check": {
+    "message": "0Check"
+  },
   "Close": {
     "message": "0Close"
   },
@@ -45,8 +48,14 @@
   "SelectAll": {
     "message": "0Select All"
   },
+  "Title": {
+    "message": "0Title"
+  },
   "UndoAll": {
     "message": "0Undo All"
+  },
+  "Url": {
+    "message": "0Url"
   },
   "WhatsNew": {
     "message": "0What's New"
@@ -174,6 +183,27 @@
   },
   "w_rssFeed_help": {
     "message": "You have what ever feeds you want here, e.g. news feeds"
+  },
+  "w_rssFeed_edit_title": {
+    "message": "0Edit RSS"
+  },
+  "w_rssFeed_addFeed": {
+    "message": "0Add Feed"
+  },
+  "w_rssFeed_auth_title": {
+    "message": "0Permission to access $url$ required!!!",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "mysite.com"
+      }
+    }
+  },
+  "w_rssFeed_auth_text": {
+    "message": "0RSS uses google apis to get a consistent data structure from the various feeds and will not function without. Click here to proceed and authorize the widget."
+  },
+  "w_rssFeed_err_title": {
+    "message": "0Error Loading Feed:"
   },
   "w_topSites": {
     "message": "0Top Sites"

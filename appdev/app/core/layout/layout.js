@@ -38,14 +38,15 @@
     }
 
     function activateEditor(colIndex) {
-      switch (vm.widgets[vm.activeTabs[colIndex]].edit.type) {
+      var label = vm.activeTabs[colIndex];
+      switch (vm.widgets[label].edit.type) {
         case 'url':
-          vm.modalUrl = vm.widgets[vm.activeTabs[colIndex]].edit.url;
+          vm.modalUrl = vm.widgets[label].edit.url;
           break;
         case 'directive':
           vm.modalUrl = 'app/widgets/widgets/editWidget.html';
-          vm.modalDirective = vm.widgets[vm.activeTabs[colIndex]].edit.directive;
-          vm.modalTitle = 'Edit ' + vm.widgets[vm.activeTabs[colIndex]].title;
+          vm.modalDirective = vm.widgets[label].edit.directive;
+          vm.modalTitle = i18n.get('w_' + vm.widgets[label].label + '_edit_title');
           break;
 
       }
