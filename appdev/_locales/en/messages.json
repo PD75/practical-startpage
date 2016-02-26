@@ -3,6 +3,9 @@
     "message": "0Short Phrases",
     "description": "0Below follow short generic phrases that can be reused"
   },
+  "About": {
+    "message": "0About"
+  },
   "Close": {
     "message": "0Close"
   },
@@ -15,8 +18,14 @@
   "Delete": {
     "message": "0Delete"
   },
+  "Help": {
+    "message": "0Help"
+  },
   "LoadDefault": {
     "message": "0Load Default"
+  },
+  "Links": {
+    "message": "0Links"
   },
   "NewFolder": {
     "message": "0New Folder"
@@ -38,6 +47,45 @@
   },
   "UndoAll": {
     "message": "0Undo All"
+  },
+  "WhatsNew": {
+    "message": "0What's New"
+  },
+  "c_ps_slogan": {
+    "message": "0Flexible start page that makes your data available in a single view."
+  },
+  "c_about_libraries": {
+    "message": "0Libraries Used"
+  },
+  "c_about_title_0": {
+    "message": "0Practical Startpage in chrome web store"
+  },
+  "c_about_text_0": {
+    "message": "0Here you can like, review and rate the extension."
+  },
+  "c_about_title_1": {
+    "message": "0Spread the Word with e-mail to a Friend"
+  },
+  "c_about_text_1": {
+    "message": "0Click here to generate a mail to a friend. If it does not work, copy the link to chrome webstore above."
+  },
+  "c_about_title_2": {
+    "message": "0Bugs, Ideas or Contribute on GitHub"
+  },
+  "c_about_text_2": {
+    "message": "0If you have any idea for a widget you would like to develop, the code is on GitHub. Here you can also submit bugs and issues."
+  },
+  "c_about_title_3": {
+    "message": "0Bugs, Ideas or Questions in Google Groups"
+  },
+  "c_about_text_3": {
+    "message": "0Use Google Groups to ask questions, and submit ideas and bugs."
+  },
+  "c_about_title_4": {
+    "message": "0Check progress of development"
+  },
+  "c_about_text_4": {
+    "message": "0On the waffle board"
   },
   "c_o_editLayout": {
     "message": "0Edit Layout"
