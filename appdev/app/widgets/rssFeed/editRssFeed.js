@@ -10,7 +10,6 @@
     vm.checkFeedUrl = checkFeedUrl;
     vm.addFeed = addFeed;
     vm.removeFeed = removeFeed;
-    vm.saveFeeds = saveFeeds;
     vm.checkFeed = checkFeed;
     vm.typeUrl = typeUrl;
     vm.closeForm = closeForm;
@@ -31,7 +30,6 @@
       vm.feed = {};
       vm.addButtonDisabled = true;
       vm.feeds = angular.copy(dataService.data.rssFeed);
-      vm.saveButtonDisabled = true;
       vm.feedSample = [];
       vm.errorShow = false;
       permissionService
@@ -56,14 +54,6 @@
             if (angular.isUndefined(data.message)) {
               vm.feedSample = data.feed.entries;
               vm.addButtonDisabled = false;
-              var ico;
-              if (angular.isDefined(data.feed.link)) {
-                ico = data.feed.link.split('/');
-                vm.feed.icon = ico[0] + '//' + ico[2] + '/favicon.ico';
-              } else {
-                ico = data.feed.feedUrl.split('/');
-                vm.feed.icon = ico[0] + '//' + ico[2] + '/favicon.ico';
-              }
             } else {
               vm.errorMsg = data.message;
               vm.errorShow = true;
@@ -94,25 +84,19 @@
     function addFeed() {
       if (!vm.addButtonDisabled) {
         vm.feeds.push(vm.feed);
+        dataService.setData({
+          rssFeed: vm.feeds,
+        });
         vm.feed = {};
         vm.addButtonDisabled = true;
-        vm.saveButtonDisabled = false;
       }
     }
 
     function removeFeed(index) {
       vm.feeds.splice(index, 1);
-      vm.saveButtonDisabled = false;
-    }
-
-    function saveFeeds() {
-      if (!vm.saveButtonDisabled) {
-        dataService.setData({
-          rssFeed: vm.feeds,
-        });
-        vm.saveButtonDisabled = true;
-      }
-
+      dataService.setData({
+        rssFeed: vm.feeds,
+      });
     }
 
     function closeForm() {
