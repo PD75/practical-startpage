@@ -39,7 +39,7 @@
   "Save": {
     "message": "0Save"
   },
-  "SaveAndClose": {
+  "SaveClose": {
     "message": "0Save and Close"
   },
   "Search": {
@@ -59,6 +59,30 @@
   },
   "WhatsNew": {
     "message": "0What's New"
+  },
+  "Close_key": {
+    "message": "0Esc"
+  },
+  "Edit_key": {
+    "message": "0F2"
+  },
+  "EditUrl_key": {
+    "message": "0Shift+F2"
+  },
+  "Delete_key": {
+    "message": "0Del"
+  },
+  "NewFolder_key": {
+    "message": "0Ctrl+Shift+N"
+  },
+  "Save_key": {
+    "message": "0Ctrl+S"
+  },
+  "SaveClose_key": {
+    "message": "0Ctrl+Shift+S"
+  },
+  "UndoAll_key": {
+    "message": "0Ctrl+Shift+Z"
   },
   "c_ps_slogan": {
     "message": "0Flexible start page that makes your data available in a single view."
@@ -153,6 +177,9 @@
   },
   "w_bookmarkTree_help": {
     "message": "A Treeview of all the bookmarks, with full text search.<br /><b>Note:</b> You select the Quicklinks from here by right clicking the folder you want to get your quicklinks from.<br /> Click edit button to get bookmark editor."
+  },
+  "w_bookmarkTree_edit_title": {
+    "message": "0Edit Bookmarks"
   },
   "w_chromeApps": {
     "message": "0Apps"

@@ -6,8 +6,8 @@ angular.module('ps.widgets.constants', [])
         icon: "star",
         directive: "browser-bookmark-tree",
         edit: {
-          type: "url",
-          url: "app/widgets/bookmarkTree/editBookmarks.html",
+          type: "directive",
+          directive: "edit-bookmarks",
         },
       },
       chromeApps: {
