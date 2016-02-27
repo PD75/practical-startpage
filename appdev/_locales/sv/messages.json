@@ -176,7 +176,7 @@
     "message": "Bokmärken"
   },
   "w_bookmarkTree_help": {
-    "message": "En trad struktur med alla bokmärken, har fulltextsökning <br /> <b> Obs!.. </ B> Du väljer snabblänkar härifrån genom att högerklicka på mappen du vill få snablänkar från <br /> Klicka på redigera knappen för att redigera bokmärken."
+    "message": "En trad struktur med alla bokmärken, har fulltextsökning <br /> <b> Obs!.. </b> Du väljer snabblänkar härifrån genom att högerklicka på mappen du vill få snablänkar från <br /> Klicka på redigera knappen för att redigera bokmärken."
   },
   "w_bookmarkTree_edit_title": {
     "message": "Redigera bokmärken"
@@ -185,13 +185,13 @@
     "message": "Appar"
   },
   "w_chromeApps_help": {
-    "message": "En lista över Chrome-appar för närvarande installerad i webbläsaren <br /> <b> Obs!. </ B> endast appar med en websida listas."
+    "message": "En lista över Chrome-appar för närvarande installerad i webbläsaren <br /> <b> Obs!. </b> endast appar med en websida listas."
   },
   "w_closedTabs": {
     "message": "Stängda"
   },
   "w_closedTabs_help": {
-    "message": "Nyligen stängda flikar <br /> <b> Obs! </ B>. Rensas av krom varje gång webbläsaren stängs."
+    "message": "Nyligen stängda flikar <br /> <b> Obs! </b>. Rensas av krom varje gång webbläsaren stängs."
   },
   "w_history": {
     "message": "Historia"
@@ -203,7 +203,7 @@
     "message": "Snabblänkar"
   },
   "w_quicklinks_help": {
-    "message": "En lista med länkar som valts av användaren. Länkarna väljs genom att högerklicka på en mapp i bokmärkesträdet. <br /> <b> OBS: </ b> Du kan bara välja en mapp och endast bokmärken direkt i mappen visas inte i undermappar."
+    "message": "En lista med länkar som valts av användaren. Länkarna väljs genom att högerklicka på en mapp i bokmärkesträdet. <br /> <b> OBS: </b> Du kan bara välja en mapp och endast bokmärken direkt i mappen visas inte i undermappar."
   },
   "w_rssFeed": {
     "message": "RSS"

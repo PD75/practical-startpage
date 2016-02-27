@@ -24,7 +24,7 @@
     </h3>
     <div class="ui selection list">
 
-      <a class="item" ng-href="item.url" target="_blank" ng-repeat="item in vm.data.links.data">
+      <a class="item" ng-href="{{item.url}}" target="_blank" ng-repeat="item in vm.data.links.data">
         <i class="big icon" ng-class="item.icon"></i>
         <div class="content">
           <div class="header">{{item.title}}</div>

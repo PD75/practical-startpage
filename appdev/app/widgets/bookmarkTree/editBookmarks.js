@@ -61,9 +61,11 @@
       vm.segmentHeight = {
         'height': ($window.innerHeight - 200) + 'px',
       };
-      vm.modalInstance.modal('refresh');
       vm.treeConfig = editBookmarksService.getTreeConfig(getTree, editUrl);
       getTreeData();
+      $timeout(function() {
+        vm.modalInstance.modal('refresh');
+      });
     }
 
     function getTreeData() {

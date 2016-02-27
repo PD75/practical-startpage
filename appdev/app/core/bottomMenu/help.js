@@ -28,11 +28,11 @@
         title:i18n.get('c_help_title_0'),
         text:i18n.get('c_help_text_0'),
       }, {
-        icon: 'block layout',
+        icon: 'maximize layout',
         title:i18n.get('c_help_title_1'),
         text:i18n.get('c_help_text_1'),
       }, {
-        icon: 'block layout',
+        icon: 'columns layout',
         title:i18n.get('c_help_title_2'),
         text:i18n.get('c_help_text_2'),
       }];

@@ -22,7 +22,7 @@ angular.module('ps.core.service')
     }
 
     function translateLayout(data) {
-      angular.forEach(data, function(value, key) {
+      angular.forEach(data, function(value) {
         value.title = i18n.get('c_l_' + value.label);
       });
       return data;

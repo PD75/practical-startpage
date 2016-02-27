@@ -187,7 +187,6 @@
   function layoutDirective() {
     return {
       restrict: 'E',
-      // templateUrl: 'app/core/layout/layout.html',
       controller: 'LayoutCtrl',
       controllerAs: 'Layout',
     };
