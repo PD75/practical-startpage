@@ -5,7 +5,7 @@
     .controller('LayoutCtrl', LayoutCtrl)
     .directive('psLayout', layoutDirective);
 
-  function LayoutCtrl($scope, $timeout, dataService, layoutService, versionService) {
+  function LayoutCtrl($scope, $timeout, dataService, layoutService, versionService, i18n) {
     var vm = this;
     vm.onClickTab = onClickTab;
     vm.activateEditor = activateEditor;
@@ -38,16 +38,16 @@
     }
 
     function activateEditor(colIndex) {
-      switch (vm.widgets[vm.activeTabs[colIndex]].edit.type) {
+      var label = vm.activeTabs[colIndex];
+      switch (vm.widgets[label].edit.type) {
         case 'url':
-          vm.modalUrl = vm.widgets[vm.activeTabs[colIndex]].edit.url;
+          vm.modalUrl = vm.widgets[label].edit.url;
           break;
         case 'directive':
           vm.modalUrl = 'app/widgets/widgets/editWidget.html';
-          vm.modalDirective = vm.widgets[vm.activeTabs[colIndex]].edit.directive;
-          vm.modalTitle = 'Edit ' + vm.widgets[vm.activeTabs[colIndex]].title;
+          vm.modalDirective = vm.widgets[label].edit.directive;
+          vm.modalTitle = i18n.get('w_' + vm.widgets[label].label + '_edit_title');
           break;
-
       }
       vm.modalData = {
         onHide: function() {
@@ -110,6 +110,7 @@
           vm.columns[c].coverClasses.push('active');
         }
       }
+      dataService.data.activeTabs = vm.activeTabs;
     }
 
     function getStyles() {
@@ -174,7 +175,7 @@
       if (dataService.data.version !== manifest.version) {
         versionService.checkVersion(manifest.version, dataService.data.version).then(function() {
           $timeout(function() {
-            vm.modalUrl = 'app/core/whatsNew.html';
+            vm.modalUrl = 'app/core/bottomMenu/whatsNew.html';
             vm.modalData = {};
             vm.showModal = true;
           });
@@ -186,7 +187,6 @@
   function layoutDirective() {
     return {
       restrict: 'E',
-      // templateUrl: 'app/core/layout/layout.html',
       controller: 'LayoutCtrl',
       controllerAs: 'Layout',
     };

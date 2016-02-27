@@ -10,7 +10,9 @@
     activate();
 
     function activate() {
-      getApps();
+      if (layoutService.isActive('chromeApps')) {
+        getApps();
+      }
       layoutService.setOnTabClick('chromeApps', getApps);
     }
 

@@ -11,7 +11,9 @@
     activate();
 
     function activate() {
-      getQuicklinks();
+      if (layoutService.isActive('quicklinks')) {
+        getQuicklinks();
+      }
       dataService.setOnChangeData('quicklinks', getQuicklinks);
       layoutService.setOnTabClick('quicklinks', getQuicklinks);
     }

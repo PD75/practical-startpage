@@ -1,17 +1,18 @@
 (function(angular) {
   'use strict';
 
-  angular.module('ps.core.options.clear', ['ps.core.data'])
+  angular.module('ps.core.options.clear', ['ps.core.service'])
     .controller('ClearDataCtrl', ClearDataCtrl)
     .directive('psClearData', ClearDataDirective);
 
 
-  function ClearDataCtrl($timeout, dataService) {
+  function ClearDataCtrl($timeout, dataService, i18n) {
     var vm = this;
     vm.checkboxCB = checkboxCB;
     vm.allselectedCB = allselectedCB;
     vm.widgets = dataService.data.widgets;
     vm.clearData = clearData;
+    vm.locale = locale;
     vm.buttonDisabled = true;
     vm.primaryCol = dataService.data.styles.primaryCol;
     getData();
@@ -23,54 +24,33 @@
           vm.allSelected = false;
           var i = 0;
           angular.forEach(data, function(value, key) {
+            vm.data[i] = {
+              label: key,
+              selected: false,
+            };
             switch (key) {
               case 'version':
-                vm.data[i] = {
-                  label: key,
-                  title: 'Version Check',
-                  order: 0,
-                  selected: false,
-                };
-                break;
               case 'activeTabs':
-                vm.data[i] = {
-                  label: key,
-                  title: 'Active Tabs',
-                  order: 1,
-                  selected: false,
-                };
-                break;
               case 'layout':
-                vm.data[i] = {
-                  label: key,
-                  title: 'Widget Layout',
-                  order: 2,
-                  selected: false,
-                };
-                break;
               case 'styles':
-                vm.data[i] = {
-                  label: key,
-                  title: 'Styles, colors',
-                  order: 3,
-                  selected: false,
-                };
+                vm.data[i].title = i18n.get('c_o_' + key);
+                vm.data[i].order = i - 10;
                 break;
               default:
-                vm.data[i] = {
-                  label: key,
-                  order: 10 + i,
-                  selected: false,
-                };
-                if (angular.isDefined(vm.widgets[key]) && angular.isDefined(vm.widgets[key].title)) {
-                  vm.data[i].title = vm.widgets[key].title;
-                } else {
-                  vm.data[i].title = key;
-                }
+                vm.data[i].title = i18n.get('w_' + key);
+                vm.data[i].order = 10 + i;
+            }
+            if (vm.data[i].title === '') {
+              vm.data[i].title = key;
             }
             i++;
           });
         });
+
+    }
+
+    function locale(text) {
+      return i18n.get(text);
     }
 
     function checkboxCB() {
@@ -107,7 +87,7 @@
         dataService.clearData(keys)
           .then(function() {
             vm.buttonDisabled = true;
-            vm.dataCleared = 'Cleared!!!';
+            vm.dataCleared = i18n.get('c_o_cleared');
             $timeout(function() {
               vm.dataCleared = '';
               getData();

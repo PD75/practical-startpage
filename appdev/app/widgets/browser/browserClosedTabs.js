@@ -12,7 +12,9 @@
     activate();
 
     function activate() {
-      getClosed();
+      if (layoutService.isActive('closedTabs')) {
+        getClosed();
+      }
       closedTabsService.monitorClosedTabs(getClosed);
       layoutService.setOnTabClick('closedTabs', getClosed);
     }

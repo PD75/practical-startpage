@@ -10,7 +10,9 @@
     activate();
 
     function activate() {
-      getTopSites();
+      if (layoutService.isActive('topSites')) {
+        getTopSites();
+      }
       layoutService.setOnTabClick('topSites', getTopSites);
     }
 
