@@ -48,7 +48,6 @@
           vm.modalDirective = vm.widgets[label].edit.directive;
           vm.modalTitle = i18n.get('w_' + vm.widgets[label].label + '_edit_title');
           break;
-
       }
       vm.modalData = {
         onHide: function() {
@@ -111,6 +110,7 @@
           vm.columns[c].coverClasses.push('active');
         }
       }
+      dataService.data.activeTabs = vm.activeTabs;
     }
 
     function getStyles() {
