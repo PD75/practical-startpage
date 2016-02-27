@@ -1,3 +1,4 @@
+<ps-widget-search ps-search-cb="vm.searchCB()" ps-search-string="vm.searchString" ng-show="vm.searchable"></ps-widget-search>
 <div class="browser" ng-class="[vm.col.label]" ng-repeat="item in vm.list" ng-show="item.url">
   <a class="ui basic browser button" ng-class="vm.style.primaryCol" ng-href="{{item.url}}">
     <img ng-src="{{item.icon}}">

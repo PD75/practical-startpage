@@ -7,27 +7,30 @@
 
   function BrowserHistoryCtrl(historyService, layoutService) {
     var vm = this;
+    vm.searchCB = getHistory;
+    vm.searchString = '';
+    vm.historyParam = {
+      startDate: 0,
+      maxResults: 100,
+    };
     activate();
 
     function activate() {
+      vm.searchable = true;
       if (layoutService.isActive('history')) {
         getHistory();
       }
       layoutService.setOnTabClick('history', getHistory);
     }
 
-    function getHistory(historyParam) {
-      if (!historyParam) {
-        historyParam = {
-          searchText: '',
-          startDate: 0,
-          maxResults: 200,
-        };
+    function getHistory() {
+      if (vm.searchString.length === 0 || vm.searchString.length > 2) {
+        vm.historyParam.searchText = vm.searchString;
+        var promise = historyService.historyList(vm.historyParam);
+        promise.then(function(historyList) {
+          vm.list = historyList;
+        });
       }
-      var promise = historyService.historyList(historyParam);
-      promise.then(function(historyList) {
-        vm.list = historyList;
-      });
     }
   }
 
