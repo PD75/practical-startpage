@@ -110,6 +110,7 @@
           vm.columns[c].coverClasses.push('active');
         }
       }
+      dataService.data.activeTabs = vm.activeTabs;
     }
 
     function getStyles() {

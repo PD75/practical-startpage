@@ -4,11 +4,23 @@
   angular.module('ps.core')
     .service('layoutService', layoutService);
 
-  function layoutService() {
+  function layoutService(dataService) {
     var s = this;
     s.tabCB = {};
     s.setOnTabClick = setOnTabClick;
     s.runOnTabClick = runOnTabClick;
+    s.isActive = isActive;
+
+    function isActive(tab) {
+      var activeTabs = dataService.data.activeTabs;
+      var isActive = false;
+      for (var t = 0; t < activeTabs.length; t++) {
+        if (tab === activeTabs[t]) {
+          isActive = true;
+        }
+      }
+      return isActive;
+    }
 
     function setOnTabClick(key, fnCB) {
       if (angular.isUndefined(s.tabCB[key])) {

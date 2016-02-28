@@ -10,7 +10,9 @@
     activate();
 
     function activate() {
-      getHistory();
+      if (layoutService.isActive('history')) {
+        getHistory();
+      }
       layoutService.setOnTabClick('history', getHistory);
     }
 
@@ -19,7 +21,6 @@
         historyParam = {
           searchText: '',
           startDate: 0,
-          maxResults: 200,
         };
       }
       var promise = historyService.historyList(historyParam);
