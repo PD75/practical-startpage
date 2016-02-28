@@ -197,7 +197,10 @@
     "message": "History"
   },
   "w_history_help": {
-    "message": "Last 200 visited sites."
+    "message": "Visited sites."
+  },
+  "w_history_edit_title": {
+    "message": "Edit History"
   },
   "w_quicklinks": {
     "message": "Quicklinks"

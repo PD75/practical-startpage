@@ -197,7 +197,10 @@
     "message": "Historia"
   },
   "w_history_help": {
-    "message": "Sista 200 besökta webbplatser."
+    "message": "Besökta webbplatser."
+  },
+  "w_history_edit_title": {
+    "message": "Redigera historia"
   },
   "w_quicklinks": {
     "message": "Snabblänkar"

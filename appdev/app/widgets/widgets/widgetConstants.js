@@ -21,6 +21,10 @@ angular.module('ps.widgets.constants', [])
       history: {
         icon: "history",
         directive: "browser-history",
+        edit: {
+          type: "directive",
+          directive: "edit-history",
+        },
       },
       quicklinks: {
         icon: "external link",

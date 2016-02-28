@@ -11,7 +11,6 @@
     vm.searchString = '';
     vm.historyParam = {
       startDate: 0,
-      maxResults: 100,
     };
     activate();
 

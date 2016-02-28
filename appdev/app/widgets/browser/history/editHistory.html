@@ -1,0 +1,77 @@
+<div class="ui two column grid">
+  <div class="stretched row">
+    <div class="column">
+      <div class="ui segment">
+        <form class="ui form">
+          <div class="inline field">
+            <label>Display</label>
+            <select ui-dropdown>
+              <option value="BL">Button List</option>
+              <option value="GL">Grouped List</option>
+            </select>
+            <div class="ui toggle checkbox">
+              <input type="checkbox" ng-model="vm.input.showDelete">
+              <label>Allow delete</label>
+            </div>
+          </div>
+          <div class="inline fields">
+            <div class="ui toggle checkbox">
+              <input type="checkbox" ng-model="vm.input.useMax">
+              <label></label>
+            </div>
+            <div class=" field">
+              <div class="ui right labeled input" ng-class="{disabled : !vm.input.useMax}">
+                <input type="text" placeholder="100">
+                <div class="ui label">entries</div>
+              </div>
+            </div>
+          </div>
+          <div class="inline fields">
+            <div class="ui toggle checkbox">
+              <input type="checkbox" ng-model="vm.input.useDays">
+              <label></label>
+            </div>
+            <div class=" field">
+              <div class="ui right labeled input" ng-class="{disabled : !vm.input.useDays}">
+                <input type="text" placeholder="0">
+                <div class="ui label">days</div>
+              </div>
+            </div>
+          </div>
+          <button class="ui button" type="submit">save</button>
+        </form>
+
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui segment">
+        <div class="ui comments">
+          <div class="ui middle aligned divided list">
+            <a class="item" ng-repeat="entry in vm.feedSample" ng-href="{{entry.link}}">
+              <div class="content">
+                <div class="header">
+                  <img ng-src="{{entry.icon}}" height="16"/>
+                  {{entry.title}}
+                </div>
+                <div class="description">
+                  {{entry.contentSnippet}}
+                </div>
+                <div class="meta">
+                  <span class="date">{{entry.timeStamp.toLocaleString()}}</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="ui negative message" ng-if="vm.errorShow">
+          <div class="header">
+            {{vm.locale("w_rssFeed_err_title")}}
+          </div>
+          <p>
+            {{vm.errorMsg}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
