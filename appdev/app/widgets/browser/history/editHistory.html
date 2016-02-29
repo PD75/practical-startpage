@@ -5,14 +5,19 @@
         <form class="ui form">
           <div class="inline field">
             <label>Display</label>
-            <select ui-dropdown>
-              <option value="BL">Button List</option>
-              <option value="GL">Grouped List</option>
-            </select>
-            <div class="ui toggle checkbox">
+            <div class="ui selection dropdown" ui-dropdown="vm.dropdown">
+              <input name="listType" type="hidden" value="{{vm.input.listType}}" ng-model="vm.input.listType"/>
+              <i class="dropdown icon"></i>
+              <div class="text"></div>
+              <div class="menu">
+                <div class="item" data-value="BL" ng-click="vm.selected('BL')">Button List</div>
+                <div class="item" data-value="GL" ng-click="vm.selected('GL')">Grouped List</div>
+              </div>
+            </div>
+            <!-- <div class="ui toggle checkbox">
               <input type="checkbox" ng-model="vm.input.showDelete">
               <label>Allow delete</label>
-            </div>
+            </div> -->
           </div>
           <div class="inline fields">
             <div class="ui toggle checkbox">
@@ -21,7 +26,7 @@
             </div>
             <div class=" field">
               <div class="ui right labeled input" ng-class="{disabled : !vm.input.useMax}">
-                <input type="text" placeholder="100">
+                <input type="number" placeholder="100" ng-model="vm.input.max">
                 <div class="ui label">entries</div>
               </div>
             </div>
@@ -33,12 +38,12 @@
             </div>
             <div class=" field">
               <div class="ui right labeled input" ng-class="{disabled : !vm.input.useDays}">
-                <input type="text" placeholder="0">
+                <input type="number" placeholder="0" ng-model="vm.input.days">
                 <div class="ui label">days</div>
               </div>
             </div>
           </div>
-          <button class="ui button" type="submit">save</button>
+          <button class="ui button" type="submit" ng-class="{disabled : !vm.dataValid()}" ng-click="vm.save()">save</button>
         </form>
 
       </div>

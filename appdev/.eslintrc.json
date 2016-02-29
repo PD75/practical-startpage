@@ -90,7 +90,6 @@
     "angular/typecheck-function": 2,
     "angular/typecheck-number": 2,
     "angular/typecheck-object": 2,
-    "angular/typecheck-regexp": 2,
     "angular/typecheck-string": 2,
     "angular/watchers-execution": [0, "$digest"],
     "angular/window-service": 2

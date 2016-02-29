@@ -1,11 +1,11 @@
 angular.module('ngSemanticUi')
-  .directive('uiDropdown', function() {
+  .directive('uiDropdown', function($timeout) {
     'use strict';
     return {
       restrict: 'EA',
       scope: {
         dropdownData: '=uiDropdownData',
-        dropdownObj: '=?uipDropdown',
+        dropdownObj: '=?uiDropdown',
       },
       link: link,
     };
@@ -15,10 +15,14 @@ angular.module('ngSemanticUi')
         e.dropdown(s.dropdownData);
         s.$watchCollection('dropdownData', function() {
           e.dropdown(s.dropdownData);
-          e.dropdown('refresh');
+          $timeout(function() {
+            e.dropdown('refresh');
+          });
         });
       } else {
-        e.dropdown();
+        $timeout(function() {
+          e.dropdown();
+        });
       }
       s.dropdownObj = e;
     }
