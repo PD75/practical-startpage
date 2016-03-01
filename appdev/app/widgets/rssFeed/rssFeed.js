@@ -10,7 +10,9 @@
     activate();
 
     function activate() {
-      getFeeds();
+      if (layoutService.isActive('rssFeed')) {
+        getFeeds();
+      }
       dataService.setOnChangeData('rssFeed', getFeeds);
       layoutService.setOnTabClick('rssFeed', getFeeds);
     }

@@ -12,11 +12,10 @@
         <div class="header">
           {{item.title}}
         </div>
-        <!-- <div class="description">
+        <div class="description">
           {{item.url}}
-        </div> -->
+        </div>
         <div class="meta">
-          <span class="url">{{item.url}}</span>
           <span class="date">{{item.timeStamp.toLocaleString()}}</span>
         </div>
       </div>
@@ -27,7 +26,7 @@
     <div class="browser" ng-class="[vm.col.label]" ng-repeat="item in vm.list">
       <a class="ui basic browser button" ng-class="vm.style.primaryCol" ng-href="{{item.url}}">
         <img ng-src="{{item.icon}}">
-        {{item.title}}
+        {{item.altTitle}}
       </a>
     </div>
   </div>

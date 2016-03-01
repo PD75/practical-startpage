@@ -22,7 +22,7 @@
           for (var i = 0; i < appList.length; i++) {
             if (angular.isDefined(appList[i].name) && angular.isDefined(appList[i].icons) && angular.isDefined(appList[i].appLaunchUrl)) {
               response[c] = {};
-              response[c].title = appList[i].name;
+              response[c].altTitle = appList[i].name;
               response[c].icon = appList[i].icons[0].url;
               response[c].url = appList[i].appLaunchUrl;
               c = c + 1;
@@ -39,11 +39,11 @@
       historyList: historyList,
     };
 
-    function historyList(historyParam) {
+    function historyList(param) {
       var chromeParam = {};
-      chromeParam.text = historyParam.searchText;
-      chromeParam.startTime = historyParam.startDate;
-      chromeParam.maxResults = historyParam.maxResults;
+      chromeParam.text = param.searchText;
+      chromeParam.startTime = param.startDate;
+      chromeParam.maxResults = param.maxResults;
       var deferred = $q.defer();
       chrome.history.search(chromeParam,
         function(response) {
@@ -130,16 +130,55 @@
     var newList = [];
     for (var i = 0; i < list.length; i++) {
       if (angular.isDefined(list[i])) {
-        newList[j] = list[i];
-        if (angular.isUndefined(list[i].title) || list[i].title === '') {
-          newList[j].title = list[i].url;
+        newList[j] = {
+          id: list[i].id,
+          title: getTitle(list[i]),
+          altTitle: getAltTitle(list[i]),
+          icon: getIcon(list[i]),
+        };
+        if (angular.isDefined(list[i].lastVisitTime)) {
+          newList[j].timeStamp = new Date();
+          newList[j].timeStamp.setTime(list[i].lastVisitTime);
         }
-        if (angular.isUndefined(list[i].icon)) {
-          newList[j].icon = 'chrome://favicon/' + list[i].url;
+        if (angular.isDefined(list[i].url)) {
+          newList[j].url = list[i].url;
+        }
+        if (angular.isDefined(list[i].id)) {
+          newList[j].id = list[i].id;
         }
         j++;
       }
     }
-    return list;
+    return newList;
+  }
+
+  function getTitle(item) {
+    var title;
+    if (angular.isUndefined(item.title) || item.title === '') {
+      title = '(No title)';
+    } else {
+      title = item.title;
+    }
+    return title;
+  }
+
+  function getAltTitle(item) {
+    var title;
+    if (angular.isUndefined(item.title) || item.title === '') {
+      title = item.url;
+    } else {
+      title = item.title;
+    }
+    return title;
+  }
+
+  function getIcon(item) {
+    var icon;
+    if (angular.isUndefined(item.icon)) {
+      icon = 'chrome://favicon/' + item.url;
+    } else {
+      icon = item.icon;
+    }
+    return icon;
   }
 })(angular);
