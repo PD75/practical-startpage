@@ -12,11 +12,11 @@
     vm.history = {
       searchText: '',
       startDate: 0,
-      // maxResults: 2000,
     };
     activate();
 
     function activate() {
+
       vm.searchable = true;
       if (layoutService.isActive('history')) {
         getHistory();
@@ -26,19 +26,21 @@
     }
 
     function setParams() {
-      var searchText = vm.history.searchText;
       vm.history = {
-        searchText: searchText,
+        searchText: vm.history.searchText,
         startDate: 0,
       };
       var history = dataService.data.history;
-      if (angular.isDefined(history) && angular.isDefined(history.max)) {
-        vm.history.maxResults = history.max;
-      }
-      if (angular.isDefined(history) && angular.isDefined(history.days)) {
-        var x = new Date().getTime() - 1000 * 60 * 60 * 24 * history.days;
-        var y = x.toString();
-        vm.history.startDate = new Date().getTime() - 1000 * 60 * 60 * 24 * history.days;
+      if (angular.isDefined(history)) {
+        vm.listType = history.listType;
+        if (angular.isDefined(history.max)) {
+          vm.history.maxResults = history.max;
+        }
+        if (angular.isDefined(history.days)) {
+          var x = new Date().getTime() - 1000 * 60 * 60 * 24 * history.days;
+          var y = x.toString();
+          vm.history.startDate = new Date().getTime() - 1000 * 60 * 60 * 24 * history.days;
+        }
       }
     }
 
@@ -58,10 +60,10 @@
     }
   }
 
-  function BrowserHistoryDirective() {
+  function BrowserHistoryDirective(widgetConstants) {
     return {
       restrict: 'E',
-      templateUrl: 'app/widgets/widgets/widgetUrlList.html',
+      templateUrl: widgetConstants.urlList,
       controller: 'BrowserHistoryCtrl',
       controllerAs: 'vm',
       scope: {

@@ -50,29 +50,6 @@ img.ui.logo.image {
   font-size: .71428571rem;
 }
 
-/*.popup .description {
-  max-width: 300px;
-}*/
-
-.browser {
-  display: inline-block;
-}
-.ui.basic.browser.button {
-  box-shadow: 0 0 0 1px #cccccc !important;
-  color: #888888 !important;
-  margin: 2px;
-  padding: .6em;
-  text-align: left;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  width: 99%;
-}
-.browser.button > img {
-  margin: -0.1em 0.2em -0.1em 0.1em;
-  height: 16px;
-}
-
 /*Media Queries*/
 
 

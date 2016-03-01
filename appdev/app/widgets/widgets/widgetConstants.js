@@ -1,7 +1,7 @@
 angular.module('ps.widgets.constants', [])
-  .constant('widgetConstants', function() {
-    'use strict';
-    return {
+  .constant('widgetConstants', {
+    urlList: 'app/widgets/widgets/widgetUrlList.html',
+    widgets: {
       bookmarkTree: {
         icon: "star",
         directive: "browser-bookmark-tree",
@@ -42,6 +42,5 @@ angular.module('ps.widgets.constants', [])
         icon: "heart",
         directive: "browser-top-sites",
       },
-
-    };
+    },
   });
