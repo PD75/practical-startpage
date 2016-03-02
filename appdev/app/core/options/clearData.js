@@ -46,7 +46,6 @@
             i++;
           });
         });
-
     }
 
     function locale(text) {
