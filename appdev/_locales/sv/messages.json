@@ -1,8 +1,4 @@
 {
-  "short_phrases": {
-    "message": "korta fraser",
-    "description": "Below follow short generic phrases that can be reused"
-  },
   "About": {
     "message": "Om"
   },
@@ -12,11 +8,20 @@
   "Close": {
     "message": "Stäng"
   },
+  "days": {
+    "message": "dagar"
+  },
+  "Display": {
+    "message": "Visa"
+  },
   "Edit": {
     "message": "Redigera"
   },
   "EditUrl": {
     "message": "Redigera webbadress"
+  },
+  "entries": {
+    "message": "poster"
   },
   "Delete": {
     "message": "Radera"
@@ -52,7 +57,7 @@
     "message": "Titel"
   },
   "UndoAll": {
-    "message": "Ångra alla"
+    "message": "Ångra allt"
   },
   "Url": {
     "message": "Länk"
@@ -76,7 +81,7 @@
     "message": "Ctrl+Skift+N"
   },
   "Save_key": {
-    "message": "Ctrl+S"
+    "message": "Ctrl+ S"
   },
   "SaveClose_key": {
     "message": "Ctrl+Skift+S"
@@ -91,10 +96,10 @@
     "message": "Änvända bibliotek"
   },
   "c_about_title_0": {
-    "message": "Praktisk Startsidan i Chrome Web Store"
+    "message": "Practical Startpage i Chrome Web Store"
   },
   "c_about_text_0": {
-    "message": "Här kan du vill granska och betygsätta förlängningen."
+    "message": "Här kan du vill granska och betygsätta startsidan"
   },
   "c_about_title_1": {
     "message": "Sprid ordet till en vän med e-post"
@@ -127,16 +132,16 @@
     "message": "Du kan placera manickerna hur du vill genom alternativ menyn"
   },
   "c_help_title_1": {
-    "message": "Reaktiv design"
+    "message": "Responsiv design"
   },
   "c_help_text_1": {
-    "message": "Lolumner och innehåll anpassar sig för att ge bästa möjliga tittarupplevelse för alla skärmbredder."
+    "message": "Kolumner och innehåll anpassar sig för att ge bästa möjliga upplevelse på alla skärmbredder."
   },
   "c_help_title_2": {
     "message": "Innehåll"
   },
   "c_help_text_2": {
-    "message": "Sidan består av tre kolumner, men för mindre skärmar går  den högra kolumnen  samman med den mellersta kolumnen för att tillåta innehållet att vara användbar."
+    "message": "Sidan består av tre kolumner, men för mindre skärmar går den högra kolumnen  samman med den mellersta kolumnen för innehållet ska vara användbart."
   },
   "c_o_editLayout": {
     "message": "Redigera layouten"
@@ -166,17 +171,22 @@
     "message": "Mitt kolumnen"
   },
   "c_l_right": {
-    "message": "Höger kolumn"
+    "message": "Höger kolumnen"
   },
   "Widgets": {
-    "message": "Manicker",
-    "description": "Below Follow all widget specific translation. Prefix w_xx where xx is the widget label"
+    "message": "Manicker"
+  },
+  "w_BL": {
+    "message": "Knapplista"
+  },
+  "w_GL": {
+    "message": "Grupperad lista"
   },
   "w_bookmarkTree": {
     "message": "Bokmärken"
   },
   "w_bookmarkTree_help": {
-    "message": "En trad struktur med alla bokmärken, har fulltextsökning <br /> <b> Obs!.. </b> Du väljer snabblänkar härifrån genom att högerklicka på mappen du vill få snablänkar från <br /> Klicka på redigera knappen för att redigera bokmärken."
+    "message": "En trad struktur med alla bokmärken, har fulltextsökning <br/> <b> Obs!.. </b> Du väljer snabblänkar härifrån genom att högerklicka på mappen du vill få snablänkar från <br/> Klicka på redigera knappen för att redigera bokmärken."
   },
   "w_bookmarkTree_edit_title": {
     "message": "Redigera bokmärken"
@@ -185,28 +195,28 @@
     "message": "Appar"
   },
   "w_chromeApps_help": {
-    "message": "En lista över Chrome-appar för närvarande installerad i webbläsaren <br /> <b> Obs!. </b> endast appar med en websida listas."
+    "message": "En lista över Chrome-appar för närvarande installerad i webbläsaren <br/> <b> Obs!. </b> endast appar med en sida listas."
   },
   "w_closedTabs": {
     "message": "Stängda"
   },
   "w_closedTabs_help": {
-    "message": "Nyligen stängda flikar <br /> <b> Obs! </b>. Rensas av krom varje gång webbläsaren stängs."
+    "message": "Nyligen stängda flikar <br/> <b> Obs! </b>. Rensas av chrome varje gång webbläsaren stängs."
   },
   "w_history": {
     "message": "Historia"
   },
   "w_history_help": {
-    "message": "Besökta webbplatser."
+    "message": "Besökta sidor"
   },
   "w_history_edit_title": {
-    "message": "Redigera historia"
+    "message": "Redigera historik"
   },
   "w_quicklinks": {
     "message": "Snabblänkar"
   },
   "w_quicklinks_help": {
-    "message": "En lista med länkar som valts av användaren. Länkarna väljs genom att högerklicka på en mapp i bokmärkesträdet. <br /> <b> OBS: </b> Du kan bara välja en mapp och endast bokmärken direkt i mappen visas inte i undermappar."
+    "message": "En lista över Chrome-appar för närvarande installerad i webbläsaren <br/> <b> Obs!. </b> endast appar med en sida listas."
   },
   "w_rssFeed": {
     "message": "RSS"
@@ -218,10 +228,10 @@
     "message": "Redigera RSS"
   },
   "w_rssFeed_addFeed": {
-    "message": "Lägg RSS Flöde"
+    "message": "Lägg till flöde"
   },
   "w_rssFeed_auth_title": {
-    "message": "Tillstånd att få tillgång till $url$ krävs !!!",
+    "message": "Tillstånd att få tillgång till $$url$$ krävs !!!",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -239,6 +249,6 @@
     "message": "Top Sidor"
   },
   "w_topSites_help": {
-    "message": "Mest besökta webbplatser."
+    "message": "Mest besökta sidor"
   }
 }

@@ -1,8 +1,4 @@
 {
-  "short_phrases": {
-    "message": "Short Phrases",
-    "description": "Below follow short generic phrases that can be reused"
-  },
   "About": {
     "message": "About"
   },
@@ -178,8 +174,7 @@
     "message": "Right column"
   },
   "Widgets": {
-    "message": "Widgets",
-    "description": "Below Follow all widget specific translation. Prefix w_xx where xx is the widget label"
+    "message": "Widgets"
   },
   "w_BL": {
     "message": "Button List"

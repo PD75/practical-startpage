@@ -13,7 +13,6 @@
     function activate() {
       vm.data = {
         title: i18n.get('About'),
-        slogan: i18n.get('c_ps_slogan'),
         libraries:i18n.get('c_about_libraries'),
         links: {
           title: i18n.get('Links'),
