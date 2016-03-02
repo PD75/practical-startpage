@@ -12,6 +12,7 @@
     vm.selected = selected;
     vm.dataValid = dataValid;
     vm.widgetUrlList = widgetConstants.urlList;
+    vm.close = close;
     vm.input = {
       useMax: false,
       max: 100,
@@ -88,6 +89,10 @@
       return valid;
     }
 
+    function close() {
+      vm.modalInstance.modal('hide');
+    }
+
     function locale(text, placeholders) {
       return i18n.get(text, placeholders);
     }
@@ -100,9 +105,9 @@
       controller: 'EditHistoryCtrl',
       controllerAs: 'vm',
       scope: {
-        tab: '=psTab',
-        col: '=psCol',
-        style: '=psStyle',
+        modalData: '=psData',
+        modalInstance: '=psInstance',
+        modalEvents: '=psEvents',
       },
       bindToController: true,
     };
