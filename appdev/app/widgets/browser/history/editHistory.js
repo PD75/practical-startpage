@@ -5,12 +5,13 @@
     .controller("EditHistoryCtrl", EditHistoryCtrl)
     .directive('psEditHistory', EditHistoryDirective);
 
-  function EditHistoryCtrl($timeout, historyService, dataService, i18n) {
+  function EditHistoryCtrl(widgetConstants, historyService, dataService, i18n) {
     var vm = this;
     vm.locale = locale;
     vm.save = save;
     vm.selected = selected;
     vm.dataValid = dataValid;
+    vm.widgetUrlList = widgetConstants.urlList;
     vm.input = {
       useMax: false,
       max: 100,
@@ -24,6 +25,7 @@
     //   vm.dropdown.dropdown();
     // });
     function activate() {
+      getHistory();
       var history = dataService.data.history;
       if (angular.isDefined(history)) {
         vm.input.listType = history.listType;
@@ -37,6 +39,19 @@
           vm.input.useDays = true;
         }
       }
+      vm.listType = vm.input.listType;
+    }
+
+    function getHistory() {
+      var history = {
+        searchText: '',
+        startDate: 0,
+        maxResults: 3,
+      };
+      historyService.historyList(history)
+        .then(function(historyList) {
+          vm.list = historyList;
+        });
     }
 
     function save() {
@@ -56,6 +71,7 @@
 
     function selected(listType) {
       vm.input.listType = listType;
+      vm.listType = vm.input.listType;
     }
 
     function dataValid() {
