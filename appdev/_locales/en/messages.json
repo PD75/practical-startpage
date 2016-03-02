@@ -12,11 +12,20 @@
   "Close": {
     "message": "Close"
   },
+  "days": {
+    "message": "days"
+  },
+  "Display": {
+    "message": "Display"
+  },
   "Edit": {
     "message": "Edit"
   },
   "EditUrl": {
     "message": "Edit Url"
+  },
+  "entries": {
+    "message": "entries"
   },
   "Delete": {
     "message": "Delete"
@@ -171,6 +180,12 @@
   "Widgets": {
     "message": "Widgets",
     "description": "Below Follow all widget specific translation. Prefix w_xx where xx is the widget label"
+  },
+  "w_BL": {
+    "message": "Button List"
+  },
+  "w_GL": {
+    "message": "Grouped List"
   },
   "w_bookmarkTree": {
     "message": "Bookmarks"
