@@ -5,7 +5,7 @@
     .controller('WidgetSearchCtrl', WidgetSearchCtrl)
     .directive('psWidgetSearch', SearchDirective);
 
-  function WidgetSearchCtrl($timeout, dataService) {
+  function WidgetSearchCtrl($timeout, dataService, i18n) {
     var vm = this;
     vm.searching = searching;
     vm.resetSearch = resetSearch;
@@ -30,6 +30,7 @@
     vm.searchReset = 'hidden';
     vm.searchString = '';
     vm.searchColor = dataService.data.styles.primaryCol;
+    vm.searchText = i18n.get('Search') + '...';
 
     function searching() {
       if (vm.searchString.length === 0) {

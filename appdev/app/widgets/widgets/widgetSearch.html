@@ -5,7 +5,7 @@
     </a>
     <div class="ui popup">
       <div class="ui fluid icon input" ng-keyup="vm.searching()">
-        <input placeholder="Search..." type="text" ng-model="vm.searchString"/>
+        <input placeholder="{{vm.searchText}}" type="text" ng-model="vm.searchString"/>
         <i class="remove link icon transition" ng-class="vm.searchReset" ng-click="vm.resetSearch()"></i>
       </div>
     </div>
