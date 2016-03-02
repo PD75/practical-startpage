@@ -2,3 +2,7 @@
   color: rgba(0,0,0,.4);
     font-size: .8em;
 }
+.rss.item > .content > .description {
+  overflow: hidden;
+  white-space: normal;
+}
