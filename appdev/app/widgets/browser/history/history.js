@@ -37,8 +37,6 @@
           vm.history.maxResults = history.max;
         }
         if (angular.isDefined(history.days)) {
-          var x = new Date().getTime() - 1000 * 60 * 60 * 24 * history.days;
-          var y = x.toString();
           vm.history.startDate = new Date().getTime() - 1000 * 60 * 60 * 24 * history.days;
         }
       }
