@@ -5,11 +5,12 @@
     .controller('editBookmarksCtrl', editBookmarksCtrl)
     .directive('psEditBookmarks', editBookmarksDirective);
 
-  function editBookmarksCtrl($window, $timeout, $compile, $scope, editBookmarksService) {
+  function editBookmarksCtrl($window, $timeout, $compile, $scope, editBookmarksService, i18n, bookmarkConstant) {
     var vm = this;
     vm.searchTree = searchTree;
     vm.resetSearch = resetSearch;
     vm.keydownCB = keydownCB;
+    vm.locale = locale;
 
     vm.treeEvents = {
       "ready": readyCB,
@@ -24,14 +25,14 @@
       "create_node": createNodeCB,
     };
     vm.buttonPress = {
-      "editNode": editNode,
+      "edit": editNode,
       "editUrl": editUrl,
       "newFolder": newFolder,
-      "deleteNodes": deleteNodes,
+      "delete": deleteNodes,
       "undoAll": refreshTree,
-      "saveChanges": saveChanges,
+      "save": saveChanges,
       "saveClose": saveClose,
-      "closeNoSave": closeNoSave,
+      "close": closeNoSave,
     };
     vm.modalEvents = {
       "onShow": refreshTree,
@@ -43,14 +44,16 @@
     vm.searchString = '';
     vm.editBookmarkLog = [];
     vm.treeInstance = {};
+    vm.buttons = bookmarkConstant.editButtons;
     vm.activeButtons = {
-      "editNode": "disabled",
+      "edit": "disabled",
       "editUrl": "disabled",
       "newFolder": "disabled",
-      "deleteNodes": "disabled",
+      "delete": "disabled",
       "undoAll": "disabled",
-      "saveChanges": "disabled",
+      "save": "disabled",
       "saveClose": "disabled",
+      "close": "",
     };
     activate();
 
@@ -58,9 +61,11 @@
       vm.segmentHeight = {
         'height': ($window.innerHeight - 200) + 'px',
       };
-      vm.modalInstance.modal('refresh');
       vm.treeConfig = editBookmarksService.getTreeConfig(getTree, editUrl);
       getTreeData();
+      $timeout(function() {
+        vm.modalInstance.modal('refresh');
+      });
     }
 
     function getTreeData() {
@@ -156,12 +161,13 @@
       angular.forEach(vm.activeButtons, function(value, key) {
         vm.activeButtons[key] = "disabled";
       });
+      vm.activeButtons.close = "";
       var nodes = vm.treeInstance.jstree().get_selected(true);
       if (nodes.length === 1) {
         var node = nodes[0];
         if (nodes.length === 1) {
           if ((node.type === 'link' || node.type === 'folder')) {
-            vm.activeButtons.editNode = "";
+            vm.activeButtons.edit = "";
           }
           if (node.type === 'link') {
             vm.activeButtons.editUrl = "";
@@ -172,11 +178,11 @@
         }
       }
       if (nodes.length > 0 && (nodes[0].type === 'link' || nodes[0].type === 'folder')) {
-        vm.activeButtons.deleteNodes = "";
+        vm.activeButtons.delete = "";
       }
       if (vm.editBookmarkLog.length > 0) {
         vm.activeButtons.undoAll = "";
-        vm.activeButtons.saveChanges = "";
+        vm.activeButtons.save = "";
         vm.activeButtons.saveClose = "";
       }
       $timeout(function() {
@@ -290,6 +296,10 @@
         e.preventDefault();
       }
     }
+
+    function locale(text, placeholders) {
+      return i18n.get(text, placeholders);
+    }
   }
 
   function editBookmarksDirective() {
@@ -301,7 +311,7 @@
         modalEvents: '=psEvents',
       },
       replace: true,
-      templateUrl: 'app/widgets/bookmarkTree/editBookmarksForm.html',
+      templateUrl: 'app/widgets/bookmarkTree/editBookmarks.html',
       controller: 'editBookmarksCtrl',
       controllerAs: 'vm',
       bindToController: true,

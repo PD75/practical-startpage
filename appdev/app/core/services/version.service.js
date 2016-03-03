@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('ps.core')
+  angular.module('ps.core.service')
     .factory('versionService', versionService);
 
   function versionService($q,dataService) {

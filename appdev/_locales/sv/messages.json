@@ -1,0 +1,241 @@
+{
+  "short_phrases": {
+    "message": "korta fraser",
+    "description": "Below follow short generic phrases that can be reused"
+  },
+  "About": {
+    "message": "Om"
+  },
+  "Check": {
+    "message": "Kolla"
+  },
+  "Close": {
+    "message": "Stäng"
+  },
+  "Edit": {
+    "message": "Redigera"
+  },
+  "EditUrl": {
+    "message": "Redigera webbadress"
+  },
+  "Delete": {
+    "message": "Radera"
+  },
+  "Help": {
+    "message": "Hjälp"
+  },
+  "LoadDefault": {
+    "message": "Ladda förvalt"
+  },
+  "Links": {
+    "message": "Länkar"
+  },
+  "NewFolder": {
+    "message": "Ny mapp"
+  },
+  "Options": {
+    "message": "Alternativ"
+  },
+  "Save": {
+    "message": "Spara"
+  },
+  "SaveClose": {
+    "message": "Spara och stäng"
+  },
+  "Search": {
+    "message": "Sök"
+  },
+  "SelectAll": {
+    "message": "Välj alla"
+  },
+  "Title": {
+    "message": "Titel"
+  },
+  "UndoAll": {
+    "message": "Ångra alla"
+  },
+  "Url": {
+    "message": "Länk"
+  },
+  "WhatsNew": {
+    "message": "Nyheter"
+  },
+  "Close_key": {
+    "message": "Esc"
+  },
+  "Edit_key": {
+    "message": "F2"
+  },
+  "EditUrl_key": {
+    "message": "Skift+F2"
+  },
+  "Delete_key": {
+    "message": "Del"
+  },
+  "NewFolder_key": {
+    "message": "Ctrl+Skift+N"
+  },
+  "Save_key": {
+    "message": "Ctrl+S"
+  },
+  "SaveClose_key": {
+    "message": "Ctrl+Skift+S"
+  },
+  "UndoAll_key": {
+    "message": "Ctrl+Skift+Z"
+  },
+  "c_ps_slogan": {
+    "message": "Flexibel startsida som visar din data i en enda vy."
+  },
+  "c_about_libraries": {
+    "message": "Änvända bibliotek"
+  },
+  "c_about_title_0": {
+    "message": "Praktisk Startsidan i Chrome Web Store"
+  },
+  "c_about_text_0": {
+    "message": "Här kan du vill granska och betygsätta förlängningen."
+  },
+  "c_about_title_1": {
+    "message": "Sprid ordet till en vän med e-post"
+  },
+  "c_about_text_1": {
+    "message": "Klicka här för att skapa ett e-post till en vän. Om det inte fungerar, kopiera länken till Chrome Web Store ovan."
+  },
+  "c_about_title_2": {
+    "message": "Buggar, idéer eller bidra på GitHub"
+  },
+  "c_about_text_2": {
+    "message": "Om du har några idéer för manicker du vill utveckla, är koden på GitHub. Här kan du även skicka in felrapporter och frågor."
+  },
+  "c_about_title_3": {
+    "message": "Buggar, idéer eller frågor i Google Grupper"
+  },
+  "c_about_text_3": {
+    "message": "Använd Google-grupper för att ställa frågor och lämna idéer och buggar."
+  },
+  "c_about_title_4": {
+    "message": "Kontrollera status i utvecklingen"
+  },
+  "c_about_text_4": {
+    "message": "På Waffle board"
+  },
+  "c_help_title_0": {
+    "message": "Konfigurerbara datalistor"
+  },
+  "c_help_text_0": {
+    "message": "Du kan placera manickerna hur du vill genom alternativ menyn"
+  },
+  "c_help_title_1": {
+    "message": "Reaktiv design"
+  },
+  "c_help_text_1": {
+    "message": "Lolumner och innehåll anpassar sig för att ge bästa möjliga tittarupplevelse för alla skärmbredder."
+  },
+  "c_help_title_2": {
+    "message": "Innehåll"
+  },
+  "c_help_text_2": {
+    "message": "Sidan består av tre kolumner, men för mindre skärmar går  den högra kolumnen  samman med den mellersta kolumnen för att tillåta innehållet att vara användbar."
+  },
+  "c_o_editLayout": {
+    "message": "Redigera layouten"
+  },
+  "c_o_clearSettings": {
+    "message": "Rensa inställningar"
+  },
+  "c_o_cleared": {
+    "message": "Rensat!!!"
+  },
+  "c_o_version": {
+    "message": "Versionskontroll"
+  },
+  "c_o_layout": {
+    "message": "Manick layout"
+  },
+  "c_o_activeTabs": {
+    "message": "Aktiva tabbar"
+  },
+  "c_o_styles": {
+    "message": "Stil, färger"
+  },
+  "c_l_left": {
+    "message": "Vänster kolumnen"
+  },
+  "c_l_middle": {
+    "message": "Mitt kolumnen"
+  },
+  "c_l_right": {
+    "message": "Höger kolumn"
+  },
+  "Widgets": {
+    "message": "Manicker",
+    "description": "Below Follow all widget specific translation. Prefix w_xx where xx is the widget label"
+  },
+  "w_bookmarkTree": {
+    "message": "Bokmärken"
+  },
+  "w_bookmarkTree_help": {
+    "message": "En trad struktur med alla bokmärken, har fulltextsökning <br /> <b> Obs!.. </b> Du väljer snabblänkar härifrån genom att högerklicka på mappen du vill få snablänkar från <br /> Klicka på redigera knappen för att redigera bokmärken."
+  },
+  "w_bookmarkTree_edit_title": {
+    "message": "Redigera bokmärken"
+  },
+  "w_chromeApps": {
+    "message": "Appar"
+  },
+  "w_chromeApps_help": {
+    "message": "En lista över Chrome-appar för närvarande installerad i webbläsaren <br /> <b> Obs!. </b> endast appar med en websida listas."
+  },
+  "w_closedTabs": {
+    "message": "Stängda"
+  },
+  "w_closedTabs_help": {
+    "message": "Nyligen stängda flikar <br /> <b> Obs! </b>. Rensas av krom varje gång webbläsaren stängs."
+  },
+  "w_history": {
+    "message": "Historia"
+  },
+  "w_history_help": {
+    "message": "Sista 200 besökta webbplatser."
+  },
+  "w_quicklinks": {
+    "message": "Snabblänkar"
+  },
+  "w_quicklinks_help": {
+    "message": "En lista med länkar som valts av användaren. Länkarna väljs genom att högerklicka på en mapp i bokmärkesträdet. <br /> <b> OBS: </b> Du kan bara välja en mapp och endast bokmärken direkt i mappen visas inte i undermappar."
+  },
+  "w_rssFeed": {
+    "message": "RSS"
+  },
+  "w_rssFeed_help": {
+    "message": "Du kan ha vilka RSS flöden du vill här, t.ex. nyhetsflöden"
+  },
+  "w_rssFeed_edit_title": {
+    "message": "Redigera RSS"
+  },
+  "w_rssFeed_addFeed": {
+    "message": "Lägg RSS Flöde"
+  },
+  "w_rssFeed_auth_title": {
+    "message": "Tillstånd att få tillgång till $url$ krävs !!!",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "mysite.com"
+      }
+    }
+  },
+  "w_rssFeed_auth_text": {
+    "message": "RSS använder Googles API: er för att få en enhetlig datastruktur från de olika flödena och kommer inte att fungera utan. Klicka här för att gå vidare och tillåta access för widgeten."
+  },
+  "w_rssFeed_err_title": {
+    "message": "Error vid laddning av RSS flöde"
+  },
+  "w_topSites": {
+    "message": "Top Sidor"
+  },
+  "w_topSites_help": {
+    "message": "Mest besökta webbplatser."
+  }
+}

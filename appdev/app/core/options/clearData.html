@@ -6,7 +6,7 @@
           <div class="ui master checkbox">
             <label>
               <input type="checkbox" ng-model="vm.allSelected" ng-click="vm.allselectedCB()">
-              Select All
+              {{vm.locale("SelectAll")}}
             </label>
           </div>
           <div class="list">
@@ -26,7 +26,7 @@
     </div>
     <div class="ten wide column">
       <button class="ui  button" ng-click="vm.clearData()" ng-class="[vm.primaryCol,{disabled:vm.buttonDisabled}]">
-        Clear Settings Data
+        {{vm.locale("c_o_clearSettings")}}
       </button>
       {{vm.dataCleared}}
     </div>

@@ -1,5 +1,21 @@
-<i class="right floated close icon"></i>
-<div class="header">
-  Edit Bookmarks
+<div class="ui grid" ng-keydown="vm.keydownCB($event)">
+  <div class="eleven wide column">
+    <div class="ui segment" ng-style="vm.segmentHeight">
+      <div js-tree="vm.treeConfig" ng-click="vm.clickCB($event)" ng-model="vm.treeData" ng-mousedown="vm.mouseDownCB($event)" tree="vm.treeInstance" tree-events-obj="vm.treeEvents"></div>
+    </div>
+  </div>
+  <div class="five wide column">
+    <div class="ui fluid vertical menu">
+      <div class="item">
+        <div class="ui fluid icon input" ng-keyup="vm.searchTree()">
+          <input placeholder="{{vm.locale('Search')}}" type="text" ng-model="vm.searchString">
+          <i class="remove link icon transition" ng-class="{hidden:vm.searchString.length===0}" ng-click="vm.resetSearch()"></i>
+        </div>
+      </div>
+      <a class="item" ng-class="vm.activeButtons[button.label]" ng-click="vm.buttonPress[button.label]()" ui-popup="{content:vm.locale(button.label+'_key'),position: 'right center'}" ng-repeat="button in vm.buttons">
+        <i class="icon" ng-class="button.icon"></i>
+        {{vm.locale(button.label)}}
+      </a>
+    </div>
+  </div>
 </div>
-<ps-edit-bookmarks ps-data="modalData" ps-instance=modalInstance ps-events="modalEvents"></ps-edit-bookmarks>

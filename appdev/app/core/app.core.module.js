@@ -1,4 +1,4 @@
-angular.module('ps.core', ['ps.core.options', 'ps.core.data', 'chrome', 'ngSemanticUi', 'dndLists']);
+angular.module('ps.core', ['ps.core.options', 'ps.core.service', 'chrome', 'ngSemanticUi', 'dndLists']);
 
 angular.module('ps.core')
   .config(function($compileProvider) {

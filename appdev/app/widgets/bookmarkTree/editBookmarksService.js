@@ -1,6 +1,6 @@
 /*eslint camelcase: 0*/
 angular.module('ps.widgets')
-  .factory('editBookmarksService', function($q, dataService, bookmarkService, commonBookmarkService) {
+  .factory('editBookmarksService', function($q, dataService, bookmarkService, bookmarkConstant) {
     "use strict";
 
     return {
@@ -22,7 +22,7 @@ angular.module('ps.widgets')
 
     function getTreeConfig(getTree, editUrl) {
       var treeConfig = editBookmarkConfig(getTree, editUrl);
-      angular.merge(treeConfig, commonBookmarkService.getTreeConfig());
+      angular.merge(treeConfig, bookmarkConstant.treeConfig);
       return treeConfig;
     }
 

@@ -5,32 +5,33 @@
     .controller('BottomMenuCtrl', BottomMenuCtrl)
     .directive('psBottomMenu', bottomMenuDirective);
 
-  function BottomMenuCtrl() {
+  function BottomMenuCtrl(i18n) {
     var vm = this;
     vm.activateModal = activateModal;
     vm.showModal = false;
 
     vm.bottomMenu = [{
-      "title": "options",
+      "title": i18n.get("Options"),
       "icon": "options",
       "url": "app/core/options/optionsModal.html",
     }, {
-      "title": "help",
+      "title": i18n.get("Help"),
       "icon": "help",
-      "url": "app/core/help.html",
+      "url": "app/core/bottomMenu/help.html",
     }, {
-      "title": "about",
+      "title": i18n.get("About"),
       "icon": "info",
-      "url": "app/core/about.html",
+      "url": "app/core/bottomMenu/about.html",
     }, {
-      "title": "whats new",
+      "title": i18n.get("WhatsNew"),
       "icon": "announcement",
-      "url": "app/core/whatsNew.html",
+      "url": "app/core/bottomMenu/whatsNew.html",
     }];
 
     function activateModal(menuItem) {
       vm.modalUrl = menuItem.url;
       vm.showModal = true;
+      vm.modalTitle = menuItem.title;
     }
 
   }
@@ -40,7 +41,7 @@
       restrict: 'E',
       controller: 'BottomMenuCtrl',
       controllerAs: 'vm',
-      templateUrl: 'app/core/bottomMenu.html',
+      templateUrl: 'app/core/bottomMenu/bottomMenu.html',
     };
   }
 })();

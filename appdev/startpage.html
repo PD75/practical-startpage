@@ -33,9 +33,9 @@
 
     <!--Load Distribution Scripts-->
     <script src="dist/jquery.js"></script>
-    <script src="dist/jstree/jstree.js"></script>
-    <script src="dist/semantic-ui/semantic.js"></script>
     <script src="dist/angular.js"></script>
+    <script src="dist/semantic-ui/semantic.js"></script>
+    <script src="dist/jstree/jstree.js"></script>
     <script src="dist/ngJsTree.js"></script>
     <script src="dist/angular-drag-and-drop-lists.js"></script>
 
@@ -44,10 +44,11 @@
     <script src="app/app.module.js"></script>
 
     <script src="app/services/chrome/chrome.app.module.js"></script>
-    <script src="app/services/chrome/chrome.UrlsServices.js"></script>
-    <script src="app/services/chrome/chrome.StorageServices.js"></script>
-    <script src="app/services/chrome/chrome.BookmarkService.js"></script>
+    <script src="app/services/chrome/chrome.urls.services.js"></script>
+    <script src="app/services/chrome/chrome.storage.services.js"></script>
+    <script src="app/services/chrome/chrome.bookmark.service.js"></script>
     <script src="app/services/chrome/chrome.permission.service.js"></script>
+    <script src="app/services/chrome/chrome.i18n.service.js"></script>
 
     <script src="app/services/semantic-ui/semantic-ui.js"></script>
     <script src="app/services/semantic-ui/popup.js"></script>
@@ -55,10 +56,12 @@
     <script src="app/services/semantic-ui/modal.js"></script>
 
     <script src="app/core/app.core.module.js"></script>
-    <script src="app/core/dataService.js"></script>
-    <script src="app/core/bottomMenu.js"></script>
-    <script src="app/core/help.js"></script>
-    <script src="app/core/version.service.js"></script>
+    <script src="app/core/services/data.service.js"></script>
+    <script src="app/core/services/version.service.js"></script>
+    <script src="app/core/services/data.translation.service.js"></script>
+    <script src="app/core/bottomMenu/bottomMenu.js"></script>
+    <script src="app/core/bottomMenu/help.js"></script>
+    <script src="app/core/bottomMenu/about.js"></script>
 
     <script src="app/core/layout/layout.js"></script>
     <script src="app/core/layout/layout.service.js"></script>
@@ -82,7 +85,7 @@
 
     <script src="app/widgets/bookmarkTree/bookmarkTreeServices.js"></script>
     <script src="app/widgets/bookmarkTree/bookmarkTree.js"></script>
-    <script src="app/widgets/bookmarkTree/commonBookmarkService.js"></script>
+    <script src="app/widgets/bookmarkTree/bookmark.constants.js"></script>
     <script src="app/widgets/bookmarkTree/editBookmarks.js"></script>
     <script src="app/widgets/bookmarkTree/editBookmarksService.js"></script>
     <script src="app/widgets/bookmarkTree/editBookmarkUrl.js"></script>
