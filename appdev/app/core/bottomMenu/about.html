@@ -10,20 +10,7 @@
     <h3 class="ui horizontal divider header">
       Practical Startpage
     </h3>
-    <div class="ui list">
-      <div class="item">
-        <div class="content">
-          <div class="header">{{vm.data.slogan}}
-          </div>
-        </div>
-      </div>
-    </div>
-    <h3 class="ui horizontal divider header">
-      <i class="linkify icon"></i>
-      {{vm.data.links.title}}
-    </h3>
     <div class="ui selection list">
-
       <a class="item" ng-href="{{item.url}}" target="_blank" ng-repeat="item in vm.data.links.data">
         <i class="big icon" ng-class="item.icon"></i>
         <div class="content">

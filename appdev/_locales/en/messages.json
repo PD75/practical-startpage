@@ -1,8 +1,4 @@
 {
-  "short_phrases": {
-    "message": "Short Phrases",
-    "description": "Below follow short generic phrases that can be reused"
-  },
   "About": {
     "message": "About"
   },
@@ -12,11 +8,20 @@
   "Close": {
     "message": "Close"
   },
+  "days": {
+    "message": "days"
+  },
+  "Display": {
+    "message": "Display"
+  },
   "Edit": {
     "message": "Edit"
   },
   "EditUrl": {
     "message": "Edit Url"
+  },
+  "entries": {
+    "message": "entries"
   },
   "Delete": {
     "message": "Delete"
@@ -169,8 +174,13 @@
     "message": "Right column"
   },
   "Widgets": {
-    "message": "Widgets",
-    "description": "Below Follow all widget specific translation. Prefix w_xx where xx is the widget label"
+    "message": "Widgets"
+  },
+  "w_BL": {
+    "message": "Button List"
+  },
+  "w_GL": {
+    "message": "Grouped List"
   },
   "w_bookmarkTree": {
     "message": "Bookmarks"
@@ -197,7 +207,10 @@
     "message": "History"
   },
   "w_history_help": {
-    "message": "Last 200 visited sites."
+    "message": "Visited sites."
+  },
+  "w_history_edit_title": {
+    "message": "Edit History"
   },
   "w_quicklinks": {
     "message": "Quicklinks"

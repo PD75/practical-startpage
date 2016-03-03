@@ -69,7 +69,7 @@ angular.module('ps.core.service', ['ps.widgets.constants', 'chrome'])
           data.layout = getDefaultLayout();
         }
         if (angular.isUndefined(key) || key === 'widgets') {
-          data.widgets = widgetConstants();
+          data.widgets = widgetConstants.widgets;
         }
         return data;
       }
@@ -103,7 +103,7 @@ angular.module('ps.core.service', ['ps.widgets.constants', 'chrome'])
 
       function getDefaultStyles() {
         return {
-          primaryCol: "purple",
+          primaryCol: "blue",
           primaryInv: true,
           secondaryCol: "black",
           secondaryInv: true,

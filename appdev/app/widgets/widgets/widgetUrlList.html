@@ -1,6 +1,34 @@
-<div class="browser" ng-class="[vm.col.label]" ng-repeat="item in vm.list" ng-show="item.url">
-  <a class="ui basic browser button" ng-class="vm.style.primaryCol" ng-href="{{item.url}}">
-    <img ng-src="{{item.icon}}">
-    {{item.title}}
-  </a>
+<ps-widget-search ps-search-cb="vm.searchCB()" ps-search-string="vm.searchString" ng-show="vm.searchable"></ps-widget-search>
+
+<div ng-switch="vm.listType">
+
+  <div class="ui small aligned divided selection list" ng-switch-when="GL">
+    <a class="browser item" ng-repeat="item in vm.list" ng-href="{{item.url}}">
+      <!-- <div class="right floated content">
+        <i class="close link icon"></i>
+      </div> -->
+      <img ng-src="{{item.icon}}" class="ui icon image"/>
+      <div class="content">
+        <div class="header">
+          {{item.title}}
+        </div>
+        <div class="description">
+          {{item.url}}
+        </div>
+        <div class="meta">
+          <span class="date">{{item.timeStamp.toLocaleString()}}</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div ng-switch-default>
+    <div class="browser" ng-class="[vm.col.label]" ng-repeat="item in vm.list">
+      <a class="ui basic browser button" ng-class="vm.style.primaryCol" ng-href="{{item.url}}">
+        <img ng-src="{{item.icon}}">
+        {{item.altTitle}}
+      </a>
+    </div>
+  </div>
+
 </div>

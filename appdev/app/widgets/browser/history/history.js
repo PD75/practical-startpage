@@ -1,0 +1,75 @@
+(function(angular) {
+  "use strict";
+
+  angular.module('ps.widgets')
+    .controller("BrowserHistoryCtrl", BrowserHistoryCtrl)
+    .directive('psBrowserHistory', BrowserHistoryDirective);
+
+  function BrowserHistoryCtrl(historyService, dataService, layoutService) {
+    var vm = this;
+    vm.searchCB = getHistory;
+    vm.searchString = '';
+    vm.history = {
+      searchText: '',
+      startDate: 0,
+    };
+    activate();
+
+    function activate() {
+
+      vm.searchable = true;
+      if (layoutService.isActive('history')) {
+        getHistory();
+      }
+      dataService.setOnChangeData('history', getHistory);
+      layoutService.setOnTabClick('history', getHistory);
+    }
+
+    function setParams() {
+      vm.history = {
+        searchText: vm.history.searchText,
+        startDate: 0,
+      };
+      var history = dataService.data.history;
+      if (angular.isDefined(history)) {
+        vm.listType = history.listType;
+        if (angular.isDefined(history.max)) {
+          vm.history.maxResults = history.max;
+        }
+        if (angular.isDefined(history.days)) {
+          vm.history.startDate = new Date().getTime() - 1000 * 60 * 60 * 24 * history.days;
+        }
+      }
+    }
+
+    function getHistory() {
+      setParams();
+      if (vm.searchString.length === 0 || vm.searchString.length > 2 || vm.history.searchText.length > vm.searchString.length) {
+        if (vm.history.searchText.length > vm.searchString.length && vm.searchString.length < 3) {
+          vm.history.searchText = '';
+        } else {
+          vm.history.searchText = vm.searchString;
+        }
+        historyService.historyList(vm.history)
+          .then(function(historyList) {
+            vm.list = historyList;
+          });
+      }
+    }
+  }
+
+  function BrowserHistoryDirective(widgetConstants) {
+    return {
+      restrict: 'E',
+      templateUrl: widgetConstants.urlList,
+      controller: 'BrowserHistoryCtrl',
+      controllerAs: 'vm',
+      scope: {
+        tab: '=psTab',
+        col: '=psCol',
+        style: '=psStyle',
+      },
+      bindToController: true,
+    };
+  }
+})(angular);

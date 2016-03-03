@@ -2,9 +2,9 @@
   "manifest_version": 2,
   "name": "Practical Startpage Dev",
   "short_name": "Practical Startpage",
-  "version": "2.3.0",
+  "version": "2.4.1",
   "default_locale": "en",
-  "description": "Flexible start page that makes your data available in a single view.",
+  "description": "__MSG_c_ps_slogan__",
   "homepage_url": "https://github.com/PD75/practical-startpage",
   "optional_permissions": [
     "http://ajax.googleapis.com/*"

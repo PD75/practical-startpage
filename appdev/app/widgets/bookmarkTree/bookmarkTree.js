@@ -31,9 +31,9 @@
     activate();
 
     function activate() {
+      vm.treeConfig = getTreeConfig();
       if (layoutService.isActive('bookmarkTree')) {
         vm.getTreeData();
-        vm.treeConfig = getTreeConfig();
       }
       layoutService.setOnTabClick('bookmarkTree', getTreeData);
     }
