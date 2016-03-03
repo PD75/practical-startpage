@@ -129,7 +129,7 @@
     var j = 0;
     var newList = [];
     for (var i = 0; i < list.length; i++) {
-      if (angular.isDefined(list[i])) {
+      if (angular.isDefined(list[i]) && angular.isDefined(list[i].url)) {
         newList[j] = {
           id: list[i].id,
           title: getTitle(list[i]),

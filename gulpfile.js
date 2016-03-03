@@ -1,4 +1,4 @@
-﻿
+﻿ /*global require*/
 var src = './appdev';
 var srcNode = './node_modules';
 var dist = src + '/dist';
@@ -102,6 +102,12 @@ gulp.task('getHtml', function() {
     .pipe(gulp.dest(build + '/app'));
 });
 
+gulp.task('getLocales', function() {
+  return gulp.src([src + '/_locales/**/*.json'])
+    .pipe(plugins.htmlmin(htmlmin))
+    .pipe(gulp.dest(build + '/_locales'));
+});
+
 gulp.task('buildConfig', function(cb) {
   gulp.src(src + '/' + manifest.chrome_url_overrides.newtab)
     .pipe(plugins.htmlReplace({
@@ -161,5 +167,5 @@ gulp.task('watch', function() {
 // Default Task
 gulp.task('default', ['build', 'watch']);
 gulp.task('build', function(cb) {
-  runSequence('clean', ['buildScripts', 'getDist', 'buildCss', 'buildConfig', 'getHtml'], cb);
+  runSequence('clean', ['buildScripts', 'getDist', 'buildCss', 'buildConfig', 'getHtml', 'getLocales'], cb);
 });

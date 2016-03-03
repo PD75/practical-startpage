@@ -72,22 +72,22 @@
     "message": "F2"
   },
   "EditUrl_key": {
-    "message": "Skift+F2"
+    "message": "Shift+F2"
   },
   "Delete_key": {
     "message": "Del"
   },
   "NewFolder_key": {
-    "message": "Ctrl+Skift+N"
+    "message": "Ctrl+Shift+N"
   },
   "Save_key": {
     "message": "Ctrl+ S"
   },
   "SaveClose_key": {
-    "message": "Ctrl+Skift+S"
+    "message": "Ctrl+Shift+S"
   },
   "UndoAll_key": {
-    "message": "Ctrl+Skift+Z"
+    "message": "Ctrl+Shift+Z"
   },
   "c_ps_slogan": {
     "message": "Flexibel startsida som visar din data i en enda vy."
