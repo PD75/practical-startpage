@@ -103,7 +103,7 @@ angular.module('ps.core.service', ['ps.widgets.constants', 'chrome'])
 
       function getDefaultStyles() {
         return {
-          primaryCol: "purple",
+          primaryCol: "blue",
           primaryInv: true,
           secondaryCol: "black",
           secondaryInv: true,
