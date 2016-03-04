@@ -5,13 +5,17 @@
     .controller("gmailBadgeCtrl", gmailBadgeCtrl)
     .directive('psbGmail', gmailDirective);
 
-  function gmailBadgeCtrl($http) {
+  function gmailBadgeCtrl($http, $interval, $scope) {
     var vm = this;
     activate();
 
     function activate() {
       vm.unRead = 0;
       getMail();
+      var stop = $interval(getMail, 300000); //Check every 5 min
+      $scope.$on('$destroy', function() {
+        $interval.cancel(stop);
+      });
     }
 
     function getMail() {
@@ -25,9 +29,7 @@
       };
       $http(conf)
         .then(function(result) {
-          var x = result.data;
-
-          vm.unRead = x.feed.fullcount;
+          vm.unRead = result.data.feed.fullcount;
         });
     }
   }
