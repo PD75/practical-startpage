@@ -1,0 +1,30 @@
+"<?xml version="1.0" encoding="UTF-8"?>
+<feed version="0.3" xmlns="http://purl.org/atom/ns#">
+  <title>Gmail - Inbox for chrometest20150130@gmail.com</title>
+  <tagline>New messages in your Gmail Inbox</tagline>
+  <fullcount>2</fullcount><link rel="alternate" href="https://mail.google.com/mail" type="text/html"/>
+  <modified>2016-03-04T09:22:23Z</modified>
+  <entry>
+    <title>sdgsdfg</title>
+    <summary>Sdfgdfg dfsg sdfdfsg sdfg sdfg sdf</summary>
+    <link rel="alternate" href="https://mail.google.com/mail?account_id=chrometest20150130@gmail.com&amp;message_id=15340eeccbc9f311&amp;view=conv&amp;extsrc=atom" type="text/html"/>
+    <modified>2016-03-04T09:21:45Z</modified>
+    <issued>2016-03-04T09:21:45Z</issued>
+    <id>tag:gmail.google.com,2004:1527862583779521297</id>
+    <author>
+      <name>Paul Dhillon</name>
+      <email>paul.dhillon@outlook.com</email>
+    </author>
+  </entry>
+  <entry>
+    <title>Test, a few Google+ posts that you may like</title>
+    <summary>Posts from Google+ chosen for you Test, here are some posts from Google+ that you may find</summary><link rel="alternate" href="https://mail.google.com/mail?account_id=chrometest20150130@gmail.com&amp;message_id=1533e701ee2d0722&amp;view=conv&amp;extsrc=atom" type="text/html"/>
+    <modified>2016-03-03T21:44:08Z</modified>
+    <issued>2016-03-03T21:44:08Z</issued>
+    <id>tag:gmail.google.com,2004:1527818694085642018</id>
+    <author>
+      <name>Google+</name>
+      <email>noreply-7f1bf6a0@plus.google.com</email>
+    </author>
+  </entry>
+</feed>

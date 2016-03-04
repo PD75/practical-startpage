@@ -1,4 +1,4 @@
-angular.module('ps', ['ps.core', 'ps.widgets']);
+angular.module('ps', ['ps.core', 'ps.widgets','ps.badges']);
 
 angular.module('ps')
   .config(function($compileProvider) {

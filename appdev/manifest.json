@@ -17,7 +17,8 @@
     "management",
     "history",
     "sessions",
-    "storage"
+    "storage",
+    "https://mail.google.com/mail/feed/atom"
   ],
   "icons": {
     "16": "img/icon16.png",

@@ -1,0 +1,9 @@
+psb-gmail > a.item {
+  padding: .8em 1em !important;
+}
+
+psb-gmail > a.item > img {
+  margin: -0.7rem -0.7rem;
+  width: auto !important;
+  height: 1.7rem;
+}
