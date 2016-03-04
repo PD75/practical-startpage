@@ -23,6 +23,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-drag-and-drop-lists": "~1.3.0"
+    "angular-drag-and-drop-lists": "*",
+    "x2js": "*"
   }
 }

@@ -19,13 +19,15 @@
         method: 'GET',
         url: 'https://mail.google.com/mail/feed/atom',
         transformResponse: function(data) {
-          // string -> XML document object
-          return xmlToJSON.parseString(data);
+          var x2js = new X2JS();
+          return x2js.xml_str2json(data);
         },
       };
       $http(conf)
         .then(function(result) {
-          var x = result;
+          var x = result.data;
+
+          vm.unRead = x.feed.fullcount;
         });
     }
   }
