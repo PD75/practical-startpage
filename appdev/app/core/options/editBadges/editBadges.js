@@ -1,4 +1,4 @@
-(function(angular) {
+(function() {
   'use strict';
 
   angular.module('ps.core.options')
@@ -8,7 +8,8 @@
   function EditBadgesCtrl(dataService, i18n, badgeConstants) {
     var vm = this;
     vm.bottomMenu = [];
-    vm.getData = getData;
+    vm.clear = clear;
+    vm.undoAll = activate;
     vm.saveData = saveData;
     vm.locale = locale;
     vm.styles = {
@@ -26,17 +27,27 @@
       secButton: dataService.data.styles.secondaryCol,
     };
 
-    getData();
+    activate();
 
-    function getData() {
-      vm.bottomMenu = [];
+    function activate(bottomMenu) {
       var bottomMenu = [];
       if (angular.isDefined(dataService.data.bottomMenu)) {
         bottomMenu = angular.copy(dataService.data.bottomMenu);
       }
-      var badges = badgeConstants.badges;
+      getData(bottomMenu);
+    }
+
+    function clear(bottomMenu) {
+      var bottomMenu = [];
+      getData(bottomMenu);
+    }
+
+    function getData(bottomMenu) {
+      vm.bottomMenu = [];
+      var badges = angular.copy(badgeConstants.badges);
       for (var m = 0; m < bottomMenu.length; m++) {
         vm.bottomMenu[m] = badges[bottomMenu[m]];
+        vm.bottomMenu[m].label = bottomMenu[m];
         badges[bottomMenu[m]].used = true;
       }
       var b = 0;
@@ -51,28 +62,14 @@
     }
 
     function saveData() {
-      var layout = [],
-        activeTabs = [],
-        c = 0,
-        t = 0;
-      for (c = 0; c < vm.columns.length; c++) {
-        layout[c] = {
-          title: vm.columns[c].title,
-          items: vm.columns[c].items,
-          label: vm.columns[c].label,
-          tabs: [],
-        };
-        activeTabs[c] = vm.columns[c].tabs[0].label;
-        for (t = 0; t < vm.columns[c].tabs.length; t++) {
-          layout[c].tabs[t] = vm.columns[c].tabs[t].label;
-        }
+      var bottomMenu = [];
+      for (var m = 0; m < vm.bottomMenu.length; m++) {
+        bottomMenu[m] = vm.bottomMenu[m].label;
       }
       dataService.setData({
-        layout: layout,
-        activeTabs: activeTabs,
+        bottomMenu: bottomMenu,
       });
     }
-
 
     function locale(text) {
       return i18n.get(text);
@@ -88,4 +85,4 @@
       scope: {},
     };
   }
-})(angular);
+})();

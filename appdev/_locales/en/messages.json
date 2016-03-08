@@ -2,8 +2,14 @@
   "About": {
     "message": "About"
   },
+  "Badges": {
+    "message": "Badges"
+  },
   "Check": {
     "message": "Check"
+  },
+  "Clear": {
+    "message": "Clear"
   },
   "Close": {
     "message": "Close"
@@ -123,7 +129,10 @@
     "message": "Check progress of development"
   },
   "c_about_text_4": {
-    "message": "On the waffle board"
+    "message": "On the Waffle board"
+  },
+  "c_bottomMenu": {
+    "message": "Bottom Menu"
   },
   "c_help_title_0": {
     "message": "Configurable Data Lists"
