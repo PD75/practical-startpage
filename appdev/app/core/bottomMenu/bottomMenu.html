@@ -1,7 +1,8 @@
 <div class="header item">
   Practical Startpage
 </div>
-<psb-gmail></psb-gmail>
+<!--<psb-gmail></psb-gmail>-->
+
 <div class="right menu">
   <a class="ui item" href="https://groups.google.com/forum/#!forum/practical-startpage" target="_blank">
     <i class="bug icon"></i>
@@ -9,7 +10,7 @@
   <div class="ui bottom right dropdown item" ui-dropdown>
     <i class="setting icon"></i>
     <div class="menu">
-      <div class="item" ng-repeat="menuItem in vm.bottomMenu" ng-click="vm.activateModal(menuItem)">
+      <div class="item" ng-repeat="menuItem in vm.bottomSubMenu" ng-click="vm.activateModal(menuItem)">
         <i class="icon" ng-class="menuItem.icon"></i>
         {{menuItem.title}}
       </div>

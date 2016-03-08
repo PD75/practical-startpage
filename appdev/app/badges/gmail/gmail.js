@@ -4,7 +4,7 @@
   angular.module('ps.badges')
     .controller("gmailBadgeCtrl", gmailBadgeCtrl)
     .directive('psbGmail', gmailDirective);
-
+    
   function gmailBadgeCtrl($http, $interval, $scope) {
     var vm = this;
     activate();
