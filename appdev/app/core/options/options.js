@@ -8,7 +8,8 @@
   function OptionsCtrl($timeout, dataService, i18n) {
     var vm = this;
     vm.locale = locale;
-    vm.tab = 1;
+    vm.tab = 'editBadges';
+    // vm.tab = 'editLayout';
 
     activate();
 
