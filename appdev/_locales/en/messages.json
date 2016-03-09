@@ -155,8 +155,11 @@
   "c_o_editLayout": {
     "message": "Edit Layout"
   },
-  "c_o_editBadges": {
-    "message": "Edit Badges"
+  "c_o_widgets": {
+    "message": "Select Widgets"
+  },
+  "c_o_badges": {
+    "message": "Select Badges"
   },
   "c_o_clearSettings": {
     "message": "Clear Settings"

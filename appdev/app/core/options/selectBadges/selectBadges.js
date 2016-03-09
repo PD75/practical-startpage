@@ -2,10 +2,10 @@
   'use strict';
 
   angular.module('ps.core.options')
-    .controller('EditBadgesCtrl', EditBadgesCtrl)
-    .directive('psEditBadges', psEditBadges);
+    .controller('SelectBadgesCtrl', SelectBadgesCtrl)
+    .directive('psSelectBadges', SelectBadgesDirective);
 
-  function EditBadgesCtrl(dataService, i18n, badgeConstants) {
+  function SelectBadgesCtrl(dataService, i18n, badgeConstants) {
     var vm = this;
     vm.bottomMenu = [];
     vm.clear = clear;
@@ -76,11 +76,11 @@
     }
   }
 
-  function psEditBadges() {
+  function SelectBadgesDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/core/options/editBadges/editBadges.html',
-      controller: 'EditBadgesCtrl',
+      templateUrl: 'app/core/options/selectBadges/selectBadges.html',
+      controller: 'SelectBadgesCtrl',
       controllerAs: 'vm',
       scope: {},
     };
