@@ -7,7 +7,8 @@
   "description": "__MSG_c_ps_slogan__",
   "homepage_url": "https://github.com/PD75/practical-startpage",
   "optional_permissions": [
-    "http://ajax.googleapis.com/*"
+    "http://ajax.googleapis.com/*",
+    "https://mail.google.com/mail/feed/atom"
   ],
   "permissions": [
     "topSites",
@@ -17,8 +18,7 @@
     "management",
     "history",
     "sessions",
-    "storage",
-    "https://mail.google.com/mail/feed/atom"
+    "storage"
   ],
   "icons": {
     "16": "img/icon16.png",

@@ -188,6 +188,21 @@
   "c_l_right": {
     "message": "Right column"
   },
+  "c_auth_title": {
+    "message": "Permission to $url$ required, click to authorize!!!",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "mysite.com"
+      }
+    }
+  },
+  "b_gmail_connection": {
+    "message": "Failed to retreive data, please check the network connection and that you are loged on to Gmail!"
+  },
+  "b_gmail_noUnRead": {
+    "message": "(No unread mails!)"
+  },
   "Widgets": {
     "message": "Widgets"
   },
@@ -244,15 +259,6 @@
   },
   "w_rssFeed_addFeed": {
     "message": "Add Feed"
-  },
-  "w_rssFeed_auth_title": {
-    "message": "Permission to access $url$ required!!!",
-    "placeholders": {
-      "url": {
-        "content": "$1",
-        "example": "mysite.com"
-      }
-    }
   },
   "w_rssFeed_auth_text": {
     "message": "RSS uses google apis to get a consistent data structure from the various feeds and will not function without. Click here to proceed and authorize the widget."

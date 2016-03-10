@@ -7,3 +7,12 @@ div.menu  .item > img {
   width: auto !important;
   height: 1.555rem;
 }
+
+psb-gmail > .popup  .meta > .title{
+ color:rgba(0, 0, 0, 0.4); 
+}
+
+psb-gmail > .popup  .date {
+  color: rgba(0,0,0,.4);
+  font-size: .8em;
+}
