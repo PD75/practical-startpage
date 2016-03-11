@@ -19,7 +19,7 @@ ratings:
   - "**.md"
 exclude_paths:
 - "**.min.*"
-- */**/dist/**/*
+- "*/**/dist/**/*"
 - build/**/*
 - release/**/*
 ecmaFeatures:
