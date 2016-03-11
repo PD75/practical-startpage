@@ -47,7 +47,7 @@
       bindToController: true,
       link: link,
     };
-    function link(scope, el, attr, ctrl) {
+    function link(scope, el) {
       loadBadges(el, scope);
       dataService.setOnChangeData('bottomMenu', function() {
         loadBadges(el, scope);

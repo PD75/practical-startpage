@@ -61,7 +61,7 @@
           $timeout(function() {
             $scope.$apply();
           });
-        }, function(error) {
+        }, function() {
           vm.connection = false;
           vm.unRead = '-1';
         });
@@ -70,7 +70,7 @@
     function authorizePermissions() {
       permissionService
         .requestPermissions(['https://mail.google.com/'])
-        .then(function(result) {
+        .then(function() {
           activate();
         });
     }
