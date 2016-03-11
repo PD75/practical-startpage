@@ -1,3 +1,15 @@
+[![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://raw.githubusercontent.com/PD75/practical-startpage/master/LICENSE)
+
+[![Stories in Ready](https://badge.waffle.io/PD75/practical-startpage.svg?label=-to-be-started&title=To%20be%20Started)](http://waffle.io/PD75/practical-startpage)
+[![Stories in Progress](https://badge.waffle.io/PD75/practical-startpage.svg?label=-in-progress&title=In%20Progress)](http://waffle.io/PD75/practical-startpage)
+[![Stories in Ready](https://badge.waffle.io/PD75/practical-startpage.svg?label=-implemented&title=Implemented)](http://waffle.io/PD75/practical-startpage)
+
+[![Code Climate](https://codeclimate.com/github/PD75/practical-startpage/badges/gpa.svg)](https://codeclimate.com/github/PD75/practical-startpage)
+[![Issue Count](https://codeclimate.com/github/PD75/practical-startpage/badges/issue_count.svg)](https://codeclimate.com/github/PD75/practical-startpage)
+
+[![Issue Stats](http://issuestats.com/github/PD75/practical-startpage/badge/pr)](http://issuestats.com/github/PD75/practical-startpage)
+[![Issue Stats](http://issuestats.com/github/PD75/practical-startpage/badge/issue)](http://issuestats.com/github/PD75/practical-startpage)
+
 ![logo]
 
 # Practical Startpage
