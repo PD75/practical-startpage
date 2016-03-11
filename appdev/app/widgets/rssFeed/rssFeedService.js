@@ -10,10 +10,10 @@
     s.getFeed = getFeed;
 
     function getFeeds() {
-      if (angular.isUndefined(dataService.data.rssFeed)) {
-        dataService.data.rssFeed = [];
+      var feeds = [];
+      if (angular.isDefined(dataService.data.rssFeed) && angular.isDefined(dataService.data.rssFeed.feeds)) {
+        feeds = angular.copy(dataService.data.rssFeed.feeds);
       }
-      var feeds = dataService.data.rssFeed;
       var promises = [];
       for (var u = 0; u < feeds.length; u++) {
         promises[u] = getFeed(feeds[u].url, 30);

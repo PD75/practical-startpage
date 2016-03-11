@@ -29,7 +29,10 @@
     function initiate() {
       vm.feed = {};
       vm.addButtonDisabled = true;
-      vm.feeds = angular.copy(dataService.data.rssFeed);
+      vm.feeds = [];
+      if (angular.isDefined(dataService.data.rssFeed) && angular.isDefined(dataService.data.rssFeed.feeds)) {
+        vm.feeds = angular.copy(dataService.data.rssFeed.feeds);
+      }
       vm.feedSample = [];
       vm.errorShow = false;
       permissionService
@@ -85,7 +88,9 @@
       if (!vm.addButtonDisabled) {
         vm.feeds.push(vm.feed);
         dataService.setData({
-          rssFeed: vm.feeds,
+          rssFeed: {
+            feeds: vm.feeds,
+          },
         });
         vm.feed = {};
         vm.addButtonDisabled = true;
