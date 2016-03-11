@@ -1,6 +1,6 @@
 {
   "name": "PracticalStartpage",
-  "version": "2.4.1",
+  "version": "2.4.2",
 
   "description": "Flexible start page that makes your data available in a single view.",
   "main": "startpage.js",
