@@ -77,7 +77,7 @@ gulp.task('buildScripts', function() {
     .pipe(plugins.rename({
       suffix: '.min',
     }))
-    // .pipe(plugins.uglify())
+    .pipe(plugins.uglify())
     .pipe(gulp.dest(build + '/app'));
 });
 //CSS

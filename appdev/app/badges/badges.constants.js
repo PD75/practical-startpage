@@ -5,9 +5,5 @@ angular.module('ps.badges')
         iconImage: "img/gmail-icon-128.png",
         directive: "gmail",
       },
-      mail: {
-        iconClass: "mail",
-        directive: "balle",
-      },
     },
   });
