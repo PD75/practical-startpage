@@ -1,4 +1,4 @@
-angular.module('ps.badges', [])
+angular.module('ps.badges')
   .constant('badgeConstants', {
     badges: {
       gmail: {
