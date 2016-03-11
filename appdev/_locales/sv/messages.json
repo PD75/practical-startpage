@@ -230,8 +230,8 @@
   "w_rssFeed_addFeed": {
     "message": "Lägg till flöde"
   },
-  "w_rssFeed_auth_title": {
-    "message": "Tillstånd att få tillgång till $$url$$ krävs !!!",
+  "c_auth_title": {
+    "message": "Tillstånd till $$url$$ krävs, clicka för att godkänna !!!",
     "placeholders": {
       "url": {
         "content": "$1",

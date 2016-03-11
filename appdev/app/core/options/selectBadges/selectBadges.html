@@ -1,0 +1,52 @@
+<div class="ui grid options layout">
+
+  <div class="sixteen wide column">
+    <h4>
+      {{vm.locale("Badges")}}
+    </h4>
+    <div class="ui red  menu" dnd-list="vm.badges">
+
+      <div ng-repeat="item in vm.badges" dnd-draggable="item" dnd-moved="vm.badges.splice($index, 1)" dnd-effect-allowed="move">
+        <div class="item">
+          <i class="ui badge icon" ng-class="item.iconClass" ng-if="item.iconClass"></i>
+          <img ng-src="{{item.iconImage}}" ng-if="item.iconImage" />
+        </div>
+      </div>
+
+      <div class="item dndPlaceholder">
+        <i class="plus square middle aligned icon"></i>
+      </div>
+
+    </div>
+  </div>
+  <div class="sixteen wide column">
+    <h4>
+      {{vm.locale("c_bottomMenu")}}
+    </h4>
+    <div class="ui  menu" dnd-list="vm.bottomMenu" ng-class="vm.styles.secMenu">
+
+      <div ng-repeat="item in vm.bottomMenu" dnd-draggable="item" dnd-moved="vm.bottomMenu.splice($index, 1)" dnd-effect-allowed="move">
+        <div class="item">
+          <i class="ui badge icon" ng-class="item.iconClass" ng-if="item.iconClass"></i>
+          <img ng-src="{{item.iconImage}}" ng-if="item.iconImage" />
+        </div>
+      </div>
+
+      <div class="item dndPlaceholder">
+        <i class="plus square middle aligned icon"></i>
+      </div>
+
+    </div>
+  </div>
+  <div class="sixteen wide column">
+    <button class="ui right floated button" ng-class="vm.styles.secButton" ng-click="vm.undoAll()">
+      {{vm.locale("UndoAll")}}
+    </button>
+    <button class="ui right floated button" ng-class="vm.styles.secButton" ng-click="vm.clear()">
+      {{vm.locale("Clear")}}
+    </button>
+    <button class="ui left floated button" ng-class="vm.styles.priButton" ng-click="vm.saveData()">
+      {{vm.locale("Save")}}
+    </button>
+  </div>
+</div>

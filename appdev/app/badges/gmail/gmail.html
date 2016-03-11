@@ -1,0 +1,35 @@
+<a class="item" href="https://mail.google.com/mail" target="_blank" ui-popup="vm.popup">
+  <img src="img/gmail-icon-128.png" />
+  <div class="floating tiny ui red label" ng-if="(vm.unRead > '0')">{{vm.unRead}}</div>
+  <div class="floating tiny ui red label" ng-if="(vm.unRead === '-1')"><i class="ui warning  icon"></i></div>
+</a>
+<div class="ui popup">
+  <div class="ui small aligned divided selection list">
+    <a class="browser item" ng-repeat="item in vm.mail.entry" ng-href="{{item.link._href}}">
+      <div class="right floated content date">
+        {{item.issued}}
+      </div>
+      <div class="content">
+        <div class="header">
+          {{item.author.name || item.author.email}}
+        </div>
+        <div class="meta">
+          <span class="title">{{item.title}}</span>
+        </div>
+        <div class="description">
+          {{item.summary}}
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="ui negative message" ng-if="!vm.permission" ng-click="vm.authorizePermissions()" style="cursor: pointer;">
+    <div class="header" ng-bind-html="vm.locale('c_auth_title',['<i>https://mail.google.com/</i>'])">
+    </div>
+  </div>
+  <div class="ui negative message" ng-if="!vm.connection">
+    <div class="body" ng-bind-html="vm.locale('b_gmail_connection')">
+    </div>
+  </div>
+  <div class="ui small message" ng-if="(vm.unRead === '0')" ng-bind-html="vm.locale('b_gmail_noUnRead')">
+  </div>
+</div>

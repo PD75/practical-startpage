@@ -99,7 +99,7 @@
   function ClearDataDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/core/options/clearData.html',
+      templateUrl: 'app/core/options/clearData/clearData.html',
       controller: 'ClearDataCtrl',
       controllerAs: 'vm',
       bindToController: true,
