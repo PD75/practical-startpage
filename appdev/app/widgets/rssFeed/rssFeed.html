@@ -1,8 +1,11 @@
 <ps-segment-layout ng-class="[vm.style.primaryCol]">
 
-  <div class="ui small aligned divided list">
-    <a class="rss item" ng-repeat="item in vm.rss" ng-href="{{item.link}}">
-      <img ng-src="{{item.icon}}" class="ui icon image"/>
+  <div class="ui small aligned divided selection list">
+    <a class="rss item" ng-repeat="item in vm.rss" ng-href="{{item.link}}" ng-class="{visited : item.visited}">
+      <div class="right floated content" ng-click="vm.deleteItem($event,item)">
+        <i class="large remove icon"></i>
+      </div>
+      <img ng-src="{{item.icon}}" class="ui icon image" />
       <div class="content">
         <div class="header">
           {{item.title}}

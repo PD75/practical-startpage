@@ -9,11 +9,18 @@
     s.getFeeds = getFeeds;
     s.getFeed = getFeed;
     s.consolidateFeed = consolidateFeed;
+    s.deleteItem = deleteItem;
 
     function getFeeds(hideVisited, numEntries) {
       var feeds = [];
-      if (angular.isDefined(dataService.data.rssFeed) && angular.isDefined(dataService.data.rssFeed.feeds)) {
-        feeds = angular.copy(dataService.data.rssFeed.feeds);
+      s.deletedItems = [];
+      if (angular.isDefined(dataService.data.rssFeed)) {
+        if (angular.isDefined(dataService.data.rssFeed.feeds)) {
+          feeds = angular.copy(dataService.data.rssFeed.feeds);
+        }
+        if (angular.isDefined(dataService.data.rssFeed.deletedItems)) {
+          s.deletedItems = angular.copy(dataService.data.rssFeed.deletedItems);
+        }
       }
       var promises = [];
       for (var p = 0; p < feeds.length; p++) {
@@ -33,7 +40,7 @@
         });
     }
 
-    function consolidateFeed(hideVisited, numEntries) {
+    function consolidateFeed(hideDeleted, hideVisited, numEntries) {
       var checkedVisits = [];
       var f;
       for (f = 0; f < s.feed.length; f++) {
@@ -44,9 +51,9 @@
           var rss = [];
           var r = 0;
           for (f = 0; f < feed.length; f++) {
-            if (hideVisited && !feed[f].visited && !checkDuplicate(feed[f], rss)) {
-              rss[r++] = feed[f];
-            } else if (!hideVisited && !checkDuplicate(feed[f], rss)) {
+            if ((!hideVisited || !feed[f].visited)
+              && (!checkDuplicate(feed[f], rss))
+              && (!checkDeleted(feed[f]))) {
               rss[r++] = feed[f];
             }
           }
@@ -72,6 +79,31 @@
       var d = false;
       for (var f = 0; f < feed.length; f++) {
         if (entry.link === feed[f].link) {
+          d = true;
+        }
+      }
+      return d;
+    }
+    function deleteItem(item) {
+      var rssFeed = dataService.data.rssFeed;
+      if (angular.isDefined(rssFeed.deletedItems)) {
+        s.deletedItems = rssFeed.deletedItems;
+      }
+      s.deletedItems.push({
+        link: item.link,
+        dateStamp: item.dateStamp,
+      });
+      rssFeed.deletedItems = s.deletedItems;
+
+      dataService.setData({
+        rssFeed: rssFeed,
+      });
+    }
+
+    function checkDeleted(entry) {
+      var d = false;
+      for (var f = 0; f < s.deletedItems.length; f++) {
+        if (entry.link === s.deletedItems[f].link) {
           d = true;
         }
       }

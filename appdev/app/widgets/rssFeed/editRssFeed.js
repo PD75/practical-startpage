@@ -85,12 +85,12 @@
     }
 
     function addFeed() {
+      var rssFeed = dataService.data.rssFeed;
       if (!vm.addButtonDisabled) {
         vm.feeds.push(vm.feed);
+        rssFeed.feeds = vm.feeds;
         dataService.setData({
-          rssFeed: {
-            feeds: vm.feeds,
-          },
+          rssFeed: rssFeed,
         });
         vm.feed = {};
         vm.addButtonDisabled = true;

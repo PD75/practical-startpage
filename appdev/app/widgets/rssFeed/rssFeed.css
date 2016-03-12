@@ -6,3 +6,13 @@
   overflow: hidden;
   white-space: normal;
 }
+
+.list > .rss.item.visited {
+  background-color: rgba(0,0,0,.075);
+}
+.rss.item > .content > .icon:not(:hover){
+  opacity:0.5
+}
+.rss.item:not(:hover) > .content > .icon{
+  opacity:0
+}

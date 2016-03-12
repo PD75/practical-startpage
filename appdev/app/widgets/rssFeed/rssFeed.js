@@ -5,8 +5,10 @@
     .controller("rssFeedCtrl", rssFeedCtrl)
     .directive('psRssFeed', RssFeedDirective);
 
-  function rssFeedCtrl($http, rssFeedService, layoutService, dataService) {
+  function rssFeedCtrl($http, $timeout, rssFeedService, layoutService, dataService) {
     var vm = this;
+    vm.clickCB = clickCB;
+    vm.deleteItem = deleteItem;
     activate();
 
     function activate() {
@@ -18,9 +20,26 @@
     }
 
     function getFeeds() {
-      rssFeedService.getFeeds(false,50)
+      rssFeedService.getFeeds(true, true, 50)
         .then(function(data) {
-          vm.rss = data; 
+          vm.rss = data;
+        });
+    }
+
+    function clickCB() {
+      $timeout(function() {
+        rssFeedService.consolidateFeed(true, true, 50)
+          .then(function(data) {
+            vm.rss = data;
+          });
+      }, 1000);
+    }
+    function deleteItem(e, item) {
+      e.preventDefault();
+      rssFeedService.deleteItem(item);
+      rssFeedService.consolidateFeed(true, true, 50)
+        .then(function(data) {
+          vm.rss = data;
         });
     }
   }
