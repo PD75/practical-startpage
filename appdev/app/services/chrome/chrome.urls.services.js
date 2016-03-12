@@ -37,6 +37,7 @@
   function historyService($q) {
     return {
       historyList: historyList,
+      getVisits: getVisits,
     };
 
     function historyList(param) {
@@ -50,6 +51,14 @@
           var list = populateList(response);
           deferred.resolve(list);
         });
+      return deferred.promise;
+    }
+
+    function getVisits(url) {
+      var deferred = $q.defer();
+      chrome.history.getVisits({ url: url }, function(visits) {
+        deferred.resolve(visits);
+      });
       return deferred.promise;
     }
   }
