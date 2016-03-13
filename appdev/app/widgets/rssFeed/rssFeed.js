@@ -5,7 +5,7 @@
     .controller("rssFeedCtrl", rssFeedCtrl)
     .directive('psRssFeed', RssFeedDirective);
 
-  function rssFeedCtrl($http, $timeout, rssFeedService, layoutService, dataService) {
+  function rssFeedCtrl($http, $timeout, rssFeedService, layoutService, dataService, historyService) {
     var vm = this;
     vm.clickCB = clickCB;
     vm.deleteItem = deleteItem;
@@ -17,6 +17,7 @@
       }
       dataService.setOnChangeData('rssFeed', getFeeds);
       layoutService.setOnTabClick('rssFeed', getFeeds);
+      historyService.monitorHistory(refreshFeeds);
     }
 
     function getFeeds() {
@@ -24,6 +25,13 @@
         .then(function(data) {
           vm.rss = data.feed;
           vm.allowDelete = data.allowDelete;
+        });
+    }
+
+    function refreshFeeds() {
+      rssFeedService.consolidateFeed()
+        .then(function(feed) {
+          vm.rss = feed;
         });
     }
 
