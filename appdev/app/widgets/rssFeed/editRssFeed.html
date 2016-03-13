@@ -8,17 +8,34 @@
   <div class="stretched row">
     <div class="column">
       <div class="ui segment">
-        <form name="feedForm" class="ui one column grid">
-          <div class="column">
+        <form name="feedForm" class="ui form">
+
+          <div class="inline fields">
+            <div class="field">
+              <div class="ui toggle checkbox" ng-click="vm.save()">
+                <input type="checkbox" ng-model="vm.hideVisited" />
+                <label>Hide Visited</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui toggle checkbox" ng-click="vm.save()">
+                <input type="checkbox" ng-model="vm.hideDeleted" />
+                <label>Allow Delete</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
             <div class="ui fluid labeled input">
               <div class="ui label">
                 {{vm.locale("Title")}}
               </div>
               <input type="text" placeholder="{{vm.locale('Title')}}" name="title" ng-model="vm.feed.title">
             </div>
-
           </div>
-          <div class="column">
+
+
+          <div class="field">
             <div class="ui fluid labeled input">
               <div class="ui label">
                 {{vm.locale("Url")}}
@@ -30,27 +47,22 @@
             </div>
           </div>
 
-        </form>
-        <div class="ui one column grid">
-          <div class="column">
+          <div class="field">
             <button class="ui button" ng-class="{disabled:vm.addButtonDisabled}" ng-click="vm.addFeed()">
-              <i class="plus icon"></i>
-              {{vm.locale("w_rssFeed_addFeed")}}
+              <i class="plus icon"></i> {{vm.locale("w_rssFeed_addFeed")}}
             </button>
 
             <button class="ui button" ng-click="vm.closeForm()">
-              <i class="remove icon"></i>
-              {{vm.locale("Close")}}
+              <i class="remove icon"></i> {{vm.locale("Close")}}
             </button>
           </div>
-
-          <div class="column">
+          <div class="field">
             <div class="ui selection middle divided aligned list" style="innerHeight:100px">
               <div class="item" ng-repeat="item in vm.feeds" ng-click="vm.checkFeed(item)">
                 <div class="right floated content" ng-click="vm.removeFeed($index)">
                   <i class="remove icon"></i>
                 </div>
-                <img class="ui image" ng-src="{{item.icon}}" height="16"/>
+                <img class="ui image" ng-src="{{item.icon}}" height="16" />
                 <div class="content">
                   <div class="header">{{item.title}}</div>
                   <div class="description">{{item.url}}</div>
@@ -58,7 +70,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </form>
 
       </div>
     </div>
@@ -69,8 +81,7 @@
             <a class="item" ng-repeat="entry in vm.feedSample" ng-href="{{entry.link}}">
               <div class="content">
                 <div class="header">
-                  <img ng-src="{{entry.icon}}" height="16"/>
-                  {{entry.title}}
+                  <img ng-src="{{entry.icon}}" height="16" /> {{entry.title}}
                 </div>
                 <div class="description">
                   {{entry.contentSnippet}}

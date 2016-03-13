@@ -15,6 +15,7 @@
     vm.closeForm = closeForm;
     vm.authorizePermissions = authorizePermissions;
     vm.locale = locale;
+    vm.save = save;
 
     activate();
 
@@ -85,16 +86,33 @@
     }
 
     function addFeed() {
-      var rssFeed = dataService.data.rssFeed;
       if (!vm.addButtonDisabled) {
         vm.feeds.push(vm.feed);
+        save();
+        vm.feed = {};
+        vm.addButtonDisabled = true;
+      }
+    }
+
+    function save() {
+      var rssFeed = {};
+      if (angular.isDefined(dataService.data.rssFeed)) {
+        rssFeed.hideVisited = dataService.data.rssFeed;
+      }      
+      if (angular.isDefined(vm.hideVisited)) {
+        rssFeed.hideVisited = vm.hideVisited;
+      } else {
+        rssFeed.hideVisited = false;
+      }
+      if (angular.isDefined(vm.hideDeleted)) {
+        rssFeed.hideDeleted = vm.hideDeleted;
+      } else {
+        rssFeed.hideDeleted = false;
+      }
         rssFeed.feeds = vm.feeds;
         dataService.setData({
           rssFeed: rssFeed,
         });
-        vm.feed = {};
-        vm.addButtonDisabled = true;
-      }
     }
 
     function removeFeed(index) {
