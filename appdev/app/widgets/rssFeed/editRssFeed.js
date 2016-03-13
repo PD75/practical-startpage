@@ -30,9 +30,13 @@
     function initiate() {
       vm.feed = {};
       vm.addButtonDisabled = true;
-      vm.feeds = [];
-      if (angular.isDefined(dataService.data.rssFeed) && angular.isDefined(dataService.data.rssFeed.feeds)) {
-        vm.feeds = angular.copy(dataService.data.rssFeed.feeds);
+      if (angular.isDefined(dataService.data.rssFeed)) {
+        vm.data = angular.copy(dataService.data.rssFeed);
+      } else {
+        vm.data = {};
+      }
+      if (angular.isUndefined(vm.data.feeds)) {
+        vm.data.feeds = [];
       }
       vm.feedSample = [];
       vm.errorShow = false;
@@ -64,7 +68,7 @@
               vm.addButtonDisabled = true;
               vm.feedSample = [];
             }
-            var duplicate = vm.feeds.filter(function(feed) {
+            var duplicate = vm.data.feeds.filter(function(feed) {
               return feed.url === vm.feed.url;
             });
             if (angular.isDefined(duplicate) && duplicate.length > 0) {
@@ -87,7 +91,7 @@
 
     function addFeed() {
       if (!vm.addButtonDisabled) {
-        vm.feeds.push(vm.feed);
+        vm.data.feeds.push(vm.feed);
         save();
         vm.feed = {};
         vm.addButtonDisabled = true;
@@ -95,31 +99,24 @@
     }
 
     function save() {
-      var rssFeed = {};
+      var rssFeed = vm.data;
       if (angular.isDefined(dataService.data.rssFeed)) {
-        rssFeed.hideVisited = dataService.data.rssFeed;
-      }      
-      if (angular.isDefined(vm.hideVisited)) {
-        rssFeed.hideVisited = vm.hideVisited;
-      } else {
+        rssFeed.deletedItems = dataService.data.rssFeed.deletedItems;
+      }
+      if (angular.isUndefined(vm.data.hideVisited)) {
         rssFeed.hideVisited = false;
       }
-      if (angular.isDefined(vm.hideDeleted)) {
-        rssFeed.hideDeleted = vm.hideDeleted;
-      } else {
-        rssFeed.hideDeleted = false;
+      if (angular.isUndefined(vm.data.allowDelete)) {
+        rssFeed.allowDelete = false;
       }
-        rssFeed.feeds = vm.feeds;
-        dataService.setData({
-          rssFeed: rssFeed,
-        });
+      dataService.setData({
+        rssFeed: rssFeed,
+      });
     }
 
     function removeFeed(index) {
-      vm.feeds.splice(index, 1);
-      dataService.setData({
-        rssFeed: vm.feeds,
-      });
+      vm.data.feeds.splice(index, 1);
+      save();
     }
 
     function closeForm() {

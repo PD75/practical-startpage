@@ -13,13 +13,13 @@
           <div class="inline fields">
             <div class="field">
               <div class="ui toggle checkbox" ng-click="vm.save()">
-                <input type="checkbox" ng-model="vm.hideVisited" />
+                <input type="checkbox" ng-model="vm.data.hideVisited" />
                 <label>Hide Visited</label>
               </div>
             </div>
             <div class="field">
               <div class="ui toggle checkbox" ng-click="vm.save()">
-                <input type="checkbox" ng-model="vm.hideDeleted" />
+                <input type="checkbox" ng-model="vm.data.allowDelete" />
                 <label>Allow Delete</label>
               </div>
             </div>
@@ -58,7 +58,7 @@
           </div>
           <div class="field">
             <div class="ui selection middle divided aligned list" style="innerHeight:100px">
-              <div class="item" ng-repeat="item in vm.feeds" ng-click="vm.checkFeed(item)">
+              <div class="item" ng-repeat="item in vm.data.feeds" ng-click="vm.checkFeed(item)">
                 <div class="right floated content" ng-click="vm.removeFeed($index)">
                   <i class="remove icon"></i>
                 </div>

@@ -10,8 +10,11 @@
     s.getFeed = getFeed;
     s.consolidateFeed = consolidateFeed;
     s.deleteItem = deleteItem;
+    s.rssFeed = {
+      numEntries: 50,
+    };
 
-    function getFeeds(hideVisited, numEntries) {
+    function getFeeds() {
       var feeds = [];
       s.deletedItems = [];
       if (angular.isDefined(dataService.data.rssFeed)) {
@@ -21,6 +24,10 @@
         if (angular.isDefined(dataService.data.rssFeed.deletedItems)) {
           s.deletedItems = angular.copy(dataService.data.rssFeed.deletedItems);
         }
+        s.rssFeed = {
+          hideVisited: dataService.data.rssFeed.hideVisited,
+          allowDelete: dataService.data.rssFeed.allowDelete,
+        };
       }
       var promises = [];
       for (var p = 0; p < feeds.length; p++) {
@@ -36,11 +43,17 @@
               s.feed[k++] = data[i].feed.entries[j];
             }
           }
-          return consolidateFeed(hideVisited, numEntries);
+          return consolidateFeed()
+            .then(function(feed) {
+              return {
+                feed: feed,
+                allowDelete: s.rssFeed.allowDelete,
+              };
+            });
         });
     }
 
-    function consolidateFeed(hideDeleted, hideVisited, numEntries) {
+    function consolidateFeed() {
       var checkedVisits = [];
       var f;
       for (f = 0; f < s.feed.length; f++) {
@@ -51,9 +64,9 @@
           var rss = [];
           var r = 0;
           for (f = 0; f < feed.length; f++) {
-            if ((!hideVisited || !feed[f].visited)
+            if ((!s.rssFeed.hideVisited || !feed[f].visited)
               && (!checkDuplicate(feed[f], rss))
-              && (!checkDeleted(feed[f]))) {
+              && (!checkDeleted(feed[f]) || !s.rssFeed.allowDelete)) {
               rss[r++] = feed[f];
             }
           }
@@ -61,7 +74,7 @@
             .sort(function(a, b) {
               return b.timeStamp - a.timeStamp;
             })
-            .slice(0, numEntries);//Limit to avoid Performance problems in DOM
+            .slice(0, s.rssFeed.numEntries);//Limit to avoid Performance problems in DOM
         });
     }
 

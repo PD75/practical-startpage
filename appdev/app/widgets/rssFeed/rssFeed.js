@@ -20,15 +20,16 @@
     }
 
     function getFeeds() {
-      rssFeedService.getFeeds(true, true, 50)
+      rssFeedService.getFeeds()
         .then(function(data) {
-          vm.rss = data;
+          vm.rss = data.feed;
+          vm.allowDelete = data.allowDelete;
         });
     }
 
     function clickCB() {
       $timeout(function() {
-        rssFeedService.consolidateFeed(true, true, 50)
+        rssFeedService.consolidateFeed()
           .then(function(data) {
             vm.rss = data;
           });
@@ -37,7 +38,7 @@
     function deleteItem(e, item) {
       e.preventDefault();
       rssFeedService.deleteItem(item);
-      rssFeedService.consolidateFeed(true, true, 50)
+      rssFeedService.consolidateFeed()
         .then(function(data) {
           vm.rss = data;
         });
