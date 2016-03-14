@@ -77,17 +77,20 @@
     <div class="column">
       <div class="ui segment">
         <div class="ui comments">
-          <div class="ui middle aligned divided list">
-            <a class="item" ng-repeat="entry in vm.feedSample" ng-href="{{entry.link}}">
+          <div class="ui small divided widget selection list">
+            <a class="item" ng-repeat="item in vm.feedSample" ng-href="{{entry.link}}">
+              <i class="icon">
+                <img ng-src="{{item.icon}}" class="ui icon image" />
+              </i>
               <div class="content">
                 <div class="header">
-                  <img ng-src="{{entry.icon}}" height="16" /> {{entry.title}}
+                  {{item.title}}
                 </div>
                 <div class="description">
-                  {{entry.contentSnippet}}
+                  {{item.contentSnippet}}
                 </div>
                 <div class="meta">
-                  <span class="date">{{entry.timeStamp.toLocaleString()}}</span>
+                  <span class="date">{{item.timeStamp.toLocaleString()}}</span>
                 </div>
               </div>
             </a>
