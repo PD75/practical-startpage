@@ -1,6 +1,6 @@
-.browser {
+/*.browser {
   display: inline-block;
-}
+}*/
 .ui.basic.browser.button {
   box-shadow: 0 0 0 1px #cccccc !important;
   color: #888888 !important;
@@ -16,10 +16,10 @@
   margin: -0.1em 0.2em -0.1em 0.1em;
   height: 16px;
 }
-.browser.item {
+/*.browser.item {
   overflow: hidden;
   white-space: nowrap;
-}
+}*/
 /*.browser.item > .content > .description {
   overflow: hidden;
   white-space: normal;

@@ -3,7 +3,7 @@
 
 /*Widget Lists*/
 
-.ui.icon.image {
+/*.ui.icon.image {
   height: 16px;
 }
 .list > .item {
@@ -11,6 +11,22 @@
   white-space: nowrap;
 }
 
+.list > .item > div > div {
+width :100%
+}*/
+
+/*.ui.list>.item>img.image{
+   display: table-cell !important;
+}*/
+/*.ui.list>.item>div.content{
+   display: table-cell !important;
+}*/
+
+
+.ui.list > .item > i.icon > .icon.image{
+  height :16px;
+  max-width: none;
+}
 /*Core*/
 
 html, body {

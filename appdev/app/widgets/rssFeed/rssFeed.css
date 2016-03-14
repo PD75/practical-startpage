@@ -1,11 +1,13 @@
-.list .meta .date {
+/*.list .meta .date {
   color: rgba(0,0,0,.4);
     font-size: .8em;
 }
 .rss.item > .content > .description {
   overflow: hidden;
   white-space: normal;
-}
+}*/
+
+
 
 .list > .rss.item.visited {
   background-color: rgba(0,0,0,.075);
@@ -16,3 +18,5 @@
 .rss.item:not(:hover) > .content > .icon{
   opacity:0
 }
+
+
