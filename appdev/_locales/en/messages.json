@@ -260,6 +260,12 @@
   "w_rssFeed_addFeed": {
     "message": "Add Feed"
   },
+  "w_rssFeed_settings": {
+    "message": "Change Settings"
+  },
+  "w_rssFeed_restoreDeleted": {
+    "message": "Restore Deleted Items"
+  },
   "w_rssFeed_auth_text": {
     "message": "RSS uses google apis to get a consistent data structure from the various feeds and will not function without. Click here to proceed and authorize the widget."
   },

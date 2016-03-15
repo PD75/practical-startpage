@@ -10,9 +10,7 @@
     s.getFeed = getFeed;
     s.consolidateFeed = consolidateFeed;
     s.deleteItem = deleteItem;
-    s.rssFeed = {
-      numEntries: 50,
-    };
+    s.restoreDeletedItem = restoreDeletedItem;
 
     function getFeeds() {
       var feeds = [];
@@ -27,11 +25,12 @@
         s.rssFeed = {
           hideVisited: dataService.data.rssFeed.hideVisited,
           allowDelete: dataService.data.rssFeed.allowDelete,
+      numEntries: 50,
         };
       }
       var promises = [];
       for (var p = 0; p < feeds.length; p++) {
-        promises[p] = getFeed(feeds[p].url, 30);
+        promises[p] = getFeed(feeds[p].url, s.rssFeed.numEntries);
       }
       return $q
         .all(promises)
@@ -63,11 +62,15 @@
         .then(function(feed) {
           var rss = [];
           var r = 0;
+          s.deletedFeed = [];
+          var d = 0;
           for (f = 0; f < feed.length; f++) {
             if ((!s.rssFeed.hideVisited || !feed[f].visited)
               && (!checkDuplicate(feed[f], rss))
               && (!checkDeleted(feed[f]) || !s.rssFeed.allowDelete)) {
               rss[r++] = feed[f];
+            } else if (checkDeleted(feed[f]) && s.rssFeed.allowDelete) {
+              s.deletedFeed[d++] = feed[f];
             }
           }
           return rss
@@ -111,6 +114,26 @@
       dataService.setData({
         rssFeed: rssFeed,
       });
+    }
+
+    function restoreDeletedItem(item) {
+      var rssFeed = dataService.data.rssFeed;
+      s.deletedItems = rssFeed.deletedItems;
+      for (var i = 0; i < s.deletedItems.length; i++) {
+        if (item.link === s.deletedItems[i].link) {
+          var x =  s.deletedItems[i];
+          s.deletedItems.splice(i, 1);
+          var y =  s.deletedItems[i];
+          i--; //move back one step and continue  
+        }
+      }
+      rssFeed.deletedItems = s.deletedItems;
+
+      dataService.setData({
+        rssFeed: rssFeed,
+      });
+
+
     }
 
     function checkDeleted(entry) {
