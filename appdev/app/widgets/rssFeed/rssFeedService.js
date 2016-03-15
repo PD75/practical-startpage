@@ -121,9 +121,7 @@
       s.deletedItems = rssFeed.deletedItems;
       for (var i = 0; i < s.deletedItems.length; i++) {
         if (item.link === s.deletedItems[i].link) {
-          var x =  s.deletedItems[i];
           s.deletedItems.splice(i, 1);
-          var y =  s.deletedItems[i];
           i--; //move back one step and continue  
         }
       }

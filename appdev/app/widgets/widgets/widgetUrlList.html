@@ -1,5 +1,10 @@
 <ps-widget-search ps-search-cb="vm.searchCB()" ps-search-string="vm.searchString" ng-show="vm.searchable"></ps-widget-search>
 
+<div class="ui message" ng-if="vm.message.show" ng-class="vm.message.class">
+  <div class="header" ng-bind-html="vm.message.header"></div>
+  <p ng-bind-html="vm.message.text"> </p>
+</div>
+
 <div ng-switch="vm.listType">
 
   <div class="ui small divided widget selection list" ng-switch-when="GL">

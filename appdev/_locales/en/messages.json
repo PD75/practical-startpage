@@ -246,7 +246,7 @@
     "message": "Quicklinks"
   },
   "w_quicklinks_help": {
-    "message": "A list of links chosen by the user. The links are chosen by right clicking a folder in the bookmark tree. <br /> <b>Note:</b> You can only select one folder and only the bookmarks directly in that folder are shown, not in sub folders."
+    "message": "A list of links from the bookmarks; links are chosen by right clicking a folder in the bookmark tree. <br /> <b>Note:</b> You can only select one folder and only the bookmarks directly in that folder are shown, not in sub folders."
   },
   "w_rssFeed": {
     "message": "RSS"
