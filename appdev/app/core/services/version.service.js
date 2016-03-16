@@ -11,10 +11,9 @@
     function checkVersion(newVersion, oldVersion) {
       var promises = [];
       var p = 0;
-      // promises[p++] = dataService.setData({
-      //   'version': newVersion,
-      // });
-      //to v2.0.0
+      promises[p++] = dataService.setData({
+        'version': newVersion,
+      });
       if (angular.isDefined(dataService.data.bookmarkid)) { // compensating for not deleting bokmarkid previously
         if (olderVersion('2.0.0',oldVersion)) {
           var data = {};

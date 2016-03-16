@@ -174,11 +174,10 @@
       var manifest = dataService.getManifest();
       if (dataService.data.version !== manifest.version) {
         versionService.checkVersion(manifest.version, dataService.data.version).then(function() {
-          $timeout(function() {
-            vm.modalUrl = 'app/core/bottomMenu/whatsNew.html';
-            vm.modalData = {};
-            vm.showModal = true;
-          });
+          vm.modalTitle = i18n.get("WhatsNew");
+          vm.modalUrl = 'app/core/bottomMenu/whatsNew.html';
+          vm.modalData = {};
+          vm.showModal = true;
         });
       }
     }
