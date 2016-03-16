@@ -5,7 +5,7 @@
     .controller("quicklLinksCtrl", quicklLinksCtrl)
     .directive('psBrowserQuicklinks', BrowserQuicklinksDirective);
 
-  function quicklLinksCtrl($sce,quickLinksService, dataService, layoutService) {
+  function quicklLinksCtrl($sce, quickLinksService, dataService, layoutService) {
     var vm = this;
     vm.list = [];
     activate();
@@ -27,6 +27,8 @@
           vm.list = quickLinksList;
           if (angular.isUndefined(vm.list) || vm.list.length === 0) {
             vm.message = setMessage();
+          } else if (angular.isDefined(vm.message)) {
+            vm.message.show = false;
           }
         });
     }
