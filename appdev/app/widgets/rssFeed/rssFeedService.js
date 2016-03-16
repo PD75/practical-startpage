@@ -4,7 +4,7 @@
   angular.module('ps.widgets')
     .service('rssFeedService', rssFeedService);
 
-  function rssFeedService($http, $q, dataService, historyService) {
+  function rssFeedService($sce, $http, $q, dataService, historyService) {
     var s = this;
     s.getFeeds = getFeeds;
     s.getFeed = getFeed;
@@ -25,7 +25,7 @@
         s.rssFeed = {
           hideVisited: dataService.data.rssFeed.hideVisited,
           allowDelete: dataService.data.rssFeed.allowDelete,
-      numEntries: 50,
+          numEntries: 50,
         };
       }
       var promises = [];
@@ -152,7 +152,7 @@
         .then(function(data) {
           var result = {};
           if (data.data.responseStatus === 200) {
-            result.feed = addIcons(data.data.responseData.feed);
+            result.feed = alignFeedData(data.data.responseData.feed);
 
           } else { // Error from googleapis
             result.message = data.data.responseDetails;
@@ -167,7 +167,7 @@
           };
         });
     }
-    function addIcons(feed) {
+    function alignFeedData(feed) {
       var ico, icon;
       if (angular.isDefined(feed.link)) {
         ico = feed.link.split('/');
@@ -178,6 +178,9 @@
       angular.forEach(feed.entries, function(value) {
         value.icon = icon;
         value.timeStamp = new Date(value.publishedDate);
+        if (angular.isDefined(value.contentSnippet)) {
+          value.contentSnippet = $sce.trustAsHtml(value.contentSnippet);
+        }
       });
       return feed;
     }

@@ -11,14 +11,10 @@
         <div class="right floated content" ng-click="vm.deleteItem($event,item)" ng-if="vm.allowDelete">
           <i class="remove icon"></i>
         </div>
-        <div class="header">
-          {{item.title}}
-        </div>
-        <div class="description">
-          {{item.contentSnippet}}
-        </div>
+        <div class="header" ng-bind="item.title"> </div>
+        <div class="description" ng-bind-html="item.contentSnippet"> </div>
         <div class="meta">
-          <span class="date">{{item.timeStamp.toLocaleString()}}</span>
+          <span class="date" ng-bind="item.timeStamp.toLocaleString()"></span>
         </div>
       </div>
     </a>
