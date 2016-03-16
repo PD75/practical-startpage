@@ -9,35 +9,38 @@
     };
 
     function checkVersion(newVersion, oldVersion) {
-      var promises = [];
-      var p = 0;
-      promises[p++] = dataService.setData({
-        'version': newVersion,
-      });
-      if (angular.isDefined(dataService.data.bookmarkid)) { // compensating for not deleting bokmarkid previously
-        if (olderVersion('2.0.0',oldVersion)) {
-          var data = {};
-          data.quicklinks = [dataService.data.bookmarkid];
-          promises[p++] = dataService.setData(data);
-        }
-        promises[p++] = dataService.clearData('bookmarkid');
-      }
-      //to v2.1.0
-      if (olderVersion('2.1.0',oldVersion)) {
-        promises[p++] = dataService.clearData('layout');
-      }
-      //2.5.0 and above if rss is array
-      if (angular.isDefined(dataService.data.rssFeed)
-        && angular.isArray(dataService.data.rssFeed)) {
-        dataService.data.rssFeed = {
-          feeds: dataService.data.rssFeed,
-        };
-        promises[p++] = dataService.setData({
-          rssFeed: dataService.data.rssFeed,
-        });
-      }
 
-      return $q.all(promises);
+      return dataService.setData({
+        'version': newVersion,
+      }).then(function() {
+        var promises = [];
+        var p = 0;
+        if (angular.isDefined(dataService.data.bookmarkid)) { // compensating for not deleting bokmarkid previously
+          if (olderVersion('2.0.0', oldVersion)) {
+            var data = {};
+            data.quicklinks = [dataService.data.bookmarkid];
+            promises[p++] = dataService.setData(data);
+          }
+          promises[p++] = dataService.clearData('bookmarkid');
+        }
+        //to v2.1.0
+        if (olderVersion('2.1.0', oldVersion)) {
+          promises[p++] = dataService.clearData('layout');
+        }
+        //2.5.0 and above if rss is array
+        if (angular.isDefined(dataService.data.rssFeed)
+          && angular.isArray(dataService.data.rssFeed)) {
+          dataService.data.rssFeed = {
+            feeds: dataService.data.rssFeed,
+          };
+          promises[p++] = dataService.setData({
+            rssFeed: dataService.data.rssFeed,
+          });
+        }
+
+        return $q.all(promises);
+      });
+
     }
 
     function olderVersion(newVersion, oldVersion) {
