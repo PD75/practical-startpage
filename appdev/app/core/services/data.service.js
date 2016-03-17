@@ -67,7 +67,7 @@ angular
         data.styles = getDefaultStyles();
       }
       if (angular.isUndefined(key) || key === 'layout') {
-        data.layout = getDefaultLayout();
+        data.layout =widgetConstants.defaultWidgets;
       }
       if (angular.isUndefined(key) || key === 'widgets') {
         data.widgets = widgetConstants.widgets;
@@ -109,24 +109,5 @@ angular
         secondaryCol: "black",
         secondaryInv: true,
       };
-    }
-
-    function getDefaultLayout() {
-      return [{
-        title: "Left",
-        label: "left",
-        tabs: ['bookmarkTree'],
-        items: 2,
-      }, {
-          title: "Middle",
-          label: "middle",
-          tabs: ['quicklinks', 'history', 'topSites'],
-          items: 4,
-        }, {
-          title: "Right",
-          label: "right",
-          tabs: ['closedTabs', 'chromeApps'],
-          items: 2,
-        }];
     }
   });

@@ -81,7 +81,7 @@
       var t = 0;
       for (c = 0; c < vm.columns.length; c++) {
         for (t = 0; t < vm.columns[c].tabs.length; t++) {
-          vm.columns[c].tabs[t].classes = [];
+          vm.columns[c].tabs[t].classes = [vm.styles.primaryCol];
           if (vm.activeTabs[c] === vm.columns[c].tabs[t].label) {
             vm.columns[c].tabs[t].active = true;
             vm.columns[c].tabs[t].classes.push('active');
@@ -105,7 +105,7 @@
           }
         }
         //Cover Tabs
-        vm.columns[c].coverClasses = [];
+        vm.columns[c].coverClasses = [vm.styles.primaryCol];
         if (vm.columns[c].cover) {
           vm.columns[c].coverClasses.push('active');
         }
@@ -173,12 +173,12 @@
     function checkVersion() {
       var manifest = dataService.getManifest();
       if (dataService.data.version !== manifest.version) {
-        versionService.checkVersion(manifest.version, dataService.data.version).then(function() {
-          $timeout(function() {
-            vm.modalUrl = 'app/core/bottomMenu/whatsNew.html';
-            vm.modalData = {};
-            vm.showModal = true;
-          });
+        versionService.checkVersion(manifest.version, dataService.data.version)
+        .then(function() {
+          vm.modalTitle = i18n.get("WhatsNew");
+          vm.modalUrl = 'app/core/bottomMenu/whatsNew.html';
+          vm.modalData = {};
+          vm.showModal = true;
         });
       }
     }

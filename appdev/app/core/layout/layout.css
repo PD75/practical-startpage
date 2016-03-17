@@ -1,16 +1,3 @@
-/*Variables*/
-
-
-/*Widget Lists*/
-
-.ui.icon.image {
-  height: 16px;
-}
-.list > .item {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
 /*Core*/
 
 html, body {

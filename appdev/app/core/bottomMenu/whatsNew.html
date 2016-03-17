@@ -1,44 +1,52 @@
 <i class="right floated close icon"></i>
 <div class="header">
-  {{$parent.vm.modalTitle}}
+  {{$parent.vm.modalTitle}}{{$parent.Layout.modalTitle}}
 </div>
 <div class="content">
   <div class="ui segment ">
     <h3>
-      v2.4.0 Locale Module
+      v2.5.0 Badges Module
     </h3>
     <h4>
       Enhancements
     </h4>
     <ul>
       <li>
-        Locale support
+        Support Badges on bottom menu
         <ul>
           <li>
-            Supports translation through chrome api.
+            Core functionality developed
           </li>
           <li>
-            Translation to Swedish done at present.
+            Gmail unread badge
           </li>
         </ul>
       </li>
       <li>
-        Improved History
+        Improved RSS Feed
         <ul>
           <li>
-            History searchable
+            Option to hide visited items.
           </li>
           <li>
-            Settings to define how my much history to load.
+            Option to delete chosen items.
           </li>
           <li>
-            New list format shows both title, timestamp and url.
+            Deleted items can be restored
           </li>
         </ul>
       </li>
     </ul>
     <h4>
-      v2.4.1 Minor Bugfix
+      Bug Fixes
     </h4>
+    <ul>
+      <li>
+        RSS feeds could not render html properly.
+      </li>
+      <li>
+        Font loading could stall page loading on bad network.
+      </li>
+    </ul>
  </div>
 </div>

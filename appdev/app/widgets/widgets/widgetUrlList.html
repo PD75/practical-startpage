@@ -1,18 +1,26 @@
 <ps-widget-search ps-search-cb="vm.searchCB()" ps-search-string="vm.searchString" ng-show="vm.searchable"></ps-widget-search>
 
+<div class="ui message" ng-if="vm.message.show" ng-class="vm.message.class">
+  <div class="header" ng-bind-html="vm.message.header"></div>
+  <p ng-bind-html="vm.message.text"> </p>
+</div>
+
 <div ng-switch="vm.listType">
 
-  <div class="ui small aligned divided selection list" ng-switch-when="GL">
+  <div class="ui small divided widget selection list" ng-switch-when="GL">
     <a class="browser item" ng-repeat="item in vm.list" ng-href="{{item.url}}">
-      <!-- <div class="right floated content">
-        <i class="close link icon"></i>
-      </div> -->
-      <img ng-src="{{item.icon}}" class="ui icon image"/>
+
+      <i class="icon">
+        <img ng-src="{{item.icon}}" class="ui icon image"/>
+      </i>
       <div class="content">
+        <!--<div class="right floated content">
+          <i class="close link icon"></i>
+        </div>-->
         <div class="header">
           {{item.title}}
         </div>
-        <div class="description">
+        <div class="description url">
           {{item.url}}
         </div>
         <div class="meta">
@@ -25,8 +33,7 @@
   <div ng-switch-default>
     <div class="browser" ng-class="[vm.col.label]" ng-repeat="item in vm.list">
       <a class="ui basic browser button" ng-class="vm.style.primaryCol" ng-href="{{item.url}}">
-        <img ng-src="{{item.icon}}">
-        {{item.altTitle}}
+        <img ng-src="{{item.icon}}"> {{item.altTitle}}
       </a>
     </div>
   </div>

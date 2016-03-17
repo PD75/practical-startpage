@@ -3,7 +3,6 @@
 
   angular.module('chrome')
     .factory('appService', appService)
-    .factory('historyService', historyService)
     .factory('closedTabsService', closedTabsService)
     .factory('quickLinksService', quickLinksService)
     .factory('topSitesService', topSitesService);
@@ -34,27 +33,7 @@
     }
   }
 
-  function historyService($q) {
-    return {
-      historyList: historyList,
-    };
-
-    function historyList(param) {
-      var chromeParam = {};
-      chromeParam.text = param.searchText;
-      chromeParam.startTime = param.startDate;
-      chromeParam.maxResults = param.maxResults;
-      var deferred = $q.defer();
-      chrome.history.search(chromeParam,
-        function(response) {
-          var list = populateList(response);
-          deferred.resolve(list);
-        });
-      return deferred.promise;
-    }
-  }
-
-  function closedTabsService($q) {
+  function closedTabsService($q, sharedService) {
     return {
       closedTabsList: closedTabsList,
       monitorClosedTabs: monitorClosedTabs,
@@ -83,14 +62,14 @@
               }
             }
           }
-          var list = populateList(tabsList);
+          var list = sharedService.populateList(tabsList);
           deferred.resolve(list);
         });
       return deferred.promise;
     }
   }
 
-  function quickLinksService($q) {
+  function quickLinksService($q, sharedService) {
     return {
       quickLinksList: quickLinksList,
     };
@@ -102,14 +81,14 @@
       var deferred = $q.defer();
       chrome.bookmarks.getChildren(bookmarkid,
         function(response) {
-          var list = populateList(response);
+          var list = sharedService.populateList(response);
           deferred.resolve(list);
         });
       return deferred.promise;
     }
   }
 
-  function topSitesService($q) {
+  function topSitesService($q, sharedService) {
     return {
       topSitesList: topSitesList,
     };
@@ -118,67 +97,11 @@
       var deferred = $q.defer();
       chrome.topSites.get(
         function(response) {
-          var list = populateList(response);
+          var list = sharedService.populateList(response);
           deferred.resolve(list);
         });
       return deferred.promise;
     }
   }
 
-  function populateList(list) {
-    var j = 0;
-    var newList = [];
-    for (var i = 0; i < list.length; i++) {
-      if (angular.isDefined(list[i]) && angular.isDefined(list[i].url)) {
-        newList[j] = {
-          id: list[i].id,
-          title: getTitle(list[i]),
-          altTitle: getAltTitle(list[i]),
-          icon: getIcon(list[i]),
-        };
-        if (angular.isDefined(list[i].lastVisitTime)) {
-          newList[j].timeStamp = new Date();
-          newList[j].timeStamp.setTime(list[i].lastVisitTime);
-        }
-        if (angular.isDefined(list[i].url)) {
-          newList[j].url = list[i].url;
-        }
-        if (angular.isDefined(list[i].id)) {
-          newList[j].id = list[i].id;
-        }
-        j++;
-      }
-    }
-    return newList;
-  }
-
-  function getTitle(item) {
-    var title;
-    if (angular.isUndefined(item.title) || item.title === '') {
-      title = '(No title)';
-    } else {
-      title = item.title;
-    }
-    return title;
-  }
-
-  function getAltTitle(item) {
-    var title;
-    if (angular.isUndefined(item.title) || item.title === '') {
-      title = item.url;
-    } else {
-      title = item.title;
-    }
-    return title;
-  }
-
-  function getIcon(item) {
-    var icon;
-    if (angular.isUndefined(item.icon)) {
-      icon = 'chrome://favicon/' + item.url;
-    } else {
-      icon = item.icon;
-    }
-    return icon;
-  }
 })(angular);
