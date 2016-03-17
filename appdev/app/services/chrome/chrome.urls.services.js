@@ -3,6 +3,7 @@
 
   angular.module('chrome')
     .factory('appService', appService)
+    .factory('urlService', urlService)
     .factory('closedTabsService', closedTabsService)
     .factory('quickLinksService', quickLinksService)
     .factory('topSitesService', topSitesService);
@@ -30,6 +31,27 @@
           deferred.resolve(response);
         });
       return deferred.promise;
+    }
+  }
+
+  function urlService() {
+    return {
+      openInThisTab: openInThisTab,
+      openInNewTab: openInNewTab,
+    };
+
+    function openInThisTab(url) {
+      chrome.tabs.update({
+        "url": url,
+        "active": true,
+      });
+    }
+
+    function openInNewTab(url) {
+      chrome.tabs.create({
+        "url": url,
+        "active": false,
+      });
     }
   }
 
