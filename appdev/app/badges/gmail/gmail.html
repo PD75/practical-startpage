@@ -7,7 +7,7 @@
   <div class="ui small aligned divided selection list">
     <a class="browser item" ng-repeat="item in vm.mail.entry" ng-href="{{item.link._href}}">
       <div class="right floated content date">
-        {{item.issued}}
+        {{vm.formatDate(item.issued)}}
       </div>
       <div class="content">
         <div class="header">

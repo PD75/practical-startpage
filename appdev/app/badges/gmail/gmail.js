@@ -11,6 +11,7 @@
     var vm = this;
     vm.locale = locale;
     vm.authorizePermissions = authorizePermissions;
+    vm.formatDate = formatDate;
     vm.popup = {
       popup: 'psb-gmail .ui.popup',
       hoverable: true,
@@ -56,6 +57,7 @@
 
           vm.mail = result.data.feed;
           if (vm.unRead === "1") {
+
             vm.mail.entry = [result.data.feed.entry];
           }
           $timeout(function() {
@@ -75,6 +77,11 @@
         });
     }
 
+    function formatDate(date) {
+      var newDate = new Date(date);
+      return newDate.toLocaleString();
+
+    }
     function locale(text, placeholders) {
       return $sce.trustAsHtml(i18n.get(text, placeholders));
     }
