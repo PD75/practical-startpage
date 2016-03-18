@@ -1,7 +1,6 @@
 {
   "name": "PracticalStartpage",
   "version": "2.4.1",
-
   "description": "Flexible start page that makes your data available in a single view.",
   "main": "startpage.js",
   "scripts": {
@@ -27,9 +26,11 @@
     "gulp": "*",
     "gulp-angular-filesort": "*",
     "gulp-concat": "*",
+    "gulp-csslint": "*",
     "gulp-cssnano": "*",
     "gulp-eslint": "*",
     "gulp-html-replace": "*",
+    "gulp-htmllint": "*",
     "gulp-htmlmin": "*",
     "gulp-json-editor": "*",
     "gulp-less": "*",

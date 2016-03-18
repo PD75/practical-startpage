@@ -83,6 +83,8 @@ gulp.task('buildScripts', function() {
 //CSS
 gulp.task('buildCss', function() {
   return gulp.src(src + '/app/**/*.css')
+    // .pipe(plugins.csslint())
+    // .pipe(plugins.csslint.reporter())
     .pipe(plugins.concat('startpage.css'))
     .pipe(plugins.rename({
       suffix: '.min',
@@ -104,7 +106,6 @@ gulp.task('getHtml', function() {
 
 gulp.task('getLocales', function() {
   return gulp.src([src + '/_locales/**/*.json'])
-    .pipe(plugins.htmlmin(htmlmin))
     .pipe(gulp.dest(build + '/_locales'));
 });
 
