@@ -2,6 +2,10 @@
   "name": "PracticalStartpage",
   "version": "2.4.1",
   "description": "Flexible start page that makes your data available in a single view.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PD75/practical-startpage.git"
+  },
   "main": "startpage.js",
   "scripts": {
     "install": "gulp install",
@@ -11,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "angular": "1",
+    "angular-drag-and-drop-lists": "1",
     "jquery": "2",
     "jstree": "3",
     "ng-js-tree": "0",
