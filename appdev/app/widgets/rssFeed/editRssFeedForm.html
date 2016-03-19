@@ -1,0 +1,63 @@
+<form name="feedForm" class="ui form" novalidate>
+
+  <div class="inline fields">
+    <div class="field">
+      <div class="ui toggle checkbox" ng-click="vm.save()">
+        <input type="checkbox" ng-model="vm.data.hideVisited" />
+        <label>Hide Visited</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui toggle checkbox" ng-click="vm.save()">
+        <input type="checkbox" ng-model="vm.data.allowDelete" />
+        <label>Allow Delete</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="ui fluid labeled input">
+      <div class="ui label">
+        {{vm.locale("Title")}}
+      </div>
+      <input type="text" placeholder="{{vm.locale('Title')}}" name="title" ng-model="vm.feed.title">
+    </div>
+  </div>
+
+
+  <div class="field">
+    <div class="ui fluid labeled input">
+      <div class="ui label">
+        {{vm.locale("Url")}}
+      </div>
+      <input type="url" placeholder="rss.com/rss" name="url" ng-model="vm.feed.url" ng-keyup="vm.typeUrl()" required>
+      <button class="ui button" ng-class="{disabled : !feedForm.url.$valid}" ng-click="vm.checkFeedUrl(!feedForm.url.$valid)">
+        {{vm.locale("Check")}}
+      </button>
+    </div>
+  </div>
+
+  <div class="field">
+    <button class="ui button" ng-class="{disabled:vm.addButtonDisabled}" ng-click="vm.addFeed()">
+      <i class="plus icon"></i> {{vm.locale("w_rssFeed_addFeed")}}
+    </button>
+
+    <button class="ui button" ng-click="vm.closeForm()">
+      <i class="remove icon"></i> {{vm.locale("Close")}}
+    </button>
+  </div>
+  <div class="field">
+    <div class="ui selection middle divided aligned list" style="innerHeight:100px">
+      <div class="item" ng-repeat="item in vm.data.feeds" ng-click="vm.checkFeed(item)">
+        <div class="right floated content" ng-click="vm.removeFeed($index)">
+          <i class="remove icon"></i>
+        </div>
+        <img class="ui image" ng-src="{{item.icon}}" height="16" />
+        <div class="content">
+          <div class="header">{{item.title}}</div>
+          <div class="description">{{item.url}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

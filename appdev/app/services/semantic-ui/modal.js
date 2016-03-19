@@ -27,9 +27,7 @@ angular.module('ngSemanticUi')
       });
 
       scope.$watch('modalShow', function(modalShow) {
-        $timeout(function() { //To give time for angular content to load
           element.modal(modalShow ? 'show' : 'hide');
-        });
       });
       scope.$on('$destroy', function() {
         element.modal('hide');
@@ -52,7 +50,6 @@ angular.module('ngSemanticUi')
           $compile(e.contents())(s);
           $timeout(function() {
             e.modal('refresh');
-
           });
         });
     }

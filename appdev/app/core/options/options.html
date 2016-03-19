@@ -1,22 +1,22 @@
 <div class="ui top attached tabular menu" ng-class="vm.primaryCol">
-  <a class="item" ng-class="{'active' : vm.tab === 1}" ng-click="vm.tab = 1">
-    {{vm.locale("c_o_editLayout")}}
+  <a class="item" ng-class="{'active' : vm.tab === 'widgetLayout'}" ng-click="vm.tab = 'widgetLayout'">
+    {{vm.locale("c_o_layout")}}
   </a>
-  <!-- <a class="item" ng-class="{'active' : vm.tab === 2}" ng-click="vm.tab = 2">
-    Edit Style
-  </a> -->
-  <a class="item" ng-class="{'active' : vm.tab === 3}" ng-click="vm.tab = 3">
+  <a class="item" ng-class="{'active' : vm.tab === 'badgeLayout'}" ng-click="vm.tab = 'badgeLayout'">
+    {{vm.locale("c_o_badgeLayout")}}
+  </a>
+  <a class="item" ng-class="{'active' : vm.tab === 'clearData'}" ng-click="vm.tab = 'clearData'">
     {{vm.locale("c_o_clearSettings")}}
   </a>
 </div>
 <div class="ui bottom attached segment">
-  <div class="ui tab" ng-class="{'active' : vm.tab === 1}">
-    <ps-edit-layout></ps-edit-layout>
+  <div class="ui tab" ng-class="{'active' : vm.tab === 'widgetLayout'}">
+    <ps-select-widgets></ps-select-widgets>
   </div>
-  <!-- <div class="ui tab " ng-class="{'active' : vm.tab === 2}">
-    The theme colors will be configurable from here in the future.
-  </div> -->
-  <div class="ui tab" ng-class="{'active' : vm.tab === 3}">
+  <div class="ui tab" ng-class="{'active' : vm.tab === 'badgeLayout'}">
+    <ps-select-badges></ps-select-badges>
+  </div>
+  <div class="ui tab" ng-class="{'active' : vm.tab === 'clearData'}">
     <ps-clear-data></ps-clear-data>
   </div>
 </div>

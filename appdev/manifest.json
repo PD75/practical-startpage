@@ -1,13 +1,14 @@
 {
   "manifest_version": 2,
   "name": "Practical Startpage Dev",
-  "short_name": "Practical Startpage",
-  "version": "2.4.2",
+  "short_name": "Startpage",
+  "version": "2.5.0",
   "default_locale": "en",
   "description": "__MSG_c_ps_slogan__",
   "homepage_url": "https://github.com/PD75/practical-startpage",
   "optional_permissions": [
-    "http://ajax.googleapis.com/*"
+    "http://ajax.googleapis.com/*",
+    "https://mail.google.com/mail/feed/atom"
   ],
   "permissions": [
     "topSites",

@@ -32,6 +32,7 @@
               case 'version':
               case 'activeTabs':
               case 'layout':
+              case 'badgeLayout':
               case 'styles':
                 vm.data[i].title = i18n.get('c_o_' + key);
                 vm.data[i].order = i - 10;
@@ -99,7 +100,7 @@
   function ClearDataDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/core/options/clearData.html',
+      templateUrl: 'app/core/options/clearData/clearData.html',
       controller: 'ClearDataCtrl',
       controllerAs: 'vm',
       bindToController: true,

@@ -2,8 +2,14 @@
   "About": {
     "message": "About"
   },
+  "Badges": {
+    "message": "Badges"
+  },
   "Check": {
     "message": "Check"
+  },
+  "Clear": {
+    "message": "Clear"
   },
   "Close": {
     "message": "Close"
@@ -123,7 +129,10 @@
     "message": "Check progress of development"
   },
   "c_about_text_4": {
-    "message": "On the waffle board"
+    "message": "On the Waffle board"
+  },
+  "c_bottomMenu": {
+    "message": "Bottom Menu"
   },
   "c_help_title_0": {
     "message": "Configurable Data Lists"
@@ -145,6 +154,9 @@
   },
   "c_o_editLayout": {
     "message": "Edit Layout"
+  },
+   "c_o_badgeLayout": {
+    "message": "Badge Layout"
   },
   "c_o_clearSettings": {
     "message": "Clear Settings"
@@ -172,6 +184,21 @@
   },
   "c_l_right": {
     "message": "Right column"
+  },
+  "c_auth_title": {
+    "message": "Permission to $url$ required, click to authorize!!!",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "mysite.com"
+      }
+    }
+  },
+  "b_gmail_connection": {
+    "message": "Failed to retreive data, please check the network connection and that you are loged on to Gmail!"
+  },
+  "b_gmail_noUnRead": {
+    "message": "(No unread mails!)"
   },
   "Widgets": {
     "message": "Widgets"
@@ -216,7 +243,7 @@
     "message": "Quicklinks"
   },
   "w_quicklinks_help": {
-    "message": "A list of links chosen by the user. The links are chosen by right clicking a folder in the bookmark tree. <br /> <b>Note:</b> You can only select one folder and only the bookmarks directly in that folder are shown, not in sub folders."
+    "message": "A list of links from the bookmarks; links are chosen by right clicking a folder in the bookmark tree. <br /> <b>Note:</b> You can only select one folder and only the bookmarks directly in that folder are shown, not in sub folders."
   },
   "w_rssFeed": {
     "message": "RSS"
@@ -230,14 +257,11 @@
   "w_rssFeed_addFeed": {
     "message": "Add Feed"
   },
-  "w_rssFeed_auth_title": {
-    "message": "Permission to access $url$ required!!!",
-    "placeholders": {
-      "url": {
-        "content": "$1",
-        "example": "mysite.com"
-      }
-    }
+  "w_rssFeed_settings": {
+    "message": "Change Settings"
+  },
+  "w_rssFeed_restoreDeleted": {
+    "message": "Restore Deleted Items"
   },
   "w_rssFeed_auth_text": {
     "message": "RSS uses google apis to get a consistent data structure from the various feeds and will not function without. Click here to proceed and authorize the widget."
