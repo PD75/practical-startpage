@@ -2,8 +2,14 @@
   "About": {
     "message": "Om"
   },
+  "Badges": {
+    "message": "Emblem"
+  },
   "Check": {
     "message": "Kolla"
+  },
+  "Clear": {
+    "message": "Rensa"
   },
   "Close": {
     "message": "Stäng"
@@ -81,7 +87,7 @@
     "message": "Ctrl+Shift+N"
   },
   "Save_key": {
-    "message": "Ctrl+ S"
+    "message": "Ctrl+S"
   },
   "SaveClose_key": {
     "message": "Ctrl+Shift+S"
@@ -125,6 +131,9 @@
   "c_about_text_4": {
     "message": "På Waffle board"
   },
+  "c_bottomMenu": {
+    "message": "Nedre menyn"
+  },
   "c_help_title_0": {
     "message": "Konfigurerbara datalistor"
   },
@@ -145,6 +154,9 @@
   },
   "c_o_editLayout": {
     "message": "Redigera layouten"
+  },
+   "c_o_badgeLayout": {
+    "message": "Emblem layout"
   },
   "c_o_clearSettings": {
     "message": "Rensa inställningar"
@@ -172,6 +184,21 @@
   },
   "c_l_right": {
     "message": "Höger kolumnen"
+  },
+  "c_auth_title": {
+    "message": "Rättigheter krävs för $url$, klicka för att godkänna!!!",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "mysite.com"
+      }
+    }
+  },
+  "b_gmail_connection": {
+    "message": "Hämtning av data mislyckades, kolla att du har nätverks kontakt och är inloggad på gmail.!"
+  },
+  "b_gmail_noUnRead": {
+    "message": "(Olästa mails!)"
   },
   "Widgets": {
     "message": "Manicker"
@@ -230,14 +257,11 @@
   "w_rssFeed_addFeed": {
     "message": "Lägg till flöde"
   },
-  "c_auth_title": {
-    "message": "Tillstånd till $$url$$ krävs, clicka för att godkänna !!!",
-    "placeholders": {
-      "url": {
-        "content": "$1",
-        "example": "mysite.com"
-      }
-    }
+  "w_rssFeed_settings": {
+    "message": "Ändra Inställningar"
+  },
+  "w_rssFeed_restoreDeleted": {
+    "message": "Återskapa raderade artiklar"
   },
   "w_rssFeed_auth_text": {
     "message": "RSS använder Googles API: er för att få en enhetlig datastruktur från de olika flödena och kommer inte att fungera utan. Klicka här för att gå vidare och tillåta access för widgeten."
