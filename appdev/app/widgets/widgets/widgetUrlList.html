@@ -31,7 +31,7 @@
   </div>
 
   <div ng-switch-default>
-    <div class="browser" ng-class="[vm.col.label]" ng-repeat="item in vm.list">
+    <div class="browser" ng-class="[vm.col.label]" ng-repeat="item in vm.list" ng-click="vm.clickCB($event,item.url)">
       <a class="ui basic browser button" ng-class="vm.style.primaryCol" ng-href="{{item.url}}">
         <img ng-src="{{item.icon}}"> {{item.altTitle}}
       </a>

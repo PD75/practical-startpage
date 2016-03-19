@@ -2,17 +2,17 @@
   padding: .8em 1em !important;
 }*/
 
-div.menu  .item > img {
+div.menu .item > img {
   margin: -0.7rem -0.7rem -0.7rem -0.7rem;
   width: auto !important;
   height: 1.555rem;
 }
 
-psb-gmail > .popup  .meta > .title{
- color:rgba(0, 0, 0, 0.4); 
+psb-gmail > .popup .meta > .title {
+  color: rgba(0, 0, 0, 0.4);
 }
 
-psb-gmail > .popup  .date {
-  color: rgba(0,0,0,.4);
+psb-gmail > .popup .date {
+  color: rgba(0, 0, 0, .4);
   font-size: .8em;
 }

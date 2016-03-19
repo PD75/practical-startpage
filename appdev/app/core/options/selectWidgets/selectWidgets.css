@@ -7,9 +7,11 @@
   font-size: .9rem;
   width: 100%;
 }
+
 .options.layout [draggable="true"].ui.label {
   cursor: move;
 }
+
 .options.layout [draggable="false"].ui.label {
   background-color: #ddd;
   -webkit-touch-callout: none;
@@ -19,9 +21,11 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 .options.layout .ui.label>.icon {
   margin-right: .25em;
 }
+
 
 /**
  * The dnd-list should always have a min-height,
@@ -31,6 +35,7 @@
 ps-select-widgets .options.layout [dnd-list] {
   min-height: 180px;
 }
+
 
 /**
  * The dndDraggingSource class will be applied to
@@ -42,6 +47,7 @@ ps-select-widgets .options.layout [dnd-list] {
 .options.layout .dndDraggingSource {
   display: none;
 }
+
 .ui.grid.options.layout {
   min-width: 700px
 }

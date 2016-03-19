@@ -32,6 +32,7 @@
               case 'version':
               case 'activeTabs':
               case 'layout':
+              case 'badgeLayout':
               case 'styles':
                 vm.data[i].title = i18n.get('c_o_' + key);
                 vm.data[i].order = i - 10;

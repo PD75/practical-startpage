@@ -1,12 +1,15 @@
 /*Core*/
 
-html, body {
+html,
+body {
   height: 100%;
 }
+
 .main.grid {
   flex-direction: column;
   height: 100%;
 }
+
 .main.row {
   flex: 1;
   min-height: 0;
@@ -14,16 +17,19 @@ html, body {
   min-width: 0;
   /* new; resolves Firefox bug */
 }
+
 .main.row>.column {
   display: flex !important;
   flex-direction: column;
 }
+
 .main.row>.column .segment {
   width: 100%;
   flex: 1;
   overflow: auto;
   margin-bottom: 0 !important;
 }
+
 
 /*Semantic-UI*/
 
@@ -35,13 +41,16 @@ html, body {
   right: 1rem;
   color: rgba(0, 0, 0, 0.8);
 }
+
 .ui.modal .segment {
   max-height: calc(100vh - 15em);
   overflow-y: auto;
 }
+
 .ui.modal .bottom.attached.segment {
   max-height: calc(100vh - 18em);
 }
+
 
 /*Used in About*/
 
@@ -51,6 +60,7 @@ img.ui.logo.image {
   font-size: .71428571rem;
 }
 
+
 /*Media Queries*/
 
 
@@ -59,14 +69,19 @@ img.ui.logo.image {
 div.browser {
   width: 100%;
 }
-.left.column, .middle.column, .right.column {
+
+.left.column,
+.middle.column,
+.right.column {
   width: 50% !important;
 }
+
 @media (max-width: 1000px) {
   .middle a.item span {
     display: none !important;
   }
 }
+
 @media (min-width: 1001px) {
   div.browser.middle {
     width: 50%;
@@ -78,16 +93,20 @@ div.browser {
     width: 63% !important;
   }
 }
+
 @media (max-width: 1300px) {
-  .main.row>.right.column, .cover {
+  .main.row>.right.column,
+  .cover {
     display: none !important;
   }
 }
+
 @media (min-width: 1301px) {
   .cover {
     display: block;
   }
-  .left.column, .right.column {
+  .left.column,
+  .right.column {
     width: 26% !important;
   }
   .middle.column {
@@ -97,11 +116,13 @@ div.browser {
     display: none !important;
   }
 }
+
 @media (min-width: 2001px) {
   .left.column {
     width: 20% !important;
   }
-  .middle.column, .right.column {
+  .middle.column,
+  .right.column {
     width: 40% !important;
   }
   div.browser.right {

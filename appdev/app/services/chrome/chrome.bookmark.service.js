@@ -7,7 +7,6 @@
 
     return {
       getBookmarksTree: getBookmarksTree,
-      openInNewTab: openInNewTab,
       updateBookmark: updateBookmark,
       moveBookmark: moveBookmark,
       createBookmark: createBookmark,
@@ -19,14 +18,6 @@
         .then(function(bookmarkTreeNodes) {
           return mapTreeNodes(bookmarkTreeNodes[0].children, 1);
         });
-    }
-
-    function openInNewTab(url) {
-      chrome.tabs.create({
-        "url": url,
-        "active": false,
-      });
-
     }
 
     function updateBookmark(bookmark) {

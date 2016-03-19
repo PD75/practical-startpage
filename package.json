@@ -1,8 +1,11 @@
 {
   "name": "PracticalStartpage",
-  "version": "2.4.1",
-
+  "version": "2.5.0",
   "description": "Flexible start page that makes your data available in a single view.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PD75/practical-startpage.git"
+  },
   "main": "startpage.js",
   "scripts": {
     "install": "gulp install",
@@ -12,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "angular": "1",
+    "angular-drag-and-drop-lists": "1",
     "jquery": "2",
     "jstree": "3",
     "ng-js-tree": "0",
@@ -27,9 +31,11 @@
     "gulp": "*",
     "gulp-angular-filesort": "*",
     "gulp-concat": "*",
+    "gulp-csslint": "*",
     "gulp-cssnano": "*",
     "gulp-eslint": "*",
     "gulp-html-replace": "*",
+    "gulp-htmllint": "*",
     "gulp-htmlmin": "*",
     "gulp-json-editor": "*",
     "gulp-less": "*",

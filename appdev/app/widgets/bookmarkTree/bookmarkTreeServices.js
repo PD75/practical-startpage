@@ -1,6 +1,6 @@
 /*eslint camelcase: 0*/
 angular.module('ps.widgets')
-  .factory('bookmarkTreeService', function(dataService, bookmarkService, bookmarkConstant) {
+  .factory('bookmarkTreeService', function(dataService, bookmarkService, bookmarkConstant, urlService) {
     "use strict";
 
     return {
@@ -23,7 +23,7 @@ angular.module('ps.widgets')
     }
 
     function openInNewTab(url) {
-      bookmarkService.openInNewTab(url);
+      urlService.openInNewTab(url);
     }
 
     function bookmarkTreeConfig() {
@@ -64,7 +64,7 @@ angular.module('ps.widgets')
             "separator_before": false,
             "label": "Open in new tab",
             "action": function() {
-              bookmarkService.openInNewTab(node.a_attr.href);
+              urlService.openInNewTab(node.a_attr.href);
             },
             "icon": "mail forward icon",
           },
@@ -83,7 +83,7 @@ angular.module('ps.widgets')
       chrome.bookmarks.getChildren(nodeId, function(children) {
         for (var i = 0; i < children.length; i++) {
           if (angular.isDefined(children[i].url)) {
-            bookmarkService.openInNewTab(children[i].url);
+            urlService.openInNewTab(children[i].url);
           }
         }
       });

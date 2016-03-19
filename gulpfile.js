@@ -30,16 +30,21 @@ gulp.task('installJSTree', function() {
     .pipe(gulp.dest(dist + '/jstree'));
 });
 gulp.task('installjs', function() {
-  return gulp.src([srcNode + '/jquery/dist/*.js', srcNode + '/angular/angular*.js'])
+  return gulp.src([srcNode + '/jquery/dist/*.js', srcNode + '/angular/angular*.js',srcNode+"/angular-drag-and-drop-lists/angular-drag-and-drop-lists*.js"])
     .pipe(gulp.dest(dist));
 });
-gulp.task('installngjstree', function() {
-  return gulp.src(srcNode + '/ng-js-tree/ngJsTree.js')
+gulp.task('installngjstree', function(cb) {
+   gulp.src(srcNode + '/ng-js-tree/ngJsTree.js')
     .pipe(plugins.rename({
       suffix: '.min',
     }))
     .pipe(plugins.uglify())
     .pipe(gulp.dest(dist));
+    
+   gulp.src(srcNode + '/ng-js-tree/ngJsTree.js')
+    .pipe(gulp.dest(dist));
+    
+    return cb();
 });
 
 gulp.task('install', ['installjs', 'installJSTree', 'installngjstree'], function(cb) {
@@ -83,6 +88,8 @@ gulp.task('buildScripts', function() {
 //CSS
 gulp.task('buildCss', function() {
   return gulp.src(src + '/app/**/*.css')
+    // .pipe(plugins.csslint())
+    // .pipe(plugins.csslint.reporter())
     .pipe(plugins.concat('startpage.css'))
     .pipe(plugins.rename({
       suffix: '.min',
@@ -104,7 +111,6 @@ gulp.task('getHtml', function() {
 
 gulp.task('getLocales', function() {
   return gulp.src([src + '/_locales/**/*.json'])
-    .pipe(plugins.htmlmin(htmlmin))
     .pipe(gulp.dest(build + '/_locales'));
 });
 
