@@ -12,7 +12,10 @@
     var vm = this;
     vm.activateModal = activateModal;
     vm.showModal = false;
-
+    vm.bugPopup = {
+      'html': i18n.get('c_about_text_3'),
+      'variation': 'basic',
+    };
     vm.bottomSubMenu = [{
       "title": i18n.get("Options"),
       "icon": "options",
@@ -48,21 +51,28 @@
       link: link,
     };
     function link(scope, el) {
-      loadBadges(el, scope);
-      dataService.setOnChangeData('bottomMenu', function() {
+      if (angular.isUndefined(dataService.data)) {
+        $timeout(function() {
+          loadBadges(el, scope);
+        });
+      } else {
+        loadBadges(el, scope);
+      };
+
+      dataService.setOnChangeData('badgeLayout', function() {
         loadBadges(el, scope);
       });
     }
     function loadBadges(e, s) {
       var badges = badgeConstants.badges;
-      var bottomMenu = [];
+      var badgeLayout = [];
       var directive = '';
       e.children('.badges').empty();
-      if (angular.isDefined(dataService.data.bottomMenu)) {
-        bottomMenu = angular.copy(dataService.data.bottomMenu);
+      if (angular.isDefined(dataService.data.badgeLayout)) {
+        badgeLayout = angular.copy(dataService.data.badgeLayout);
       }
-      for (var b = 0; b < bottomMenu.length; b++) {
-        directive = badges[bottomMenu[b]].directive;
+      for (var b = 0; b < badgeLayout.length; b++) {
+        directive = badges[badgeLayout[b]].directive;
         e.children('.badges').append('<psb-' + directive + '></psb-' + directive + '>');
       }
       $compile(e.children('.badges'))(s);

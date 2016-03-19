@@ -7,7 +7,7 @@
 
   function SelectBadgesCtrl(dataService, i18n, badgeConstants) {
     var vm = this;
-    vm.bottomMenu = [];
+    vm.badgeLayout = [];
     vm.clear = clear;
     vm.undoAll = activate;
     vm.saveData = saveData;
@@ -29,26 +29,26 @@
 
     activate();
 
-    function activate(bottomMenu) {
-      var bottomMenu = [];
-      if (angular.isDefined(dataService.data.bottomMenu)) {
-        bottomMenu = angular.copy(dataService.data.bottomMenu);
+    function activate(badgeLayout) {
+      var badgeLayout = [];
+      if (angular.isDefined(dataService.data.badgeLayout)) {
+        badgeLayout = angular.copy(dataService.data.badgeLayout);
       }
-      getData(bottomMenu);
+      getData(badgeLayout);
     }
 
-    function clear(bottomMenu) {
-      var bottomMenu = [];
-      getData(bottomMenu);
+    function clear(badgeLayout) {
+      var badgeLayout = [];
+      getData(badgeLayout);
     }
 
-    function getData(bottomMenu) {
-      vm.bottomMenu = [];
+    function getData(badgeLayout) {
+      vm.badgeLayout = [];
       var badges = angular.copy(badgeConstants.badges);
-      for (var m = 0; m < bottomMenu.length; m++) {
-        vm.bottomMenu[m] = badges[bottomMenu[m]];
-        vm.bottomMenu[m].label = bottomMenu[m];
-        badges[bottomMenu[m]].used = true;
+      for (var m = 0; m < badgeLayout.length; m++) {
+        vm.badgeLayout[m] = badges[badgeLayout[m]];
+        vm.badgeLayout[m].label = badgeLayout[m];
+        badges[badgeLayout[m]].used = true;
       }
       var b = 0;
       vm.badges = [];
@@ -62,12 +62,12 @@
     }
 
     function saveData() {
-      var bottomMenu = [];
-      for (var m = 0; m < vm.bottomMenu.length; m++) {
-        bottomMenu[m] = vm.bottomMenu[m].label;
+      var badgeLayout = [];
+      for (var m = 0; m < vm.badgeLayout.length; m++) {
+        badgeLayout[m] = vm.badgeLayout[m].label;
       }
       dataService.setData({
-        bottomMenu: bottomMenu,
+        badgeLayout: badgeLayout,
       });
     }
 
