@@ -13,11 +13,11 @@ Practical Startpage is a simple yet powerful, allowing easy access to browser da
 ### svenska - sv
 
 Practical Startpage är enkel men kraftfull, och ger snabb åtkomst till webläsarens data, som t.ex. bookmärken och besökta sidor.
-(Rättigheterna startsidan behöver är för att ladda informatoin, samt access till lokalt utrymme för att spara instälningen.)
+(Rättigheterna behövs för att ladda information, samt access till lokalt lagringsutrymme för att spara inställningar.)
 - Responsiv design, anpassar sig till alla skärmar
 - Konfigurerbar, du kan själv välja var saker ska vara
 - Öppen källkod, du kan utveckla dina egna manicker (GitHub)
-- Böökmarken med sökning och editor
-- Snabblänkar till bokmärken mappar
+- Bokmarken med sökning och editor
+- Snabblänkar till bokmärkes mappar
 - Besökta sidor, appar etc. från chromee
 - RSS flöde för t.ex. nyheter
