@@ -107,7 +107,6 @@
       scope: {
         modalData: '=psData',
         modalInstance: '=psInstance',
-        modalEvents: '=psEvents',
       },
       bindToController: true,
     };

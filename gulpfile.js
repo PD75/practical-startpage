@@ -1,4 +1,4 @@
-﻿ /*global require*/
+﻿/*global require, __dirname*/
 var src = './appdev';
 var srcNode = './node_modules';
 var dist = src + '/dist';
@@ -25,26 +25,26 @@ var htmlmin = {
 //Copy libraries to correct place from node_modules during npm install
 gulp.task('installJSTree', function() {
   return gulp.src([srcNode + '/jstree/dist/**/*(*.js)', srcNode + '/jstree/dist/themes/default/**/*(*.min.css|*.png|*.gif)'], {
-      base: srcNode + '/jstree/dist',
-    })
+    base: srcNode + '/jstree/dist',
+  })
     .pipe(gulp.dest(dist + '/jstree'));
 });
 gulp.task('installjs', function() {
-  return gulp.src([srcNode + '/jquery/dist/*.js', srcNode + '/angular/angular*.js',srcNode+"/angular-drag-and-drop-lists/angular-drag-and-drop-lists*.js"])
+  return gulp.src([srcNode + '/jquery/dist/*.js', srcNode + '/angular/angular*.js', srcNode + "/angular-drag-and-drop-lists/angular-drag-and-drop-lists*.js"])
     .pipe(gulp.dest(dist));
 });
 gulp.task('installngjstree', function(cb) {
-   gulp.src(srcNode + '/ng-js-tree/ngJsTree.js')
+  gulp.src(srcNode + '/ng-js-tree/ngJsTree.js')
     .pipe(plugins.rename({
       suffix: '.min',
     }))
     .pipe(plugins.uglify())
     .pipe(gulp.dest(dist));
-    
-   gulp.src(srcNode + '/ng-js-tree/ngJsTree.js')
+
+  gulp.src(srcNode + '/ng-js-tree/ngJsTree.js')
     .pipe(gulp.dest(dist));
-    
-    return cb();
+
+  return cb();
 });
 
 gulp.task('install', ['installjs', 'installJSTree', 'installngjstree'], function(cb) {
@@ -64,6 +64,10 @@ var
 gulp.task('watchUI', watchUI);
 gulp.task('buildUI', buildUI);
 gulp.task('installUI', installUI);
+
+var buildUIA = require('./dist/ui-angular/tasks/build')(__dirname);
+gulp.task('buildUIA', buildUIA);
+
 
 //build
 //Clean build and release folder

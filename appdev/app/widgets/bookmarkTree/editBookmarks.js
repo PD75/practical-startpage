@@ -34,9 +34,6 @@
       "saveClose": saveClose,
       "close": closeNoSave,
     };
-    vm.modalEvents = {
-      "onShow": refreshTree,
-    };
 
     //Intialize
     vm.treeData = [];
@@ -308,7 +305,6 @@
       scope: {
         modalData: '=psData',
         modalInstance: '=psInstance',
-        modalEvents: '=psEvents',
       },
       replace: true,
       templateUrl: 'app/widgets/bookmarkTree/editBookmarks.html',
