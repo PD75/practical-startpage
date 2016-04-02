@@ -29,7 +29,7 @@ angular
     }
 
     function getData() {
-      return $q
+      s.getDataPromise = $q
         .all([
           getStorageData(),
           getDefaultData(),
@@ -41,6 +41,7 @@ angular
           });
           s.data = dataTranslationService.translate(s.data);
         });
+      return s.getDataPromise
     }
 
     function getStorageData() {
@@ -67,7 +68,7 @@ angular
         data.styles = getDefaultStyles();
       }
       if (angular.isUndefined(key) || key === 'layout') {
-        data.layout =widgetConstants.defaultWidgets;
+        data.layout = widgetConstants.defaultWidgets;
       }
       if (angular.isUndefined(key) || key === 'widgets') {
         data.widgets = widgetConstants.widgets;

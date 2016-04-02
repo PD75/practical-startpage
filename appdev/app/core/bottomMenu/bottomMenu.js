@@ -51,13 +51,11 @@
       link: link,
     };
     function link(scope, el) {
-      if (angular.isUndefined(dataService.data)) {
-        $timeout(function() {
-          loadBadges(el, scope);
-        });
-      } else {
+
+      dataService.getDataPromise
+      .then(function (){
         loadBadges(el, scope);
-      };
+      });
 
       dataService.setOnChangeData('badgeLayout', function() {
         loadBadges(el, scope);
