@@ -6,7 +6,24 @@
   function versionService($q, dataService) {
     return {
       checkVersion: checkVersion,
+      linkUninstallSurvey: linkUninstallSurvey,
     };
+
+    function linkUninstallSurvey() {
+      var today = new Date().getTime();
+      var usageTime = 1;
+      if (angular.isDefined(dataService.data.installDate)) {
+        usageTime = Math.round((today - dataService.data.installDate) / (1000 * 60 * 60 * 24) + .5);
+      } else {
+        dataService.setData({
+          'installDate': today,
+        })
+      }
+      var url = 'http://pd75.github.io/#/ps-uninstall';
+      url += '?usageTime=' + usageTime
+      chrome.runtime.setUninstallURL(url);
+    }
+
 
     function checkVersion(newVersion, oldVersion) {
 

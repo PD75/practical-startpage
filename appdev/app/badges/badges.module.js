@@ -1,1 +1,1 @@
-angular.module('ps.badges', ['ngSemanticUi']);
+angular.module('ps.badges', ['uiAngular']);
