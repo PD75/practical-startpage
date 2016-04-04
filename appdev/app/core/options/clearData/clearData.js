@@ -24,27 +24,32 @@
           vm.allSelected = false;
           var i = 0;
           angular.forEach(data, function(value, key) {
-            vm.data[i] = {
-              label: key,
-              selected: false,
-            };
             switch (key) {
-              case 'version':
+              // case 'version':
               case 'activeTabs':
               case 'layout':
               case 'badgeLayout':
               case 'styles':
-                vm.data[i].title = i18n.get('c_o_' + key);
-                vm.data[i].order = i - 10;
+                vm.data[i] = {
+                  label: key,
+                  selected: false,
+                  title: i18n.get('c_o_' + key),
+                  order: i - 10,
+                };
+                i++;
                 break;
               default:
-                vm.data[i].title = i18n.get('w_' + key);
-                vm.data[i].order = 10 + i;
+                var title = i18n.get('w_' + key);
+                if (i18n.get('w_' + key) !== '') {
+                  vm.data[i] = {
+                    label: key,
+                    selected: false,
+                    title: i18n.get('w_' + key),
+                    order: 10 + i,
+                  };
+                  i++;
+                }
             }
-            if (vm.data[i].title === '') {
-              vm.data[i].title = key;
-            }
-            i++;
           });
         });
     }
@@ -74,16 +79,13 @@
     }
 
     function clearData() {
-      var keys;
-      if (!vm.allSelected) {
-        keys = [];
-        for (var i = 0; i < vm.data.length; i++) {
-          if (vm.data[i].selected) {
-            keys.push(vm.data[i].label);
-          }
+      var keys = [];
+      for (var i = 0; i < vm.data.length; i++) {
+        if (vm.data[i].selected) {
+          keys.push(vm.data[i].label);
         }
       }
-      if (angular.isUndefined(keys) || keys.length > 0) {
+      if (keys.length > 0) {
         dataService.clearData(keys)
           .then(function() {
             vm.buttonDisabled = true;

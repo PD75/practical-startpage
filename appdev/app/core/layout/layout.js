@@ -171,6 +171,7 @@
     }
 
     function checkVersion() {
+      versionService.linkUninstallSurvey();
       var manifest = dataService.getManifest();
       if (dataService.data.version !== manifest.version) {
         versionService.checkVersion(manifest.version, dataService.data.version)

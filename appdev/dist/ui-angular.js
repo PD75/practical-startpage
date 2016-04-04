@@ -1,7 +1,45 @@
+angular.module('uiAngular', []);
+
+angular.module('uiAngular')
+  .config(["$compileProvider", function($compileProvider) {
+    'use strict';
+    $compileProvider.debugInfoEnabled(false);
+  }]);
+
+
+angular.module('uiAngular')
+  .directive('uiPopup', function() {
+    'use strict';
+    return {
+      restrict: 'A',
+      scope: {
+        popupData: '=uiPopup',
+        popupObj: '=?uiPopupObj',
+      },
+      link: link,
+    };
+
+    function link(s, e) {
+      if (angular.isObject(s.popupData)) {
+        e.popup(s.popupData);
+        s.$watchCollection('popupData', function() {
+          e.popup('destroy');
+          e.popup(s.popupData);
+        });
+      } else {
+        e.popup();
+      }
+      s.popupObj = e;
+      s.$on('$destroy', function() {
+        e.popup('destroy');
+      });
+    }
+  });
+
 /* eslint angular/no-services: 0*/
 
-angular.module('ngSemanticUi')
-  .directive('uiModal', function($timeout, $http, $compile) {
+angular.module('uiAngular')
+  .directive('uiModal', ["$timeout", "$http", "$compile", function($timeout, $http, $compile) {
     'use strict';
 
     return {
@@ -13,14 +51,14 @@ angular.module('ngSemanticUi')
         'modalData': '=?uiModalData',
         'modalUrlObj': '=?uiModalUrl',
         'modalUrl': '@?uiModalUrl',
-        'modalInstance': '=?uiModalinstance',
+        'modalObj': '=?uiModalObj',
       },
       template: '<div class="ui modal" ng-transclude></div>',
       link: link,
     };
 
     function link(scope, element) {
-      scope.modalInstance = element;
+      scope.modalObj = element;
 
       scope.$watch('modalData', function() {
         setData(scope, element);
@@ -82,4 +120,34 @@ angular.module('ngSemanticUi')
       };
       e.modal(modalData);
     }
-  });
+  }]);
+
+angular.module('uiAngular')
+  .directive('uiDropdown', ["$timeout", function($timeout) {
+    'use strict';
+    return {
+      restrict: 'A',
+      scope: {
+        dropdownData: '=uiDropdownData',
+        dropdownObj: '=?uiDropdown',
+      },
+      link: link,
+    };
+
+    function link(s, e) {
+      if (angular.isObject(s.dropdownData)) {
+        e.dropdown(s.dropdownData);
+        s.$watchCollection('dropdownData', function() {
+          e.dropdown(s.dropdownData);
+          $timeout(function() {
+            e.dropdown('refresh');
+          });
+        });
+      } else {
+        $timeout(function() {
+          e.dropdown();
+        });
+      }
+      s.dropdownObj = e;
+    }
+  }]);

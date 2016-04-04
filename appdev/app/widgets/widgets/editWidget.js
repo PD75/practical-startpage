@@ -10,7 +10,7 @@ angular.module('ps.widgets')
     function link(scope, element) {
       scope.title = scope.$parent.Layout.modalTitle;
       var dir = scope.$parent.Layout.modalDirective;
-      var template = '<ps-'+dir+' ps-data="modalData" ps-instance=modalInstance ps-events="modalEvents"></ps-'+dir+'>';
+      var template = '<ps-'+dir+' ps-data="modalData" ps-instance="modalObj"></ps-'+dir+'>';
       element.html(template);
       $compile(element.contents())(scope);
     }
