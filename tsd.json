@@ -25,9 +25,6 @@
     },
     "filesystem/filesystem.d.ts": {
       "commit": "d969b903d1fce89a5e43828ec68458b4f852db4d"
-    },
-    "chrome/chrome.d.ts": {
-      "commit": "d969b903d1fce89a5e43828ec68458b4f852db4d"
     }
   }
 }
