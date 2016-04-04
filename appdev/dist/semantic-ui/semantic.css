@@ -9943,20 +9943,6 @@ i.icon.bed:before {
 /*******************************
          Site Overrides
 *******************************/
-
-/*******************************
-             Icon
-*******************************/
-
-@font-face {
-  font-family: 'Icons';
-  src: url("themes/default/assets/fonts/icons.woff2") format('woff2');
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-decoration: inherit;
-  text-transform: none;
-}
 /*!
  * # Semantic UI 2.1.8 - Image
  * http://github.com/semantic-org/semantic-ui/

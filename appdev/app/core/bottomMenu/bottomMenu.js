@@ -12,9 +12,18 @@
     var vm = this;
     vm.activateModal = activateModal;
     vm.showModal = false;
+    vm.dropdownData = {
+      on:'hover',
+    };
     vm.bugPopup = {
       'html': i18n.get('c_about_text_3'),
       'variation': 'basic',
+      'position':'top right',
+    };    
+    vm.homePopup = {
+      'html': i18n.get('Homepage'),
+      'variation': 'basic',
+      'position':'top right',
     };
     vm.bottomSubMenu = [{
       "title": i18n.get("Options"),

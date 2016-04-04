@@ -2581,18 +2581,3 @@ i.icon.bed:before {
          Site Overrides
 *******************************/
 
-
-
-/*******************************
-             Icon
-*******************************/
-
-@font-face {
-  font-family: 'Icons';
-  src: url("../../../../appdev/dist/semantic-ui/themes/default/assets/fonts/icons.woff2") format('woff2');
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-decoration: inherit;
-  text-transform: none;
-}
