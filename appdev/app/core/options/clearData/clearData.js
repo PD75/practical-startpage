@@ -33,8 +33,8 @@
                 vm.data[i] = {
                   label: key,
                   selected: false,
-                  title : i18n.get('c_o_' + key),
-                  order : i - 10,
+                  title: i18n.get('c_o_' + key),
+                  order: i - 10,
                 };
                 i++;
                 break;
@@ -44,8 +44,8 @@
                   vm.data[i] = {
                     label: key,
                     selected: false,
-                    title : i18n.get('w_' + key),
-                    order : 10 + i,
+                    title: i18n.get('w_' + key),
+                    order: 10 + i,
                   };
                   i++;
                 }
@@ -79,16 +79,13 @@
     }
 
     function clearData() {
-      var keys;
-      if (!vm.allSelected) {
-        keys = [];
-        for (var i = 0; i < vm.data.length; i++) {
-          if (vm.data[i].selected) {
-            keys.push(vm.data[i].label);
-          }
+      var keys = [];
+      for (var i = 0; i < vm.data.length; i++) {
+        if (vm.data[i].selected) {
+          keys.push(vm.data[i].label);
         }
       }
-      if (angular.isUndefined(keys) || keys.length > 0) {
+      if (keys.length > 0) {
         dataService.clearData(keys)
           .then(function() {
             vm.buttonDisabled = true;
