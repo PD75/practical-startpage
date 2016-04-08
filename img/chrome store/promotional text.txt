@@ -21,3 +21,16 @@ Practical Startpage är enkel men kraftfull, och ger snabb åtkomst till webläs
 - Snabblänkar till bokmärkes mappar
 - Besökta sidor, appar etc. från chromee
 - RSS flöde för t.ex. nyheter
+
+
+### espanol - es
+
+Practical Startpage es simple pero eficaz, permitiendo acceder fácilmente a los datos del navegador como los marcadores o el historial.
+(Los permisos son utilizados por los widgets para mostrar o editar los datos según sea el caso, y el almacenamiento para recordar la configuración.)
+- Diseño responsive, adaptable a todas las pantallas
+- Configurable, tú decides qué widgets quieres y dónde van
+- Open Source, puedes desarrollar tus propios widgets (GitHub)
+- Vista de árbol con editor de marcadores y búsqueda de texto
+- Enlaces rápidos con enlace de una carpeta de marcadores de tu elección
+- Historial, aplicaciones, etc., de Chrome
+- Fuentes RSS para noticias, por ejemplo

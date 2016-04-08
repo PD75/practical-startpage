@@ -114,7 +114,7 @@
     "message": "Spread the Word with e-mail to a Friend"
   },
   "c_about_text_1": {
-    "message": "Click here to generate a mail to a friend. If it does not work, copy the link to chrome webstore above."
+    "message": "Click here to generate a mail to a friend."
   },
   "c_about_title_2": {
     "message": "Bugs, Ideas or Contribute on GitHub"
@@ -246,13 +246,13 @@
     "message": "Quicklinks"
   },
   "w_quicklinks_help": {
-    "message": "A list of links from the bookmarks; links are chosen by right clicking a folder in the bookmark tree. <br /> <b>Note:</b> You can only select one folder and only the bookmarks directly in that folder are shown, not in sub folders."
+    "message": "All links in one folder of bookmark folder easily accessible. You select the folder from the bookmark widget. <br /> <b>Note:</b> You can only select one folder and only the bookmarks directly in that folder are shown."
   },
   "w_rssFeed": {
     "message": "RSS"
   },
   "w_rssFeed_help": {
-    "message": "You have what ever feeds you want here, e.g. news feeds"
+    "message": "You decide what feeds you will show, E.g. news"
   },
   "w_rssFeed_edit_title": {
     "message": "Edit RSS"
