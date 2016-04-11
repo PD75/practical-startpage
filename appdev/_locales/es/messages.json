@@ -2,8 +2,14 @@
   "About": {
     "message": "Sobre"
   },
+   "Badges": {
+    "message": "Emblemas"
+  },
   "Check": {
     "message": "Comprobar"
+  },
+ "Clear": {
+    "message": "Borrar"
   },
   "Close": {
     "message": "Cerrar"
@@ -25,6 +31,9 @@
   },
   "Delete": {
     "message": "Borrar"
+  },
+  "Homepage": {
+    "message": "Página principal"
   },
   "Help": {
     "message": "Ayuda"
@@ -125,6 +134,9 @@
   "c_about_text_4": {
     "message": "En el tablón de Waffle.io"
   },
+  "c_bottomMenu": {
+    "message": "Menú inferior"
+  },
   "c_help_title_0": {
     "message": "Listas configurables de datos"
   },
@@ -146,7 +158,10 @@
   "c_o_editLayout": {
     "message": "Editar diseño"
   },
-  "c_o_clearSettings": {
+  "c_o_badgeLayout": {
+    "message": "Disposición de los emblemas"
+  },
+ "c_o_clearSettings": {
     "message": "Borrar configuración"
   },
   "c_o_cleared": {
@@ -174,13 +189,19 @@
     "message": "Columna derecha"
   },
   "w_rssFeed_auth_title": {
-    "message": "¡Permiso requerido para acceder a la URL!",
+    "message": "Se requiere permiso para acceder a $url$. ¡Haz clic aquí para autorizar!",
     "placeholders": {
       "url": {
         "content": "$1",
         "example": "mysite.com"
       }
     }
+  },
+  "b_gmail_connection": {
+    "message": "No se han podido recuperar los datos. Por favor, comprueba la conexión de red y que has iniciado sesión en Gmail."
+  },
+  "b_gmail_noUnRead": {
+    "message": "¡No hay correos sin leer!"
   },
   "Widgets": {
     "message": "Widgets"
@@ -224,8 +245,8 @@
   "w_quicklinks": {
     "message": "Enlaces rápidos"
   },
-  "w_quicklinks_help": {
-    "message": "Una lista de enlaces elegidos por el usuario. Haz clic derecho en una carpeta del árbol de marcadores para crearlos. <br /> <b> Nota: </ b> únicamente puedes seleccionar una carpeta y solo se mostrarán los marcadores en esa carpeta."
+   "w_quicklinks_help": {
+    "message": "Fácil acceso a todos los enlaces de una carpeta de marcadores. Puedes seleccionar la carpeta desde el widget de marcadores. <br /> <b> Nota:</ b>  solo puedes seleccionar una carpeta y únicamente se mostrarán los marcadores en esa carpeta."
   },
   "w_rssFeed": {
     "message": "RSS"
@@ -238,6 +259,12 @@
   },
   "w_rssFeed_addFeed": {
     "message": "Añadir fuente"
+  },
+  "w_rssFeed_settings": {
+    "message": "Cambiar configuración"
+  },
+  "w_rssFeed_restoreDeleted": {
+    "message": "Restaurar elementos eliminados"
   },
   "w_rssFeed_auth_text": {
     "message": "RSS utiliza las API de Google para obtener una estructura de datos coherente de las distintas fuentes y no funcionará sin ellas. Haz clic aquí para continuar y autorizar el widget."
