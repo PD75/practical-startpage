@@ -32,7 +32,6 @@
             $scope.$on('$destroy', function() {
               $interval.cancel(stop);
             });
-            // chrome.permissions.remove({ origins: ['https://mail.google.com/'] });
           } else {
             vm.unRead = '-1';
           }

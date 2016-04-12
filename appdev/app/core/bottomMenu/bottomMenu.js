@@ -1,4 +1,3 @@
-/// <reference path="../../services/chrome/chrome.i18n.service.js" />
 
 (function() {
   'use strict';
