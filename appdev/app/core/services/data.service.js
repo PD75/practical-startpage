@@ -41,7 +41,7 @@ angular
           });
           s.data = dataTranslationService.translate(s.data);
         });
-      return s.getDataPromise
+      return s.getDataPromise;
     }
 
     function getStorageData() {

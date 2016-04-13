@@ -1,0 +1,284 @@
+{
+  "About": {
+    "message": "Sobre"
+  },
+   "Badges": {
+    "message": "Emblemas"
+  },
+  "Check": {
+    "message": "Comprobar"
+  },
+ "Clear": {
+    "message": "Borrar"
+  },
+  "Close": {
+    "message": "Cerrar"
+  },
+  "days": {
+    "message": "días"
+  },
+  "Display": {
+    "message": "Presentación"
+  },
+  "Edit": {
+    "message": "Editar"
+  },
+  "EditUrl": {
+    "message": "Editar URL"
+  },
+  "entries": {
+    "message": "registros"
+  },
+  "Delete": {
+    "message": "Borrar"
+  },
+  "Homepage": {
+    "message": "Página principal"
+  },
+  "Help": {
+    "message": "Ayuda"
+  },
+  "LoadDefault": {
+    "message": "Carga preseleccionado"
+  },
+  "Links": {
+    "message": "Enlaces"
+  },
+  "NewFolder": {
+    "message": "Nueva carpeta"
+  },
+  "Options": {
+    "message": "Opciones"
+  },
+  "Save": {
+    "message": "Guardar"
+  },
+  "SaveClose": {
+    "message": "Guardar y cerrar"
+  },
+  "Search": {
+    "message": "Buscar"
+  },
+  "SelectAll": {
+    "message": "Seleccionar todo"
+  },
+  "Title": {
+    "message": "Título"
+  },
+  "UndoAll": {
+    "message": "Deshacer todo"
+  },
+  "Url": {
+    "message": "URL"
+  },
+  "WhatsNew": {
+    "message": "Novedades"
+  },
+  "Close_key": {
+    "message": "Esc"
+  },
+  "Edit_key": {
+    "message": "F2"
+  },
+  "EditUrl_key": {
+    "message": "Mayúsculas + F2"
+  },
+  "Delete_key": {
+    "message": "Supr"
+  },
+  "NewFolder_key": {
+    "message": "Ctrl + Mayúsculas + N"
+  },
+  "Save_key": {
+    "message": "Ctrl + S"
+  },
+  "SaveClose_key": {
+    "message": "Ctrl + Mayúsculas + S"
+  },
+  "UndoAll_key": {
+    "message": "Ctrl + Mayúsculas + Z"
+  },
+  "c_ps_slogan": {
+    "message": "Una página de inicio flexible que muestra tus datos en una sola vista."
+  },
+   "c_about_languages": {
+    "message": "Idiomas"
+  },
+  "c_about_libraries": {
+    "message": "Librerías usadas"
+  },
+  "c_about_title_0": {
+    "message": "Practical Startpage en Chrome Web Store"
+  },
+  "c_about_text_0": {
+    "message": "Aquí puedes valorar y opinar sobre la extensión."
+  },
+  "c_about_title_1": {
+    "message": "Corre la voz con un correo a un amigo"
+  },
+  "c_about_text_1": {
+    "message": "Haz clic aquí para generar un correo para un amigo."
+  },
+  "c_about_title_2": {
+    "message": "Errores, ideas o contribuir en GitHub"
+  },
+  "c_about_text_2": {
+    "message": "Si tienes alguna idea para un widget que te gustaría desarrollar, el código está en GitHub. Aquí también puedes enviar errores y problemas."
+  },
+  "c_about_title_3": {
+    "message": "Errores, ideas o preguntas en Grupos de Google"
+  },
+  "c_about_text_3": {
+    "message": "Usa Grupos de Google para hacer preguntas y enviar ideas y errores."
+  },
+  "c_about_title_4": {
+    "message": "Comprobar el progreso del desarrollo"
+  },
+  "c_about_text_4": {
+    "message": "En el tablón de Waffle.io"
+  },
+  "c_bottomMenu": {
+    "message": "Menú inferior"
+  },
+  "c_help_title_0": {
+    "message": "Listas configurables de datos"
+  },
+  "c_help_text_0": {
+    "message": "Puedes poner los widgets donde quieras a través del menú de opciones."
+  },
+  "c_help_title_1": {
+    "message": "Diseño responsive"
+  },
+  "c_help_text_1": {
+    "message": "Las columnas y el contenido se ajustan para dar una mejor experiencia de visualización en todos los anchos de pantalla."
+  },
+  "c_help_title_2": {
+    "message": "Contenido"
+  },
+  "c_help_text_2": {
+    "message": "La página consta de tres columnas, pero para pantallas más pequeñas, la columna de la derecha se fusiona con la columna central para permitir que el contenido sea utilizable."
+  },
+  "c_o_editLayout": {
+    "message": "Editar diseño"
+  },
+  "c_o_badgeLayout": {
+    "message": "Disposición de los emblemas"
+  },
+ "c_o_clearSettings": {
+    "message": "Borrar configuración"
+  },
+  "c_o_cleared": {
+    "message": "¡Borrado!"
+  },
+  "c_o_version": {
+    "message": "Comprobar versión"
+  },
+  "c_o_layout": {
+    "message": "Disposición de los widgets"
+  },
+  "c_o_activeTabs": {
+    "message": "Pestañas activas"
+  },
+  "c_o_styles": {
+    "message": "Estilos, colores"
+  },
+  "c_l_left": {
+    "message": "Columna izquierda"
+  },
+  "c_l_middle": {
+    "message": "Columna central"
+  },
+  "c_l_right": {
+    "message": "Columna derecha"
+  },
+  "w_rssFeed_auth_title": {
+    "message": "Se requiere permiso para acceder a $url$. ¡Haz clic aquí para autorizar!",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "mysite.com"
+      }
+    }
+  },
+  "b_gmail_connection": {
+    "message": "No se han podido recuperar los datos. Por favor, comprueba la conexión de red y que has iniciado sesión en Gmail."
+  },
+  "b_gmail_noUnRead": {
+    "message": "¡No hay correos sin leer!"
+  },
+  "Widgets": {
+    "message": "Widgets"
+  },
+  "w_BL": {
+    "message": "Lista de botones"
+  },
+  "w_GL": {
+    "message": "Lista agrupada"
+  },
+  "w_bookmarkTree": {
+    "message": "Marcadores"
+  },
+  "w_bookmarkTree_help": {
+    "message": "Vista de árbol de todos los marcadores, con búsqueda completa de texto.<br /><b> Nota: </ B>puedes seleccionar los enlaces directos haciendo clic derecho en la carpeta que los contenga.<br /> Haz clic en el botón de editar para abrir el administrador de marcadores."
+  },
+  "w_bookmarkTree_edit_title": {
+    "message": "Editar marcadores"
+  },
+  "w_chromeApps": {
+    "message": "Aplicaciones"
+  },
+  "w_chromeApps_help": {
+    "message": "Lista de aplicaciones de Chrome instaladas actualmente en el navegador.<br /> <b> Nota: </ B>solo aparecerán las aplicaciones con página."
+  },
+  "w_closedTabs": {
+    "message": "Cerradas"
+  },
+  "w_closedTabs_help": {
+    "message": "Pestañas cerradas recientemente.<br /> <b> Nota: </ b>limpiadas por Chrome cada vez que se cierra el navegador."
+  },
+  "w_history": {
+    "message": "Historial"
+  },
+  "w_history_help": {
+    "message": "Páginas visitadas"
+  },
+  "w_history_edit_title": {
+    "message": "Editar historial"
+  },
+  "w_quicklinks": {
+    "message": "Enlaces rápidos"
+  },
+   "w_quicklinks_help": {
+    "message": "Fácil acceso a todos los enlaces de una carpeta de marcadores. Puedes seleccionar la carpeta desde el widget de marcadores. <br /> <b> Nota:</ b>  solo puedes seleccionar una carpeta y únicamente se mostrarán los marcadores en esa carpeta."
+  },
+  "w_rssFeed": {
+    "message": "RSS"
+  },
+  "w_rssFeed_help": {
+    "message": "Aquí puedes tener todas las fuentes que quieras. Fuentes de noticias, por ejemplo."
+  },
+  "w_rssFeed_edit_title": {
+    "message": "Editar RSS"
+  },
+  "w_rssFeed_addFeed": {
+    "message": "Añadir fuente"
+  },
+  "w_rssFeed_settings": {
+    "message": "Cambiar configuración"
+  },
+  "w_rssFeed_restoreDeleted": {
+    "message": "Restaurar elementos eliminados"
+  },
+  "w_rssFeed_auth_text": {
+    "message": "RSS utiliza las API de Google para obtener una estructura de datos coherente de las distintas fuentes y no funcionará sin ellas. Haz clic aquí para continuar y autorizar el widget."
+  },
+  "w_rssFeed_err_title": {
+    "message": "Error cargando la fuente:"
+  },
+  "w_topSites": {
+    "message": "Páginas principales"
+  },
+  "w_topSites_help": {
+    "message": "Páginas más visitadas"
+  }
+}

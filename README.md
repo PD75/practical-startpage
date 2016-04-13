@@ -1,19 +1,24 @@
-[![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://raw.githubusercontent.com/PD75/practical-startpage/master/LICENSE)
-
-[![Stories in Ready](https://badge.waffle.io/PD75/practical-startpage.svg?label=-to-be-started&title=To%20be%20Started)](http://waffle.io/PD75/practical-startpage)
-[![Stories in Progress](https://badge.waffle.io/PD75/practical-startpage.svg?label=-in-progress&title=In%20Progress)](http://waffle.io/PD75/practical-startpage)
-[![Stories in Ready](https://badge.waffle.io/PD75/practical-startpage.svg?label=-implemented&title=Implemented)](http://waffle.io/PD75/practical-startpage)
-
-[![Code Climate](https://codeclimate.com/github/PD75/practical-startpage/badges/gpa.svg)](https://codeclimate.com/github/PD75/practical-startpage)
-[![Issue Count](https://codeclimate.com/github/PD75/practical-startpage/badges/issue_count.svg)](https://codeclimate.com/github/PD75/practical-startpage)
-
-[![Issue Stats](http://issuestats.com/github/PD75/practical-startpage/badge/pr)](http://issuestats.com/github/PD75/practical-startpage)
-[![Issue Stats](http://issuestats.com/github/PD75/practical-startpage/badge/issue)](http://issuestats.com/github/PD75/practical-startpage)
-
 ![logo]
 
 # Practical Startpage
-Chrome Extension that replaces the default newtab. Install from [Practical Startpage in chrome store]
+Chrome Extension that replaces the default newtab. Install from [Practical Startpage in chrome store] or visit [Practical Startpage homepage]
+
+---
+
+[![License MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=plastic)](https://raw.githubusercontent.com/PD75/practical-startpage/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/pd75/practical-startpage.svg?style=plastic&label=GitHub )](https://github.com/PD75/practical-startpage/releases)
+
+
+
+[![GitHub issues](https://img.shields.io/github/issues/PD75/practical-startpage.svg?style=plastic)](https://waffle.io/PD75/practical-startpage)
+[![To be started](https://badge.waffle.io/PD75/practical-startpage.svg?label=-to-be-started&title=To%20be%20Started&style=flat)](http://waffle.io/PD75/practical-startpage)
+[![Stories in Progress](https://badge.waffle.io/PD75/practical-startpage.svg?label=-in-progress&title=In%20Progress)](http://waffle.io/PD75/practical-startpage)
+[![Implemented](https://badge.waffle.io/PD75/practical-startpage.svg?label=-implemented&title=Implemented)](http://waffle.io/PD75/practical-startpage)
+
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/ikjalccfdoghanieehppljppanjlmkcf.svg?style=plastic)](https://chrome.google.com/webstore/detail/ikjalccfdoghanieehppljppanjlmkcf)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/ikjalccfdoghanieehppljppanjlmkcf.svg?style=plastic)](https://chrome.google.com/webstore/detail/practical-startpage/ikjalccfdoghanieehppljppanjlmkcf/reviews)
+
+---
 
 ## About
 Startpage focuses on making your existing data available to you simple way.
@@ -26,6 +31,10 @@ The application is build flexibly, allowing anyone to contribute with a widget f
 
 ## Contributions
 The application is written in [AngularJS] with [Semantic UI] as the layout framework. For the build [Gulp] is used. Please review [Angular Style Guide] and try to adhere where it makes sense. Further there are [ESLint] rules available in the project.
+
+### Translation
+
+Help with transaltion is much appreciated. Check the [Practical Startpage homepage] on how to do
 
 ### Widgets
 Adding widgets should be fairly easy. Any self contained directive will run. All formatting variables are available from Services if needed, allowing consistent colors throughout.
@@ -143,6 +152,7 @@ Build code to _build/_
 ```
 
 [practical startpage in chrome store]: https://chrome.google.com/webstore/detail/ikjalccfdoghanieehppljppanjlmkcf
+[practical startpage homepage]: http://pd75.github.io/#/practical-startpage
 [angularjs]: https://angularjs.org/
 [gulp]: http://gulpjs.com/
 [angular style guide]: https://github.com/johnpapa/angular-styleguide

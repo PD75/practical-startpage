@@ -39,7 +39,6 @@
                 i++;
                 break;
               default:
-                var title = i18n.get('w_' + key);
                 if (i18n.get('w_' + key) !== '') {
                   vm.data[i] = {
                     label: key,

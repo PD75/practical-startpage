@@ -101,6 +101,9 @@
   "c_ps_slogan": {
     "message": "Flexibel startsida som visar din data i en enda vy."
   },
+  "c_about_languages": {
+    "message": "Språk"
+  },
   "c_about_libraries": {
     "message": "Änvända bibliotek"
   },
@@ -114,7 +117,7 @@
     "message": "Sprid ordet till en vän med e-post"
   },
   "c_about_text_1": {
-    "message": "Klicka här för att skapa ett e-post till en vän. Om det inte fungerar, kopiera länken till Chrome Web Store ovan."
+    "message": "Klicka här för att skapa ett e-post till en vän."
   },
   "c_about_title_2": {
     "message": "Buggar, idéer eller bidra på GitHub"

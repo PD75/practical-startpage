@@ -1,4 +1,3 @@
-/// <reference path="../../services/chrome/chrome.i18n.service.js" />
 
 (function() {
   'use strict';
@@ -13,17 +12,17 @@
     vm.activateModal = activateModal;
     vm.showModal = false;
     vm.dropdownData = {
-      on:'hover',
+      on: 'hover',
     };
     vm.bugPopup = {
       'html': i18n.get('c_about_text_3'),
       'variation': 'basic',
-      'position':'top right',
-    };    
+      'position': 'top right',
+    };
     vm.homePopup = {
       'html': i18n.get('Homepage'),
       'variation': 'basic',
-      'position':'top right',
+      'position': 'top right',
     };
     vm.bottomSubMenu = [{
       "title": i18n.get("Options"),
@@ -62,9 +61,9 @@
     function link(scope, el) {
 
       dataService.getDataPromise
-      .then(function (){
-        loadBadges(el, scope);
-      });
+        .then(function() {
+          loadBadges(el, scope);
+        });
 
       dataService.setOnChangeData('badgeLayout', function() {
         loadBadges(el, scope);

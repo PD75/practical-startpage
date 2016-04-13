@@ -17,10 +17,10 @@
       } else {
         dataService.setData({
           'installDate': today,
-        })
+        });
       }
       var url = 'http://pd75.github.io/#/ps-uninstall';
-      url += '?usageTime=' + usageTime
+      url += '?usageTime=' + usageTime;
       chrome.runtime.setUninstallURL(url);
     }
 
