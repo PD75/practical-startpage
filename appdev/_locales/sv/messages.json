@@ -101,6 +101,9 @@
   "c_ps_slogan": {
     "message": "Flexibel startsida som visar din data i en enda vy."
   },
+  "c_about_languages": {
+    "message": "Språk"
+  },
   "c_about_libraries": {
     "message": "Änvända bibliotek"
   },

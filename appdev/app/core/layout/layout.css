@@ -129,3 +129,18 @@ div.browser {
     width: 50%;
   }
 }
+
+.linkedin.label {
+  border-color: #287bbc;
+  vertical-align: text-bottom;
+}
+
+.linkedin.label > .linkedin.square.icon {
+  color: #287bbc;
+  margin: 0;
+}
+
+.linkedin.label > span {
+  position: relative;
+  top: 2px;
+}

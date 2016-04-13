@@ -101,6 +101,9 @@
   "c_ps_slogan": {
     "message": "Una página de inicio flexible que muestra tus datos en una sola vista."
   },
+   "c_about_languages": {
+    "message": "Idiomas"
+  },
   "c_about_libraries": {
     "message": "Librerías usadas"
   },
