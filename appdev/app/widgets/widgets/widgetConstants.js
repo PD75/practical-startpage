@@ -41,7 +41,7 @@ angular.module('ps.widgets.constants', [])
         icon: "undo",
         directive: "browser-closed-tabs",
         permissions: [
-          "session: retrieve list of recently closed tabs, and get notified when closing",
+          "session: retrieve list of recently closed tabs, and get refresh list when closing new",
         ],
       },
       history: {
@@ -71,9 +71,9 @@ angular.module('ps.widgets.constants', [])
           directive: "edit-rss-feed",
         },
         permissions: [
-          "hitory: check is feed items have been visited",
-          "storage: save rss feed url, and deleted urls",
-          "additional permission: uses google-apis to retrieve RSS feeds"
+          "hitory: check if feed items have been visited",
+          "storage: save rss feed url, and deleted feed items",
+          "additional permission: uses google-apis to retrieve RSS feeds",
         ],
       },
       topSites: {

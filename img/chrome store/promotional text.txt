@@ -1,7 +1,7 @@
 ### english - en
 
 Practical Startpage is a simple yet powerful, allowing easy access to browser data, such as bookmarks and history.
-(Permissions are used by the widgets to show or edit the data as applicable, and storage to remember settings.)
+(For details on permissions and usage, visit homepage)
 - Responsive Design, adjust to all screens
 - Configurable, you can decide what widgets go where
 - Open Source, you can develop your own widgets (GitHub)
@@ -13,13 +13,13 @@ Practical Startpage is a simple yet powerful, allowing easy access to browser da
 ### svenska - sv
 
 Practical Startpage är enkel men kraftfull, och ger snabb åtkomst till webläsarens data, som t.ex. bookmärken och besökta sidor.
-(Rättigheterna behövs för att ladda information, samt access till lokalt lagringsutrymme för att spara inställningar.)
+(För detaljer om rättigheter och hur dom används, besök hemsidan.)
 - Responsiv design, anpassar sig till alla skärmar
 - Konfigurerbar, du kan själv välja var saker ska vara
 - Öppen källkod, du kan utveckla dina egna manicker (GitHub)
 - Bokmarken med sökning och editor
 - Snabblänkar till bokmärkes mappar
-- Besökta sidor, appar etc. från chromee
+- Besökta sidor, appar etc. från chrome
 - RSS flöde för t.ex. nyheter
 
 
