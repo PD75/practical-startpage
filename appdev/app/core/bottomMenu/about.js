@@ -15,6 +15,7 @@
       vm.data = {
         title: i18n.get('About'),
         libraries: i18n.get('c_about_libraries'),
+        languages: i18n.get('c_about_languages'),
         links: {
           title: i18n.get('Links'),
           data: [{
