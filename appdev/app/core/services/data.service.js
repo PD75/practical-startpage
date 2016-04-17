@@ -45,7 +45,7 @@ angular
     }
 
     function getStorageData() {
-      return storageService.getLocalData()
+      return storageService.getData('local')
         .then(function(data) {
           return data;
         });
@@ -55,7 +55,7 @@ angular
       angular.forEach(newData, function(value, key) {
         s.data[key] = value;
       });
-      return storageService.setLocalData(newData);
+      return storageService.setData(newData,'local');
     }
 
     function getManifest() {
