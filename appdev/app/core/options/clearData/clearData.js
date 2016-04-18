@@ -19,7 +19,6 @@
     function getData() {
       dataService.getStorageData()
         .then(function(data) {
-          // var data = storageData[1];
           vm.data = [];
           vm.allSelected = false;
           var i = 0;

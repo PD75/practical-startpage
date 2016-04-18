@@ -7,16 +7,16 @@ angular.module('ps.widgets.constants', [])
       tabs: ['bookmarkTree'],
       items: 2,
     }, {
-        title: "Middle",
-        label: "middle",
-        tabs: ['quicklinks', 'closedTabs', 'topSites'],
-        items: 4,
-      }, {
-        title: "Right",
-        label: "right",
-        tabs: ['history', 'chromeApps'],
-        items: 2,
-      }],
+      title: "Middle",
+      label: "middle",
+      tabs: ['quicklinks', 'closedTabs', 'topSites'],
+      items: 4,
+    }, {
+      title: "Right",
+      label: "right",
+      tabs: ['history', 'chromeApps'],
+      items: 2,
+    }],
     widgets: {
       bookmarkTree: {
         icon: "star",
@@ -66,6 +66,7 @@ angular.module('ps.widgets.constants', [])
       rssFeed: {
         icon: "rss",
         directive: "rss-feed",
+        noSyncData: ['deletedItems'],
         edit: {
           type: "directive",
           directive: "edit-rss-feed",

@@ -164,6 +164,9 @@
    "c_o_badgeLayout": {
     "message": "Badge Layout"
   },
+  "c_o_chooseStorage": {
+    "message": "Choose Storage"
+  },
   "c_o_clearSettings": {
     "message": "Clear Settings"
   },

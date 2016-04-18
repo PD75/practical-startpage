@@ -1,28 +1,36 @@
 (function(angular) {
   'use strict';
 
-  angular.module('ps.core.options.clear', ['ps.core.service'])
-    .controller('ClearDataCtrl', ClearDataCtrl)
-    .directive('psClearData', ClearDataDirective);
+  angular.module('ps.core.options')
+    .controller('ChooseStorageCtrl', ChooseStorageCtrl)
+    .directive('psChooseStorage', ChooseStorageDirective);
 
 
-  function ClearDataCtrl($timeout, dataService, i18n) {
+  function ChooseStorageCtrl($timeout, dataService, i18n) {
     var vm = this;
-    vm.checkboxCB = checkboxCB;
-    vm.allselectedCB = allselectedCB;
-    vm.widgets = dataService.data.widgets;
-    vm.clearData = clearData;
+    vm.switchStorage = switchStorage;
+
+
     vm.locale = locale;
     vm.primaryCol = dataService.data.styles.primaryCol;
     getData();
 
+
+    dataService.setData({
+      localStorage: {
+        quicklinks: false,
+        activeTabs: true,
+      }
+    });
+
     function getData() {
       dataService.getStorageData()
         .then(function(data) {
-          // var data = storageData[1];
+
           vm.data = [];
           vm.allSelected = false;
           var i = 0;
+          var localStorage = dataService.data.localStorage;
           vm.local = {
             exist: false,
             allSelected: false,
@@ -37,23 +45,22 @@
             if (angular.isDefined(value.title)) {
               vm.data[i] = {
                 label: key,
-                selected: false,
                 title: value.title,
                 order: value.order,
+                local: {},
+                sync: {},
               };
               if (angular.isDefined(value.local)) {
-                vm.data[i].local = {
-                  exist: true,
-                  selected: false,
-                };
-                vm.local.exist = true;
+                vm.data[i].local.exist = true;
               }
+
               if (angular.isDefined(value.sync)) {
-                vm.data[i].sync = {
-                  exist: true,
-                  selected: false,
-                };
-                vm.sync.exist = true;
+                vm.data[i].sync.exist = true;
+              }
+              if (angular.isDefined(localStorage) && localStorage[key]) {
+                vm.data[i].local.storage = true;
+              } else {
+                vm.data[i].local.storage = false;
               }
               i++;
             }
@@ -65,52 +72,24 @@
       return i18n.get(text);
     }
 
-    function checkboxCB(type) {
-      vm[type].allSelected = true;
-      vm[type].buttonDisabled = true;
-      for (var i = 0; i < vm.data.length; i++) {
-        if (angular.isDefined(vm.data[i][type]) && !vm.data[i][type].selected) {
-          vm[type].allSelected = false;
-        } else {
-          vm[type].buttonDisabled = false;
-        }
-      }
-    }
-
-    function allselectedCB() {
-      var s = vm.allSelected;
-      vm.buttonDisabled = !vm.allSelected;
-      for (var i = 0; i < vm.data.length; i++) {
-        vm.data[i].selected = s;
-      }
-    }
-
-    function clearData() {
-      var keys = [];
-      for (var i = 0; i < vm.data.length; i++) {
-        if (vm.data[i].selected) {
-          keys.push(vm.data[i].label);
-        }
-      }
-      if (keys.length > 0) {
-        dataService.clearData(keys)
-          .then(function() {
-            vm.buttonDisabled = true;
-            vm.dataCleared = i18n.get('c_o_cleared');
-            $timeout(function() {
-              vm.dataCleared = '';
-              getData();
-            }, 1000);
-          });
-      }
+    function switchStorage(object, copyData) {
+      var data = {
+        label: object.label,
+        localStorage: object.local.storage,
+        copyData: copyData,
+      };
+      dataService.setStorage(data)
+        .then(function() {
+          getData();
+        });
     }
   }
 
-  function ClearDataDirective() {
+  function ChooseStorageDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/core/options/clearData/clearData.html',
-      controller: 'ClearDataCtrl',
+      templateUrl: 'app/core/options/ChooseStorage/ChooseStorage.html',
+      controller: 'ChooseStorageCtrl',
       controllerAs: 'vm',
       bindToController: true,
       scope: {},

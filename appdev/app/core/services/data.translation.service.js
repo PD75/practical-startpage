@@ -46,13 +46,13 @@ angular.module('ps.core.service')
           case 'badgeLayout':
           case 'styles':
             value.title = i18n.get('c_o_' + key);
-            value.order = i - 10;
+            value.order = -1;
             i++;
             break;
           default:
             if (i18n.get('w_' + key) !== '') {
               value.title = i18n.get('w_' + key);
-              value.order = 10 + i;
+              value.order = +1;
               i++;
             }
         }

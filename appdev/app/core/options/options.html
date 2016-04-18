@@ -5,7 +5,10 @@
   <a class="item" ng-class="{'active' : vm.tab === 'badgeLayout'}" ng-click="vm.tab = 'badgeLayout'">
     {{vm.locale("c_o_badgeLayout")}}
   </a>
-  <a class="item" ng-class="{'active' : vm.tab === 'clearData'}" ng-click="vm.tab = 'clearData'">
+  <a class="item" ng-class="{'active' : vm.tab === 'chooseStorage'}" ng-click="vm.tab = 'chooseStorage'">
+    {{vm.locale("c_o_chooseStorage")}}
+  </a>
+ <a class="item" ng-class="{'active' : vm.tab === 'clearData'}" ng-click="vm.tab = 'clearData'">
     {{vm.locale("c_o_clearSettings")}}
   </a>
 </div>
@@ -15,6 +18,9 @@
   </div>
   <div class="ui tab" ng-class="{'active' : vm.tab === 'badgeLayout'}">
     <ps-select-badges></ps-select-badges>
+  </div>
+  <div class="ui tab" ng-class="{'active' : vm.tab === 'chooseStorage'}">
+    <ps-choose-storage></ps-choose-storage>
   </div>
   <div class="ui tab" ng-class="{'active' : vm.tab === 'clearData'}">
     <ps-clear-data></ps-clear-data>

@@ -9,7 +9,7 @@
             <th>Storage Area</th>
           </tr>
         </thead>
-        <tr ng-repeat="object in vm.data  | orderBy: 'order'">
+        <tr ng-repeat="object in vm.data  | orderBy: 'order;title'">
           <td class="center aligned">
             <input type="checkbox" ng-model="object.local.selected" ng-click="vm.checkboxCB('local')" ng-if="object.local.exist">
           </td>
@@ -29,10 +29,6 @@
             </th>
             <th>
               Select All
-              <i class="huge icons">
-                <i class="arrow right icon"></i>
-              <i class="corner copy icon"></i>
-              </i>
             </th>
           </tr>
         </tfoot>

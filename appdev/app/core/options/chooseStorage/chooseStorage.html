@@ -1,47 +1,41 @@
 <div class="ui grid">
   <div class="row">
-    <div class="eleven wide column">
+    <div class="sixteen wide column">
       <table class="ui very basic compact table">
         <thead>
           <tr>
             <th class="center aligned">Local Storage</th>
+            <th colspan="2" class="center aligned">Switch Storage</th>
             <th class="center aligned">Sync Storage</th>
             <th>Storage Area</th>
           </tr>
         </thead>
         <tr ng-repeat="object in vm.data  | orderBy: 'order'">
           <td class="center aligned">
-            <input type="checkbox" ng-model="object.local.selected" ng-click="vm.checkboxCB('local')" ng-if="object.local.exist">
+            <span ng-if="object.local.exist">Has data</span>
           </td>
           <td class="center aligned">
-            <input type="checkbox" ng-model="object.sync.selected" ng-click="vm.checkboxCB('sync')" ng-if="object.sync.exist">
+            <button class="ui basic icon compact button" ng-if="((!object.local.storage && object.sync.exist)||(object.local.storage&&object.local.exist))" ng-click="vm.switchStorage(object,true)">
+              <i class="big icons">
+                <i class="arrow icon" ng-class="{right: object.local.storage, left: !object.loca.storage}"></i>
+                <i class="corner copy icon"></i>
+              </i>
+            </button>
+          </td>
+          <td class="center aligned">
+            <button class="ui basic icon compact button" ng-click="vm.switchStorage(object,false)">
+              <i class="big icons">
+              <i class="arrow icon" ng-class="{right: object.local.storage, left: !object.local.storage}"></i>
+              </i>
+            </button>
+          </td>
+          <td class="center aligned">
+            <span ng-if="object.sync.exist">Has data</span>
           </td>
           <td ng-bind="object.title"></td>
         </tr>
         </tbody>
-        <tfoot>
-          <tr class="active">
-            <th class="center aligned">
-              <input type="checkbox" ng-model="vm.local.allSelected" ng-click="vm.allselectedCB('local')" ng-if="vm.local.exist">
-            </th>
-            <th class="center aligned">
-              <input type="checkbox" ng-model="vm.sync.allSelected" ng-click="vm.allselectedCB('sync')" ng-if="vm.sync.exist">
-            </th>
-            <th>
-              Select All
-              <i class="huge icons">
-                <i class="arrow right icon"></i>
-              <i class="corner copy icon"></i>
-              </i>
-            </th>
-          </tr>
-        </tfoot>
       </table>
-    </div>
-    <div class="five wide column">
-      <button class="ui  button" ng-click="vm.clearData()" ng-class="[vm.primaryCol,{disabled:(vm.local.buttonDisabled && vm.sync.buttonDisabled)}]">
-        {{vm.locale("c_o_clearSettings")}}
-      </button> {{vm.dataCleared}}
     </div>
   </div>
 </div>

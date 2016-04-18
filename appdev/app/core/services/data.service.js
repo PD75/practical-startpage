@@ -13,6 +13,7 @@ angular
       s.getDefaultData = getDefaultData;
       s.setOnChangeData = setOnChangeData;
       s.getStorageData = getStorageData;
+      s.setStorage = setStorage;
       s.data = {
         dataChangeCB: {},
         layout: [],
@@ -45,26 +46,15 @@ angular
         return s.getDataPromise;
       }
 
-      function getStorageData1() {
-        return $q.all([
-            storageService.getData('local'),
-            storageService.getData('sync'),
-          ])
-          .then(function(response) {
-            return response;
-          });
-      }
-
-
       function getStorageData() {
         var promises = [];
         promises[0] = storageService.getData('local')
           .then(function(response) {
-            return setStorageDataType(response, 'local');
+            return getStorageDataType(response, 'local');
           });
         promises[1] = storageService.getData('sync')
           .then(function(response) {
-            return setStorageDataType(response, 'sync');
+            return getStorageDataType(response, 'sync');
           });
         return $q.all(promises)
           .then(function(response) {
@@ -75,7 +65,7 @@ angular
           });
       }
 
-      function setStorageDataType(data, type) {
+      function getStorageDataType(data, type) {
         var returnData = {};
         angular.forEach(data, function(value, key) {
           returnData[key] = {};
@@ -84,11 +74,38 @@ angular
         return returnData;
       }
 
-      function setData(newData) {
+      function setStorage(data) {
+        var oldData = {};
+        oldData[data.label] = angular.copy(s.data[data.label]);
+        //Check if there is data that can not go sync storage
+        if (data.localStorage && angular.isDefined(widgetConstants.widgets[data.label]) && angular.exists(widgetConstants.widgets[data.label].noSyncData)) {
+          delete oldData[data.label][widgetConstants.widgets[data.label].noSyncData];
+        }
+        //Set new localStorage
+        if (angular.isUndefined(s.data.localStorage)) {
+          s.data.localStorage = {};
+        }
+        s.data.localStorage[data.label] = !data.localStorage;
+        var d = {
+          localStorage: s.data.localStorage,
+        };
+        var promise = setData(d, 'local');
+        if (data.copyData) {
+          promise = promise.then(function() {
+            return setData(oldData, (data.localStorage ? "sync" : "local"));
+          });
+        }
+        return promise;
+      }
+
+      function setData(newData, storage) {
+        if (angular.isUndefined(storage)) {
+          storage = 'local'; //change before relase
+        }
         angular.forEach(newData, function(value, key) {
           s.data[key] = value;
         });
-        return storageService.setData(newData, 'local');
+        return storageService.setData(newData, storage);
       }
 
       function getManifest() {
@@ -134,8 +151,8 @@ angular
 
       function clearData(keys) {
         var promises = [];
-        promises [0]= storageService.clearData(keys.local);
-        promises[1]= storageService.clearData(keys.sync);
+        promises[0] = storageService.clearData(keys.local);
+        promises[1] = storageService.clearData(keys.sync);
         return $q.all(promises);
       }
 
