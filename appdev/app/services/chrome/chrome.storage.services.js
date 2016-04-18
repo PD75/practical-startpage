@@ -13,6 +13,7 @@
     };
 
     function getData(type) {
+      // type = 'local';
       var deferred = $q.defer();
       chrome.storage[type].get(function(response) {
         deferred.resolve(response);

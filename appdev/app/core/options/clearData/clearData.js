@@ -20,34 +20,31 @@
     function getData() {
       dataService.getStorageData()
         .then(function(data) {
+          // var data = storageData[1];
           vm.data = [];
           vm.allSelected = false;
           var i = 0;
           angular.forEach(data, function(value, key) {
-            switch (key) {
-              // case 'version':
-              case 'activeTabs':
-              case 'layout':
-              case 'badgeLayout':
-              case 'styles':
-                vm.data[i] = {
-                  label: key,
+            if (angular.isDefined(value.title)) {
+              vm.data[i] = {
+                label: key,
+                selected: false,
+                title: value.title,
+                order: value.order,
+              };
+              if (angular.isDefined(value.local)) {
+                vm.data[i].local = {
+                  defined: true,
                   selected: false,
-                  title: i18n.get('c_o_' + key),
-                  order: i - 10,
                 };
-                i++;
-                break;
-              default:
-                if (i18n.get('w_' + key) !== '') {
-                  vm.data[i] = {
-                    label: key,
-                    selected: false,
-                    title: i18n.get('w_' + key),
-                    order: 10 + i,
-                  };
-                  i++;
-                }
+              }
+              if (angular.isDefined(value.sync)) {
+                vm.data[i].sync = {
+                  defined: true,
+                  selected: false,
+                };
+              }
+              i++;
             }
           });
         });

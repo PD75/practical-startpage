@@ -1,114 +1,147 @@
 angular
   .module('ps.core.service', ['ps.widgets.constants', 'chrome'])
   .service('dataService',
-  function($q, storageService, widgetConstants, dataTranslationService) {
-    'use strict';
+    function($q, storageService, widgetConstants, dataTranslationService) {
+      'use strict';
 
-    var s = this;
+      var s = this;
 
-    s.getData = getData;
-    s.setData = setData;
-    s.clearData = clearData;
-    s.getManifest = getManifest;
-    s.getDefaultData = getDefaultData;
-    s.setOnChangeData = setOnChangeData;
-    s.getStorageData = getStorageData;
-    s.data = {
-      dataChangeCB: {},
-      layout: [],
-      styles: [],
-      widgets: [],
-      activeTabs: [],
-    };
-
-    activate();
-
-    function activate() {
-      s.dataCB = {};
-      storageService.setDataCB(runOnChangeData);
-    }
-
-    function getData() {
-      s.getDataPromise = $q
-        .all([
-          getStorageData(),
-          getDefaultData(),
-        ])
-        .then(function(response) {
-          s.data = response[1];
-          angular.forEach(response[0], function(value, key) {
-            s.data[key] = value;
-          });
-          s.data = dataTranslationService.translate(s.data);
-        });
-      return s.getDataPromise;
-    }
-
-    function getStorageData() {
-      return storageService.getData('local')
-        .then(function(data) {
-          return data;
-        });
-    }
-
-    function setData(newData) {
-      angular.forEach(newData, function(value, key) {
-        s.data[key] = value;
-      });
-      return storageService.setData(newData,'local');
-    }
-
-    function getManifest() {
-      return storageService.getManifest();
-    }
-
-    function getDefaultData(key) {
-      var data = {};
-      if (angular.isUndefined(key) || key === 'styles') {
-        data.styles = getDefaultStyles();
-      }
-      if (angular.isUndefined(key) || key === 'layout') {
-        data.layout = widgetConstants.defaultWidgets;
-      }
-      if (angular.isUndefined(key) || key === 'widgets') {
-        data.widgets = widgetConstants.widgets;
-      }
-      return data;
-    }
-
-    function setOnChangeData(key, fnCB) {
-      if (angular.isUndefined(s.dataCB[key])) {
-        s.dataCB[key] = [];
-      }
-      s.dataCB[key].push(fnCB);
-    }
-
-    function runOnChangeData(changes) {
-      var f = 0;
-      angular.forEach(changes, function(value, key) {
-        if (angular.isDefined(value.newValue)) {
-          s.data[key] = value.newValue;
-        } else {
-          s.data[key] = getDefaultData(key)[key];
-        }
-        if (angular.isDefined(s.dataCB) && angular.isDefined(s.dataCB[key])) {
-          for (f = 0; f < s.dataCB[key].length; f++) {
-            s.dataCB[key][f]();
-          }
-        }
-      });
-    }
-
-    function clearData(keys) {
-      return storageService.clearData(keys);
-    }
-
-    function getDefaultStyles() {
-      return {
-        primaryCol: "blue",
-        primaryInv: true,
-        secondaryCol: "black",
-        secondaryInv: true,
+      s.getData = getData;
+      s.setData = setData;
+      s.clearData = clearData;
+      s.getManifest = getManifest;
+      s.getDefaultData = getDefaultData;
+      s.setOnChangeData = setOnChangeData;
+      s.getStorageData = getStorageData;
+      s.data = {
+        dataChangeCB: {},
+        layout: [],
+        styles: [],
+        widgets: [],
+        activeTabs: [],
       };
-    }
-  });
+
+      activate();
+
+      function activate() {
+        s.dataCB = {};
+        storageService.setDataCB(runOnChangeData);
+      }
+
+      function getData() {
+        s.getDataPromise = $q
+          .all([
+            getDefaultData(),
+            storageService.getData('local'),
+            storageService.getData('sync'),
+          ])
+          .then(function(response) {
+            s.data = response[0];
+            angular.forEach(response[1], function(value, key) {
+              s.data[key] = value;
+            });
+            s.data = dataTranslationService.translate(s.data);
+          });
+        return s.getDataPromise;
+      }
+
+      function getStorageData1() {
+        return $q.all([
+            storageService.getData('local'),
+            storageService.getData('sync'),
+          ])
+          .then(function(response) {
+            return response;
+          });
+      }
+
+
+      function getStorageData() {
+        var promises = [];
+        promises[0] = storageService.getData('local')
+          .then(function(response) {
+            return setStorageDataType(response, 'local');
+          });
+        promises[1] = storageService.getData('sync')
+          .then(function(response) {
+            return setStorageDataType(response, 'sync');
+          });
+        return $q.all(promises)
+          .then(function(response) {
+            var returnData = response[0];
+            angular.merge(returnData, response[1]);
+            var x = dataTranslationService.setStorageDataLabels(returnData);
+            return x;
+          });
+      }
+
+      function setStorageDataType(data, type) {
+        var returnData = {};
+        angular.forEach(data, function(value, key) {
+          returnData[key] = {};
+          returnData[key][type] = value;
+        });
+        return returnData;
+      }
+
+      function setData(newData) {
+        angular.forEach(newData, function(value, key) {
+          s.data[key] = value;
+        });
+        return storageService.setData(newData, 'local');
+      }
+
+      function getManifest() {
+        return storageService.getManifest();
+      }
+
+      function getDefaultData(key) {
+        var data = {};
+        if (angular.isUndefined(key) || key === 'styles') {
+          data.styles = getDefaultStyles();
+        }
+        if (angular.isUndefined(key) || key === 'layout') {
+          data.layout = widgetConstants.defaultWidgets;
+        }
+        if (angular.isUndefined(key) || key === 'widgets') {
+          data.widgets = widgetConstants.widgets;
+        }
+        return data;
+      }
+
+      function setOnChangeData(key, fnCB) {
+        if (angular.isUndefined(s.dataCB[key])) {
+          s.dataCB[key] = [];
+        }
+        s.dataCB[key].push(fnCB);
+      }
+
+      function runOnChangeData(changes) {
+        var f = 0;
+        angular.forEach(changes, function(value, key) {
+          if (angular.isDefined(value.newValue)) {
+            s.data[key] = value.newValue;
+          } else {
+            s.data[key] = getDefaultData(key)[key];
+          }
+          if (angular.isDefined(s.dataCB) && angular.isDefined(s.dataCB[key])) {
+            for (f = 0; f < s.dataCB[key].length; f++) {
+              s.dataCB[key][f]();
+            }
+          }
+        });
+      }
+
+      function clearData(keys) {
+        return storageService.clearData(keys);
+      }
+
+      function getDefaultStyles() {
+        return {
+          primaryCol: "blue",
+          primaryInv: true,
+          secondaryCol: "black",
+          secondaryInv: true,
+        };
+      }
+    });
