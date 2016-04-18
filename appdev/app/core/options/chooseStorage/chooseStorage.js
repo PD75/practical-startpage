@@ -77,37 +77,32 @@
       }
     }
 
-    function allselectedCB(type) {
-      var s = vm[type].allSelected;
-      vm[type].buttonDisabled = !vm[type].allSelected;
+    function allselectedCB() {
+      var s = vm.allSelected;
+      vm.buttonDisabled = !vm.allSelected;
       for (var i = 0; i < vm.data.length; i++) {
-        if (angular.isDefined(vm.data[i][type])) {
-          vm.data[i][type].selected = s;
-        }
+        vm.data[i].selected = s;
       }
     }
 
     function clearData() {
-      var keys = {
-        local: [],
-        sync: [],
-      };
+      var keys = [];
       for (var i = 0; i < vm.data.length; i++) {
-        if (angular.isDefined(vm.data[i].local) && vm.data[i].local.selected) {
-          keys.local.push(vm.data[i].label);
-        }
-        if (angular.isDefined(vm.data[i].sync) && vm.data[i].sync.selected) {
-          keys.sync.push(vm.data[i].label);
+        if (vm.data[i].selected) {
+          keys.push(vm.data[i].label);
         }
       }
-      dataService.clearData(keys)
-        .then(function() {
-          vm.dataCleared = i18n.get('c_o_cleared');
-          $timeout(function() {
-            vm.dataCleared = '';
-            getData();
-          }, 1000);
-        });
+      if (keys.length > 0) {
+        dataService.clearData(keys)
+          .then(function() {
+            vm.buttonDisabled = true;
+            vm.dataCleared = i18n.get('c_o_cleared');
+            $timeout(function() {
+              vm.dataCleared = '';
+              getData();
+            }, 1000);
+          });
+      }
     }
   }
 

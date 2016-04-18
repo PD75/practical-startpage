@@ -33,6 +33,7 @@
     "loader",
     "message",
     "segment",
+    "table",
     "grid",
     "menu",
     "item",

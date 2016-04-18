@@ -133,7 +133,10 @@ angular
       }
 
       function clearData(keys) {
-        return storageService.clearData(keys);
+        var promises = [];
+        promises [0]= storageService.clearData(keys.local);
+        promises[1]= storageService.clearData(keys.sync);
+        return $q.all(promises);
       }
 
       function getDefaultStyles() {
