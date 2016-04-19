@@ -16,17 +16,9 @@
     getData();
 
 
-    dataService.setData({
-      localStorage: {
-        quicklinks: false,
-        activeTabs: true,
-      }
-    });
-
     function getData() {
       dataService.getStorageData()
         .then(function(data) {
-
           vm.data = [];
           vm.allSelected = false;
           var i = 0;

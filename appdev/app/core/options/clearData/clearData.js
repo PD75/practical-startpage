@@ -6,7 +6,7 @@
     .directive('psClearData', ClearDataDirective);
 
 
-  function ClearDataCtrl($timeout, dataService, i18n) {
+  function ClearDataCtrl($timeout, $q, dataService, i18n) {
     var vm = this;
     vm.checkboxCB = checkboxCB;
     vm.allselectedCB = allselectedCB;
@@ -99,7 +99,10 @@
           keys.sync.push(vm.data[i].label);
         }
       }
-      dataService.clearData(keys)
+      var promises = [];
+      promises[0] = dataService.clearData(keys.local, 'local');
+      promises[1] = dataService.clearData(keys.sync, 'sync');
+      $q.all(promises)
         .then(function() {
           vm.dataCleared = i18n.get('c_o_cleared');
           $timeout(function() {

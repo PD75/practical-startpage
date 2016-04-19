@@ -38,13 +38,23 @@ angular
           ])
           .then(function(response) {
             s.data = response[0];
+            s.data.localStorage = response[1].localStorage;
             angular.forEach(response[1], function(value, key) {
-              s.data[key] = value;
+              if (angular.isDefined(s.data.localStorage) && angular.isDefined(s.data.localStorage[key]) && s.data.localStorage[key]) {
+                s.data[key] = value;
+              }
+            });
+            angular.forEach(response[2], function(value, key) {
+              if (angular.isUndefined(s.data.localStorage) || angular.isUndefined(s.data.localStorage[key]) || !s.data.localStorage[key]) {
+                s.data[key] = value;
+              }
             });
             s.data = dataTranslationService.translate(s.data);
           });
         return s.getDataPromise;
       }
+
+
 
       function getStorageData() {
         var promises = [];
@@ -78,7 +88,7 @@ angular
         var oldData = {};
         oldData[data.label] = angular.copy(s.data[data.label]);
         //Check if there is data that can not go sync storage
-        if (data.localStorage && angular.isDefined(widgetConstants.widgets[data.label]) && angular.exists(widgetConstants.widgets[data.label].noSyncData)) {
+        if (data.localStorage && angular.isDefined(widgetConstants.widgets[data.label]) && angular.isDefined(widgetConstants.widgets[data.label].noSyncData)) {
           delete oldData[data.label][widgetConstants.widgets[data.label].noSyncData];
         }
         //Set new localStorage
@@ -100,12 +110,36 @@ angular
 
       function setData(newData, storage) {
         if (angular.isUndefined(storage)) {
-          storage = 'local'; //change before relase
+          var promises = [];
+          var local = {};
+          var sync = {};
+          angular.forEach(newData, function(value, key) {
+
+            if (angular.isDefined(s.data.localStorage) && angular.isDefined(s.data.localStorage[key]) && s.data.localStorage[key]) {
+              local[key] = value;
+              s.data[key] = value;
+            }
+
+            if (angular.isUndefined(s.data.localStorage) || angular.isUndefined(s.data.localStorage[key]) || !s.data.localStorage[key]) {
+              sync[key] = value;
+              s.data[key] = value;
+            }
+
+          });
+          if (local !== {}) {
+            promises.push(storageService.setData(local, 'local'));
+          }
+          if (sync !== {}) {
+            promises.push(storageService.setData(sync, 'sync'));
+          }
+          return $q.all(promises);
+        } else {
+          angular.forEach(newData, function(value, key) {
+            s.data[key] = value;
+          });
+          return storageService.setData(newData, storage);
         }
-        angular.forEach(newData, function(value, key) {
-          s.data[key] = value;
-        });
-        return storageService.setData(newData, storage);
+
       }
 
       function getManifest() {
@@ -114,6 +148,9 @@ angular
 
       function getDefaultData(key) {
         var data = {};
+        if (angular.isUndefined(key) || key === 'localStorage') {
+          data.localStorage = getDefaultStorage();
+        }
         if (angular.isUndefined(key) || key === 'styles') {
           data.styles = getDefaultStyles();
         }
@@ -149,11 +186,8 @@ angular
         });
       }
 
-      function clearData(keys) {
-        var promises = [];
-        promises[0] = storageService.clearData(keys.local);
-        promises[1] = storageService.clearData(keys.sync);
-        return $q.all(promises);
+      function clearData(keys, storage) {
+        return storageService.clearData(keys, storage);
       }
 
       function getDefaultStyles() {
@@ -162,6 +196,13 @@ angular
           primaryInv: true,
           secondaryCol: "black",
           secondaryInv: true,
+        };
+      }
+
+      function getDefaultStorage() {
+        return {
+          localStorage: true,
+          version: true,
         };
       }
     });

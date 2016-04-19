@@ -22,7 +22,7 @@
     }
 
     function setData(data, type) {
-      type = 'local';
+      // type = 'local';
       var deferred = $q.defer();
       chrome.storage[type].set(data, function() {
         deferred.resolve();
@@ -31,7 +31,7 @@
     }
 
     function clearData(keys, type) {
-      type = 'local';
+      // type = 'local';
       var deferred = $q.defer();
       if (angular.isDefined(keys)) {
         chrome.storage[type].remove(keys, function() {

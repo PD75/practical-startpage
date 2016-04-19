@@ -38,15 +38,14 @@
             data.quicklinks = [dataService.data.bookmarkid];
             promises[p++] = dataService.setData(data);
           }
-          promises[p++] = dataService.clearData('bookmarkid');
+          promises[p++] = dataService.clearData('bookmarkid', 'local');
         }
         //to v2.1.0
         if (olderVersion('2.1.0', oldVersion)) {
-          promises[p++] = dataService.clearData('layout');
+          promises[p++] = dataService.clearData('layout', 'local');
         }
         //2.5.0 and above if rss is array
-        if (angular.isDefined(dataService.data.rssFeed)
-          && angular.isArray(dataService.data.rssFeed)) {
+        if (angular.isDefined(dataService.data.rssFeed) && angular.isArray(dataService.data.rssFeed)) {
           dataService.data.rssFeed = {
             feeds: dataService.data.rssFeed,
           };
@@ -66,9 +65,7 @@
       } else {
         var nv = newVersion.split('.');
         var ov = oldVersion.split('.');
-        if ((+ov[0] < +nv[0])
-          || (+ov[0] === +nv[0] && +ov[1] < +nv[1])
-          || (+ov[0] === +nv[0] && +ov[1] === +nv[1] && +ov[2] < +nv[2])) {
+        if ((+ov[0] < +nv[0]) || (+ov[0] === +nv[0] && +ov[1] < +nv[1]) || (+ov[0] === +nv[0] && +ov[1] === +nv[1] && +ov[2] < +nv[2])) {
           return true;
         } else {
           return false;

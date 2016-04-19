@@ -9,15 +9,21 @@
             <th>Storage Area</th>
           </tr>
         </thead>
-        <tr ng-repeat="object in vm.data  | orderBy: 'order;title'">
-          <td class="center aligned">
-            <input type="checkbox" ng-model="object.local.selected" ng-click="vm.checkboxCB('local')" ng-if="object.local.exist">
-          </td>
-          <td class="center aligned">
-            <input type="checkbox" ng-model="object.sync.selected" ng-click="vm.checkboxCB('sync')" ng-if="object.sync.exist">
-          </td>
-          <td ng-bind="object.title"></td>
-        </tr>
+        <tbody>
+          <tr ng-repeat="object in vm.data  | orderBy: 'order;title'">
+            <td class="center aligned">
+              <input type="checkbox" ng-model="object.local.selected" ng-click="vm.checkboxCB('local')" ng-if="object.local.exist">
+            </td>
+            <td class="center aligned">
+              <input type="checkbox" ng-model="object.sync.selected" ng-click="vm.checkboxCB('sync')" ng-if="object.sync.exist">
+            </td>
+            <td ng-bind="object.title"></td>
+          </tr>
+          <tr ng-if="vm.data.length === 0">
+            <td colspan="3">
+              You have no stored settings.
+            </td>
+          </tr>
         </tbody>
         <tfoot>
           <tr class="active">
