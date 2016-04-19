@@ -41,7 +41,6 @@ angular.module('ps.core.service')
       var i = 0;
       angular.forEach(data, function(value, key) {
         switch (key) {
-          case 'activeTabs':
           case 'layout':
           case 'badgeLayout':
           case 'styles':

@@ -16,6 +16,7 @@
     vm.tempvar = 'app/core/layout/layout.html';
 
     activate();
+    // chrome.storage.local.clear();
 
     function activate() {
       dataService.getData()
