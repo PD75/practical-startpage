@@ -1,16 +1,16 @@
 <div class="ui grid">
   <div class="row">
     <div class="eleven wide column">
-      <table class="ui very basic compact table">
+      <table class="ui very basic unstackable compact table">
         <thead>
           <tr>
             <th class="center aligned">Local Storage</th>
             <th class="center aligned">Sync Storage</th>
-            <th>Storage Area</th>
+            <th>Settings</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="object in vm.data  | orderBy: 'order;title'">
+          <tr ng-repeat="object in vm.data">
             <td class="center aligned">
               <input type="checkbox" ng-model="object.local.selected" ng-click="vm.checkboxCB('local')" ng-if="object.local.exist">
             </td>

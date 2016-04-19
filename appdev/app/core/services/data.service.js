@@ -38,23 +38,39 @@ angular
           ])
           .then(function(response) {
             s.data = response[0];
-            s.data.localStorage = response[1].localStorage;
-            angular.forEach(response[1], function(value, key) {
-              if (angular.isDefined(s.data.localStorage) && angular.isDefined(s.data.localStorage[key]) && s.data.localStorage[key]) {
-                s.data[key] = value;
-              }
-            });
-            angular.forEach(response[2], function(value, key) {
+            s.local = response[1];
+            s.sync = response[2];
+            s.data.localStorage = s.local.localStorage;
+            angular.forEach(s.sync, function(value, key) {
               if (angular.isUndefined(s.data.localStorage) || angular.isUndefined(s.data.localStorage[key]) || !s.data.localStorage[key]) {
                 s.data[key] = value;
               }
             });
+
+            angular.forEach(s.local, function(value, key) {
+              if (angular.isDefined(s.data.localStorage) && angular.isDefined(s.data.localStorage[key]) && s.data.localStorage[key]) {
+                s.data[key] = value;
+              }
+
+              //Check if there is data that can not go sync storage, if so load it from local              
+              if (angular.isDefined(widgetConstants.widgets[key]) && angular.isDefined(widgetConstants.widgets[key].noSyncData)) {
+
+                angular.forEach(widgetConstants.widgets[key].noSyncData, function(noSyncKey) {
+                  if (angular.isDefined(value[noSyncKey])) {
+                    s.data[key][noSyncKey] = angular.copy(value[noSyncKey]);
+                  }
+                });
+
+                s.data[key][widgetConstants.widgets[key].noSyncData] = angular.copy(s.local[key][widgetConstants.widgets[key].noSyncData]);
+              }
+
+            });
+
+
             s.data = dataTranslationService.translate(s.data);
           });
         return s.getDataPromise;
       }
-
-
 
       function getStorageData() {
         var promises = [];
@@ -87,10 +103,7 @@ angular
       function setStorage(data) {
         var oldData = {};
         oldData[data.label] = angular.copy(s.data[data.label]);
-        //Check if there is data that can not go sync storage
-        if (data.localStorage && angular.isDefined(widgetConstants.widgets[data.label]) && angular.isDefined(widgetConstants.widgets[data.label].noSyncData)) {
-          delete oldData[data.label][widgetConstants.widgets[data.label].noSyncData];
-        }
+
         //Set new localStorage
         if (angular.isUndefined(s.data.localStorage)) {
           s.data.localStorage = {};
@@ -100,9 +113,10 @@ angular
           localStorage: s.data.localStorage,
         };
         var promise = setData(d, 'local');
+
         if (data.copyData) {
           promise = promise.then(function() {
-            return setData(oldData, (data.localStorage ? "sync" : "local"));
+            return setData(oldData);
           });
         }
         return promise;
@@ -116,12 +130,27 @@ angular
           angular.forEach(newData, function(value, key) {
 
             if (angular.isDefined(s.data.localStorage) && angular.isDefined(s.data.localStorage[key]) && s.data.localStorage[key]) {
-              local[key] = value;
+              local[key] = angular.copy(value);
+              s.local[key] = local[key];
               s.data[key] = value;
             }
 
             if (angular.isUndefined(s.data.localStorage) || angular.isUndefined(s.data.localStorage[key]) || !s.data.localStorage[key]) {
-              sync[key] = value;
+              sync[key] = angular.copy(value);
+
+              //Check if there is data that can not go sync storage
+              if (angular.isDefined(widgetConstants.widgets[key]) && angular.isDefined(widgetConstants.widgets[key].noSyncData)) {
+
+                angular.forEach(widgetConstants.widgets[key].noSyncData, function(noSyncKey) {
+                  if (angular.isDefined(value[noSyncKey])) {
+                    s.local[key][noSyncKey] = angular.copy(sync[key][noSyncKey]);
+                    delete sync[key][noSyncKey];
+                  }
+                });
+
+                local[key] = s.local[key];
+              }
+              s.sync[key] = sync[key];
               s.data[key] = value;
             }
 

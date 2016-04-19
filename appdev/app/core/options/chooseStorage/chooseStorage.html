@@ -1,39 +1,51 @@
 <div class="ui grid">
   <div class="row">
     <div class="sixteen wide column">
-      <table class="ui very basic compact table">
+      <table class="ui very basic unstackable compact table">
         <thead>
           <tr>
-            <th class="center aligned">Local Storage</th>
+            <th colspan="2" class="center aligned">Local Storage</th>
             <th colspan="2" class="center aligned">Switch Storage</th>
-            <th class="center aligned">Sync Storage</th>
-            <th>Storage Area</th>
+            <th colspan="2" class="center aligned">Synchronized Storage</th>
+            <th>Settings</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="object in vm.data  | orderBy: 'order'">
-            <td class="center aligned">
+          <tr ng-repeat="object in vm.data">
+
+            <td class="right aligned">
+              <i class="large checkmark icon" ng-class="vm.primaryCol" ng-if="object.local.storage"></i>
+            </td>
+            <td class="left aligned">
               <span ng-if="object.local.exist">Has data</span>
             </td>
+
             <td class="center aligned">
-              <button class="ui basic icon compact button" ng-if="((!object.local.storage && object.sync.exist)||(object.local.storage&&object.local.exist))" ng-click="vm.switchStorage(object,true)">
-              <i class="big icons">
-                <i class="arrow icon" ng-class="{right: object.local.storage, left: !object.loca.storage}"></i>
-                <i class="corner copy icon"></i>
-              </i>
-            </button>
+              <button class="ui basic icon compact button" ng-if="((!object.local.storage && object.sync.exist) || (object.local.storage && object.local.exist))" ng-click="vm.switchStorage(object,true)">
+                <i class="big icons">
+                  <i class="arrow icon" ng-class="{right: object.local.storage, left: !object.local.storage}"></i>
+                  <i class="corner copy icon"></i>
+                </i>
+              </button>
             </td>
+
             <td class="center aligned">
               <button class="ui basic icon compact button" ng-click="vm.switchStorage(object,false)">
-              <i class="big icons">
-              <i class="arrow icon" ng-class="{right: object.local.storage, left: !object.local.storage}"></i>
-              </i>
-            </button>
+                <i class="big icons">
+                <i class="arrow icon" ng-class="{right: object.local.storage, left: !object.local.storage}"></i>
+                </i>
+              </button>
             </td>
-            <td class="center aligned">
+
+            <td class="right aligned">
+              <i class="large checkmark icon" ng-class="vm.primaryCol" ng-if="!object.local.storage"></i>
+            </td>
+            <td class="left aligned">
               <span ng-if="object.sync.exist">Has data</span>
             </td>
+            
             <td ng-bind="object.title"></td>
+            
           </tr>
           <tr ng-if="vm.data.length === 0">
             <td colspan="3">

@@ -57,6 +57,18 @@
               i++;
             }
           });
+          vm.data.sort(function(a, b) {
+            var diff = a.order - b.order;
+            if (diff === 0) {
+              if (a.title < b.title) {
+                diff = -1;
+              } else {
+                diff = 1;
+
+              }
+            }
+            return diff;
+          });
         });
     }
 
