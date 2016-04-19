@@ -11,6 +11,9 @@
     s.consolidateFeed = consolidateFeed;
     s.deleteItem = deleteItem;
     s.restoreDeletedItem = restoreDeletedItem;
+    s.rssFeed = {
+      numEntries: 50,
+    };
 
     function getFeeds() {
       var feeds = [];
@@ -22,11 +25,9 @@
         if (angular.isDefined(dataService.data.rssFeed.deletedItems)) {
           s.deletedItems = angular.copy(dataService.data.rssFeed.deletedItems);
         }
-        s.rssFeed = {
-          hideVisited: dataService.data.rssFeed.hideVisited,
-          allowDelete: dataService.data.rssFeed.allowDelete,
-          numEntries: 50,
-        };
+
+        s.rssFeed.hideVisited = dataService.data.rssFeed.hideVisited;
+        s.rssFeed.allowDelete = dataService.data.rssFeed.allowDelete;
       }
       var promises = [];
       for (var p = 0; p < feeds.length; p++) {
@@ -65,9 +66,7 @@
           s.deletedFeed = [];
           var d = 0;
           for (f = 0; f < feed.length; f++) {
-            if ((!s.rssFeed.hideVisited || !feed[f].visited)
-              && (!checkDuplicate(feed[f], rss))
-              && (!checkDeleted(feed[f]) || !s.rssFeed.allowDelete)) {
+            if ((!s.rssFeed.hideVisited || !feed[f].visited) && (!checkDuplicate(feed[f], rss)) && (!checkDeleted(feed[f]) || !s.rssFeed.allowDelete)) {
               rss[r++] = feed[f];
             } else if (checkDeleted(feed[f]) && s.rssFeed.allowDelete) {
               s.deletedFeed[d++] = feed[f];
@@ -77,7 +76,7 @@
             .sort(function(a, b) {
               return b.timeStamp - a.timeStamp;
             })
-            .slice(0, s.rssFeed.numEntries);//Limit to avoid Performance problems in DOM
+            .slice(0, s.rssFeed.numEntries); //Limit to avoid Performance problems in DOM
         });
     }
 
@@ -100,6 +99,7 @@
       }
       return d;
     }
+
     function deleteItem(item) {
       var rssFeed = dataService.data.rssFeed;
       if (angular.isDefined(rssFeed.deletedItems)) {
@@ -167,6 +167,7 @@
           };
         });
     }
+
     function alignFeedData(feed) {
       var ico, icon;
       if (angular.isDefined(feed.link)) {
