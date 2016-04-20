@@ -42,7 +42,7 @@
           deferred.resolve();
         });
       }
-      return deferred;
+      return deferred.promise;
     }
 
     function getManifest() {

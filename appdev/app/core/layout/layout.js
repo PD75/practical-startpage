@@ -17,6 +17,7 @@
 
     activate();
     // chrome.storage.local.clear();
+    // chrome.storage.sync.clear();
 
     function activate() {
       dataService.getData()
@@ -28,15 +29,21 @@
           setHelpPopup();
         });
       //set watch if layout changes
-      dataService.setOnChangeData('layout', function() {
-        getLayout();
-        setTabClasses();
-        setHelpPopup();
-        $timeout(function() {
-          $scope.$digest();
-        });
-      });
+      dataService.setOnChangeData('layout', layoutDataCB);
     }
+
+    function layoutDataCB() {
+      dataService.clearData(['activeTabs'], 'local')
+        .then(function() {
+          getLayout();
+          setTabClasses();
+          setHelpPopup();
+          $timeout(function() {
+            $scope.$digest();
+          });
+        });
+    }
+
 
     function activateEditor(colIndex) {
       var label = vm.activeTabs[colIndex];
