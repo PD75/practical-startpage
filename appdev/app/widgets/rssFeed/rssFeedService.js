@@ -111,7 +111,7 @@
       });
       rssFeed.deletedItems = s.deletedItems;
 
-      dataService.setData({
+      return dataService.setData({
         rssFeed: rssFeed,
       });
     }

@@ -41,35 +41,59 @@ angular
             s.local = response[1];
             s.sync = response[2];
             s.data.localStorage = s.local.localStorage;
+
             angular.forEach(s.sync, function(value, key) {
-              if (angular.isUndefined(s.data.localStorage) || angular.isUndefined(s.data.localStorage[key]) || !s.data.localStorage[key]) {
-                s.data[key] = value;
-              }
+              consolidateSyncData(value, key);
             });
-
             angular.forEach(s.local, function(value, key) {
-              if (angular.isDefined(s.data.localStorage) && angular.isDefined(s.data.localStorage[key]) && s.data.localStorage[key]) {
-                s.data[key] = value;
-              }
-
-              //Check if there is data that can not go sync storage, if so load it from local              
-              if (angular.isDefined(widgetConstants.widgets[key]) && angular.isDefined(widgetConstants.widgets[key].noSyncData)) {
-
-                angular.forEach(widgetConstants.widgets[key].noSyncData, function(noSyncKey) {
-                  if (angular.isDefined(value[noSyncKey])) {
-                    s.data[key][noSyncKey] = angular.copy(value[noSyncKey]);
-                  }
-                });
-
-                s.data[key][widgetConstants.widgets[key].noSyncData] = angular.copy(s.local[key][widgetConstants.widgets[key].noSyncData]);
-              }
-
+              consolidateLocalData(value, key);
             });
 
 
             s.data = dataTranslationService.translate(s.data);
           });
         return s.getDataPromise;
+      }
+
+      function consolidateLocalData(value, key) {
+        s.local[key] = value;
+        if (angular.isDefined(s.data.localStorage) && angular.isDefined(s.data.localStorage[key]) && s.data.localStorage[key]) {
+          if (angular.isDefined(value)) {
+            s.data[key] = value;
+          } else {
+            s.data[key] = getDefaultData(key)[key];
+          }
+        } else {
+          consolidateNoSyncData(key);
+        }
+      }
+
+      function consolidateSyncData(value, key) {
+        s.sync[key] = value;
+        if (angular.isUndefined(s.data.localStorage) || angular.isUndefined(s.data.localStorage[key]) || !s.data.localStorage[key]) {
+          if (angular.isDefined(value)) {
+            s.data[key] = value;
+          } else {
+            s.data[key] = getDefaultData(key)[key];
+          }
+          consolidateNoSyncData(key);
+        }
+      }
+
+      function consolidateNoSyncData(key) {
+        //Check if there is data that can not go sync storage, if so load it from local 
+        if (angular.isDefined(widgetConstants.widgets[key]) && angular.isDefined(widgetConstants.widgets[key].noSyncData)) {
+
+          angular.forEach(widgetConstants.widgets[key].noSyncData, function(noSyncKey) {
+            if (angular.isDefined(s.local[key][noSyncKey])) {
+              if (angular.isUndefined(s.data[key])) {
+                s.data[key] = {};
+              }
+              s.data[key][noSyncKey] = angular.copy(s.local[key][noSyncKey]);
+            }
+          });
+
+        }
       }
 
       function getStorageData() {
@@ -128,11 +152,11 @@ angular
           var local = {};
           var sync = {};
           angular.forEach(newData, function(value, key) {
+            s.data[key] = angular.copy(value);
 
             if (angular.isDefined(s.data.localStorage) && angular.isDefined(s.data.localStorage[key]) && s.data.localStorage[key]) {
               local[key] = angular.copy(value);
               s.local[key] = local[key];
-              s.data[key] = value;
             }
 
             if (angular.isUndefined(s.data.localStorage) || angular.isUndefined(s.data.localStorage[key]) || !s.data.localStorage[key]) {
@@ -143,15 +167,16 @@ angular
 
                 angular.forEach(widgetConstants.widgets[key].noSyncData, function(noSyncKey) {
                   if (angular.isDefined(value[noSyncKey])) {
-                    s.local[key][noSyncKey] = angular.copy(sync[key][noSyncKey]);
+                    if (angular.isUndefined(s.local[key])) {
+                      s.local[key] = {};
+                    }
+                    s.local[key][noSyncKey] = angular.copy(value[noSyncKey]);
                     delete sync[key][noSyncKey];
                   }
                 });
 
                 local[key] = s.local[key];
               }
-              s.sync[key] = sync[key];
-              s.data[key] = value;
             }
 
           });
@@ -202,14 +227,20 @@ angular
       function runOnChangeData(changes) {
         var f = 0;
         angular.forEach(changes, function(value, key) {
-          if (angular.isDefined(value.newValue)) {
-            s.data[key] = value.newValue;
+          if (value.areaName === 'sync') {
+            consolidateSyncData(value.newValue, key);
           } else {
-            s.data[key] = getDefaultData(key)[key];
+            consolidateLocalData(value.newValue, key);
           }
+
           if (angular.isDefined(s.dataCB) && angular.isDefined(s.dataCB[key])) {
             for (f = 0; f < s.dataCB[key].length; f++) {
               s.dataCB[key][f]();
+            }
+          }
+          if (angular.isDefined(s.dataCB) && angular.isDefined(s.dataCB['all'])) {
+            for (f = 0; f < s.dataCB['all'].length; f++) {
+              s.dataCB['all'][f]();
             }
           }
         });

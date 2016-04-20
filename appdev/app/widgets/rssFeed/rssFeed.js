@@ -43,13 +43,10 @@
           });
       }, 1000);
     }
+
     function deleteItem(e, item) {
       e.preventDefault();
       rssFeedService.deleteItem(item);
-      rssFeedService.consolidateFeed()
-        .then(function(data) {
-          vm.rss = data;
-        });
     }
   }
 
