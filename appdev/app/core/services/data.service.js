@@ -238,12 +238,12 @@ angular
               s.dataCB[key][f]();
             }
           }
-          if (angular.isDefined(s.dataCB) && angular.isDefined(s.dataCB['all'])) {
-            for (f = 0; f < s.dataCB['all'].length; f++) {
-              s.dataCB['all'][f]();
-            }
-          }
         });
+        if (angular.isDefined(s.dataCB) && angular.isDefined(s.dataCB['all'])) {
+          for (f = 0; f < s.dataCB['all'].length; f++) {
+            s.dataCB['all'][f]();
+          }
+        }
       }
 
       function clearData(keys, storage) {

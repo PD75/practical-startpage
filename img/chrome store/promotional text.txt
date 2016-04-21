@@ -1,7 +1,7 @@
 ### english - en
 
 Practical Startpage is a simple yet powerful, allowing easy access to browser data, such as bookmarks and history.
-(For details on permissions and usage, visit homepage)
+(For details on permissions that are needed, visit homepage)
 - Responsive Design, adjust to all screens
 - Configurable, you can decide what widgets go where
 - Open Source, you can develop your own widgets (GitHub)
@@ -9,19 +9,6 @@ Practical Startpage is a simple yet powerful, allowing easy access to browser da
 - Quicklinks with link from bookmark folder of your choice
 - History, Apps, etc. from chrome
 - RSS Feed for e.g. news
-
-### svenska - sv
-
-Practical Startpage är enkel men kraftfull, och ger snabb åtkomst till webläsarens data, som t.ex. bookmärken och besökta sidor.
-(För detaljer om rättigheter och hur dom används, besök hemsidan.)
-- Responsiv design, anpassar sig till alla skärmar
-- Konfigurerbar, du kan själv välja var saker ska vara
-- Öppen källkod, du kan utveckla dina egna manicker (GitHub)
-- Bokmarken med sökning och editor
-- Snabblänkar till bokmärkes mappar
-- Besökta sidor, appar etc. från chrome
-- RSS flöde för t.ex. nyheter
-
 
 ### espanol - es
 
@@ -34,3 +21,15 @@ Practical Startpage es simple pero eficaz, permitiendo acceder fácilmente a los
 - Enlaces rápidos con enlace de una carpeta de marcadores de tu elección
 - Historial, aplicaciones, etc., de Chrome
 - Fuentes RSS para noticias, por ejemplo
+
+### svenska - sv
+
+Practical Startpage är enkel men kraftfull, och ger snabb åtkomst till webläsarens data, som t.ex. bookmärken och besökta sidor.
+(För detaljer om rättigheter sombehövs, besök hemsidan.)
+- Responsiv design, anpassar sig till alla skärmar
+- Konfigurerbar, du kan själv välja var saker ska vara
+- Öppen källkod, du kan utveckla dina egna manicker (GitHub)
+- Bokmarken med sökning och editor
+- Snabblänkar till bokmärkes mappar
+- Besökta sidor, appar etc. från chrome
+- RSS flöde för t.ex. nyheter
