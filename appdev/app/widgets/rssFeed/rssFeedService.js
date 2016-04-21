@@ -102,12 +102,13 @@
 
     function deleteItem(item) {
       var rssFeed = dataService.data.rssFeed;
-      if (angular.isDefined(rssFeed.deletedItems)) {
-        s.deletedItems = rssFeed.deletedItems;
-      }
+      // if (angular.isDefined(rssFeed.deletedItems)) {
+      //   s.deletedItems = rssFeed.deletedItems;
+      // }
+      
       s.deletedItems.push({
         link: item.link,
-        dateStamp: item.dateStamp,
+        dateStamp: new Date().toJSON(),
       });
       rssFeed.deletedItems = s.deletedItems;
 
@@ -138,7 +139,9 @@
       var d = false;
       for (var f = 0; f < s.deletedItems.length; f++) {
         if (entry.link === s.deletedItems[f].link) {
+          s.deletedItems[f].dateStamp = new Date().toJSON();
           d = true;
+          break;
         }
       }
       return d;
