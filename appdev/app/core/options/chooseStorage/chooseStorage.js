@@ -13,7 +13,12 @@
 
     vm.locale = locale;
     vm.primaryCol = dataService.data.styles.primaryCol;
-    getData();
+    activate();
+
+    function activate() {
+      dataService.setOnChangeData('all', getData);
+      getData();
+    }
 
 
     function getData() {
@@ -82,10 +87,7 @@
         localStorage: object.local.storage,
         copyData: copyData,
       };
-      dataService.setStorage(data)
-        .then(function() {
-          getData();
-        });
+      dataService.setStorage(data);
     }
   }
 

@@ -29,7 +29,12 @@
       secButton: dataService.data.styles.secondaryCol,
     };
 
-    getData();
+    activate();
+
+    function activate() {
+      getData();
+      dataService.setOnChangeData('layout', getData);
+    }
 
     function getData() {
       var layout = dataService.data.layout;

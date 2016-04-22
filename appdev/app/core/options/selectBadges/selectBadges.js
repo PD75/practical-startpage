@@ -29,12 +29,9 @@
 
     activate();
 
-    function activate(badgeLayout) {
-      var badgeLayout = [];
-      if (angular.isDefined(dataService.data.badgeLayout)) {
-        badgeLayout = angular.copy(dataService.data.badgeLayout);
-      }
-      getData(badgeLayout);
+    function activate() {
+      dataService.setOnChangeData('badgeLayout', getData);
+      getData();
     }
 
     function clear(badgeLayout) {
@@ -42,8 +39,12 @@
       getData(badgeLayout);
     }
 
-    function getData(badgeLayout) {
+    function getData() {
       vm.badgeLayout = [];
+      var badgeLayout = [];
+      if (angular.isDefined(dataService.data.badgeLayout)) {
+        badgeLayout = angular.copy(dataService.data.badgeLayout);
+      }
       var badges = angular.copy(badgeConstants.badges);
       for (var m = 0; m < badgeLayout.length; m++) {
         vm.badgeLayout[m] = badges[badgeLayout[m]];

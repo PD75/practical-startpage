@@ -21,6 +21,8 @@ angular
         widgets: [],
         activeTabs: [],
       };
+      s.local = {};
+      s.sync = {};
 
       activate();
 
@@ -29,26 +31,38 @@ angular
         storageService.setDataCB(runOnChangeData);
       }
 
-      function getData() {
+      function getData(keys) {
         s.getDataPromise = $q
           .all([
             getDefaultData(),
-            storageService.getData('local'),
-            storageService.getData('sync'),
+            storageService.getData('local', keys),
+            storageService.getData('sync', keys),
           ])
           .then(function(response) {
-            s.data = response[0];
-            s.local = response[1];
-            s.sync = response[2];
-            s.data.localStorage = s.local.localStorage;
-
-            angular.forEach(s.sync, function(value, key) {
+            if (angular.isDefined(keys)) {
+              for (var k = 0; k < keys.length; k++) {
+                s.data[keys[k]] = response[0][keys[k]];
+              }
+            } else {
+              s.data = response[0];
+            }
+            // angular.forEach(response[2], function(value, key) {
+            //   s.sync[key] = value;
+            // });
+            // angular.forEach(response[1], function(value, key) {
+            //   s.local[key] = value;
+            // });
+            // s.local = response[1];
+            // s.sync = response[2];
+            if (angular.isDefined(response[1].localStorage)) {
+              s.data.localStorage = response[1].localStorage;
+            }
+            angular.forEach(response[2], function(value, key) {
               consolidateSyncData(value, key);
             });
-            angular.forEach(s.local, function(value, key) {
+            angular.forEach(response[1], function(value, key) {
               consolidateLocalData(value, key);
             });
-
 
             s.data = dataTranslationService.translate(s.data);
           });
@@ -85,7 +99,7 @@ angular
         if (angular.isDefined(widgetConstants.widgets[key]) && angular.isDefined(widgetConstants.widgets[key].noSyncData)) {
 
           angular.forEach(widgetConstants.widgets[key].noSyncData, function(noSyncKey) {
-            if (angular.isDefined(s.local[key][noSyncKey])) {
+            if (angular.isDefined(s.local[key]) && angular.isDefined(s.local[key][noSyncKey])) {
               if (angular.isUndefined(s.data[key])) {
                 s.data[key] = {};
               }
@@ -141,6 +155,16 @@ angular
         if (data.copyData) {
           promise = promise.then(function() {
             return setData(oldData);
+          });
+        } else {
+          promise = promise.then(function() {
+            return getData([data.label]);
+          });
+          promise = promise.then(function() {
+            for (var f = 0; f < s.dataCB[data.label].length; f++) {
+              s.dataCB[data.label][f]();
+            }
+            return;
           });
         }
         return promise;
@@ -224,10 +248,10 @@ angular
         s.dataCB[key].push(fnCB);
       }
 
-      function runOnChangeData(changes) {
+      function runOnChangeData(changes, storage) {
         var f = 0;
         angular.forEach(changes, function(value, key) {
-          if (value.areaName === 'sync') {
+          if (storage === 'sync') {
             consolidateSyncData(value.newValue, key);
           } else {
             consolidateLocalData(value.newValue, key);

@@ -14,7 +14,12 @@
     vm.clearData = clearData;
     vm.locale = locale;
     vm.primaryCol = dataService.data.styles.primaryCol;
-    getData();
+    activate();
+
+    function activate() {
+      dataService.setOnChangeData('all', getData);
+      getData();
+    }
 
     function getData() {
       dataService.getStorageData()
@@ -119,7 +124,6 @@
           vm.dataCleared = i18n.get('c_o_cleared');
           $timeout(function() {
             vm.dataCleared = '';
-            getData();
           }, 1000);
         });
     }

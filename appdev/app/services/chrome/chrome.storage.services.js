@@ -12,10 +12,10 @@
       setDataCB: setDataCB,
     };
 
-    function getData(type) {
+    function getData(type,keys) {
       // type = 'local';
       var deferred = $q.defer();
-      chrome.storage[type].get(function(response) {
+      chrome.storage[type].get(keys,function(response) {
         deferred.resolve(response);
       });
       return deferred.promise;
@@ -50,8 +50,8 @@
     }
 
     function setDataCB(CB) {
-      chrome.storage.onChanged.addListener(function(changes) {
-        CB(changes);
+      chrome.storage.onChanged.addListener(function(changes,areaName) {
+        CB(changes,areaName);
       });
     }
   }
