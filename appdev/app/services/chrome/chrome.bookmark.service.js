@@ -85,11 +85,12 @@
         jsTreeNodes[i].text = bookmarkNodes[i].title;
         if (bookmarkNodes[i].children) {
           jsTreeNodes[i].children = mapTreeNodes(bookmarkNodes[i].children, level + 1);
-          jsTreeNodes[i].icon = 'folder icon';
           if (level > 1) {
             jsTreeNodes[i].type = 'folder';
+            jsTreeNodes[i].icon = 'folder icon';
           } else {
             jsTreeNodes[i].type = 'root';
+            jsTreeNodes[i].icon = 'folder icon';
           }
         } else {
           jsTreeNodes[i].icon = 'chrome://favicon/' + bookmarkNodes[i].url;

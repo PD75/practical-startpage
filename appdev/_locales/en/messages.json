@@ -266,6 +266,9 @@
   "w_rssFeed_addFeed": {
     "message": "Add Feed"
   },
+  "w_rssFeed_manageFeeds": {
+    "message": "Manage Feeds"
+  },
   "w_rssFeed_settings": {
     "message": "Change Settings"
   },

@@ -43,12 +43,17 @@ body {
 }
 
 .ui.modal .segment {
-  max-height: calc(100vh - 15em);
+  max-height: calc(100vh - 15rem);
   overflow-y: auto;
 }
 
 .ui.modal .bottom.attached.segment {
-  max-height: calc(100vh - 18em);
+  max-height: calc(100vh - 18rem);
+}
+
+.ui.modal ps-edit-rss .bottom.attached.segment .ui.segment {
+  max-height: 420px;
+  height: calc(100vh - 20rem);
 }
 
 

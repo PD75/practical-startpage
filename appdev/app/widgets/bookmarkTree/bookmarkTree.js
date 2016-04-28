@@ -8,8 +8,6 @@
 
   function bookmarkTreeCtrl($window, bookmarkTreeService, layoutService) {
     var vm = this;
-    vm.getTreeData = getTreeData;
-    vm.getTreeConfig = getTreeConfig;
     vm.searchTree = searchTree;
     vm.resetSearch = resetSearch;
 
@@ -33,7 +31,7 @@
     function activate() {
       vm.treeConfig = getTreeConfig();
       if (layoutService.isActive('bookmarkTree')) {
-        vm.getTreeData();
+        getTreeData();
       }
       layoutService.setOnTabClick('bookmarkTree', getTreeData);
     }

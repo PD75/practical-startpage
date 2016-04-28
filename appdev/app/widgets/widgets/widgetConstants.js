@@ -69,7 +69,7 @@ angular.module('ps.widgets.constants', [])
         noSyncData: ['deletedItems'],
         edit: {
           type: "directive",
-          directive: "edit-rss-feed",
+          directive: "edit-rss",
         },
         permissions: [
           "hitory: check if feed items have been visited",
