@@ -77,10 +77,12 @@
       }
 
       data.activeTabs = vm.activeTabs;
-      setTabClasses();
-      setHelpPopup();
-      dataService.setData(data);
-      layoutService.runOnTabClick(tab.label);
+      dataService.setData(data)
+        .then(function() {
+          setTabClasses();
+          setHelpPopup();
+          layoutService.runOnTabClick(tab.label);
+        });
     }
 
 
