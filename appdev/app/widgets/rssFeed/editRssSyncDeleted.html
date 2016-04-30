@@ -6,8 +6,24 @@
         <form name="feedForm" class="ui form" novalidate>
 
           <div class="field">
-            <div class="ui toggle checkbox" ng-click="vm.save2()">
-              <input type="checkbox" ng-model="vm.data.synchroniseDeleted" />
+            <div class="ui button" ng-click="vm.createSync()">
+              Create Sync Folder
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui right aligned button" ng-click="vm.removeSync()">
+              Remove Sync Folder
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui right aligned button" ng-click="vm.moveSync()">
+              Move Sync Folder
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui toggle checkbox">
+              <input type="checkbox" ng-model="vm.data.sync.delItemsSync" ng-click="vm.syncDeleted(vm.data.sync.delItemsSync)" />
               <label>Syncronise Deleted Items</label>
             </div>
           </div>
@@ -21,9 +37,9 @@
 
       </div>
     </div>
-    <div class="column" >
+    <div class="column">
       <div class="ui segment">
-        <div js-tree="vm.treeConfig" ng-model="vm.treeData" tree="vm.treeInstance"></div>
+        <div js-tree="vm.treeConfig" ng-model="vm.treeData" tree="vm.treeInstance" tree-events-obj="vm.treeEvents"></div>
       </div>
     </div>
   </div>

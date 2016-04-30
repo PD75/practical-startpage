@@ -6,29 +6,55 @@
     .controller('EditRssSyncCtrl', EditRssSyncCtrl)
     .directive('psEditRssSync', EditRssSyncDirective);
 
-  function EditRssSyncCtrl($sce, bookmarkTreeService, i18n) {
+  function EditRssSyncCtrl($timeout, $sce, dataService, bookmarkTreeService, bookmarkService, i18n) {
     var vm = this;
 
     vm.locale = locale;
     vm.closeForm = closeForm;
+    vm.createSync = createSync;
+    vm.removeSync = removeSync;
+    vm.moveSync = moveSync;
+    vm.syncDeleted = syncDeleted;
 
     vm.treeData = [];
+    vm.treeEvents = {
+      "ready": showSyncFolderCB,
+    };
     vm.treeConfig = {
       core: {
         multiple: false,
       },
-
       version: 1,
     };
 
     activate();
 
     function activate() {
+      if (angular.isDefined(dataService.data.rssFeed)) {
+        vm.data = angular.copy(dataService.data.rssFeed);
+      } else {
+        vm.data = {};
+      }
+      getTreeData();
+    }
+
+    function getTreeData() {
       bookmarkTreeService.getTreeData()
         .then(function(treeData) {
           vm.treeData = consolidateTreeData(treeData);
           vm.treeConfig.version++;
+
         });
+    }
+
+    function showSyncFolderCB() {
+      var node = vm.treeInstance.jstree(true).get_node(vm.data.sync.delItemsFolder);
+      if (node) {
+        vm.treeInstance.jstree(true).open_node(node.parent);
+        vm.treeInstance.jstree(true).select_node(node.parent);
+      } else {
+        vm.treeInstance.jstree(true).select_node(2);
+      }
     }
 
     function consolidateTreeData(treeData) {
@@ -57,6 +83,101 @@
 
     function closeForm() {
       vm.modalInstance.modal('hide');
+    }
+
+    function syncDeleted(syncStatus) {
+      if (syncFolderExists()) {
+        vm.data.sync.delItemsSync = syncStatus;
+      } else {
+        vm.data.sync.delItemsSync = false;
+
+      }
+    }
+
+    function createSync() {
+      if (!syncFolderExists()) {
+        var parents = vm.treeInstance.jstree(true).get_selected();
+        if (parents.length === 1) {
+          var folder = {
+            parentId: parents[0],
+            title: 'RSSDeletedItemsSyncFolder',
+          };
+          bookmarkService.createBookmark(folder)
+            .then(function(newFolder) {
+              vm.data.sync = {
+                delItemsFolder: newFolder.newId,
+                delItemsSync: true,
+              };
+              return dataService.setData({
+                rssFeed: vm.data,
+              });
+            })
+            .then(function() {
+              getTreeData();
+            });
+
+        }
+      }
+    }
+
+    function removeSync() {
+      var data = angular.copy(vm.data);
+      var folder = {
+        id: data.sync.delItemsFolder,
+      };
+      data.sync = {
+        delItemsSync: false,
+      };
+      var promise = dataService.setData({
+        rssFeed: vm.data,
+      });
+      if (syncFolderExists()) {
+        promise = promise.then(function() {
+          return bookmarkService.removeBookmarkTree(folder);
+        });
+        vm.data = data;
+
+        promise = promise.then(function() {
+          getTreeData();
+        });
+      }
+    }
+
+    function moveSync() {
+      if (syncFolderExists()) {
+        var newParent = vm.treeInstance.jstree(true).get_selected();
+        var folder = vm.treeInstance.jstree(true).get_node(vm.data.sync.delItemsFolder);
+        var oldParent = folder.parent;
+        if (newParent) {
+          if (oldParent !== newParent) {
+            var node = {
+              parentId: newParent[0],
+              id: folder.id,
+            };
+            bookmarkService.moveBookmark(node)
+              .then(function() {
+                return dataService.setData({
+                  rssFeed: vm.data,
+                });
+              })
+              .then(function() {
+                getTreeData();
+              });
+          }
+        }
+      }
+    }
+
+    function syncFolderExists() {
+      var exists = false;
+      if (angular.isDefined(vm.data.sync) && angular.isDefined(vm.data.sync.delItemsFolder)) {
+        var node = vm.treeInstance.jstree(true).get_node(vm.data.sync.delItemsFolder);
+
+        if (node && !angular.isArray(node)) {
+          exists = true;
+        }
+      }
+      return exists;
     }
 
     function locale(text, placeholders) {

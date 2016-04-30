@@ -54,10 +54,10 @@
       vm.tab = tab;
       if (tab === 'deletedItems') {
         vm.rss = rssFeedService.deletedFeed
-            .sort(function(a, b) {
-              return b.timeStamp - a.timeStamp;
-            })
-            .slice(0, 100);//Limit to avoid Performance problems in DOM
+          .sort(function(a, b) {
+            return b.timeStamp - a.timeStamp;
+          })
+          .slice(0, 100); //Limit to avoid Performance problems in DOM
         vm.allowDelete = vm.data.allowDelete;
       } else {
         vm.allowDelete = false;
@@ -77,7 +77,7 @@
             .sort(function(a, b) {
               return b.timeStamp - a.timeStamp;
             })
-            .slice(0, 100);//Limit to avoid Performance problems in DOM
+            .slice(0, 100); //Limit to avoid Performance problems in DOM
         });
     }
 

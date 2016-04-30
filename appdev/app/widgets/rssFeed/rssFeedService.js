@@ -1,16 +1,18 @@
-(function(angular) {
+(function() {
   "use strict";
 
   angular.module('ps.widgets')
     .service('rssFeedService', rssFeedService);
 
-  function rssFeedService($sce, $http, $q, dataService, historyService) {
+  function rssFeedService($sce, $http, $q, dataService, historyService, bookmarkService) {
     var s = this;
     s.getFeeds = getFeeds;
     s.getFeed = getFeed;
     s.consolidateFeed = consolidateFeed;
     s.deleteItem = deleteItem;
     s.restoreDeletedItem = restoreDeletedItem;
+    s.saveDeletedcToSync = saveDeletedcToSync;
+
     s.rssFeed = {
       numEntries: 50,
     };
@@ -102,10 +104,7 @@
 
     function deleteItem(item) {
       var rssFeed = dataService.data.rssFeed;
-      // if (angular.isDefined(rssFeed.deletedItems)) {
-      //   s.deletedItems = rssFeed.deletedItems;
-      // }
-      
+
       s.deletedItems.push({
         link: item.link,
         dateStamp: new Date().toJSON(),
@@ -131,7 +130,6 @@
       dataService.setData({
         rssFeed: rssFeed,
       });
-
 
     }
 
@@ -189,5 +187,32 @@
       return feed;
     }
 
+    function saveDeletedcToSync() {
+      var promises = [];
+
+      for (var d = 0; d < s.deletedItems.length; d++) {
+        var searchObject = {
+          url: s.deletedItems[d].url,
+        };
+        promises[d] = bookmarkService.searchBookmarks(searchObject)
+          .then(function(result) {
+            var exist = false;
+            for (var r = 0; r < result.length; r++) {
+              if (result[r].url === s.deletedItems[d].url) {
+                exist = true;
+                break;
+              }
+            }
+            if (!exist) {
+              return bookmarkService.createBookmark();
+            } else {
+              return 0;
+            }
+          });
+      }
+
+      return $q.all(promises);
+    }
+
   }
-})(angular);
+})();
