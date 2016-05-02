@@ -13,6 +13,7 @@
     s.restoreDeletedItem = restoreDeletedItem;
     s.saveDeletedToSync = saveDeletedToSync;
 
+    s.syncFolders = [];
     s.rssFeed = {
       numEntries: 50,
     };
@@ -188,29 +189,84 @@
     }
 
     function saveDeletedToSync() {
+      return createSyncDateFolders()
+        .then(function() {
+          return bookmarkService.getSubTree(dataService.data.rssFeed.sync.delItemsFolder);
+        })
+        .then(function(delItemsFolders) {
+          var promises = [];
+          s.delItemsFolders = delItemsFolders;
+          for (var d = 0; d < s.deletedItems.length; d++) {
+            promises[d] = saveToSync(s.deletedItems[d]);
+          }
+          return $q.all(promises);
+        });
+
+    }
+
+    function createSyncDateFolders() {
+      var folders = [];
       var promises = [];
-
+      var f = 0;
       for (var d = 0; d < s.deletedItems.length; d++) {
-        promises[d] = saveToSync(s.deletedItems[d]);
+        var folder = new Date(s.deletedItems[d].dateStamp).toISOString().slice(0, 10);
+        if (folders.indexOf(folder) === -1) {
+          folders[f++] = folder;
+        }
       }
+      for (f = 0; f < folders.length; f++) {
+        promises[f] = createSyncDateFolder(folders[f]);
 
+      }
       return $q.all(promises);
+    }
+
+    function createSyncDateFolder(folder) {
+      var search = {
+        title: folder,
+      };
+      return bookmarkService.searchBookmarks(search)
+        .then(function(result) {
+          var exists = false;
+          for (var r = 0; r < result.length; r++) {
+            if (result[r].title === folder && result[r].parentId === dataService.data.rssFeed.sync.delItemsFolder) {
+              exists = true;
+              break;
+            }
+          }
+          if (!exists) {
+            var newFolder = {
+              title: folder,
+              parentId: dataService.data.rssFeed.sync.delItemsFolder,
+            };
+            return bookmarkService.createBookmark(newFolder);
+          } else {
+            return 0;
+          }
+        });
     }
 
     function saveToSync(item) {
       var search = {
         url: item.link,
       };
+      var findId = {
+        property: 'title',
+        value: new Date(item.dateStamp).toISOString().slice(0, 10),
+      };
       var bkmrk = {
-        parentId: dataService.data.rssFeed.sync.delItemsFolder,
+        parentId: s.delItemsFolders[0].children.find(findCB, findId).id,
         url: item.link,
       };
-
       return bookmarkService.searchBookmarks(search)
         .then(function(result) {
           var exist = false;
           for (var r = 0; r < result.length; r++) {
-            if (result[r].url === bkmrk.url && result[r].parent === dataService.data.rssFeed.sync.delItemsFolder) {
+            var findId = {
+              property: 'id',
+              value: result[r].parentId,
+            };
+            if (result[r].url === bkmrk.url && s.delItemsFolders[0].children.findIndex(findCB, findId) > -1) {
               exist = true;
               break;
             }
@@ -221,6 +277,10 @@
             return 0;
           }
         });
+    }
+
+    function findCB(element) {
+      return element[this.property] === this.value;
     }
 
   }

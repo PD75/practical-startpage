@@ -12,6 +12,7 @@
       createBookmark: createBookmark,
       removeBookmarkTree: removeBookmarkTree,
       searchBookmarks: searchBookmarks,
+      getSubTree: getSubTree,
     };
 
     function searchBookmarks(searchObject) {
@@ -27,6 +28,14 @@
         .then(function(bookmarkTreeNodes) {
           return mapTreeNodes(bookmarkTreeNodes[0].children, 1);
         });
+    }
+
+    function getSubTree(folderId) {
+      var deferred = $q.defer();
+      chrome.bookmarks.getSubTree(folderId, function(response) {
+        deferred.resolve(response);
+      });
+      return deferred.promise;
     }
 
     function updateBookmark(bookmark) {
