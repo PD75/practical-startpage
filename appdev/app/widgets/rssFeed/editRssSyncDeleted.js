@@ -6,7 +6,7 @@
     .controller('EditRssSyncCtrl', EditRssSyncCtrl)
     .directive('psEditRssSync', EditRssSyncDirective);
 
-  function EditRssSyncCtrl($timeout, $sce, dataService, bookmarkTreeService, bookmarkService, i18n) {
+  function EditRssSyncCtrl($timeout, $sce, dataService, bookmarkTreeService, rssFeedService, bookmarkService, i18n) {
     var vm = this;
 
     vm.locale = locale;
@@ -68,7 +68,7 @@
             text: treeData[t].text,
             type: treeData[t].type,
           };
-          if (angular.isDefined(treeData[t].children && treeData[t].children.length < 0)) {
+          if (angular.isDefined(treeData[t].children) && treeData[t].children.length > 0) {
             var children = consolidateTreeData(treeData[t].children);
             if (children.length > 0) {
               nodes[n].children = children;
@@ -85,12 +85,19 @@
       vm.modalInstance.modal('hide');
     }
 
-    function syncDeleted(syncStatus) {
-      if (syncFolderExists()) {
-        vm.data.sync.delItemsSync = syncStatus;
-      } else {
-        vm.data.sync.delItemsSync = false;
-
+    function syncDeleted() {
+      if (!syncFolderExists()) {
+        vm.data.sync = {
+          delItemsSync: false,
+        };
+      }
+      var promise = dataService.setData({
+        rssFeed: vm.data,
+      });
+      if (vm.data.sync.delItemsSync) {
+        promise.then(function() {
+          rssFeedService.saveDeletedToSync();
+        });
       }
     }
 
@@ -114,6 +121,9 @@
             })
             .then(function() {
               getTreeData();
+            })
+            .then(function() {
+              rssFeedService.saveDeletedToSync();
             });
 
         }
@@ -129,7 +139,7 @@
         delItemsSync: false,
       };
       var promise = dataService.setData({
-        rssFeed: vm.data,
+        rssFeed: data,
       });
       if (syncFolderExists()) {
         promise = promise.then(function() {
@@ -138,7 +148,7 @@
         vm.data = data;
 
         promise = promise.then(function() {
-          getTreeData();
+          return getTreeData();
         });
       }
     }

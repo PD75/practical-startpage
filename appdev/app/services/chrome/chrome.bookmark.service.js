@@ -11,7 +11,16 @@
       moveBookmark: moveBookmark,
       createBookmark: createBookmark,
       removeBookmarkTree: removeBookmarkTree,
+      searchBookmarks: searchBookmarks,
     };
+
+    function searchBookmarks(searchObject) {
+      var deferred = $q.defer();
+      chrome.bookmarks.search(searchObject, function(response) {
+        deferred.resolve(response);
+      });
+      return deferred.promise;
+    }
 
     function getBookmarksTree() {
       return getBookmarks()
@@ -35,10 +44,12 @@
       var deferred = $q.defer();
       var node = {};
       node.parentId = bookmark.parentId;
-      if (bookmark.oldParentId === bookmark.parentId && bookmark.index > bookmark.oldIndex) {
-        node.index = bookmark.index + 1; //Chrome needs higher index for insert then jstree
-      } else {
-        node.index = bookmark.index;
+      if (angular.isDefined(bookmark.index)) {
+        if (bookmark.oldParentId === bookmark.parentId && bookmark.index > bookmark.oldIndex) {
+          node.index = bookmark.index + 1; //Chrome needs higher index for insert then jstree
+        } else {
+          node.index = bookmark.index;
+        }
       }
       chrome.bookmarks.move(bookmark.id, node, function(response) {
         deferred.resolve(response);

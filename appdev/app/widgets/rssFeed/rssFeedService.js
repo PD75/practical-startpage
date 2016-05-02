@@ -11,7 +11,7 @@
     s.consolidateFeed = consolidateFeed;
     s.deleteItem = deleteItem;
     s.restoreDeletedItem = restoreDeletedItem;
-    s.saveDeletedcToSync = saveDeletedcToSync;
+    s.saveDeletedToSync = saveDeletedToSync;
 
     s.rssFeed = {
       numEntries: 50,
@@ -187,31 +187,40 @@
       return feed;
     }
 
-    function saveDeletedcToSync() {
+    function saveDeletedToSync() {
       var promises = [];
 
       for (var d = 0; d < s.deletedItems.length; d++) {
-        var searchObject = {
-          url: s.deletedItems[d].url,
-        };
-        promises[d] = bookmarkService.searchBookmarks(searchObject)
-          .then(function(result) {
-            var exist = false;
-            for (var r = 0; r < result.length; r++) {
-              if (result[r].url === s.deletedItems[d].url) {
-                exist = true;
-                break;
-              }
-            }
-            if (!exist) {
-              return bookmarkService.createBookmark();
-            } else {
-              return 0;
-            }
-          });
+        promises[d] = saveToSync(s.deletedItems[d]);
       }
 
       return $q.all(promises);
+    }
+
+    function saveToSync(item) {
+      var search = {
+        url: item.link,
+      };
+      var bkmrk = {
+        parentId: dataService.data.rssFeed.sync.delItemsFolder,
+        url: item.link,
+      };
+
+      return bookmarkService.searchBookmarks(search)
+        .then(function(result) {
+          var exist = false;
+          for (var r = 0; r < result.length; r++) {
+            if (result[r].url === bkmrk.url && result[r].parent === dataService.data.rssFeed.sync.delItemsFolder) {
+              exist = true;
+              break;
+            }
+          }
+          if (!exist) {
+            return bookmarkService.createBookmark(bkmrk);
+          } else {
+            return 0;
+          }
+        });
     }
 
   }
