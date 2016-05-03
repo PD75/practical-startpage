@@ -23,11 +23,12 @@
       return deferred.promise;
     }
 
-    function getBookmarksTree() {
-      return getBookmarks()
-        .then(function(bookmarkTreeNodes) {
-          return mapTreeNodes(bookmarkTreeNodes[0].children, 1);
-        });
+    function getBookmarksTree(treeType) {
+      var deferred = $q.defer();
+      chrome.bookmarks.getTree(function(bookmarkTreeNodes) {
+        deferred.resolve(mapTreeNodes(bookmarkTreeNodes[0].children, 1, treeType));
+      });
+      return deferred.promise;
     }
 
     function getSubTree(folderId) {
@@ -89,35 +90,35 @@
     }
 
     //Internal Functions
-    function getBookmarks() {
-      var deferred = $q.defer();
-      chrome.bookmarks.getTree(function(response) {
-        deferred.resolve(response);
-      });
-      return deferred.promise;
-    }
-
-    function mapTreeNodes(bookmarkNodes, level) {
+    function mapTreeNodes(bookmarkNodes, level, treeType) {
       var jsTreeNodes = [];
+      var j = 0;
       for (var i = 0; i < bookmarkNodes.length; i++) {
-        jsTreeNodes[i] = {};
-        jsTreeNodes[i].id = bookmarkNodes[i].id;
-        jsTreeNodes[i].text = bookmarkNodes[i].title;
         if (bookmarkNodes[i].children) {
-          jsTreeNodes[i].children = mapTreeNodes(bookmarkNodes[i].children, level + 1);
-          if (level > 1) {
-            jsTreeNodes[i].type = 'folder';
-            jsTreeNodes[i].icon = 'folder icon';
-          } else {
-            jsTreeNodes[i].type = 'root';
-            jsTreeNodes[i].icon = 'folder icon';
-          }
-        } else {
-          jsTreeNodes[i].icon = 'chrome://favicon/' + bookmarkNodes[i].url;
-          jsTreeNodes[i].a_attr = {
-            'href': bookmarkNodes[i].url,
+          jsTreeNodes[j] = {
+            id: bookmarkNodes[i].id,
+            text: bookmarkNodes[i].title,
+            children: mapTreeNodes(bookmarkNodes[i].children, level + 1, treeType),
           };
-          jsTreeNodes[i].type = 'link';
+          if (level > 1) {
+            jsTreeNodes[j].type = 'folder';
+            jsTreeNodes[j].icon = 'folder icon';
+          } else {
+            jsTreeNodes[j].type = 'root';
+            jsTreeNodes[j].icon = 'folder outline icon';
+          }
+          j++;
+        } else if (treeType !== 'rssDeleteSync') {
+          jsTreeNodes[j] = {
+            id: bookmarkNodes[i].id,
+            text: bookmarkNodes[i].title,
+            icon: 'chrome://favicon/' + bookmarkNodes[i].url,
+            a_attr: {
+              'href': bookmarkNodes[i].url,
+            },
+            type: 'link',
+          };
+          j++;
         }
         //
       }

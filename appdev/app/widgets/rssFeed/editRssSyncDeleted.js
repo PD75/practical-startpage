@@ -19,11 +19,28 @@
     vm.treeData = [];
     vm.treeEvents = {
       "ready": showSyncFolderCB,
+      "open_node": bookmarkTreeService.openNodeCB,
+      "close_node": bookmarkTreeService.closeNodeCB,
     };
     vm.treeConfig = {
       core: {
         multiple: false,
       },
+      types: {
+        '#': {
+          'valid_children': ['root'],
+        },
+        'root': {
+          'valid_children': ['folder', 'link'],
+        },
+        'folder': {
+          'valid_children': ['folder', 'link'],
+        },
+        'link': {
+          'valid_children': [],
+        },
+      },
+      plugins: ["types"],
       version: 1,
     };
 
@@ -39,9 +56,9 @@
     }
 
     function getTreeData() {
-      bookmarkTreeService.getTreeData()
+      bookmarkTreeService.getTreeData('rssDeleteSync')
         .then(function(treeData) {
-          vm.treeData = consolidateTreeData(treeData);
+          vm.treeData = treeData;
           vm.treeConfig.version++;
 
         });
@@ -55,30 +72,6 @@
       } else {
         vm.treeInstance.jstree(true).select_node(2);
       }
-    }
-
-    function consolidateTreeData(treeData) {
-      var nodes = [];
-      var n = 0;
-      for (var t = 0; t < treeData.length; t++) {
-        if (treeData[t].type !== 'link') {
-          nodes[n] = {
-            icon: treeData[t].icon,
-            id: treeData[t].id,
-            text: treeData[t].text,
-            type: treeData[t].type,
-          };
-          if (angular.isDefined(treeData[t].children) && treeData[t].children.length > 0) {
-            var children = consolidateTreeData(treeData[t].children);
-            if (children.length > 0) {
-              nodes[n].children = children;
-            }
-          }
-          n++;
-        }
-
-      }
-      return nodes;
     }
 
     function closeForm() {

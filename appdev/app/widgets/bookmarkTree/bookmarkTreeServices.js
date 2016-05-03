@@ -7,7 +7,25 @@ angular.module('ps.widgets')
       getTreeConfig: getTreeConfig,
       getTreeData: getTreeData,
       openInNewTab: openInNewTab,
+      openNodeCB: openNodeCB,
+      closeNodeCB: closeNodeCB,
     };
+
+    function openNodeCB(e, data) {
+      if (data.node.type === 'folder') {
+        angular.element(e.target).jstree().set_icon(data.node, 'open folder icon');
+      } else {
+        angular.element(e.target).jstree().set_icon(data.node, 'open folder outline icon');
+      }
+    }
+
+    function closeNodeCB(e, data) {
+      if (data.node.type === 'folder') {
+        angular.element(e.target).jstree().set_icon(data.node, 'folder icon');
+      } else {
+        angular.element(e.target).jstree().set_icon(data.node, 'folder outline icon');
+      }
+    }
 
     function getTreeConfig() {
       var treeConfig = bookmarkTreeConfig();
@@ -15,8 +33,8 @@ angular.module('ps.widgets')
       return treeConfig;
     }
 
-    function getTreeData() {
-      return bookmarkService.getBookmarksTree()
+    function getTreeData(treeType) {
+      return bookmarkService.getBookmarksTree(treeType)
         .then(function(treeData) {
           return treeData;
         });

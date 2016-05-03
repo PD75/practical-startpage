@@ -5,7 +5,7 @@
     .controller('editBookmarksCtrl', editBookmarksCtrl)
     .directive('psEditBookmarks', editBookmarksDirective);
 
-  function editBookmarksCtrl($window, $timeout, $compile, $scope, editBookmarksService, i18n, bookmarkConstant) {
+  function editBookmarksCtrl($window, $timeout, $compile, $scope, editBookmarksService, bookmarkTreeService, i18n, bookmarkConstant) {
     var vm = this;
     vm.searchTree = searchTree;
     vm.resetSearch = resetSearch;
@@ -15,8 +15,8 @@
     vm.treeEvents = {
       "ready": readyCB,
       "activate_node": activateNodeCB,
-      "open_node": openNodeCB,
-      "close_node": closeNodeCB,
+      "open_node": bookmarkTreeService.openNodeCB,
+      "close_node": bookmarkTreeService.closeNodeCB,
       "deselect_all": setEditButtons,
       "changed": setEditButtons,
       "move_node": moveNodeCB,
@@ -103,14 +103,6 @@
           }
         });
       }
-    }
-
-    function openNodeCB(e, data) {
-      vm.treeInstance.jstree().set_icon(data.node, 'open folder icon');
-    }
-
-    function closeNodeCB(e, data) {
-      vm.treeInstance.jstree().set_icon(data.node, 'folder icon');
     }
 
     function moveNodeCB(e, data) {
