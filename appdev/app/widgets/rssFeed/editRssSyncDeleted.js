@@ -84,14 +84,8 @@
           delItemsSync: false,
         };
       }
-      var promise = dataService.setData({
-        rssFeed: vm.data,
-      });
-      if (vm.data.sync.delItemsSync) {
-        promise.then(function() {
-          rssFeedService.saveDeletedToSync();
-        });
-      }
+      dataService.data.rssFeed = vm.data;
+      rssFeedService.saveDeletedItems();
     }
 
     function createSync() {
@@ -108,15 +102,10 @@
                 delItemsFolder: newFolder.newId,
                 delItemsSync: true,
               };
-              return dataService.setData({
-                rssFeed: vm.data,
-              });
-            })
-            .then(function() {
               getTreeData();
             })
             .then(function() {
-              rssFeedService.saveDeletedToSync();
+              rssFeedService.saveDeletedItems();
             });
 
         }

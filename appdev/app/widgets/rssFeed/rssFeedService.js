@@ -11,26 +11,22 @@
     s.consolidateFeed = consolidateFeed;
     s.deleteItem = deleteItem;
     s.restoreDeletedItem = restoreDeletedItem;
-    s.saveDeletedToSync = saveDeletedToSync;
+    s.saveDeletedItems = saveDeletedItems;
 
+    s.data = {};
+    // s.data.deletedItems = [];
     s.syncFolders = [];
     s.rssFeed = {
       numEntries: 50,
     };
 
     function getFeeds() {
+      s.data = angular.copy(dataService.data.rssFeed);
       var feeds = [];
-      s.deletedItems = [];
-      if (angular.isDefined(dataService.data.rssFeed)) {
-        if (angular.isDefined(dataService.data.rssFeed.feeds)) {
-          feeds = angular.copy(dataService.data.rssFeed.feeds);
+      if (angular.isDefined(s.data)) {
+        if (angular.isDefined(s.data.feeds)) {
+          feeds = angular.copy(s.data.feeds);
         }
-        if (angular.isDefined(dataService.data.rssFeed.deletedItems)) {
-          s.deletedItems = angular.copy(dataService.data.rssFeed.deletedItems);
-        }
-
-        s.rssFeed.hideVisited = dataService.data.rssFeed.hideVisited;
-        s.rssFeed.allowDelete = dataService.data.rssFeed.allowDelete;
       }
       var promises = [];
       for (var p = 0; p < feeds.length; p++) {
@@ -39,6 +35,7 @@
       return $q
         .all(promises)
         .then(function(data) {
+
           var k = 0;
           s.feed = [];
           for (var i = 0; i < data.length; i++) {
@@ -46,14 +43,55 @@
               s.feed[k++] = data[i].feed.entries[j];
             }
           }
-          return consolidateFeed()
-            .then(function(feed) {
-              return {
-                feed: feed,
-                allowDelete: s.rssFeed.allowDelete,
-              };
-            });
+
+          return getDeletedItems();
+        })
+        .then(function() {
+          return consolidateFeed();
+        })
+        .then(function(feed) {
+          return {
+            feed: feed,
+            allowDelete: s.data.allowDelete,
+          };
         });
+    }
+
+    function getDeletedItems() {
+      var deletedItems = [];
+      if (angular.isDefined(s.data.deletedItems)) {
+        deletedItems = angular.copy(s.data.deletedItems);
+      }
+      if (angular.isDefined(s.data.sync) && s.data.sync.delItemsSync && angular.isDefined(s.data.sync.delItemsFolder)) {
+        return bookmarkService.getSubTree(s.data.sync.delItemsFolder)
+          .then(function(delItems) {
+            if (delItems[0]) {
+              for (var i = 0; i < delItems[0].children.length; i++) {
+                var dateFolder = delItems[0].children[i];
+                for (var j = 0; j < dateFolder.children.length; j++) {
+                  var findId = ['link', dateFolder.children[j].url];
+                  var index = deletedItems.findIndex(findCB, findId);
+                  // var date = new Date(delItems[0].children[i].title);
+                  var date = delItems[0].children[i].title;
+                  if (index > -1) {
+                    deletedItems[index].dateStamp =
+                      (date > deletedItems[index].dateStamp ? date : deletedItems[index].dateStamp);
+                  } else {
+                    deletedItems[deletedItems.length] = {
+                      link: dateFolder.children[j].url,
+                      dateStamp: date,
+                    };
+                  }
+                }
+              }
+            }
+            s.data.deletedItems = deletedItems;
+            return 0;
+          });
+      } else {
+        s.data.deletedItems = deletedItems;
+        return 0;
+      }
     }
 
     function consolidateFeed() {
@@ -69,9 +107,9 @@
           s.deletedFeed = [];
           var d = 0;
           for (f = 0; f < feed.length; f++) {
-            if ((!s.rssFeed.hideVisited || !feed[f].visited) && (!checkDuplicate(feed[f], rss)) && (!checkDeleted(feed[f]) || !s.rssFeed.allowDelete)) {
+            if ((!s.rssFeed.hideVisited || !feed[f].visited) && (!checkDuplicate(feed[f], rss)) && (!checkDeleted(feed[f]) || !s.data.allowDelete)) {
               rss[r++] = feed[f];
-            } else if (checkDeleted(feed[f]) && s.rssFeed.allowDelete) {
+            } else if (checkDeleted(feed[f]) && s.data.allowDelete) {
               s.deletedFeed[d++] = feed[f];
             }
           }
@@ -103,42 +141,11 @@
       return d;
     }
 
-    function deleteItem(item) {
-      var rssFeed = dataService.data.rssFeed;
-
-      s.deletedItems.push({
-        link: item.link,
-        dateStamp: new Date().toJSON(),
-      });
-      rssFeed.deletedItems = s.deletedItems;
-
-      return dataService.setData({
-        rssFeed: rssFeed,
-      });
-    }
-
-    function restoreDeletedItem(item) {
-      var rssFeed = dataService.data.rssFeed;
-      s.deletedItems = rssFeed.deletedItems;
-      for (var i = 0; i < s.deletedItems.length; i++) {
-        if (item.link === s.deletedItems[i].link) {
-          s.deletedItems.splice(i, 1);
-          i--; //move back one step and continue  
-        }
-      }
-      rssFeed.deletedItems = s.deletedItems;
-
-      dataService.setData({
-        rssFeed: rssFeed,
-      });
-
-    }
-
     function checkDeleted(entry) {
       var d = false;
-      for (var f = 0; f < s.deletedItems.length; f++) {
-        if (entry.link === s.deletedItems[f].link) {
-          s.deletedItems[f].dateStamp = new Date().toJSON();
+      for (var f = 0; f < s.data.deletedItems.length; f++) {
+        if (entry.link === s.data.deletedItems[f].link) {
+          s.data.deletedItems[f].dateStamp = new Date().toJSON();
           d = true;
           break;
         }
@@ -188,16 +195,59 @@
       return feed;
     }
 
+    function deleteItem(item) {
+      s.data.deletedItems.push({
+        link: item.link,
+        dateStamp: new Date().toJSON(),
+      });
+      dataService.data.rssFeed = s.data;
+
+      return saveDeletedItems();
+    }
+
+    function restoreDeletedItem(item) {
+      var rssFeed = s.data;
+      s.data.deletedItems = rssFeed.deletedItems;
+      for (var i = 0; i < s.data.deletedItems.length; i++) {
+        if (item.link === s.data.deletedItems[i].link) {
+          s.data.deletedItems.splice(i, 1);
+          i--; //move back one step and continue  
+        }
+      }
+      rssFeed.deletedItems = s.data.deletedItems;
+
+      dataService.setData({
+        rssFeed: rssFeed,
+      });
+
+    }
+
+    function saveDeletedItems() {
+      s.data = angular.copy(dataService.data.rssFeed);
+      if (angular.isDefined(s.data.sync) && s.data.sync.delItemsSync) {
+        return saveDeletedToSync()
+          .then(function() {
+            return dataService.setData({
+              rssFeed: s.data,
+            });
+          });
+      } else {
+        return dataService.setData({
+          rssFeed: s.data,
+        });
+      }
+    }
+
     function saveDeletedToSync() {
       return createSyncDateFolders()
         .then(function() {
-          return bookmarkService.getSubTree(dataService.data.rssFeed.sync.delItemsFolder);
+          return bookmarkService.getSubTree(s.data.sync.delItemsFolder);
         })
         .then(function(delItemsFolders) {
           var promises = [];
           s.delItemsFolders = delItemsFolders;
-          for (var d = 0; d < s.deletedItems.length; d++) {
-            promises[d] = saveToSync(s.deletedItems[d]);
+          for (var d = 0; d < s.data.deletedItems.length; d++) {
+            promises[d] = saveToSync(s.data.deletedItems[d]);
           }
           return $q.all(promises);
         });
@@ -208,8 +258,8 @@
       var folders = [];
       var promises = [];
       var f = 0;
-      for (var d = 0; d < s.deletedItems.length; d++) {
-        var folder = new Date(s.deletedItems[d].dateStamp).toISOString().slice(0, 10);
+      for (var d = 0; d < s.data.deletedItems.length; d++) {
+        var folder = new Date(s.data.deletedItems[d].dateStamp).toISOString().slice(0, 10);
         if (folders.indexOf(folder) === -1) {
           folders[f++] = folder;
         }
@@ -229,7 +279,7 @@
         .then(function(result) {
           var exists = false;
           for (var r = 0; r < result.length; r++) {
-            if (result[r].title === folder && result[r].parentId === dataService.data.rssFeed.sync.delItemsFolder) {
+            if (result[r].title === folder && result[r].parentId === s.data.sync.delItemsFolder) {
               exists = true;
               break;
             }
@@ -237,7 +287,7 @@
           if (!exists) {
             var newFolder = {
               title: folder,
-              parentId: dataService.data.rssFeed.sync.delItemsFolder,
+              parentId: s.data.sync.delItemsFolder,
             };
             return bookmarkService.createBookmark(newFolder);
           } else {
@@ -250,37 +300,44 @@
       var search = {
         url: item.link,
       };
-      var findId = {
-        property: 'title',
-        value: new Date(item.dateStamp).toISOString().slice(0, 10),
-      };
-      var bkmrk = {
-        parentId: s.delItemsFolders[0].children.find(findCB, findId).id,
-        url: item.link,
-      };
+      var folder = new Date(item.dateStamp).toISOString().slice(0, 10);
+
       return bookmarkService.searchBookmarks(search)
         .then(function(result) {
+          var bkmrk = {
+            parentId: s.delItemsFolders[0].children.find(findCB, ['title', folder]).id,
+          };
+
+          var existingFolder;
           var exist = false;
           for (var r = 0; r < result.length; r++) {
-            var findId = {
-              property: 'id',
-              value: result[r].parentId,
-            };
-            if (result[r].url === bkmrk.url && s.delItemsFolders[0].children.findIndex(findCB, findId) > -1) {
+            if (result[r].url === search.url && s.delItemsFolders[0].children.findIndex(findCB, ['id', result[r].parentId]) > -1) {
               exist = true;
+              existingFolder = search.url && s.delItemsFolders[0].children.find(findCB, ['id', result[r].parentId]).title;
+              bkmrk.id = result[r].id;
               break;
             }
           }
+
           if (!exist) {
+            var feedItem = s.feed.find(findCB, ['link', item.link]);
+            bkmrk.url = item.link;
+            if (feedItem) {
+              bkmrk.title = feedItem.title;
+            }
             return bookmarkService.createBookmark(bkmrk);
           } else {
-            return 0;
+            if (folder > existingFolder) {
+              return bookmarkService.moveBookmark(bkmrk);
+            } else {
+              return 0;
+            }
           }
         });
     }
 
     function findCB(element) {
-      return element[this.property] === this.value;
+      return element[this[0]] === this[1];
     }
 
   }
