@@ -71,7 +71,6 @@
                 for (var j = 0; j < dateFolder.children.length; j++) {
                   var findId = ['link', dateFolder.children[j].url];
                   var index = deletedItems.findIndex(findCB, findId);
-                  // var date = new Date(delItems[0].children[i].title);
                   var date = delItems[0].children[i].title;
                   if (index > -1) {
                     deletedItems[index].dateStamp =
@@ -206,20 +205,45 @@
     }
 
     function restoreDeletedItem(item) {
-      var rssFeed = s.data;
-      s.data.deletedItems = rssFeed.deletedItems;
+      s.data = angular.copy(dataService.data.rssFeed);
+
       for (var i = 0; i < s.data.deletedItems.length; i++) {
         if (item.link === s.data.deletedItems[i].link) {
           s.data.deletedItems.splice(i, 1);
           i--; //move back one step and continue  
         }
       }
-      rssFeed.deletedItems = s.data.deletedItems;
 
-      dataService.setData({
-        rssFeed: rssFeed,
-      });
+      if (angular.isDefined(s.data.sync) && s.data.sync.delItemsSync) {
+        var search = {
+          url: item.link,
+        };
+        return bookmarkService.getSubTree(s.data.sync.delItemsFolder)
+          .then(function(delItemsFolders) {
+            s.delItemsFolders = delItemsFolders;
+            return bookmarkService.searchBookmarks(search);
+          })
+          .then(function(result) {
+            var promises = [];
+            var p = 0;
+            for (var r = 0; r < result.length; r++) {
+              if (result[r].url === search.url && s.delItemsFolders[0].children.findIndex(findCB, ['id', result[r].parentId]) > -1) {
+                promises[p++] = bookmarkService.removeBookmarkTree(result[r]);
+              }
+            }
+            return $q.all(promises);
+          })
+          .then(function() {
+            return dataService.setData({
+              rssFeed: s.data,
+            });
+          });
 
+      } else {
+        return dataService.setData({
+          rssFeed: s.data,
+        });
+      }
     }
 
     function saveDeletedItems() {
@@ -313,7 +337,7 @@
           for (var r = 0; r < result.length; r++) {
             if (result[r].url === search.url && s.delItemsFolders[0].children.findIndex(findCB, ['id', result[r].parentId]) > -1) {
               exist = true;
-              existingFolder = search.url && s.delItemsFolders[0].children.find(findCB, ['id', result[r].parentId]).title;
+              existingFolder = s.delItemsFolders[0].children.find(findCB, ['id', result[r].parentId]).title;
               bkmrk.id = result[r].id;
               break;
             }
