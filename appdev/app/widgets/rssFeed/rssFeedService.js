@@ -4,7 +4,7 @@
   angular.module('ps.widgets')
     .service('rssFeedService', rssFeedService);
 
-  function rssFeedService($sce, $http, $q, dataService, historyService, bookmarkService) {
+  function rssFeedService( $sce, $http, $q, dataService, historyService, bookmarkService) {
     var s = this;
     s.getFeeds = getFeeds;
     s.getFeed = getFeed;
@@ -12,9 +12,9 @@
     s.deleteItem = deleteItem;
     s.restoreDeletedItem = restoreDeletedItem;
     s.saveDeletedItems = saveDeletedItems;
+    s.consolidateDeleted = consolidateDeleted;
 
     s.data = {};
-    // s.data.deletedItems = [];
     s.syncFolders = [];
     s.rssFeed = {
       numEntries: 50,
@@ -144,7 +144,7 @@
       var d = false;
       for (var f = 0; f < s.data.deletedItems.length; f++) {
         if (entry.link === s.data.deletedItems[f].link) {
-          s.data.deletedItems[f].dateStamp = new Date().toJSON();
+          s.data.deletedItems[f].dateStamp = new Date().toISOString().slice(0, 10);
           d = true;
           break;
         }
@@ -194,18 +194,60 @@
       return feed;
     }
 
+    function consolidateDeleted() {
+      var dateStamp = new Date();
+      dateStamp.setUTCMonth(dateStamp.getUTCMonth() - 1);
+      var limit = dateStamp.toISOString().slice(0, 10);
+      
+      var promise = getFeeds();
+      
+      promise = promise.then(function() {
+        return saveDeletedItems();
+      });
+
+      if (angular.isDefined(s.data.sync) && s.data.sync.delItemsSync) {
+        promise = promise.then(function() {
+          var promises = [];
+          var p = 0;
+          var folders = s.delItemsFolders[0].children;
+          for (var f = 0; f < folders.length; f++) {
+            if (folders[f].title <= limit) {
+              promises[p++] = bookmarkService.removeBookmarkTree(folders[f]);
+            }
+          }
+          return promises;
+        });
+      }
+
+      promise = promise.then(function() {
+        var deletedItems = [];
+        var i = 0;
+        for (var d = 0; d < s.data.deletedItems.length; d++) {
+          if (s.data.deletedItems[d].dateStamp > limit) {
+            deletedItems[i++] = s.data.deletedItems[d];
+          }
+        }
+        s.data.deletedItems = deletedItems;
+        return dataService.setData({
+          rssFeed: s.data,
+        });
+      });
+      
+      return promise;
+    }
+
     function deleteItem(item) {
       s.data.deletedItems.push({
         link: item.link,
         dateStamp: new Date().toJSON(),
       });
-      dataService.data.rssFeed = s.data;
+      // dataService.data.rssFeed = s.data;
 
       return saveDeletedItems();
     }
 
     function restoreDeletedItem(item) {
-      s.data = angular.copy(dataService.data.rssFeed);
+      // s.data = angular.copy(dataService.data.rssFeed);
 
       for (var i = 0; i < s.data.deletedItems.length; i++) {
         if (item.link === s.data.deletedItems[i].link) {
@@ -247,7 +289,6 @@
     }
 
     function saveDeletedItems() {
-      s.data = angular.copy(dataService.data.rssFeed);
       if (angular.isDefined(s.data.sync) && s.data.sync.delItemsSync) {
         return saveDeletedToSync()
           .then(function() {
@@ -285,12 +326,9 @@
       for (var d = 0; d < s.data.deletedItems.length; d++) {
         var folder = new Date(s.data.deletedItems[d].dateStamp).toISOString().slice(0, 10);
         if (folders.indexOf(folder) === -1) {
+          promises[f] = createSyncDateFolder(folder);
           folders[f++] = folder;
         }
-      }
-      for (f = 0; f < folders.length; f++) {
-        promises[f] = createSyncDateFolder(folders[f]);
-
       }
       return $q.all(promises);
     }
@@ -363,6 +401,5 @@
     function findCB(element) {
       return element[this[0]] === this[1];
     }
-
   }
 })();

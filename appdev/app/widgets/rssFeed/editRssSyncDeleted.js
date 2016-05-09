@@ -6,7 +6,7 @@
     .controller('EditRssSyncCtrl', EditRssSyncCtrl)
     .directive('psEditRssSync', EditRssSyncDirective);
 
-  function EditRssSyncCtrl($timeout, $sce, dataService, bookmarkTreeService, rssFeedService, bookmarkService, i18n) {
+  function EditRssSyncCtrl($timeout, $sce, bookmarkTreeService, dataService, rssFeedService, bookmarkService, i18n) {
     var vm = this;
 
     vm.locale = locale;
@@ -18,7 +18,7 @@
 
     vm.treeData = [];
     vm.treeEvents = {
-      "ready": showSyncFolderCB,
+      "ready": showTreeReadyCB,
       "open_node": bookmarkTreeService.openNodeCB,
       "close_node": bookmarkTreeService.closeNodeCB,
     };
@@ -47,8 +47,8 @@
     activate();
 
     function activate() {
-      if (angular.isDefined(dataService.data.rssFeed)) {
-        vm.data = angular.copy(dataService.data.rssFeed);
+      if (angular.isDefined(rssFeedService.data)) {
+        vm.data = angular.copy(rssFeedService.data);
       } else {
         vm.data = {};
       }
@@ -60,11 +60,10 @@
         .then(function(treeData) {
           vm.treeData = treeData;
           vm.treeConfig.version++;
-
         });
     }
 
-    function showSyncFolderCB() {
+    function showTreeReadyCB() {
       var node = vm.treeInstance.jstree(true).get_node(vm.data.sync.delItemsFolder);
       if (node) {
         vm.treeInstance.jstree(true).open_node(node.parent);
@@ -85,7 +84,7 @@
         };
       }
       dataService.data.rssFeed = vm.data;
-      rssFeedService.saveDeletedItems();
+      rssFeedService.consolidateDeleted();
     }
 
     function createSync() {
@@ -102,10 +101,13 @@
                 delItemsFolder: newFolder.newId,
                 delItemsSync: true,
               };
-              getTreeData();
+              dataService.data.rssFeed = vm.data;
             })
             .then(function() {
-              rssFeedService.saveDeletedItems();
+              rssFeedService.consolidateDeleted();
+            })
+            .then(function() {
+              getTreeData();
             });
 
         }
@@ -113,26 +115,28 @@
     }
 
     function removeSync() {
-      var data = angular.copy(vm.data);
-      var folder = {
-        id: data.sync.delItemsFolder,
-      };
-      data.sync = {
-        delItemsSync: false,
-      };
-      var promise = dataService.setData({
-        rssFeed: data,
-      });
+      var promise = rssFeedService.consolidateDeleted();
+      
       if (syncFolderExists()) {
         promise = promise.then(function() {
-          return bookmarkService.removeBookmarkTree(folder);
-        });
-        vm.data = data;
-
-        promise = promise.then(function() {
-          return getTreeData();
+          return bookmarkService.removeBookmarkTree({
+            id: vm.data.sync.delItemsFolder,
+          });
         });
       }
+      
+      promise = promise.then(function() {
+          vm.data.sync = {
+            delItemsSync: false,
+          };
+          return dataService.setData({
+            rssFeed: vm.data,
+          });
+        })
+        .then(function() {
+          return getTreeData();
+        });
+      return promise;
     }
 
     function moveSync() {

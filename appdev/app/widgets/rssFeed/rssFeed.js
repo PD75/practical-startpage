@@ -12,6 +12,11 @@
     activate();
 
     function activate() {
+      var today = new Date().toISOString().slice(0, 10);
+      vm.data = rssFeedService.data;
+      if (angular.isUndefined(vm.data.lastConsolidated) || vm.data.lastConsolidated < today) {
+        rssFeedService.consolidateDeleted();
+      } 
       if (layoutService.isActive('rssFeed')) {
         getFeeds();
       }
