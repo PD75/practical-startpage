@@ -13,7 +13,7 @@ Practical Startpage is a simple yet powerful, allowing easy access to browser da
 
 ### Deutch - de
 
-Praktische Startseite ist einfach aber leistungsfähig, und erlaubt einfacher Zugriff auf Browser-Daten wie Lesezeichen und Geschichte.
+Practical Startpage ist einfach aber leistungsfähig, und erlaubt einfacher Zugriff auf Browser-Daten wie Lesezeichen und Geschichte.
 (Berechtigungen werden von Widgets verwendet um die Daten anzuzeigen, oder zu bearbeiten, und Einstellungen zu merken.)
 - Responsive Design, passt auf allen Bildschirmen
 - Konfigurierbar. Sie entscheiden, welche Widgets wohingehen
