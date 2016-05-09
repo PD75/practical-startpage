@@ -1,0 +1,281 @@
+{
+  "About": {
+    "message": "Über"
+  },
+  "Badges": {
+    "message": "Abzeichen"
+  },
+  "Check": {
+    "message": "Prüfen"
+  },
+  "Clear": {
+    "message": "Entfernen"
+  },
+  "Close": {
+    "message": "Schließen"
+  },
+  "days": {
+    "message": "Tage"
+  },
+  "Display": {
+    "message": "Anzeigen"
+  },
+  "Edit": {
+    "message": "Bearbeiten"
+  },
+  "EditUrl": {
+    "message": "Bearbeiten URL"
+  },
+  "entries": {
+    "message": "Einträge"
+  },
+  "Delete": {
+    "message": "Löschen"
+  },
+  "Homepage": {
+    "message": "Startseite"
+  },
+  "Help": {
+    "message": "Hilfe"
+  },
+  "LoadDefault": {
+    "message": "Default laden"
+  },
+  "Links": {
+    "message": "Links"
+  },
+  "NewFolder": {
+    "message": "Neuer Ordner"
+  },
+  "Options": {
+    "message": "Optionen"
+  },
+  "Save": {
+    "message": "Speichern"
+  },
+  "SaveClose": {
+    "message": "Speichern und schließen"
+  },
+  "Search": {
+    "message": "Suche"
+  },
+  "SelectAll": {
+    "message": "Alles auswählen"
+  },
+  "Title": {
+    "message": "Titel"
+  },
+  "UndoAll": {
+    "message": "Alles rückgängig machen"
+  },
+  "Url": {
+    "message": "URL"
+  },
+  "WhatsNew": {
+    "message": "Was gibt's Neues"
+  },
+  "Close_key": {
+    "message": "Esc"
+  },
+  "Edit_key": {
+    "message": "F2"
+  },
+  "EditUrl_key": {
+    "message": "Umschalt + F2"
+  },
+  "Delete_key": {
+    "message": "Del"
+  },
+  "NewFolder_key": {
+    "message": "Strg + Umschalt + N"
+  },
+  "Save_key": {
+    "message": "Strg + S"
+  },
+  "SaveClose_key": {
+    "message": "Strg + Umschalt + S"
+  },
+  "UndoAll_key": {
+    "message": "Strg + Umschalt + Z"
+  },
+  "c_ps_slogan": {
+    "message": "Flexible Startseite, die Ihre Daten in einer einzigen Ansicht verfügbar macht."
+  },
+  "c_about_libraries": {
+    "message": "Bibliotheken verwendet"
+  },
+  "c_about_title_0": {
+    "message": "Praktische Startseite in Chrome Web Store"
+  },
+  "c_about_text_0": {
+    "message": "Hier können Sie die Erweiterung liken, reviewen und bewerten."
+  },
+  "c_about_title_1": {
+    "message": "Sagen Sie es weiter mit einer E-Mail an einen Freund"
+  },
+  "c_about_text_1": {
+    "message": "Klicken Sie hier, um eine E-Mail an einen Freund zu erzeugen."
+  },
+  "c_about_title_2": {
+    "message": "Bugs, Ideen oder selbst was hinterlegen auf GitHub"
+  },
+  "c_about_text_2": {
+    "message": "Wenn Sie eine Idee für ein Widget haben, die Sie entwickeln möchten, ist der Code auf GitHub. Hier können Sie auch Fehler und Probleme angeben."
+  },
+  "c_about_title_3": {
+    "message": "Bugs, Ideen oder Fragen in Google Groups"
+  },
+  "c_about_text_3": {
+    "message": "Verwenden Sie Google Groups um Fragen zu stellen, und Ideen und Bugs einzureichen."
+  },
+  "c_about_title_4": {
+    "message": "Überprüfen Sie den Fortschritt der Entwicklung"
+  },
+  "c_about_text_4": {
+    "message": "Auf der Waffel Bord"
+  },
+  "c_bottomMenu": {
+    "message": "Bottom Menu"
+  },
+  "c_help_title_0": {
+    "message": "Konfigurierbare Datenlisten"
+  },
+  "c_help_text_0": {
+    "message": "Sie können die Widgets durch das Optionsmenü beliebig platzieren"
+  },
+  "c_help_title_1": {
+    "message": "Sich anpassendes Design"
+  },
+  "c_help_text_1": {
+    "message": "Die Spalten und Inhalte passen sich aller Bildschirmbreiten an "
+  },
+  "c_help_title_2": {
+    "message": "Inhalt"
+  },
+  "c_help_text_2": {
+    "message": "Die Seite besteht aus drei Spalten, aber für kleinere Bildschirme fügt sich die rechte Spalte mit der mittleren Spalte zusammen damit der Inhalt verwendbar bleibt."
+  },
+  "c_o_editLayout": {
+    "message": "Layout bearbeiten"
+  },
+  "c_o_badgeLayout": {
+    "message": "Badge-Layout"
+  },
+  "c_o_clearSettings": {
+    "message": "Einstellungen löschen"
+  },
+  "c_o_cleared": {
+    "message": "Gelöscht !!!"
+  },
+  "c_o_version": {
+    "message": "Versionprüfung"
+  },
+  "c_o_layout": {
+    "message": "Widget-Layout"
+  },
+  "c_o_activeTabs": {
+    "message": "Aktiv Tabs"
+  },
+  "c_o_styles": {
+    "message": "Styles, Farben"
+  },
+  "c_l_left": {
+    "message": "linke Spalte"
+  },
+  "c_l_middle": {
+    "message": "mittlere Spalte"
+  },
+  "c_l_right": {
+    "message": "rechte Spalte"
+  },
+  "c_auth_title": {
+    "message": "Zugriffsrecht auf $url$ erforderlich, klicken Sie hier um zu genehmigen !!!",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "mysite.com"
+      }
+    }
+  },
+  "b_gmail_connection": {
+    "message": "Die Daten konnten nicht geholt werden, überprüfen Sie bitte die Netzwerkverbindung, und stellen Sie sicher, dass Sie auf Google Mail eingelogged sind!"
+  },
+  "b_gmail_noUnRead": {
+    "message": "(Keine ungelesenen Mails!)"
+  },
+  "Widgets": {
+    "message": "Widgets"
+  },
+  "w_BL": {
+    "message": "Tastenliste"
+  },
+  "w_GL": {
+    "message": "gruppierte Liste"
+  },
+  "w_bookmarkTree": {
+    "message": "Lesezeichen"
+  },
+  "w_bookmarkTree_help": {
+    "message": "Ein Treeview aller Lesezeichen, mit Volltextsuche <br /> <b> Hinweis:.. </b> Sie wählen die Quicklinks von hier mit einem Rechtsklick auf den Ordner, von dem Sie Ihre Quicklinks bekommen wollen <br /> Klicken Sie auf Bearbeiten Schaltfläche Lesezeichen-Editor zu erhalten."
+  },
+  "w_bookmarkTree_edit_title": {
+    "message": "Lesezeichen bearbeiten"
+  },
+  "w_chromeApps": {
+    "message": "Apps"
+  },
+  "w_chromeApps_help": {
+    "message": "Eine Liste von Chrom-Anwendungen derzeit im Browser installiert <br /> <b>. Hinweis: </b> nur Anwendungen mit einer Seite sind aufgelistet."
+  },
+  "w_closedTabs": {
+    "message": "Abgeschlossen"
+  },
+  "w_closedTabs_help": {
+    "message": "Kürzlich geschlossene Tabs <br /> <b> Hinweis </b>:. Liste wird jedes Mal von Chrome gelöscht, wenn der Browser geschlossen wird."
+  },
+  "w_history": {
+    "message": "Geschichte"
+  },
+  "w_history_help": {
+    "message": "Besuchte Seiten."
+  },
+  "w_history_edit_title": {
+    "message": "Geschichte Bearbeiten "
+  },
+  "w_quicklinks": {
+    "message": "Quicklinks"
+  },
+  "w_quicklinks_help": {
+    "message": "Alle Links in einem Lesezeichen-Ordner leicht zugänglich. Sie wählen den Ordner von dem Lesezeichen-Widget aus. <br /> <b> Hinweis: </b> Sie dürfen nur einen Ordner auswählen und nur die Lesezeichen direkt in diesem Ordner werden angezeigt."
+  },
+  "w_rssFeed": {
+    "message": "RSS"
+  },
+  "w_rssFeed_help": {
+    "message": "Sie entscheiden welche Feeds Sie zeigen, z.B. Nachrichten"
+  },
+  "w_rssFeed_edit_title": {
+    "message": "RSS Bearbeiten"
+  },
+  "w_rssFeed_addFeed": {
+    "message": "Feed hinzufügen"
+  },
+  "w_rssFeed_settings": {
+    "message": "Einstellungen ändern"
+  },
+  "w_rssFeed_restoreDeleted": {
+    "message": "Gelöschte Objekte wiederherstellen "
+  },
+  "w_rssFeed_auth_text": {
+    "message": "RSS verwendet Google APIs um eine konsistente Datenstruktur aus den verschiedenen Feeds zu bekommen und wird ohne dies nicht funktionieren. Klicken Sie hier, um fortzufahren und das Widget zu genehmigen."
+  },
+  "w_rssFeed_err_title": {
+    "message": "Fehler beim Laden von Feed:"
+  },
+  "w_topSites": {
+    "message": "Top-Webseiten"
+  },
+  "w_topSites_help": {
+    "message": "Die meistbesuchten Websites."
+  }
+}
