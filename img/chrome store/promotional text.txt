@@ -10,6 +10,20 @@ Practical Startpage is a simple yet powerful, allowing easy access to browser da
 - History, Apps, etc. from chrome
 - RSS Feed for e.g. news
 
+
+### Deutch - de
+
+Practical Startpage ist einfach aber leistungsfähig, und erlaubt einfacher Zugriff auf Browser-Daten wie Lesezeichen und Geschichte.
+(Berechtigungen werden von Widgets verwendet um die Daten anzuzeigen, oder zu bearbeiten, und Einstellungen zu merken.)
+- Responsive Design, passt auf allen Bildschirmen
+- Konfigurierbar. Sie entscheiden, welche Widgets wohingehen
+- Open Source, Sie können Ihre eigenen Widgets (GitHub) entwickeln
+- Lesezeichenbaum mit Textsuche und Lesezeichen-Editor
+- Quicklinks mit Link von Lesezeichen-Ordner Ihrer Wahl
+- Geschichte, Apps etc. aus Chrome
+- RSS-Feed für zB Nachrichten
+
+
 ### espanol - es
 
 Practical Startpage es simple pero eficaz, permitiendo acceder fácilmente a los datos del navegador como los marcadores o el historial.
@@ -22,10 +36,11 @@ Practical Startpage es simple pero eficaz, permitiendo acceder fácilmente a los
 - Historial, aplicaciones, etc., de Chrome
 - Fuentes RSS para noticias, por ejemplo
 
+
 ### svenska - sv
 
 Practical Startpage är enkel men kraftfull, och ger snabb åtkomst till webläsarens data, som t.ex. bookmärken och besökta sidor.
-(För detaljer om rättigheter sombehövs, besök hemsidan.)
+(För detaljer om rättigheter och hur dom används, besök hemsidan.)
 - Responsiv design, anpassar sig till alla skärmar
 - Konfigurerbar, du kan själv välja var saker ska vara
 - Öppen källkod, du kan utveckla dina egna manicker (GitHub)
