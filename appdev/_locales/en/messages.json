@@ -266,6 +266,12 @@
   "w_rssFeed_addFeed": {
     "message": "Add Feed"
   },
+  "w_rssFeed_hideVisited": {
+    "message": "Hide Visited"
+  },
+  "w_rssFeed_allowDelete": {
+    "message": "Allow Delete"
+  },
   "w_rssFeed_manageFeeds": {
     "message": "Manage Feeds"
   },
@@ -280,6 +286,18 @@
   },
   "w_rssFeed_err_title": {
     "message": "Error Loading Feed:"
+  },
+  "w_rssFeed_CreateSyncFolder": {
+    "message": "Create Sync Folder"
+  },
+  "w_rssFeed_RemoveSyncFolder": {
+    "message": "Remove Sync Folder"
+  },
+ "w_rssFeed_MoveSyncFolder": {
+    "message": "Move Sync Folder"
+  },
+  "w_rssFeed_SyncroniseDeletedItems": {
+    "message": "Syncronise Deleted Items"
   },
   "w_topSites": {
     "message": "Top Sites"

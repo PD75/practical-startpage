@@ -6,10 +6,9 @@
     .controller('EditRssSyncCtrl', EditRssSyncCtrl)
     .directive('psEditRssSync', EditRssSyncDirective);
 
-  function EditRssSyncCtrl($timeout, $sce, bookmarkTreeService, dataService, rssFeedService, bookmarkService, i18n) {
+  function EditRssSyncCtrl($timeout, $sce, bookmarkTreeService, dataService, rssFeedService, bookmarkService) {
     var vm = this;
 
-    vm.locale = locale;
     vm.closeForm = closeForm;
     vm.createSync = createSync;
     vm.removeSync = removeSync;
@@ -116,7 +115,7 @@
 
     function removeSync() {
       var promise = rssFeedService.consolidateDeleted();
-      
+
       if (syncFolderExists()) {
         promise = promise.then(function() {
           return bookmarkService.removeBookmarkTree({
@@ -124,7 +123,7 @@
           });
         });
       }
-      
+
       promise = promise.then(function() {
           vm.data.sync = {
             delItemsSync: false,
@@ -174,10 +173,6 @@
         }
       }
       return exists;
-    }
-
-    function locale(text, placeholders) {
-      return $sce.trustAsHtml(i18n.get(text, placeholders));
     }
   }
 

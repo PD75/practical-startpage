@@ -1,15 +1,12 @@
 <div class="ui top attached tabular menu" ng-class="vm.primaryCol">
 
-  <a class="item" ng-class="{'active' : vm.tab === 'rssFeed'}" ng-click="vm.tabClick('rssFeed')">
-    {{vm.locale("w_rssFeed_manageFeeds")}}
+  <a class="item" ng-class="{'active' : vm.tab === 'rssFeed'}" ng-click="vm.tabClick('rssFeed')" ps-i18n="w_rssFeed_manageFeeds">
   </a>
 
-  <a class="item" ng-class="{'active' : vm.tab === 'rssSyncDeleted'}" ng-click="vm.tabClick('rssSyncDeleted')" ng-if="vm.data.allowDelete">
-    {{vm.locale("Options")}}
+  <a class="item" ng-class="{'active' : vm.tab === 'rssSyncDeleted'}" ng-click="vm.tabClick('rssSyncDeleted')" ng-if="vm.data.allowDelete" ps-i18n="w_rssFeed_SyncroniseDeletedItems">
   </a>
 
-  <a class="item" ng-class="{'active' : vm.tab === 'deletedItems'}" ng-click="vm.tabClick('deletedItems')" ng-if="vm.data.allowDelete">
-    {{vm.locale("w_rssFeed_restoreDeleted")}}
+  <a class="item" ng-class="{'active' : vm.tab === 'deletedItems'}" ng-click="vm.tabClick('deletedItems')" ng-if="vm.data.allowDelete" ps-i18n="w_rssFeed_restoreDeleted">
   </a>
 
 </div>

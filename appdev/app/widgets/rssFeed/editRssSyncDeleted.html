@@ -6,31 +6,29 @@
         <form name="feedForm" class="ui form" novalidate>
 
           <div class="field">
-            <div class="ui button" ng-click="vm.createSync()">
-              Create Sync Folder
+            <div class="ui button" ng-click="vm.createSync()" ps-i18n="w_rssFeed_CreateSyncFolder">
             </div>
           </div>
           <div class="field">
-            <div class="ui right aligned button" ng-click="vm.removeSync()">
-              Remove Sync Folder
+            <div class="ui right aligned button" ng-click="vm.removeSync()" ps-i18n="w_rssFeed_RemoveSyncFolder">
             </div>
           </div>
           <div class="field">
-            <div class="ui right aligned button" ng-click="vm.moveSync()">
-              Move Sync Folder
+            <div class="ui right aligned button" ng-click="vm.moveSync()" ps-i18n="w_rssFeed_MoveSyncFolder">
             </div>
           </div>
 
           <div class="field">
             <div class="ui toggle checkbox">
               <input type="checkbox" ng-model="vm.data.sync.delItemsSync" ng-click="vm.syncDeleted()" />
-              <label>Syncronise Deleted Items</label>
+              <label ps-i18n="w_rssFeed_SyncroniseDeletedItems"></label>
             </div>
           </div>
 
           <div class="field">
             <button class="ui button" ng-click="vm.closeForm()">
-              <i class="remove icon"></i> {{vm.locale("Close")}}
+              <i class="remove icon"></i>
+              <span ps-i18n="Close"></span>
             </button>
           </div>
         </form>

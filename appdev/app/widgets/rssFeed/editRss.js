@@ -5,7 +5,7 @@
     .controller('EditRssCtrl', EditRssCtrl)
     .directive('psEditRss', EditRssDirective);
 
-  function EditRssCtrl($sce, $timeout, rssFeedService, dataService, permissionService, i18n) {
+  function EditRssCtrl($sce, $timeout, rssFeedService, dataService, permissionService) {
     var vm = this;
     vm.checkFeedUrl = checkFeedUrl;
     vm.addFeed = addFeed;
@@ -14,7 +14,6 @@
     vm.typeUrl = typeUrl;
     vm.closeForm = closeForm;
     vm.authorizePermissions = authorizePermissions;
-    vm.locale = locale;
     vm.save = save;
     vm.tabClick = tabClick;
     vm.deleteItem = restoreDeleted;
@@ -155,10 +154,6 @@
 
     function closeForm() {
       vm.modalInstance.modal('hide');
-    }
-
-    function locale(text, placeholders) {
-      return $sce.trustAsHtml(i18n.get(text, placeholders));
     }
   }
 
