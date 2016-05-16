@@ -13,26 +13,26 @@
     vm.locale = locale;
 
     vm.treeEvents = {
-      "ready": readyCB,
-      "activate_node": activateNodeCB,
-      "open_node": bookmarkTreeService.openNodeCB,
-      "close_node": bookmarkTreeService.closeNodeCB,
-      "deselect_all": setEditButtons,
-      "changed": setEditButtons,
-      "move_node": moveNodeCB,
-      "delete_node": deleteNodeCB,
-      "rename_node": renameNodeCB,
-      "create_node": createNodeCB,
+      ready: readyCB,
+      'activate_node': activateNodeCB,
+      'open_node': bookmarkTreeService.openNodeCB,
+      'close_node': bookmarkTreeService.closeNodeCB,
+      'deselect_all': setEditButtons,
+      changed: setEditButtons,
+      'move_node': moveNodeCB,
+      'delete_node': deleteNodeCB,
+      'rename_node': renameNodeCB,
+      'create_node': createNodeCB,
     };
     vm.buttonPress = {
-      "edit": editNode,
-      "editUrl": editUrl,
-      "newFolder": newFolder,
-      "delete": deleteNodes,
-      "undoAll": refreshTree,
-      "save": saveChanges,
-      "saveClose": saveClose,
-      "close": closeNoSave,
+      edit: editNode,
+      editUrl: editUrl,
+      newFolder: newFolder,
+      delete: deleteNodes,
+      undoAll: refreshTree,
+      save: saveChanges,
+      saveClose: saveClose,
+      close: closeNoSave,
     };
 
     //Intialize
@@ -43,14 +43,14 @@
     vm.treeInstance = {};
     vm.buttons = bookmarkConstant.editButtons;
     vm.activeButtons = {
-      "edit": "disabled",
-      "editUrl": "disabled",
-      "newFolder": "disabled",
-      "delete": "disabled",
-      "undoAll": "disabled",
-      "save": "disabled",
-      "saveClose": "disabled",
-      "close": "",
+      edit: 'disabled',
+      editUrl: 'disabled',
+      newFolder: 'disabled',
+      delete: 'disabled',
+      undoAll: 'disabled',
+      save: 'disabled',
+      saveClose: 'disabled',
+      close: '',
     };
     activate();
 

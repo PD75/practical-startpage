@@ -228,6 +228,7 @@
           }
         }
         s.data.deletedItems = deletedItems;
+        s.data.lastConsolidated = new Date().toISOString().slice(0, 10);
         return dataService.setData({
           rssFeed: s.data,
         });
