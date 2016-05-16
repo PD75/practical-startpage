@@ -1,6 +1,6 @@
 /*eslint camelcase: 0*/
 angular.module('ps.widgets')
-  .factory('editBookmarksService', function($q, dataService, bookmarkService, bookmarkConstant) {
+  .factory('editBookmarksService', function($q, dataService, bookmarkService, bookmarkConstant, i18n) {
     "use strict";
 
     return {
@@ -29,7 +29,7 @@ angular.module('ps.widgets')
     function newFolder(parent, bookmarkTree) {
       var tree = bookmarkTree.jstree(true);
       var nodeData = {
-        text: 'New Folder',
+        text: i18n.get('NewFolder'),
         icon: 'folder icon',
         type: 'folder',
       };
@@ -86,7 +86,7 @@ angular.module('ps.widgets')
         if ((node.type === 'link' || node.type === 'folder')) {
           menu.editTitle = {
             "separator_before": false,
-            "label": "Edit",
+            "label": i18n.get('Edit'),
             "action": function() {
               editNode(getTree());
             },
@@ -96,7 +96,7 @@ angular.module('ps.widgets')
         if (node.type === 'link') {
           menu.editUrl = {
             "separator_before": false,
-            "label": "Edit url",
+            "label": i18n.get('EditUrl'),
             "action": function() {
               editUrl();
             },
@@ -106,7 +106,7 @@ angular.module('ps.widgets')
         if (node.type !== 'link') {
           menu.new = {
             "separator_before": false,
-            "label": "New folder",
+            "label": i18n.get('NewFolder'),
             "action": function() {
               newFolder(node, getTree());
             },
@@ -117,7 +117,7 @@ angular.module('ps.widgets')
       if (node.type === 'link' || node.type === 'folder') {
         menu.delete = {
           "separator_before": false,
-          "label": "Delete",
+          "label": i18n.get('Delete'),
           "action": function() {
             deleteNodes(getTree());
           },

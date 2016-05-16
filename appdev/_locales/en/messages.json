@@ -47,6 +47,12 @@
   "NewFolder": {
     "message": "New Folder"
   },
+  "OpenAllLinks": {
+    "message": "Open all links"
+  },
+  "OpenInNewTab": {
+    "message": "Open in new tab"
+  },
   "Options": {
     "message": "Options"
   },
@@ -70,6 +76,9 @@
   },
   "Url": {
     "message": "Url"
+  },
+   "UseForQuickLinks": {
+    "message":  "Use for Quick Links"
   },
   "WhatsNew": {
     "message": "What's New"
