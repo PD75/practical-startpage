@@ -4,7 +4,7 @@
   angular.module('ps.widgets')
     .service('rssFeedService', rssFeedService);
 
-  function rssFeedService( $sce, $http, $q, dataService, historyService, bookmarkService) {
+  function rssFeedService($sce, $http, $q, dataService, historyService, bookmarkService) {
     var s = this;
     s.getFeeds = getFeeds;
     s.getFeed = getFeed;
@@ -106,7 +106,7 @@
           s.deletedFeed = [];
           var d = 0;
           for (f = 0; f < feed.length; f++) {
-            if ((!s.rssFeed.hideVisited || !feed[f].visited) && (!checkDuplicate(feed[f], rss)) && (!checkDeleted(feed[f]) || !s.data.allowDelete)) {
+            if ((!s.data.hideVisited || !feed[f].visited) && (!checkDuplicate(feed[f], rss)) && (!checkDeleted(feed[f]) || !s.data.allowDelete)) {
               rss[r++] = feed[f];
             } else if (checkDeleted(feed[f]) && s.data.allowDelete) {
               s.deletedFeed[d++] = feed[f];
@@ -198,9 +198,9 @@
       var dateStamp = new Date();
       dateStamp.setUTCMonth(dateStamp.getUTCMonth() - 1);
       var limit = dateStamp.toISOString().slice(0, 10);
-      
+
       var promise = getFeeds();
-      
+
       promise = promise.then(function() {
         return saveDeletedItems();
       });
@@ -232,7 +232,7 @@
           rssFeed: s.data,
         });
       });
-      
+
       return promise;
     }
 
