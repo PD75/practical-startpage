@@ -4,9 +4,9 @@
       <table class="ui very basic unstackable compact table">
         <thead>
           <tr>
-            <th class="center aligned">Local Storage</th>
-            <th class="center aligned">Sync Storage</th>
-            <th>Settings</th>
+            <th class="center aligned" ps-i18n="c_o_localStorage"></th>
+            <th class="center aligned" ps-i18n="c_o_SwitchStorage"></th>
+            <th ps-i18n="Settings"></th>
           </tr>
         </thead>
         <tbody>
@@ -20,9 +20,7 @@
             <td ng-bind="object.title"></td>
           </tr>
           <tr ng-if="vm.data.length === 0">
-            <td colspan="3">
-              You have no stored settings.
-            </td>
+            <td colspan="3" ps-i18n="c_o_noData"></td>
           </tr>
         </tbody>
         <tfoot>
@@ -33,17 +31,15 @@
             <th class="center aligned">
               <input type="checkbox" ng-model="vm.sync.allSelected" ng-click="vm.allselectedCB('sync')" ng-if="vm.sync.exist">
             </th>
-            <th>
-              Select All
-            </th>
+            <th ps-i18n="SelectAll"> </th>
           </tr>
         </tfoot>
       </table>
     </div>
     <div class="five wide column">
-      <button class="ui  button" ng-click="vm.clearData()" ng-class="[vm.primaryCol,{disabled:(vm.local.buttonDisabled && vm.sync.buttonDisabled)}]">
-        {{vm.locale("c_o_clearSettings")}}
-      </button> {{vm.dataCleared}}
+      <button class="ui  button" ng-click="vm.clearData()" ng-class="[vm.primaryCol,{disabled:(vm.local.buttonDisabled && vm.sync.buttonDisabled)}]" ps-i18n="c_o_clearSettings">
+      </button>
+      <span ps-i18n="{{vm.dataCleared}}"></span>
     </div>
   </div>
 </div>

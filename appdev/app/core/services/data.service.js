@@ -46,14 +46,6 @@ angular
             } else {
               s.data = response[0];
             }
-            // angular.forEach(response[2], function(value, key) {
-            //   s.sync[key] = value;
-            // });
-            // angular.forEach(response[1], function(value, key) {
-            //   s.local[key] = value;
-            // });
-            // s.local = response[1];
-            // s.sync = response[2];
             if (angular.isDefined(response[1].localStorage)) {
               s.data.localStorage = response[1].localStorage;
             }

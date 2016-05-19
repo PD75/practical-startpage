@@ -5,14 +5,12 @@
     .controller('ClearDataCtrl', ClearDataCtrl)
     .directive('psClearData', ClearDataDirective);
 
-
-  function ClearDataCtrl($timeout, $q, dataService, i18n) {
+  function ClearDataCtrl($timeout, $q, dataService) {
     var vm = this;
     vm.checkboxCB = checkboxCB;
     vm.allselectedCB = allselectedCB;
     vm.widgets = dataService.data.widgets;
     vm.clearData = clearData;
-    vm.locale = locale;
     vm.primaryCol = dataService.data.styles.primaryCol;
     activate();
 
@@ -77,10 +75,6 @@
         });
     }
 
-    function locale(text) {
-      return i18n.get(text);
-    }
-
     function checkboxCB(type) {
       vm[type].allSelected = true;
       vm[type].buttonDisabled = true;
@@ -121,7 +115,7 @@
       promises[1] = dataService.clearData(keys.sync, 'sync');
       $q.all(promises)
         .then(function() {
-          vm.dataCleared = i18n.get('c_o_cleared');
+          vm.dataCleared ='c_o_cleared';
           $timeout(function() {
             vm.dataCleared = '';
           }, 1000);

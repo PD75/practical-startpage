@@ -5,11 +5,9 @@
     .controller('ChooseStorageCtrl', ChooseStorageCtrl)
     .directive('psChooseStorage', ChooseStorageDirective);
 
-
   function ChooseStorageCtrl($timeout, dataService, i18n) {
     var vm = this;
     vm.switchStorage = switchStorage;
-
 
     vm.locale = locale;
     vm.primaryCol = dataService.data.styles.primaryCol;
@@ -20,7 +18,6 @@
       getData();
     }
 
-
     function getData() {
       dataService.getStorageData()
         .then(function(data) {
@@ -28,16 +25,7 @@
           vm.allSelected = false;
           var i = 0;
           var localStorage = dataService.data.localStorage;
-          vm.local = {
-            exist: false,
-            allSelected: false,
-            buttonDisabled: true,
-          };
-          vm.sync = {
-            exist: false,
-            allSelected: false,
-            buttonDisabled: true,
-          };
+
           angular.forEach(data, function(value, key) {
             if (angular.isDefined(value.title)) {
               vm.data[i] = {

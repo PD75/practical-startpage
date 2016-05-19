@@ -4,10 +4,10 @@
       <table class="ui very basic unstackable compact table">
         <thead>
           <tr>
-            <th colspan="2" class="center aligned">Local Storage</th>
-            <th colspan="2" class="center aligned">Switch Storage</th>
-            <th colspan="2" class="center aligned">Synchronized Storage</th>
-            <th>Settings</th>
+            <th colspan="2" class="center aligned" ps-i18n="c_o_localStorage"></th>
+            <th colspan="2" class="center aligned" ps-i18n="c_o_SwitchStorage"></th>
+            <th colspan="2" class="center aligned" ps-i18n="c_o_syncStorage"></th>
+            <th ps-i18n="Settings"></th>
           </tr>
         </thead>
         <tbody>
@@ -17,7 +17,7 @@
               <i class="large checkmark icon" ng-class="vm.primaryCol" ng-if="object.local.storage"></i>
             </td>
             <td class="left aligned">
-              <span ng-if="object.local.exist">Has data</span>
+              <span ng-if="object.local.exist" ps-i18n="c_o_hasData"></span>
             </td>
 
             <td class="center aligned">
@@ -32,7 +32,7 @@
             <td class="center aligned">
               <button class="ui basic icon compact button" ng-click="vm.switchStorage(object,false)">
                 <i class="big icons">
-                <i class="arrow icon" ng-class="{right: object.local.storage, left: !object.local.storage}"></i>
+                  <i class="arrow icon" ng-class="{right: object.local.storage, left: !object.local.storage}"></i>
                 </i>
               </button>
             </td>
@@ -41,19 +41,19 @@
               <i class="large checkmark icon" ng-class="vm.primaryCol" ng-if="!object.local.storage"></i>
             </td>
             <td class="left aligned">
-              <span ng-if="object.sync.exist">Has data</span>
+              <span ng-if="object.sync.exist" ps-i18n="c_o_hasData"></span>
             </td>
-            
+
             <td ng-bind="object.title"></td>
-            
+
           </tr>
           <tr ng-if="vm.data.length === 0">
-            <td colspan="3">
-              You have no stored settings.
-            </td>
+            <td colspan="3" ps-i18n="c_o_noData"> </td>
           </tr>
         </tbody>
       </table>
+      <div class="ui divider"></div>
+      <p ps-i18n="c_o_moreStorageSettings"></p>
     </div>
   </div>
 </div>
