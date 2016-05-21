@@ -116,8 +116,9 @@ angular
           .then(function(response) {
             var returnData = response[0];
             angular.merge(returnData, response[1]);
-            var x = dataTranslationService.setStorageDataLabels(returnData);
-            return x;
+            returnData = dataTranslationService.setStorageDataLabels(returnData);
+            returnData = getStorageSyncExceptions(returnData);
+            return returnData;
           });
       }
 
@@ -128,6 +129,15 @@ angular
           returnData[key][type] = value;
         });
         return returnData;
+      }
+
+      function getStorageSyncExceptions(storageData) {
+        angular.forEach(storageData, function(value, key) {
+          if (angular.isDefined(widgetConstants.widgets[key]) && angular.isDefined(widgetConstants.widgets[key].noSyncData)) {
+            value.syncException = 1;
+          }
+        });
+        return storageData;
       }
 
       function setStorage(data) {

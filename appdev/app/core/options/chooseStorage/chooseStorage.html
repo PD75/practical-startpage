@@ -44,7 +44,12 @@
               <span ng-if="object.sync.exist" ps-i18n="c_o_hasData"></span>
             </td>
 
-            <td ng-bind="object.title"></td>
+            <td>
+              <span ng-bind="object.title"></span>
+              <sup ng-if="object.syncException">
+                <i class="ui mini asterisk icon" style=""></i>
+              </sup>
+            </td>
 
           </tr>
           <tr ng-if="vm.data.length === 0">
@@ -53,7 +58,24 @@
         </tbody>
       </table>
       <div class="ui divider"></div>
-      <p ps-i18n="c_o_moreStorageSettings"></p>
+      <p>
+        <sup>
+          <i class="ui mini asterisk icon" style=""></i>
+        </sup>
+        <span ps-i18n="c_o_moreStorageSettings"></span>
+      </p>
+      <p>
+        <i class="big icons">
+          <i class="arrow left icon"></i>
+          <i class="corner copy icon"></i>
+        </i>
+        /
+        <i class="big icons">
+          <i class="arrow right icon"></i>
+          <i class="corner copy icon"></i>
+        </i>
+        <span ps-i18n="CopyData"></span>
+      </p>
     </div>
   </div>
 </div>

@@ -14,6 +14,9 @@
   "Close": {
     "message": "Close"
   },
+  "CopyData": {
+    "message": "Copy data"
+  },
   "days": {
     "message": "days"
   },

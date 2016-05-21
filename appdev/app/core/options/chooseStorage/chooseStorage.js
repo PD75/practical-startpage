@@ -14,8 +14,8 @@
     activate();
 
     function activate() {
-      dataService.setOnChangeData('all', getData);
       getData();
+      dataService.setOnChangeData('all', getData);
     }
 
     function getData() {
@@ -34,6 +34,7 @@
                 order: value.order,
                 local: {},
                 sync: {},
+                syncException: value.syncException,
               };
               if (angular.isDefined(value.local)) {
                 vm.data[i].local.exist = true;
