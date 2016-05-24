@@ -1,113 +1,118 @@
 <!DOCTYPE html>
 <html ng-app="ps">
 
-  <head>
-    <!-- build:html -->
-    <title>Practical Startpage Dev</title>
-    <!-- endbuild -->
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<head>
+  <!-- build:html -->
+  <title>Practical Startpage Dev</title>
+  <!-- endbuild -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" type="image/png" href="img/icon16.png">
-    <link rel="stylesheet" href="dist/semantic-ui/semantic.min.css"/>
-    <link rel="stylesheet" href="dist/jstree/themes/default/style.min.css"/>
-    
-    <!-- build:css -->
-    <link rel="stylesheet" href="app/core/layout/layout.css"/>
-    <link rel="stylesheet" href="app/core/options/selectWidgets/selectWidgets.css"/>
+  <link rel="icon" type="image/png" href="img/icon16.png">
+  <link rel="stylesheet" href="dist/semantic-ui/semantic.min.css" />
+  <link rel="stylesheet" href="dist/jstree/themes/default/style.min.css" />
 
-    <link rel="stylesheet" href="app/widgets/bookmarkTree/bookmarkTree.css"/>
-    <link rel="stylesheet" href="app/widgets/widgets/widgetSearch.css"/>
-    <link rel="stylesheet" href="app/widgets/widgets/widgetUrlList.css"/>
+  <!-- build:css -->
+  <link rel="stylesheet" href="app/core/layout/layout.css" />
+  <link rel="stylesheet" href="app/core/options/selectWidgets/selectWidgets.css" />
 
-    <link rel="stylesheet" href="app/badges/gmail/gmail.css"/>
-    <!-- endbuild -->
-    
-  </head>
+  <link rel="stylesheet" href="app/widgets/bookmarkTree/bookmarkTree.css" />
+  <link rel="stylesheet" href="app/widgets/widgets/widgetSearch.css" />
+  <link rel="stylesheet" href="app/widgets/widgets/widgetUrlList.css" />
 
-  <body>
-    <ps-layout class=" ui padded main grid">
-      <div class="main row" ng-include="Layout.tempvar">
+  <link rel="stylesheet" href="app/badges/gmail/gmail.css" />
+  <!-- endbuild -->
+
+</head>
+
+<body>
+  <ps-layout class=" ui padded main grid">
+    <div class="main row" ng-include="Layout.tempvar">
+    </div>
+    <div class="menu row">
+      <div class="column">
+        <ps-bottom-menu class="ui menu" ng-class="Layout.secMenuClasses"></ps-bottom-menu>
       </div>
-      <div class="menu row">
-        <div class="column">
-          <ps-bottom-menu class="ui menu" ng-class="Layout.secMenuClasses"></ps-bottom-menu>
-        </div>
-      </div>
-    </ps-layout>
+    </div>
+  </ps-layout>
 
-    <!--Load Distribution Scripts-->
-    <script src="dist/jquery.js"></script>
-    <script src="dist/angular.js"></script>
-    <script src="dist/semantic-ui/semantic.js"></script>
-    <script src="dist/jstree/jstree.js"></script>
-    <script src="dist/ngJsTree.js"></script>
-    <script src="dist/angular-drag-and-drop-lists.js"></script>
-    <script src="dist/xml2json.js"></script>
-    <script src="dist/ui-angular.js"></script>
+  <!--Load Distribution Scripts-->
+  <script src="dist/jquery.js"></script>
+  <script src="dist/angular.js"></script>
+  <script src="dist/semantic-ui/semantic.js"></script>
+  <script src="dist/jstree/jstree.js"></script>
+  <script src="dist/ngJsTree.js"></script>
+  <script src="dist/angular-drag-and-drop-lists.js"></script>
+  <script src="dist/xml2json.js"></script>
+  <script src="dist/ui-angular.js"></script>
 
-    <!--Load Application specific scripts-->
-    
-    <!-- build:js -->
-    <script src="app/app.module.js"></script>
+  <!--Load Application specific scripts-->
 
-    <script src="app/services/chrome/chrome.app.module.js"></script>
-    <script src="app/services/chrome/chrome.shared.services.js"></script>
-    <script src="app/services/chrome/chrome.history.services.js"></script>
-    <script src="app/services/chrome/chrome.urls.services.js"></script>
-    <script src="app/services/chrome/chrome.storage.services.js"></script>
-    <script src="app/services/chrome/chrome.bookmark.service.js"></script>
-    <script src="app/services/chrome/chrome.permission.service.js"></script>
-    <script src="app/services/chrome/chrome.i18n.service.js"></script>
-    <script src="app/core/i18n.js"></script>
+  <!-- build:js -->
+  <script src="app/app.module.js"></script>
 
-    <script src="app/core/app.core.module.js"></script>
-    <script src="app/core/services/data.service.js"></script>
-    <script src="app/core/services/version.service.js"></script>
-    <script src="app/core/services/data.translation.service.js"></script>
-    <script src="app/core/bottomMenu/bottomMenu.js"></script>
-    <script src="app/core/bottomMenu/help.js"></script>
-    <script src="app/core/bottomMenu/about.js"></script>
 
-    <script src="app/core/layout/layout.js"></script>
-    <script src="app/core/layout/layout.service.js"></script>
+  <script src="test/data/data.js"></script>
+  <script src="test/data/dataModel.js"></script>
+  <test-data></test-data>
 
-    <script src="app/core/options/app.core.options.module.js"></script>
-    <script src="app/core/options/options.js"></script>
-    <script src="app/core/options/selectWidgets/selectWidgets.js"></script>
-    <script src="app/core/options/clearData/clearData.js"></script>
-    <script src="app/core/options/chooseStorage/chooseStorage.js"></script>
-    <script src="app/core/options/selectBadges/selectBadges.js"></script>
+  <script src="app/services/chrome/chrome.app.module.js"></script>
+  <script src="app/services/chrome/chrome.shared.services.js"></script>
+  <script src="app/services/chrome/chrome.history.services.js"></script>
+  <script src="app/services/chrome/chrome.urls.services.js"></script>
+  <script src="app/services/chrome/chrome.storage.services.js"></script>
+  <script src="app/services/chrome/chrome.bookmark.service.js"></script>
+  <script src="app/services/chrome/chrome.permission.service.js"></script>
+  <script src="app/services/chrome/chrome.i18n.service.js"></script>
+  <script src="app/core/i18n.js"></script>
 
-    <script src="app/widgets/widgets/app.widgets.module.js"></script>
-    <script src="app/widgets/widgets/widget.js"></script>
-    <script src="app/widgets/widgets/editWidget.js"></script>
-    <script src="app/widgets/widgets/widgetConstants.js"></script>
-    <script src="app/widgets/widgets/widgetSearch.js"></script>
+  <script src="app/core/app.core.module.js"></script>
+  <script src="app/core/services/data.service.js"></script>
+  <script src="app/core/services/version.service.js"></script>
+  <script src="app/core/services/data.translation.service.js"></script>
+  <script src="app/core/bottomMenu/bottomMenu.js"></script>
+  <script src="app/core/bottomMenu/help.js"></script>
+  <script src="app/core/bottomMenu/about.js"></script>
 
-    <script src="app/widgets/browser/apps.js"></script>
-    <script src="app/widgets/browser/closedTabs.js"></script>
-    <script src="app/widgets/browser/topSites.js"></script>
-    <script src="app/widgets/browser/quickLink.js"></script>
-    <script src="app/widgets/browser/history/history.js"></script>
-    <script src="app/widgets/browser/history/editHistory.js"></script>
+  <script src="app/core/layout/layout.js"></script>
+  <script src="app/core/layout/layout.service.js"></script>
 
-    <script src="app/widgets/bookmarkTree/bookmarkTreeServices.js"></script>
-    <script src="app/widgets/bookmarkTree/bookmarkTree.js"></script>
-    <script src="app/widgets/bookmarkTree/bookmark.constants.js"></script>
-    <script src="app/widgets/bookmarkTree/editBookmarks.js"></script>
-    <script src="app/widgets/bookmarkTree/editBookmarksService.js"></script>
-    <script src="app/widgets/bookmarkTree/editBookmarkUrl.js"></script>
+  <script src="app/core/options/app.core.options.module.js"></script>
+  <script src="app/core/options/options.js"></script>
+  <script src="app/core/options/selectWidgets/selectWidgets.js"></script>
+  <script src="app/core/options/clearData/clearData.js"></script>
+  <script src="app/core/options/chooseStorage/chooseStorage.js"></script>
+  <script src="app/core/options/selectBadges/selectBadges.js"></script>
 
-    <script src="app/widgets/rssFeed/rssFeed.js"></script>
-    <script src="app/widgets/rssFeed/rssFeedService.js"></script>
-    <script src="app/widgets/rssFeed/editRss.js"></script>
-    <script src="app/widgets/rssFeed/editRssSyncDeleted.js"></script>
+  <script src="app/widgets/widgets/app.widgets.module.js"></script>
+  <script src="app/widgets/widgets/widget.js"></script>
+  <script src="app/widgets/widgets/editWidget.js"></script>
+  <script src="app/widgets/widgets/widgetConstants.js"></script>
+  <script src="app/widgets/widgets/widgetSearch.js"></script>
 
-    <script src="app/badges/badges.module.js"></script>
-    <script src="app/badges/badges.constants.js"></script>
-    <script src="app/badges/gmail/gmail.js"></script>
-    <!-- endbuild -->
-  </body>
+  <script src="app/widgets/browser/apps.js"></script>
+  <script src="app/widgets/browser/closedTabs.js"></script>
+  <script src="app/widgets/browser/topSites.js"></script>
+  <script src="app/widgets/browser/quickLink.js"></script>
+  <script src="app/widgets/browser/history/history.js"></script>
+  <script src="app/widgets/browser/history/editHistory.js"></script>
+
+  <script src="app/widgets/bookmarkTree/bookmarkTreeServices.js"></script>
+  <script src="app/widgets/bookmarkTree/bookmarkTree.js"></script>
+  <script src="app/widgets/bookmarkTree/bookmark.constants.js"></script>
+  <script src="app/widgets/bookmarkTree/editBookmarks.js"></script>
+  <script src="app/widgets/bookmarkTree/editBookmarksService.js"></script>
+  <script src="app/widgets/bookmarkTree/editBookmarkUrl.js"></script>
+
+  <script src="app/widgets/rssFeed/rssFeed.js"></script>
+  <script src="app/widgets/rssFeed/rssFeedService.js"></script>
+  <script src="app/widgets/rssFeed/editRss.js"></script>
+  <script src="app/widgets/rssFeed/editRssSyncDeleted.js"></script>
+
+  <script src="app/badges/badges.module.js"></script>
+  <script src="app/badges/badges.constants.js"></script>
+  <script src="app/badges/gmail/gmail.js"></script>
+  <!-- endbuild -->
+</body>
 
 </html>
