@@ -66,7 +66,7 @@ angular.module('ps.widgets.constants', [])
       rssFeed: {
         icon: "rss",
         directive: "rss-feed",
-        noSyncData: ['deletedItems'],
+        noSyncData: ['deletedItems','lastConsolidated'],
         edit: {
           type: "directive",
           directive: "edit-rss",

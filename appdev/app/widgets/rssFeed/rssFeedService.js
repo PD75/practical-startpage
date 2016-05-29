@@ -21,7 +21,11 @@
     };
 
     function getFeeds() {
-      s.data = angular.copy(dataService.data.rssFeed);
+      if (angular.isDefined(dataService.data.rssFeed)) {
+        s.data = angular.copy(dataService.data.rssFeed);
+      } else {
+        s.data = {};
+      }
       var feeds = [];
       if (angular.isDefined(s.data)) {
         if (angular.isDefined(s.data.feeds)) {

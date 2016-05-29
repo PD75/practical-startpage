@@ -3,7 +3,7 @@
   /*eslint camelcase: 0*/
   angular.module('chrome').factory('bookmarkService', bookmarkService);
 
-  function bookmarkService($q) {
+  function bookmarkService($q, dataService) {
 
     return {
       getBookmarksTree: getBookmarksTree,
@@ -26,7 +26,12 @@
     function getBookmarksTree(treeType) {
       var deferred = $q.defer();
       chrome.bookmarks.getTree(function(bookmarkTreeNodes) {
-        deferred.resolve(mapTreeNodes(bookmarkTreeNodes[0].children, 1, treeType));
+        var ignoreFolders;
+        var rssFeed = dataService.data.rssFeed;
+        if (treeType !== 'rssDeleteSync' && angular.isDefined(rssFeed) && angular.isDefined(rssFeed.sync) && angular.isDefined(rssFeed.sync.delItemsFolder)) {
+          ignoreFolders = rssFeed.sync.delItemsFolder;
+        }
+        deferred.resolve(mapTreeNodes(bookmarkTreeNodes[0].children, 1, treeType, ignoreFolders));
       });
       return deferred.promise;
     }
@@ -90,37 +95,38 @@
     }
 
     //Internal Functions
-    function mapTreeNodes(bookmarkNodes, level, treeType) {
+    function mapTreeNodes(bookmarkNodes, level, treeType, ignoreFolders) {
       var jsTreeNodes = [];
       var j = 0;
       for (var i = 0; i < bookmarkNodes.length; i++) {
-        if (bookmarkNodes[i].children) {
-          jsTreeNodes[j] = {
-            id: bookmarkNodes[i].id,
-            text: bookmarkNodes[i].title,
-            children: mapTreeNodes(bookmarkNodes[i].children, level + 1, treeType),
-          };
-          if (level > 1) {
-            jsTreeNodes[j].type = 'folder';
-            jsTreeNodes[j].icon = 'folder icon';
-          } else {
-            jsTreeNodes[j].type = 'root';
-            jsTreeNodes[j].icon = 'folder outline icon';
+        if ((treeType === 'rssDeleteSync' || ignoreFolders !== bookmarkNodes[i].id)) {
+          if (bookmarkNodes[i].children) {
+            jsTreeNodes[j] = {
+              id: bookmarkNodes[i].id,
+              text: bookmarkNodes[i].title,
+              children: mapTreeNodes(bookmarkNodes[i].children, level + 1, treeType, ignoreFolders),
+            };
+            if (level > 1) {
+              jsTreeNodes[j].type = 'folder';
+              jsTreeNodes[j].icon = 'folder icon';
+            } else {
+              jsTreeNodes[j].type = 'root';
+              jsTreeNodes[j].icon = 'folder outline icon';
+            }
+            j++;
+          } else if (treeType !== 'rssDeleteSync') {
+            jsTreeNodes[j] = {
+              id: bookmarkNodes[i].id,
+              text: bookmarkNodes[i].title,
+              icon: 'chrome://favicon/' + bookmarkNodes[i].url,
+              a_attr: {
+                'href': bookmarkNodes[i].url,
+              },
+              type: 'link',
+            };
+            j++;
           }
-          j++;
-        } else if (treeType !== 'rssDeleteSync') {
-          jsTreeNodes[j] = {
-            id: bookmarkNodes[i].id,
-            text: bookmarkNodes[i].title,
-            icon: 'chrome://favicon/' + bookmarkNodes[i].url,
-            a_attr: {
-              'href': bookmarkNodes[i].url,
-            },
-            type: 'link',
-          };
-          j++;
         }
-        //
       }
       return jsTreeNodes;
     }

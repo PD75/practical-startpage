@@ -21,7 +21,7 @@
     activate();
 
     function activate() {
-      vm.tab = 'rssSyncDeleted';
+      vm.tab = 'rssFeed';
       vm.feedTemplate = 'app/widgets/rssFeed/rssFeed.html';
       vm.settingsForm = 'app/widgets/rssFeed/editRssSyncDeleted.html';
       vm.manageFeedForm = 'app/widgets/rssFeed/editRssManageFeeds.html';

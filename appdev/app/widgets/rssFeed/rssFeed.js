@@ -13,11 +13,15 @@
 
     function activate() {
       var today = new Date().toISOString().slice(0, 10);
-      vm.data = dataService.data.rssFeed;
-      if (angular.isUndefined(vm.data.lastConsolidated) || vm.data.lastConsolidated < today) {
-        rssFeedService.consolidateDeleted();
-      } else if (layoutService.isActive('rssFeed')) {
-        getFeeds();
+      if (angular.isDefined(dataService.data.rssFeed)) {
+        vm.data = dataService.data.rssFeed;
+        if (angular.isUndefined(vm.data.lastConsolidated) || vm.data.lastConsolidated < today) {
+          rssFeedService.consolidateDeleted();
+        } else if (layoutService.isActive('rssFeed')) {
+          getFeeds();
+        }
+      } else {
+        vm.data = {};
       }
       dataService.setOnChangeData('rssFeed', getFeeds);
       layoutService.setOnTabClick('rssFeed', getFeeds);

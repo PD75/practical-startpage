@@ -63,10 +63,14 @@
     }
 
     function showTreeReadyCB() {
-      var node = vm.treeInstance.jstree(true).get_node(vm.data.sync.delItemsFolder);
-      if (node) {
-        vm.treeInstance.jstree(true).open_node(node.parent);
-        vm.treeInstance.jstree(true).select_node(node.parent);
+      if (angular.isDefined(vm.data.sync) && angular.isDefined(vm.data.sync.delItemsFolder)) {
+        var node = vm.treeInstance.jstree(true).get_node(vm.data.sync.delItemsFolder);
+        if (node) {
+          vm.treeInstance.jstree(true).open_node(node.parent);
+          vm.treeInstance.jstree(true).select_node(node.parent);
+        } else {
+          vm.treeInstance.jstree(true).select_node(2);
+        }
       } else {
         vm.treeInstance.jstree(true).select_node(2);
       }

@@ -7,7 +7,12 @@
       local: {
         activeTabs: ["string"],
         badgeLayout: ["string"],
-        installDate: "number",
+        history: {
+          days: "number",
+          listType: "string",
+          max: "number",
+          showDelete: "boolean",
+        },
         layout: [{
           items: "number",
           label: "string",
@@ -45,6 +50,12 @@
       sync: {
         activeTabs: ["string"],
         badgeLayout: ["string"],
+        history: {
+          days: "number",
+          listType: "string",
+          max: "number",
+          showDelete: "boolean",
+        },
         installDate: "number",
         layout: [{
           items: "number",
@@ -65,7 +76,6 @@
             delItemsSync: "boolean",
           },
         },
-        version: "string",
       },
     });
 })();
