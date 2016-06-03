@@ -1,4 +1,4 @@
-/* global chrome console*/
+/* global chrome*/
 // Used to check and load data sets into chrome storage for various versions of Practical startpage
 (function() {
   "use strict";
@@ -15,10 +15,12 @@
     function printToConsole(asString) {
       getStorage('local')
         .then(function(data) {
+          $log.log('local');
           $log.log((asString ? angular.toJson(data) : data));
           return getStorage('sync');
         })
         .then(function(data) {
+          $log.log('sync');
           $log.log((asString ? angular.toJson(data) : data));
         });
     }
@@ -82,8 +84,8 @@
   }
 
   function testDataDirective(testDataService) {
-    // testDataService.printToConsole(true);
-    testDataService.checkStorageData(true);
+    testDataService.printToConsole(false);
+    testDataService.checkStorageData();
     return {};
   }
 })();
