@@ -3,7 +3,7 @@
   angular.module('ps.core.service')
     .factory('versionService', versionService);
 
-  function versionService($q, dataService) {
+  function versionService($q, dataService, storageService) {
     return {
       checkVersion: checkVersion,
       linkUninstallSurvey: linkUninstallSurvey,
@@ -24,37 +24,50 @@
       chrome.runtime.setUninstallURL(url);
     }
 
-
     function checkVersion(newVersion, oldVersion) {
 
       return dataService.setData({
         'version': newVersion,
       }).then(function() {
-        var promises = [];
-        var p = 0;
+        var promise = $q.all([]);
+        // var p = 0;
         if (angular.isDefined(dataService.data.bookmarkid)) { // compensating for not deleting bokmarkid previously
           if (olderVersion('2.0.0', oldVersion)) {
             var data = {};
             data.quicklinks = [dataService.data.bookmarkid];
-            promises[p++] = dataService.setData(data);
+            promise = promise.then(function() {
+              return dataService.setData(data);
+            });
           }
-          promises[p++] = dataService.clearData('bookmarkid', 'local');
+          promise = promise.then(function() {
+            return dataService.clearData('bookmarkid', 'local');
+          });
         }
         //to v2.1.0
         if (olderVersion('2.1.0', oldVersion)) {
-          promises[p++] = dataService.clearData('layout', 'local');
+          promise = promise.then(function() {
+            return dataService.clearData('layout', 'local');
+          });
         }
-        //2.5.0 and above if rss is array
-        if (angular.isDefined(dataService.data.rssFeed) && angular.isArray(dataService.data.rssFeed)) {
-          dataService.data.rssFeed = {
-            feeds: dataService.data.rssFeed,
-          };
-          promises[p++] = dataService.setData({
-            rssFeed: dataService.data.rssFeed,
+        if (olderVersion('2.5.0', oldVersion)) {
+          if (angular.isDefined(dataService.data.rssFeed) && angular.isArray(dataService.data.rssFeed)) {
+            dataService.data.rssFeed = {
+              feeds: dataService.data.rssFeed,
+            };
+            promise = promise.then(function() {
+              return dataService.setData({
+                rssFeed: dataService.data.rssFeed,
+              });
+            });
+          }
+        }
+        if (olderVersion('2.7.0', oldVersion)) {
+          promise = promise.then(function() {
+            return SyncStorageUpgrade();
           });
         }
 
-        return $q.all(promises);
+        return promise;
       });
 
     }
@@ -72,7 +85,41 @@
         }
       }
     }
-  }
+    // v2.6.0
+    function SyncStorageUpgrade() {
+      return dataService.getStorageData()
+        .then(function(data) {
+          var localStorage = {};
+          var keys = [];
+          var k = 0;
+          angular.forEach(data, function(value, key) {
+            if (angular.isDefined(value.title) && angular.isUndefined(localStorage[key])) {
+              localStorage[key] = true;
+              keys[k++] = key;
+            }
+          });
+          if (k > 0) {
+            return storageService.setData({
+                localStorage: localStorage,
+              }, 'local')
+              .then(function() {
+                return storageService.getData('local', keys);
+              })
+              .then(function(newData) {
+                return dataService.runOnChangeData(newData, 'local');
+              });
+          } else {
+            return 1;
+          }
+        })
+        .then(function(){
+          
+        })
+        .then(function(){
+          
+        });
 
+    }
+  }
 
 })();

@@ -14,6 +14,7 @@ angular
       s.setOnChangeData = setOnChangeData;
       s.getStorageData = getStorageData;
       s.setStorage = setStorage;
+      s.runOnChangeData = runOnChangeData;
       s.data = {
         dataChangeCB: {},
         layout: [],
