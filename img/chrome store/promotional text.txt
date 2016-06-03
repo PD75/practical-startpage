@@ -48,3 +48,14 @@ Practical Startpage är enkel men kraftfull, och ger snabb åtkomst till webläs
 - Snabblänkar till bokmärkes mappar
 - Besökta sidor, appar etc. från chrome
 - RSS flöde för t.ex. nyheter
+
+### Türk - tr
+
+Practical Startpage, yer imleri, sık kullanılanlar, tarihçe gibi verilerinize kolayca ve hızlı bir şekilde ulaşmanızı sağlar.
+- Duyarlı ve basit tasarımı: tüm ekran çözünürlükleri ve ayarlarıyla uyumludur
+- Ayarlanabilir ve kişiselleştirilebilir ara yüz
+- Açık Kaynak kodu, kendi Widget'larınızı geliştirmenizi mümkün kılar (Github)
+- Yer imleri ağaç görünümüyle ve metin arama fonksiyonuyla sunulur
+- Hızlı Bağlantılar özelliği sayesinde yer imlerinize kolayca ulaşabilirsiniz
+- Chome App'leriniz ve tarihçenize kolay erişim
+- Haberlere vs için RSS beslemelerine hızlı erişim

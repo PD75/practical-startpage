@@ -14,6 +14,9 @@
   "Close": {
     "message": "Kapat"
   },
+  "CopyData": {
+    "message": "Verileri kopyala"
+  },
   "days": {
     "message": "Günler"
   },
@@ -47,6 +50,12 @@
   "NewFolder": {
     "message": "Yeni klasör"
   },
+  "OpenAllLinks": {
+    "message": "Tüm bağlantıları aç"
+  },
+  "OpenInNewTab": {
+    "message": "Yeni sekmede aç"
+  },
   "Options": {
     "message": "Seçenekler"
   },
@@ -70,6 +79,9 @@
   },
   "Url": {
     "message": "URL"
+  },
+  "UseForQuickLinks": {
+    "message": "Hızlı Bağlantılar için kullan"
   },
   "WhatsNew": {
     "message": "Yeni neler var"
@@ -170,6 +182,24 @@
   "c_o_clearSettings": {
     "message": "Ayarları temizle"
   },
+  "c_o_localStorage": {
+    "message": "Yerel kayıt"
+  },
+  "c_o_SwitchStorage": {
+    "message": "Veri saklama ayarlarını değiştir"
+  },
+  "c_o_syncStorage": {
+    "message": "Verileri senkronize et"
+  },
+  "c_o_hasData": {
+    "message": "Veri mevcut"
+  },
+  "c_o_noData": {
+    "message": "Kayıtlı ayarlarınız yok"
+  },
+  "c_o_moreStorageSettings": {
+    "message": "Tüm verileri senkronize edebilmek için düzenleme menüsünden ek ayarlar yapmanız gerekiyor"
+  },
   "c_o_cleared": {
     "message": "Temizlendi !!!"
   },
@@ -266,6 +296,12 @@
   "w_rssFeed_addFeed": {
     "message": "Besleme ekle"
   },
+  "w_rssFeed_hideVisited": {
+    "message": "Ziyaret edilen sayfaları gizle"
+  },
+  "w_rssFeed_allowDelete": {
+    "message": "Silme işlemini onayla"
+  },
   "w_rssFeed_manageFeeds": {
     "message": "Beslemeleri yönet"
   },
@@ -280,6 +316,21 @@
   },
   "w_rssFeed_err_title": {
     "message": "Besleme Yüklenemedi"
+  },
+  "w_rssFeed_CreateSyncFolder": {
+    "message": "Senkronizasyon Klasörü Oluştur"
+  },
+  "w_rssFeed_RemoveSyncFolder": {
+    "message": "Senkronizasyon Klasörünü Kaldır"
+  },
+  "w_rssFeed_MoveSyncFolder": {
+    "message": "Senkronizasyon Klasörünü Taşı"
+  },
+  "w_rssFeed_SyncroniseDeletedItems": {
+    "message": "Silinmiş öğeleri sekronize et"
+  },
+  "w_rssFeed_largeData": {
+    "message": "Veri miktarı Chrome'un senkronizasyon depolaması için çok yüksek. Bu nedenle silinmiş öğeleri saklamak için bir yer imleri klasörü oluşturuldu. Bu klasör Practical Startpage yer imi editöründe gösterilmeyecektir"
   },
   "w_topSites": {
     "message": "Favori Sayfalar"
