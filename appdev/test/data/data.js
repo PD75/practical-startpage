@@ -84,6 +84,9 @@
   }
 
   function testDataDirective(testDataService) {
+    // chrome.storage.local.clear();
+    // chrome.storage.sync.clear();
+
     testDataService.printToConsole(false);
     testDataService.checkStorageData();
     return {};

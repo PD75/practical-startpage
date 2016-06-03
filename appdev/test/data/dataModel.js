@@ -21,6 +21,7 @@
         }],
         localStorage: {
           badgeLayout: "boolean",
+          history: "boolean",
           layout: "boolean",
           localStorage: "boolean",
           quicklinks: "boolean",

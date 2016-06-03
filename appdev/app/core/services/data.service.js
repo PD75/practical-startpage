@@ -289,6 +289,7 @@ angular
         return {
           localStorage: true,
           version: true,
+          installDate: false,
         };
       }
     });
