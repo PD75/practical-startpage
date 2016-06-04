@@ -20,8 +20,10 @@
           title: "string",
         }],
         localStorage: {
+          activeTabs: "boolean",
           badgeLayout: "boolean",
           history: "boolean",
+          installDate: "boolean",
           layout: "boolean",
           localStorage: "boolean",
           quicklinks: "boolean",
@@ -49,7 +51,6 @@
         version: "string",
       },
       sync: {
-        activeTabs: ["string"],
         badgeLayout: ["string"],
         history: {
           days: "number",
@@ -181,7 +182,7 @@
           "tabs": ["history", "chromeApps"],
           "title": "Right column",
         }],
-        "quicklinks":["396"],
+        "quicklinks": ["396"],
         "rssFeed": {
           "allowDelete": true,
           "deletedItems": [{

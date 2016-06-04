@@ -74,7 +74,7 @@
 
     function olderVersion(newVersion, oldVersion) {
       if (angular.isUndefined(oldVersion)) {
-        return true;
+        return false;
       } else {
         var nv = newVersion.split('.');
         var ov = oldVersion.split('.');
@@ -89,34 +89,30 @@
     function SyncStorageUpgrade() {
       return dataService.getStorageData()
         .then(function(data) {
-          var localStorage = {};
-          var keys = [];
-          var k = 0;
+          var localStorage = dataService.data.localStorage;
+          var keys = ['installDate'];
+          var k = 1;
+          var installDate = data.installDate.local;
           angular.forEach(data, function(value, key) {
             if (angular.isDefined(value.title) && angular.isUndefined(localStorage[key])) {
               localStorage[key] = true;
               keys[k++] = key;
             }
           });
-          if (k > 0) {
-            return storageService.setData({
-                localStorage: localStorage,
-              }, 'local')
-              .then(function() {
-                return storageService.getData('local', keys);
-              })
-              .then(function(newData) {
-                return dataService.runOnChangeData(newData, 'local');
-              });
-          } else {
-            return 1;
-          }
+
+          var promises = [];
+          promises[0] = storageService.setData({
+            localStorage: localStorage,
+          }, 'local');
+          promises[1] = storageService.setData({
+            installDate: installDate,
+          }, 'sync');
+          promises[2] = storageService.clearData(['installDate'], 'local');
+
+          return $q.all(promises);
         })
-        .then(function(){
-          
-        })
-        .then(function(){
-          
+        .then(function() {
+          return dataService.getData();
         });
 
     }

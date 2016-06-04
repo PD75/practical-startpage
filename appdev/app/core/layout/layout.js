@@ -20,7 +20,9 @@
     function activate() {
       dataService.getData()
         .then(function() {
-          checkVersion();
+          return checkVersion();
+        })
+        .then(function() {
           getStyles();
           getLayout();
           setTabClasses();
@@ -41,7 +43,6 @@
           });
         });
     }
-
 
     function activateEditor(colIndex) {
       var label = vm.activeTabs[colIndex];
@@ -82,7 +83,6 @@
           layoutService.runOnTabClick(tab.label);
         });
     }
-
 
     function setTabClasses() {
       var c = 0;
@@ -181,14 +181,22 @@
     function checkVersion() {
       versionService.linkUninstallSurvey();
       var manifest = dataService.getManifest();
-      if (dataService.data.version !== manifest.version) {
-        versionService.checkVersion(manifest.version, dataService.data.version)
-          .then(function() {
-            vm.modalTitle = i18n.get("WhatsNew");
-            vm.modalUrl = 'app/core/bottomMenu/whatsNew.html';
-            vm.modalData = {};
-            vm.showModal = true;
-          });
+      if (dataService.data.version === manifest.version) {
+        return true;
+      } else {
+        if (angular.isDefined(dataService.data.version)) {
+          vm.modalTitle = i18n.get("WhatsNew");
+          vm.modalUrl = 'app/core/bottomMenu/whatsNew.html';
+          vm.modalData = {};
+          vm.showModal = true;
+          return versionService.checkVersion(manifest.version, dataService.data.version);
+        } else {
+          vm.modalTitle = i18n.get("Help");
+          vm.modalUrl = 'app/core/bottomMenu/help.html';
+          vm.modalData = {};
+          vm.showModal = true;
+          return true;
+        }
       }
     }
   }

@@ -291,6 +291,7 @@ angular
           localStorage: true,
           version: true,
           installDate: false,
+          activeTabs: true,
         };
       }
     });

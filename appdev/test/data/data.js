@@ -7,11 +7,12 @@
     .service('testDataService', testDataService)
     .directive('testData', testDataDirective);
 
-  function testDataService($q, $log, $timeout, dataModelConst,testDataPrevious) {
+  function testDataService($q, $log, $timeout, dataModelConst, testDataPrevious) {
     var s = this;
     s.printToConsole = printToConsole;
     s.checkStorageData = checkStorageData;
     s.loadPreviousData = loadPreviousData;
+    s.clearStorage = clearStorage;
 
     function printToConsole(asString) {
       getStorage('local')
@@ -100,18 +101,24 @@
           .then(function() {
             var data = testDataPrevious.local;
             return $q(function(resolve) {
-              chrome.storage.local.set(data,function() {
+              chrome.storage.local.set(data, function() {
                 resolve();
               });
             });
           });
       }, 3000);
     }
+
+    function clearStorage() {
+      $timeout(function() {
+        chrome.storage.local.clear();
+        chrome.storage.sync.clear();
+      }, 3000);
+    }
   }
 
   function testDataDirective(testDataService) {
-    // chrome.storage.local.clear();
-    // chrome.storage.sync.clear();
+    // testDataService.clearStorage();
     // testDataService.loadPreviousData();
     testDataService.printToConsole(false);
     testDataService.checkStorageData();
