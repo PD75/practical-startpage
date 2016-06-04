@@ -24,7 +24,7 @@
     "message": "Bearbeiten"
   },
   "EditUrl": {
-    "message": "Bearbeiten URL"
+    "message": "URL bearbeiten"
   },
   "entries": {
     "message": "Einträge"
@@ -39,7 +39,7 @@
     "message": "Hilfe"
   },
   "LoadDefault": {
-    "message": "Default laden"
+    "message": "Standard wiederherstellen"
   },
   "Links": {
     "message": "Links"
@@ -99,10 +99,10 @@
     "message": "Strg + Umschalt + Z"
   },
   "c_ps_slogan": {
-    "message": "Flexible Startseite, die Ihre Daten in einer einzigen Ansicht verfügbar macht."
+    "message": "Anpassbare Startseite, die Ihre Daten in einer einzigen Ansicht verfügbar macht."
   },
   "c_about_libraries": {
-    "message": "Bibliotheken verwendet"
+    "message": "Verwendete Bibliotheken"
   },
   "c_about_title_0": {
     "message": "Praktische Startseite in Chrome Web Store"
@@ -114,46 +114,46 @@
     "message": "Sagen Sie es weiter mit einer E-Mail an einen Freund"
   },
   "c_about_text_1": {
-    "message": "Klicken Sie hier, um eine E-Mail an einen Freund zu erzeugen."
+    "message": "Klicken Sie hier, um eine E-Mail an einen Freund zu senden."
   },
   "c_about_title_2": {
     "message": "Bugs, Ideen oder selbst was hinterlegen auf GitHub"
   },
   "c_about_text_2": {
-    "message": "Wenn Sie eine Idee für ein Widget haben, die Sie entwickeln möchten, ist der Code auf GitHub. Hier können Sie auch Fehler und Probleme angeben."
+    "message": "Wenn Sie eine Idee für ein Widget haben oder eines entwickeln möchten, steht der Quelltext auf GitHub bereit. Hier können auch Fehler und Probleme eingereicht werden."
   },
   "c_about_title_3": {
     "message": "Bugs, Ideen oder Fragen in Google Groups"
   },
   "c_about_text_3": {
-    "message": "Verwenden Sie Google Groups um Fragen zu stellen, und Ideen und Bugs einzureichen."
+    "message": "Verwenden Sie Google Groups um Fragen zu stellen sowie Ideen und Bugs einzureichen."
   },
   "c_about_title_4": {
-    "message": "Überprüfen Sie den Fortschritt der Entwicklung"
+    "message": "Beobachten Sie den Fortschritt der Entwicklung"
   },
   "c_about_text_4": {
     "message": "Auf der Waffel Bord"
   },
   "c_bottomMenu": {
-    "message": "Bottom Menu"
+    "message": "Unteres Menü"
   },
   "c_help_title_0": {
     "message": "Konfigurierbare Datenlisten"
   },
   "c_help_text_0": {
-    "message": "Sie können die Widgets durch das Optionsmenü beliebig platzieren"
+    "message": "Widgets können über das Optionsmenü beliebig platziert werden."
   },
   "c_help_title_1": {
     "message": "Sich anpassendes Design"
   },
   "c_help_text_1": {
-    "message": "Die Spalten und Inhalte passen sich aller Bildschirmbreiten an "
+    "message": "Die Spalten und Inhalte passen sich aller Bildschirmbreiten an"
   },
   "c_help_title_2": {
     "message": "Inhalt"
   },
   "c_help_text_2": {
-    "message": "Die Seite besteht aus drei Spalten, aber für kleinere Bildschirme fügt sich die rechte Spalte mit der mittleren Spalte zusammen damit der Inhalt verwendbar bleibt."
+    "message": "Die Seite besteht aus drei Spalten. Auf kleineren Bildschirmen werden die zweite und dritte Spalte zusammengefügt um den Inhalt besser verwendbar zu machen."
   },
   "c_o_editLayout": {
     "message": "Layout bearbeiten"
@@ -165,7 +165,7 @@
     "message": "Einstellungen löschen"
   },
   "c_o_cleared": {
-    "message": "Gelöscht !!!"
+    "message": "Gelöscht!!!"
   },
   "c_o_version": {
     "message": "Versionprüfung"
@@ -189,7 +189,7 @@
     "message": "rechte Spalte"
   },
   "c_auth_title": {
-    "message": "Zugriffsrecht auf $url$ erforderlich, klicken Sie hier um zu genehmigen !!!",
+    "message": "Zugriffsrecht auf $url$ erforderlich, klicken Sie hier um zu genehmigen!!!",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -198,7 +198,7 @@
     }
   },
   "b_gmail_connection": {
-    "message": "Die Daten konnten nicht geholt werden, überprüfen Sie bitte die Netzwerkverbindung, und stellen Sie sicher, dass Sie auf Google Mail eingelogged sind!"
+    "message": "Die Daten konnten nicht geholt werden, überprüfen Sie bitte die Netzwerkverbindung, und stellen Sie sicher, dass Sie bei Google Mail eingelogged sind!"
   },
   "b_gmail_noUnRead": {
     "message": "(Keine ungelesenen Mails!)"
@@ -225,22 +225,22 @@
     "message": "Apps"
   },
   "w_chromeApps_help": {
-    "message": "Eine Liste von Chrom-Anwendungen derzeit im Browser installiert <br /> <b>. Hinweis: </b> nur Anwendungen mit einer Seite sind aufgelistet."
+    "message": "Eine Liste von Chrom-Anwendungen welche im Browser installiert sind.<br /> <b>. Hinweis: </b>nur Anwendungen welche aus einer Seite bestehen werden aufgelistet."
   },
   "w_closedTabs": {
     "message": "Abgeschlossen"
   },
   "w_closedTabs_help": {
-    "message": "Kürzlich geschlossene Tabs <br /> <b> Hinweis </b>:. Liste wird jedes Mal von Chrome gelöscht, wenn der Browser geschlossen wird."
+    "message": "Kürzlich geschlossene Tabs <br /> <b> Hinweis </b>:. Liste wird nach einem Neustart vom Browser gelöscht."
   },
   "w_history": {
-    "message": "Geschichte"
+    "message": "Verlauf"
   },
   "w_history_help": {
     "message": "Besuchte Seiten."
   },
   "w_history_edit_title": {
-    "message": "Geschichte Bearbeiten "
+    "message": "Verlauf bearbeiten "
   },
   "w_quicklinks": {
     "message": "Quicklinks"
@@ -252,7 +252,7 @@
     "message": "RSS"
   },
   "w_rssFeed_help": {
-    "message": "Sie entscheiden welche Feeds Sie zeigen, z.B. Nachrichten"
+    "message": "Sie entscheiden welche Feeds Sie angezeigt bekommen möchten, z.B. Nachrichten"
   },
   "w_rssFeed_edit_title": {
     "message": "RSS Bearbeiten"
