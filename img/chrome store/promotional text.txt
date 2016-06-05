@@ -1,4 +1,4 @@
-### english - en
+### English - en
 
 Practical Startpage is a simple yet powerful, allowing easy access to browser data, such as bookmarks and history.
 (For details on permissions that are needed, visit homepage)
@@ -49,7 +49,7 @@ Practical Startpage är enkel men kraftfull, och ger snabb åtkomst till webläs
 - Besökta sidor, appar etc. från chrome
 - RSS flöde för t.ex. nyheter
 
-### Türk - tr
+### Türkçe - tr
 
 Practical Startpage, yer imleri, sık kullanılanlar, tarihçe gibi verilerinize kolayca ve hızlı bir şekilde ulaşmanızı sağlar.
 - Duyarlı ve basit tasarımı: tüm ekran çözünürlükleri ve ayarlarıyla uyumludur
