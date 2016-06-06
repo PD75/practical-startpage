@@ -14,6 +14,9 @@
   "Close": {
     "message": "Close"
   },
+  "CopyData": {
+    "message": "Copy data"
+  },
   "days": {
     "message": "days"
   },
@@ -47,6 +50,12 @@
   "NewFolder": {
     "message": "New Folder"
   },
+  "OpenAllLinks": {
+    "message": "Open all links"
+  },
+  "OpenInNewTab": {
+    "message": "Open in new tab"
+  },
   "Options": {
     "message": "Options"
   },
@@ -70,6 +79,9 @@
   },
   "Url": {
     "message": "Url"
+  },
+  "UseForQuickLinks": {
+    "message": "Use for Quick Links"
   },
   "WhatsNew": {
     "message": "What's New"
@@ -101,7 +113,10 @@
   "c_ps_slogan": {
     "message": "Flexible start page that makes your data available in a single view."
   },
- "c_about_libraries": {
+  "c_about_languages": {
+    "message": "Languages"
+  },
+  "c_about_libraries": {
     "message": "Libraries Used"
   },
   "c_about_title_0": {
@@ -158,11 +173,32 @@
   "c_o_editLayout": {
     "message": "Edit Layout"
   },
-   "c_o_badgeLayout": {
+  "c_o_badgeLayout": {
     "message": "Badge Layout"
+  },
+  "c_o_chooseStorage": {
+    "message": "Choose Storage"
   },
   "c_o_clearSettings": {
     "message": "Clear Settings"
+  },
+  "c_o_localStorage": {
+    "message": "Local Storage"
+  },
+  "c_o_SwitchStorage": {
+    "message": "Switch Storage"
+  },
+  "c_o_syncStorage": {
+    "message": "Sync Storage"
+  },
+  "c_o_hasData": {
+    "message": "Has Data"
+  },
+  "c_o_noData": {
+    "message": "You have no stored settings."
+  },
+  "c_o_moreStorageSettings": {
+    "message": "There are additional settings required from the edit menu of this item to be able to sync all data."
   },
   "c_o_cleared": {
     "message": "Cleared!!!"
@@ -260,6 +296,15 @@
   "w_rssFeed_addFeed": {
     "message": "Add Feed"
   },
+  "w_rssFeed_hideVisited": {
+    "message": "Hide Visited"
+  },
+  "w_rssFeed_allowDelete": {
+    "message": "Allow Delete"
+  },
+  "w_rssFeed_manageFeeds": {
+    "message": "Manage Feeds"
+  },
   "w_rssFeed_settings": {
     "message": "Change Settings"
   },
@@ -271,6 +316,21 @@
   },
   "w_rssFeed_err_title": {
     "message": "Error Loading Feed:"
+  },
+  "w_rssFeed_CreateSyncFolder": {
+    "message": "Create Sync Folder"
+  },
+  "w_rssFeed_RemoveSyncFolder": {
+    "message": "Remove Sync Folder"
+  },
+  "w_rssFeed_MoveSyncFolder": {
+    "message": "Move Sync Folder"
+  },
+  "w_rssFeed_SyncroniseDeletedItems": {
+    "message": "Syncronise Deleted Items"
+  },
+  "w_rssFeed_largeData": {
+    "message": "The amount of data is too much for Chrome's sync storage, so a bookmarks folder is used to store the deleted Feed items.<br>The data will not show in the bookmark editor of Practical Startpage, but will show up in other bookmark tools"
   },
   "w_topSites": {
     "message": "Top Sites"

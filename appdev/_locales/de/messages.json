@@ -14,6 +14,9 @@
   "Close": {
     "message": "Schließen"
   },
+  "CopyData": {
+    "message": "Daten kopieren"
+  },
   "days": {
     "message": "Tage"
   },
@@ -47,6 +50,12 @@
   "NewFolder": {
     "message": "Neuer Ordner"
   },
+  "OpenAllLinks": {
+    "message": "Alle Links öffnen"
+  },
+  "OpenInNewTab": {
+    "message": "In neuer Registerkarte öffnen"
+  },
   "Options": {
     "message": "Optionen"
   },
@@ -70,6 +79,9 @@
   },
   "Url": {
     "message": "URL"
+  },
+  "UseForQuickLinks": {
+    "message": "Verwenden Sie Quick Links"
   },
   "WhatsNew": {
     "message": "Was gibt's Neues"
@@ -100,6 +112,9 @@
   },
   "c_ps_slogan": {
     "message": "Flexible Startseite, die Ihre Daten in einer einzigen Ansicht verfügbar macht."
+  },
+  "c_about_languages": {
+    "message": "Sprachen"
   },
   "c_about_libraries": {
     "message": "Bibliotheken verwendet"
@@ -161,8 +176,29 @@
   "c_o_badgeLayout": {
     "message": "Badge-Layout"
   },
+  "c_o_chooseStorage": {
+    "message": "Speicherplatz auswählen"
+  },
   "c_o_clearSettings": {
     "message": "Einstellungen löschen"
+  },
+  "c_o_localStorage": {
+    "message": "Lokal speichern"
+  },
+  "c_o_SwitchStorage": {
+    "message": "Speicherplatz umschalten"
+  },
+  "c_o_syncStorage": {
+    "message": "Speicher synchronisieren"
+  },
+  "c_o_hasData": {
+    "message": "Daten vorhanden"
+  },
+  "c_o_noData": {
+    "message": "Sie haben keine Einstellungen gespeichert."
+  },
+  "c_o_moreStorageSettings": {
+    "message": "Es werden noch weitere Einstellungen benötigt um Ihre Daten zu synchronisieren."
   },
   "c_o_cleared": {
     "message": "Gelöscht !!!"
@@ -260,6 +296,15 @@
   "w_rssFeed_addFeed": {
     "message": "Feed hinzufügen"
   },
+  "w_rssFeed_hideVisited": {
+    "message": "Besucher ausblenden"
+  },
+  "w_rssFeed_allowDelete": {
+    "message": "Löschen erlauben"
+  },
+  "w_rssFeed_manageFeeds": {
+    "message": "Feeds verwalten "
+  },
   "w_rssFeed_settings": {
     "message": "Einstellungen ändern"
   },
@@ -271,6 +316,21 @@
   },
   "w_rssFeed_err_title": {
     "message": "Fehler beim Laden von Feed:"
+  },
+  "w_rssFeed_CreateSyncFolder": {
+    "message": "Sync-Ordner erstellen "
+  },
+  "w_rssFeed_RemoveSyncFolder": {
+    "message": "Sync-Ordner fntfernen"
+  },
+  "w_rssFeed_MoveSyncFolder": {
+    "message": "Sync-Ordner verschieben"
+  },
+  "w_rssFeed_SyncroniseDeletedItems": {
+    "message": "Gelöschte Objekte synchronisieren"
+  },
+  "w_rssFeed_largeData": {
+    "message": "Die Datenmenge ist zu groß für Google Chrome Sync Storage. Darum werden die gelöschten Einträge in einem Favoritenordner gespeichert<br>Während Practical Startpage diese Einträge nicht anzeigt können sie von anderen Lesezeichen Verwaltungs Tools angezeigt werden."
   },
   "w_topSites": {
     "message": "Top-Webseiten"

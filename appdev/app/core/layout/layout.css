@@ -36,7 +36,7 @@ body {
 
 /*Modal*/
 
-.ui.modal > .close {
+.ui.modal> .close {
   top: .905rem;
   right: 1rem;
   color: rgba(0, 0, 0, 0.8);
@@ -140,12 +140,27 @@ div.browser {
   vertical-align: text-bottom;
 }
 
-.linkedin.label > .linkedin.square.icon {
+.linkedin.label> .linkedin.square.icon {
   color: #287bbc;
   margin: 0;
 }
 
-.linkedin.label > span {
+.linkedin.label> span {
+  position: relative;
+  top: 2px;
+}
+
+.xing.label {
+  border-color: #006567;
+  vertical-align: text-bottom;
+}
+
+.xing.label> .xing.square.icon {
+  color: #006567;
+  margin: 0;
+}
+
+.xing.label> span {
   position: relative;
   top: 2px;
 }
