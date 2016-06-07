@@ -3,7 +3,7 @@
   /*eslint camelcase: 0*/
   angular.module('chrome').factory('bookmarkService', bookmarkService);
 
-  function bookmarkService($q) {
+  function bookmarkService($q, dataService) {
 
     return {
       getBookmarksTree: getBookmarksTree,
@@ -11,13 +11,37 @@
       moveBookmark: moveBookmark,
       createBookmark: createBookmark,
       removeBookmarkTree: removeBookmarkTree,
+      searchBookmarks: searchBookmarks,
+      getSubTree: getSubTree,
     };
 
-    function getBookmarksTree() {
-      return getBookmarks()
-        .then(function(bookmarkTreeNodes) {
-          return mapTreeNodes(bookmarkTreeNodes[0].children, 1);
-        });
+    function searchBookmarks(searchObject) {
+      var deferred = $q.defer();
+      chrome.bookmarks.search(searchObject, function(response) {
+        deferred.resolve(response);
+      });
+      return deferred.promise;
+    }
+
+    function getBookmarksTree(treeType) {
+      var deferred = $q.defer();
+      chrome.bookmarks.getTree(function(bookmarkTreeNodes) {
+        var ignoreFolders;
+        var rssFeed = dataService.data.rssFeed;
+        if (treeType !== 'rssDeleteSync' && angular.isDefined(rssFeed) && angular.isDefined(rssFeed.sync) && angular.isDefined(rssFeed.sync.delItemsFolder)) {
+          ignoreFolders = rssFeed.sync.delItemsFolder;
+        }
+        deferred.resolve(mapTreeNodes(bookmarkTreeNodes[0].children, 1, treeType, ignoreFolders));
+      });
+      return deferred.promise;
+    }
+
+    function getSubTree(folderId) {
+      var deferred = $q.defer();
+      chrome.bookmarks.getSubTree(folderId, function(response) {
+        deferred.resolve(response);
+      });
+      return deferred.promise;
     }
 
     function updateBookmark(bookmark) {
@@ -35,10 +59,12 @@
       var deferred = $q.defer();
       var node = {};
       node.parentId = bookmark.parentId;
-      if (bookmark.oldParentId === bookmark.parentId && bookmark.index > bookmark.oldIndex) {
-        node.index = bookmark.index + 1; //Chrome needs higher index for insert then jstree
-      } else {
-        node.index = bookmark.index;
+      if (angular.isDefined(bookmark.index)) {
+        if (bookmark.oldParentId === bookmark.parentId && bookmark.index > bookmark.oldIndex) {
+          node.index = bookmark.index + 1; //Chrome needs higher index for insert then jstree
+        } else {
+          node.index = bookmark.index;
+        }
       }
       chrome.bookmarks.move(bookmark.id, node, function(response) {
         deferred.resolve(response);
@@ -69,36 +95,38 @@
     }
 
     //Internal Functions
-    function getBookmarks() {
-      var deferred = $q.defer();
-      chrome.bookmarks.getTree(function(response) {
-        deferred.resolve(response);
-      });
-      return deferred.promise;
-    }
-
-    function mapTreeNodes(bookmarkNodes, level) {
+    function mapTreeNodes(bookmarkNodes, level, treeType, ignoreFolders) {
       var jsTreeNodes = [];
+      var j = 0;
       for (var i = 0; i < bookmarkNodes.length; i++) {
-        jsTreeNodes[i] = {};
-        jsTreeNodes[i].id = bookmarkNodes[i].id;
-        jsTreeNodes[i].text = bookmarkNodes[i].title;
-        if (bookmarkNodes[i].children) {
-          jsTreeNodes[i].children = mapTreeNodes(bookmarkNodes[i].children, level + 1);
-          jsTreeNodes[i].icon = 'folder icon';
-          if (level > 1) {
-            jsTreeNodes[i].type = 'folder';
-          } else {
-            jsTreeNodes[i].type = 'root';
+        if ((treeType === 'rssDeleteSync' || ignoreFolders !== bookmarkNodes[i].id)) {
+          if (bookmarkNodes[i].children) {
+            jsTreeNodes[j] = {
+              id: bookmarkNodes[i].id,
+              text: bookmarkNodes[i].title,
+              children: mapTreeNodes(bookmarkNodes[i].children, level + 1, treeType, ignoreFolders),
+            };
+            if (level > 1) {
+              jsTreeNodes[j].type = 'folder';
+              jsTreeNodes[j].icon = 'folder icon';
+            } else {
+              jsTreeNodes[j].type = 'root';
+              jsTreeNodes[j].icon = 'folder outline icon';
+            }
+            j++;
+          } else if (treeType !== 'rssDeleteSync') {
+            jsTreeNodes[j] = {
+              id: bookmarkNodes[i].id,
+              text: bookmarkNodes[i].title,
+              icon: 'chrome://favicon/' + bookmarkNodes[i].url,
+              a_attr: {
+                'href': bookmarkNodes[i].url,
+              },
+              type: 'link',
+            };
+            j++;
           }
-        } else {
-          jsTreeNodes[i].icon = 'chrome://favicon/' + bookmarkNodes[i].url;
-          jsTreeNodes[i].a_attr = {
-            'href': bookmarkNodes[i].url,
-          };
-          jsTreeNodes[i].type = 'link';
         }
-        //
       }
       return jsTreeNodes;
     }

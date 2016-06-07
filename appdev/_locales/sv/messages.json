@@ -14,6 +14,9 @@
   "Close": {
     "message": "Stäng"
   },
+  "CopyData": {
+    "message": "Kopiera Data"
+  },
   "days": {
     "message": "dagar"
   },
@@ -47,6 +50,12 @@
   "NewFolder": {
     "message": "Ny mapp"
   },
+  "OpenAllLinks": {
+    "message": "Öppna alla länkar"
+  },
+  "OpenInNewTab": {
+    "message": "Öppna i ny tab"
+  },
   "Options": {
     "message": "Alternativ"
   },
@@ -70,6 +79,9 @@
   },
   "Url": {
     "message": "Länk"
+  },
+  "UseForQuickLinks": {
+    "message": "Använd för snabblänkar"
   },
   "WhatsNew": {
     "message": "Nyheter"
@@ -161,11 +173,32 @@
   "c_o_editLayout": {
     "message": "Redigera layouten"
   },
-   "c_o_badgeLayout": {
+  "c_o_badgeLayout": {
     "message": "Emblem layout"
+  },
+  "c_o_chooseStorage": {
+    "message": "Välj Lagring"
   },
   "c_o_clearSettings": {
     "message": "Rensa inställningar"
+  },
+  "c_o_localStorage": {
+    "message": "Local Lagring"
+  },
+  "c_o_SwitchStorage": {
+    "message": "Byta lagring"
+  },
+  "c_o_syncStorage": {
+    "message": "Synkad lagring"
+  },
+  "c_o_hasData": {
+    "message": "Har data"
+  },
+  "c_o_noData": {
+    "message": "Du har inga sparade inställningar."
+  },
+  "c_o_moreStorageSettings": {
+    "message": "Det finns ytterliggare inställningar från objektets redigeringsmenu för at data synkroniseringsen ska fungera helt."
   },
   "c_o_cleared": {
     "message": "Rensat!!!"
@@ -263,6 +296,15 @@
   "w_rssFeed_addFeed": {
     "message": "Lägg till flöde"
   },
+  "w_rssFeed_hideVisited": {
+    "message": "Göm besökta"
+  },
+  "w_rssFeed_allowDelete": {
+    "message": "Tillåt readering"
+  },
+  "w_rssFeed_manageFeeds": {
+    "message": "Hantera Flöden"
+  },
   "w_rssFeed_settings": {
     "message": "Ändra Inställningar"
   },
@@ -274,6 +316,21 @@
   },
   "w_rssFeed_err_title": {
     "message": "Error vid laddning av RSS flöde"
+  },
+  "w_rssFeed_CreateSyncFolder": {
+    "message": "Skapa synk-katalog"
+  },
+  "w_rssFeed_RemoveSyncFolder": {
+    "message": "Ta bord synk-katalog"
+  },
+  "w_rssFeed_MoveSyncFolder": {
+    "message": "Flytta sync katalogen"
+  },
+  "w_rssFeed_SyncroniseDeletedItems": {
+    "message": "Synkronisera raderade artiklar"
+  },
+  "w_rssFeed_largeData": {
+    "message": "The amount of data is too much for Chrome's sync storage, so a bookmarks folder is used to store the deleted Feed items.<br>The data will not show in the bookmark editor of Practical Startpage, but will show up in other bookmark tools"
   },
   "w_topSites": {
     "message": "Top Sidor"

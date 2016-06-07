@@ -1,35 +1,45 @@
 <div class="ui grid">
   <div class="row">
-    <div class="six wide column">
-      <div class="ui list">
-        <div class="item">
-          <div class="ui master checkbox">
-            <input type="checkbox" ng-model="vm.allSelected" ng-click="vm.allselectedCB()">
-            <label>
-              {{vm.locale("SelectAll")}}
-            </label>
-          </div>
-          <div class="list">
-
-            <div class="item" ng-repeat="object in vm.data  | orderBy: 'order'">
-              <div class="ui child checkbox">
-                <input type="checkbox" ng-model="object.selected" ng-click="vm.checkboxCB()">
-                <label>
-                  {{object.title}}
-                </label>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
+    <div class="eleven wide column">
+      <table class="ui very basic unstackable compact table">
+        <thead>
+          <tr>
+            <th class="center aligned" ps-i18n="c_o_localStorage"></th>
+            <th class="center aligned" ps-i18n="c_o_SwitchStorage"></th>
+            <th ps-i18n="Settings"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="object in vm.data">
+            <td class="center aligned">
+              <input type="checkbox" ng-model="object.local.selected" ng-click="vm.checkboxCB('local')" ng-if="object.local.exist">
+            </td>
+            <td class="center aligned">
+              <input type="checkbox" ng-model="object.sync.selected" ng-click="vm.checkboxCB('sync')" ng-if="object.sync.exist">
+            </td>
+            <td ng-bind="object.title"></td>
+          </tr>
+          <tr ng-if="vm.data.length === 0">
+            <td colspan="3" ps-i18n="c_o_noData"></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="active">
+            <th class="center aligned">
+              <input type="checkbox" ng-model="vm.local.allSelected" ng-click="vm.allselectedCB('local')" ng-if="vm.local.exist">
+            </th>
+            <th class="center aligned">
+              <input type="checkbox" ng-model="vm.sync.allSelected" ng-click="vm.allselectedCB('sync')" ng-if="vm.sync.exist">
+            </th>
+            <th ps-i18n="SelectAll"> </th>
+          </tr>
+        </tfoot>
+      </table>
     </div>
-    <div class="ten wide column">
-      <button class="ui  button" ng-click="vm.clearData()" ng-class="[vm.primaryCol,{disabled:vm.buttonDisabled}]">
-        {{vm.locale("c_o_clearSettings")}}
+    <div class="five wide column">
+      <button class="ui  button" ng-click="vm.clearData()" ng-class="[vm.primaryCol,{disabled:(vm.local.buttonDisabled && vm.sync.buttonDisabled)}]" ps-i18n="c_o_clearSettings">
       </button>
-      {{vm.dataCleared}}
+      <span ps-i18n="{{vm.dataCleared}}"></span>
     </div>
   </div>
 </div>

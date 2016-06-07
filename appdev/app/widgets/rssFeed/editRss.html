@@ -1,0 +1,25 @@
+<div class="ui top attached tabular menu" ng-class="vm.primaryCol">
+
+  <a class="item" ng-class="{'active' : vm.tab === 'rssFeed'}" ng-click="vm.tabClick('rssFeed')" ps-i18n="w_rssFeed_manageFeeds">
+  </a>
+
+  <a class="item" ng-class="{'active' : vm.tab === 'rssSyncDeleted'}" ng-click="vm.tabClick('rssSyncDeleted')" ng-if="vm.data.allowDelete" ps-i18n="w_rssFeed_SyncroniseDeletedItems">
+  </a>
+
+  <a class="item" ng-class="{'active' : vm.tab === 'deletedItems'}" ng-click="vm.tabClick('deletedItems')" ng-if="vm.data.allowDelete" ps-i18n="w_rssFeed_restoreDeleted">
+  </a>
+
+</div>
+
+<div class="ui bottom attached segment">
+
+  <div class="ui tab" ng-class="{'active' : vm.tab === 'rssFeed'}" ng-include="vm.manageFeedForm">
+  </div>
+
+  <div class="ui tab" ng-class="{'active' : vm.tab === 'rssSyncDeleted'}">
+    <ps-edit-rss-sync ps-instance="vm.modalInstance"></ps-edit-rss-sync>
+  </div>
+
+  <div class="ui tab" ng-class="{'active' : vm.tab === 'deletedItems'}" ng-include="vm.feedTemplate">
+  </div>
+</div>

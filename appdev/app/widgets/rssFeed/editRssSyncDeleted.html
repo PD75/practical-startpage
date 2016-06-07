@@ -1,0 +1,45 @@
+<div class="ui two column grid">
+  <div class="stretched row">
+    <div class="column">
+      <div class="ui segment">
+
+        <form name="feedForm" class="ui form" novalidate>
+
+          <div class="field">
+            <div class="ui button" ng-click="vm.createSync()" ps-i18n="w_rssFeed_CreateSyncFolder">
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui right aligned button" ng-click="vm.removeSync()" ps-i18n="w_rssFeed_RemoveSyncFolder">
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui right aligned button" ng-click="vm.moveSync()" ps-i18n="w_rssFeed_MoveSyncFolder">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui toggle checkbox">
+              <input type="checkbox" ng-model="vm.data.sync.delItemsSync" ng-click="vm.syncDeleted()" />
+              <label ps-i18n="w_rssFeed_SyncroniseDeletedItems"></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <button class="ui button" ng-click="vm.closeForm()">
+              <i class="remove icon"></i>
+              <span ps-i18n="Close"></span>
+            </button>
+          </div>
+        </form>
+        <div class="ui message" ps-i18n="w_rssFeed_largeData">
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui segment">
+        <div js-tree="vm.treeConfig" ng-model="vm.treeData" tree="vm.treeInstance" tree-events-obj="vm.treeEvents"></div>
+      </div>
+    </div>
+  </div>
+</div>

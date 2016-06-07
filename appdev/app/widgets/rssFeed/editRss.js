@@ -2,10 +2,10 @@
   "use strict";
 
   angular.module('ps.widgets')
-    .controller('EditRssFeedCtrl', EditRssFeedCtrl)
-    .directive('psEditRssFeed', EditRssFeedDirective);
+    .controller('EditRssCtrl', EditRssCtrl)
+    .directive('psEditRss', EditRssDirective);
 
-  function EditRssFeedCtrl($sce, $timeout, rssFeedService, dataService, permissionService, i18n) {
+  function EditRssCtrl($sce, $timeout, rssFeedService, dataService, permissionService) {
     var vm = this;
     vm.checkFeedUrl = checkFeedUrl;
     vm.addFeed = addFeed;
@@ -14,7 +14,6 @@
     vm.typeUrl = typeUrl;
     vm.closeForm = closeForm;
     vm.authorizePermissions = authorizePermissions;
-    vm.locale = locale;
     vm.save = save;
     vm.tabClick = tabClick;
     vm.deleteItem = restoreDeleted;
@@ -22,9 +21,10 @@
     activate();
 
     function activate() {
-      vm.tab = 'rssSettings';
+      vm.tab = 'rssFeed';
       vm.feedTemplate = 'app/widgets/rssFeed/rssFeed.html';
-      vm.feedForm = 'app/widgets/rssFeed/editRssFeedForm.html';
+      vm.settingsForm = 'app/widgets/rssFeed/editRssSyncDeleted.html';
+      vm.manageFeedForm = 'app/widgets/rssFeed/editRssManageFeeds.html';
       initiate();
     }
 
@@ -53,10 +53,10 @@
       vm.tab = tab;
       if (tab === 'deletedItems') {
         vm.rss = rssFeedService.deletedFeed
-            .sort(function(a, b) {
-              return b.timeStamp - a.timeStamp;
-            })
-            .slice(0, 100);//Limit to avoid Performance problems in DOM
+          .sort(function(a, b) {
+            return b.timeStamp - a.timeStamp;
+          })
+          .slice(0, 100); //Limit to avoid Performance problems in DOM
         vm.allowDelete = vm.data.allowDelete;
       } else {
         vm.allowDelete = false;
@@ -76,7 +76,7 @@
             .sort(function(a, b) {
               return b.timeStamp - a.timeStamp;
             })
-            .slice(0, 100);//Limit to avoid Performance problems in DOM
+            .slice(0, 100); //Limit to avoid Performance problems in DOM
         });
     }
 
@@ -155,17 +155,13 @@
     function closeForm() {
       vm.modalInstance.modal('hide');
     }
-
-    function locale(text, placeholders) {
-      return $sce.trustAsHtml(i18n.get(text, placeholders));
-    }
   }
 
-  function EditRssFeedDirective() {
+  function EditRssDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/widgets/rssFeed/editRssFeed.html',
-      controller: 'EditRssFeedCtrl',
+      templateUrl: 'app/widgets/rssFeed/editRss.html',
+      controller: 'EditRssCtrl',
       controllerAs: 'vm',
       scope: {
         modalData: '=psData',

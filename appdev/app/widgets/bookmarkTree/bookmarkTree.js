@@ -8,8 +8,6 @@
 
   function bookmarkTreeCtrl($window, bookmarkTreeService, layoutService) {
     var vm = this;
-    vm.getTreeData = getTreeData;
-    vm.getTreeConfig = getTreeConfig;
     vm.searchTree = searchTree;
     vm.resetSearch = resetSearch;
 
@@ -19,8 +17,8 @@
     vm.treeEvents = {
       "ready": readyCB,
       "activate_node": activateNodeCB,
-      "open_node": openNodeCB,
-      "close_node": closeNodeCB,
+      "open_node": bookmarkTreeService.openNodeCB,
+      "close_node": bookmarkTreeService.closeNodeCB,
     };
     //Intialize
     vm.treeData = [];
@@ -33,7 +31,7 @@
     function activate() {
       vm.treeConfig = getTreeConfig();
       if (layoutService.isActive('bookmarkTree')) {
-        vm.getTreeData();
+        getTreeData();
       }
       layoutService.setOnTabClick('bookmarkTree', getTreeData);
     }
@@ -72,14 +70,6 @@
           vm.treeInstance.jstree().close_node(data.node);
         }
       }
-    }
-
-    function openNodeCB(e, data) {
-      vm.treeInstance.jstree().set_icon(data.node, 'open folder icon');
-    }
-
-    function closeNodeCB(e, data) {
-      vm.treeInstance.jstree().set_icon(data.node, 'folder icon');
     }
 
     function mouseDownCB(e) {

@@ -12,8 +12,16 @@
     activate();
 
     function activate() {
-      if (layoutService.isActive('rssFeed')) {
-        getFeeds();
+      var today = new Date().toISOString().slice(0, 10);
+      if (angular.isDefined(dataService.data.rssFeed)) {
+        vm.data = dataService.data.rssFeed;
+        if (angular.isUndefined(vm.data.lastConsolidated) || vm.data.lastConsolidated < today) {
+          rssFeedService.consolidateDeleted();
+        } else if (layoutService.isActive('rssFeed')) {
+          getFeeds();
+        }
+      } else {
+        vm.data = {};
       }
       dataService.setOnChangeData('rssFeed', getFeeds);
       layoutService.setOnTabClick('rssFeed', getFeeds);
@@ -43,13 +51,10 @@
           });
       }, 1000);
     }
+
     function deleteItem(e, item) {
       e.preventDefault();
       rssFeedService.deleteItem(item);
-      rssFeedService.consolidateFeed()
-        .then(function(data) {
-          vm.rss = data;
-        });
     }
   }
 
