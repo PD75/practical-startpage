@@ -1,16 +1,21 @@
 <div class="header item">
   Practical Startpage
 </div>
+<div class="left menu badges">
+  <!--Placehoder to insert badges-->
+</div>
 <div class="right menu">
-  <a class="ui item" href="https://groups.google.com/forum/#!forum/practical-startpage" target="_blank">
+  <a class="ui item" href="https://groups.google.com/forum/#!newtopic/practical-startpage" target="_blank" ui-popup="vm.bugPopup">
     <i class="bug icon"></i>
   </a>
-  <div class="ui bottom right dropdown item" ui-dropdown>
+  <a class="ui item" href="http://pd75.github.io/#/practical-startpage" target="_blank" ui-popup="vm.homePopup">
+    <i class="home icon"></i>
+  </a>
+  <div class="ui bottom right dropdown item" ui-dropdown ui-dropdown-data="vm.dropdownData">
     <i class="setting icon"></i>
     <div class="menu">
-      <div class="item" ng-repeat="menuItem in vm.bottomMenu" ng-click="vm.activateModal(menuItem)">
-        <i class="icon" ng-class="menuItem.icon"></i>
-        {{menuItem.title}}
+      <div class="item" ng-repeat="menuItem in vm.bottomSubMenu" ng-click="vm.activateModal(menuItem)">
+        <i class="icon" ng-class="menuItem.icon"></i> {{menuItem.title}}
       </div>
     </div>
   </div>

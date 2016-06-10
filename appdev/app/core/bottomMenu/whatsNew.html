@@ -1,52 +1,70 @@
 <i class="right floated close icon"></i>
 <div class="header">
-  {{$parent.vm.modalTitle}}
+  {{$parent.vm.modalTitle || $parent.Layout.modalTitle}}
 </div>
 <div class="content">
   <div class="ui segment ">
     <h3>
-      v2.4.0 Locale Module
+      v2.6.0 Syncronize settings between computer
     </h3>
     <h4>
       Enhancements
     </h4>
     <ul>
       <li>
-        Locale support
+        Settings can now be syncronized between computer.
         <ul>
           <li>
-            Supports translation through chrome api.
+            Widget and badges layout
           </li>
           <li>
-            Translation to Swedish done at present.
+            Widgets and badges settings, e.g. list types, rss feeds.
+          </li>
+          <li>
+            NOTE: Existing users will get local data by default, new user will get syncronized data by default. Change in settings. (
+            <i class="setting icon"></i>)
           </li>
         </ul>
       </li>
       <li>
-        Improved History
-        <ul>
-          <li>
-            History searchable
-          </li>
-          <li>
-            Settings to define how my much history to load.
-          </li>
-          <li>
-            New list format shows both title, timestamp and url.
-          </li>
-        </ul>
+        Translation to Türkçe/Turkish
+        <div class="ui list">
+          <div class="item">
+            <img class="ui avatar image" src="/img/cagdas.senis.jpg">
+            <div class="content">
+              <div class="header">Çağdaş Şeniş</div>
+            </div>
+            <div class="right floated content">
+              <a href="https://www.linkedin.com/in/csenis" target="_blank">
+                <div class="ui basic linkedin label">
+                  <span>Linked</span>
+                  <i class="large fitted linkedin square icon"></i>
+                  <span>profile</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
       </li>
-    </ul>
-    <h4>
-      v2.4.1 Minor Bugfix
-    </h4>
-       <h4>
-      v2.4.2 Minor Bugfix
-    </h4>
-    <ul>  
       <li>
-        Wrong data got selected for deleting in Clear Settings
+        Updates to German Translation
+        <div class="ui list">
+          <div class="item">
+            <img class="ui avatar image" src="/img/robert.priebs.jpg">
+            <div class="content">
+              <div class="header">Robert Priebs</div>
+            </div>
+            <div class="right floated content">
+              <a href="https://www.xing.com/profile/Robert_Priebs3" target="_blank">
+                <div class="ui basic xing label">
+                  <i class="large fitted xing square icon"></i>
+                  <span> Xing profile</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
       </li>
     </ul>
- </div>
+  </div>
 </div>

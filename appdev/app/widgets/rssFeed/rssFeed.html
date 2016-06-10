@@ -1,20 +1,24 @@
-<ps-segment-layout ng-class="[vm.style.primaryCol]">
+<div ng-class="[vm.style.primaryCol]">
 
-  <div class="ui small aligned divided list">
-    <a class="rss item" ng-repeat="item in vm.rss" ng-href="{{item.link}}">
-      <img ng-src="{{item.icon}}" class="ui icon image"/>
+  <div class="ui small divided widget selection list">
+
+    <a class="item" ng-repeat="item in vm.rss" ng-href="{{item.link}}" ng-class="{visited : item.visited}">
+
+      <i class="icon">
+        <img ng-src="{{item.icon}}" class="ui icon image" />
+      </i>
       <div class="content">
-        <div class="header">
-          {{item.title}}
+        <div class="right floated content" ng-click="vm.deleteItem($event,item)" ng-if="vm.allowDelete">
+          <i class="remove icon"></i>
         </div>
-        <div class="description">
-          {{item.contentSnippet}}
-        </div>
+        <div class="header" ng-bind="item.title"> </div>
+        <div class="description" ng-bind-html="item.contentSnippet"> </div>
         <div class="meta">
-          <span class="date">{{item.timeStamp.toLocaleString()}}</span>
+          <span class="date" ng-bind="item.timeStamp.toLocaleString()"></span>
         </div>
       </div>
     </a>
+
   </div>
 
-</ps-segment-layout>
+</div>

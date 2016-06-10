@@ -1,0 +1,341 @@
+{
+  "About": {
+    "message": "Hakkında"
+  },
+  "Badges": {
+    "message": "Rozetler"
+  },
+  "Check": {
+    "message": "İşaretle"
+  },
+  "Clear": {
+    "message": "Temizle"
+  },
+  "Close": {
+    "message": "Kapat"
+  },
+  "CopyData": {
+    "message": "Verileri kopyala"
+  },
+  "days": {
+    "message": "Günler"
+  },
+  "Display": {
+    "message": "Göster"
+  },
+  "Edit": {
+    "message": "Düzenle"
+  },
+  "EditUrl": {
+    "message": "URL düzenle"
+  },
+  "entries": {
+    "message": "girdiler"
+  },
+  "Delete": {
+    "message": "Sil"
+  },
+  "Homepage": {
+    "message": "Anasayfa"
+  },
+  "Help": {
+    "message": "Yardım"
+  },
+  "LoadDefault": {
+    "message": "Varsayılanları Yükle"
+  },
+  "Links": {
+    "message": "Bağlantılar"
+  },
+  "NewFolder": {
+    "message": "Yeni klasör"
+  },
+  "OpenAllLinks": {
+    "message": "Tüm bağlantıları aç"
+  },
+  "OpenInNewTab": {
+    "message": "Yeni sekmede aç"
+  },
+  "Options": {
+    "message": "Seçenekler"
+  },
+  "Save": {
+    "message": "Kaydet"
+  },
+  "SaveClose": {
+    "message": "Kaydet ve kapat"
+  },
+  "Search": {
+    "message": "Ara"
+  },
+  "SelectAll": {
+    "message": "Hepsini seç"
+  },
+  "Title": {
+    "message": "Başlık"
+  },
+  "UndoAll": {
+    "message": "Tümünü geri al"
+  },
+  "Url": {
+    "message": "URL"
+  },
+  "UseForQuickLinks": {
+    "message": "Hızlı Bağlantılar için kullan"
+  },
+  "WhatsNew": {
+    "message": "Yeni neler var"
+  },
+  "Close_key": {
+    "message": "ESC"
+  },
+  "Edit_key": {
+    "message": "F2"
+  },
+  "EditUrl_key": {
+    "message": "Shift + F2"
+  },
+  "Delete_key": {
+    "message": "Del"
+  },
+  "NewFolder_key": {
+    "message": "Ctrl + Shift + N"
+  },
+  "Save_key": {
+    "message": "Ctrl + S"
+  },
+  "SaveClose_key": {
+    "message": "Ctrl + Shift + S"
+  },
+  "UndoAll_key": {
+    "message": "Ctrl + Shift + Z"
+  },
+  "c_ps_slogan": {
+    "message": "Tüm verilerinizi tek bir pencerede sunan kullanışlı başlangıç ​​sayfası."
+  },
+  "c_about_languages": {
+    "message": "Diller"
+  },
+  "c_about_libraries": {
+    "message": "Kullanılan kütüphaneler"
+  },
+  "c_about_title_0": {
+    "message": "Practical Startpage Chrome Web Store'da"
+  },
+  "c_about_text_0": {
+    "message": "Burada eklentiyi değerlendirebilir ve beğenebilirsin"
+  },
+  "c_about_title_1": {
+    "message": "E-posta ile arkadaşlarına tavsiye et"
+  },
+  "c_about_text_1": {
+    "message": "E-posta oluşturmak için tıkla"
+  },
+  "c_about_title_2": {
+    "message": "Hata bildirmek veya önerilerde bulunmak için: GitHub"
+  },
+  "c_about_text_2": {
+    "message": "Widget geliştirmek istiyorsan, tüm kaynak kodunu GitHub'da bulabilirsin. Buradan hata bildirimi de yapabilirsin. "
+  },
+  "c_about_title_3": {
+    "message": "Google Gruplar'da; Buglar, Fikirler veya Sorular"
+  },
+  "c_about_text_3": {
+    "message": "Hata bildirmek veya önerilerde bulunmak için: Google Gruplar"
+  },
+  "c_about_title_4": {
+    "message": "Yazilim geliştirmede son durum"
+  },
+  "c_about_text_4": {
+    "message": "Waffle.io sayfasi"
+  },
+  "c_bottomMenu": {
+    "message": "Alt Menü"
+  },
+  "c_help_title_0": {
+    "message": "Değiştirilebilir Veri Listeleri"
+  },
+  "c_help_text_0": {
+    "message": "Seçenekler menüsünü kullanarak widgetları istediğin yere koyabilirsin"
+  },
+  "c_help_title_1": {
+    "message": "Karşılık veren, etkileşimli tasarım"
+  },
+  "c_help_text_1": {
+    "message": "Sütunlar ve içerik, tüm ekran genişlikleri için en iyi deneyimi vermek için ayarlanabilir"
+  },
+  "c_help_title_2": {
+    "message": "İçerik"
+  },
+  "c_help_text_2": {
+    "message": "Sayfa üç sütundan oluşur. Küçük ekranlarda; sağ sütun, içeriğin kullanılabilmesi için orta sütunla birleşir."
+  },
+  "c_o_editLayout": {
+    "message": "Sayfa düzenini değiştir"
+  },
+  "c_o_badgeLayout": {
+    "message": "Rozet Düzeni"
+  },
+  "c_o_chooseStorage": {
+    "message": "Depolama yöntemini seç"
+  },
+  "c_o_clearSettings": {
+    "message": "Ayarları temizle"
+  },
+  "c_o_localStorage": {
+    "message": "Yerel kayıt"
+  },
+  "c_o_SwitchStorage": {
+    "message": "Veri saklama ayarlarını değiştir"
+  },
+  "c_o_syncStorage": {
+    "message": "Verileri senkronize et"
+  },
+  "c_o_hasData": {
+    "message": "Veri mevcut"
+  },
+  "c_o_noData": {
+    "message": "Kayıtlı ayarlarınız yok"
+  },
+  "c_o_moreStorageSettings": {
+    "message": "Tüm verileri senkronize edebilmek için düzenleme menüsünden ek ayarlar yapmanız gerekiyor"
+  },
+  "c_o_cleared": {
+    "message": "Temizlendi !!!"
+  },
+  "c_o_version": {
+    "message": "Sürüm Kontrolü"
+  },
+  "c_o_layout": {
+    "message": "Widget Düzeni"
+  },
+  "c_o_activeTabs": {
+    "message": "Aktif Sekmeler"
+  },
+  "c_o_styles": {
+    "message": "Stiller, renkler"
+  },
+  "c_l_left": {
+    "message": "Sol sütun"
+  },
+  "c_l_middle": {
+    "message": "Orta sütun"
+  },
+  "c_l_right": {
+    "message": "Sağ sütun"
+  },
+  "c_auth_title": {
+    "message": "$url$'ye erişim için izin gereklidir. Yetki almak için buraya tıkla !!!",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "mysite.com"
+      }
+    }
+  },
+  "b_gmail_connection": {
+    "message": "Veriye ulaşılamadı, internet bağlantısını kontrol et ve Gmail'e giriş yapmış olduğundan emin ol!"
+  },
+  "b_gmail_noUnRead": {
+    "message": "(Okunmamış eposta yok!)"
+  },
+  "Widgets": {
+    "message": "Widget'lar"
+  },
+  "w_BL": {
+    "message": "Düğme listesi"
+  },
+  "w_GL": {
+    "message": "Gruplanmış Liste"
+  },
+  "w_bookmarkTree": {
+    "message": "Yer imleri"
+  },
+  "w_bookmarkTree_help": {
+    "message": "Tüm yer imlerinin, metin arama fonksiyonuyla birlikte ağaç görünümünde sunumu. <br /> <b> Not:</ b> Hızlı erişmek istediğin yer imlerinin bulunduğu klasöre sağ tıkla ve \"HızlıErişim için kullan\" butonu ile seç. <br /> Yer imleri düzenleyicisine erişmek için \"Düzenle\" butonuna tıkla."
+  },
+  "w_bookmarkTree_edit_title": {
+    "message": "Yer İmlerini Düzenle"
+  },
+  "w_chromeApps": {
+    "message": "Uygulamalar"
+  },
+  "w_chromeApps_help": {
+    "message": "Yüklü olan Google Chrome uygulamaları listesi.<br /> <b>Not:</b> Sadece sayfası olan uygulamalar listelenmiştir."
+  },
+  "w_closedTabs": {
+    "message": "Kapalı"
+  },
+  "w_closedTabs_help": {
+    "message": "Yeni kapatılmış sekmeler /> <b> Not <br </ b>: Liste, Chrome her kapatıldığında temizlenir"
+  },
+  "w_history": {
+    "message": "Geçmiş"
+  },
+  "w_history_help": {
+    "message": "Ziyaret edilen siteler"
+  },
+  "w_history_edit_title": {
+    "message": "Geçmişi düzenle"
+  },
+  "w_quicklinks": {
+    "message": "HızlıErişim"
+  },
+  "w_quicklinks_help": {
+    "message": "Bir yer imi klasöründeki tüm bağlantılara kolayca eriş. Hızlı erişmek istediğin klasöre sağ tıkla ve seç. <br /> <b>Not:</b> Yalnızca bir klasör ve bu klasöre ait yer imlerini HızlıErişim için kullanabilirsin."
+  },
+  "w_rssFeed": {
+    "message": "RSS"
+  },
+  "w_rssFeed_help": {
+    "message": "Hangi RSS beslemelerinin gösterileceğine sen karar ver. Örn: haberler"
+  },
+  "w_rssFeed_edit_title": {
+    "message": "RSS beslemesini düzenle"
+  },
+  "w_rssFeed_addFeed": {
+    "message": "Besleme ekle"
+  },
+  "w_rssFeed_hideVisited": {
+    "message": "Ziyaret edilen sayfaları gizle"
+  },
+  "w_rssFeed_allowDelete": {
+    "message": "Silme işlemini onayla"
+  },
+  "w_rssFeed_manageFeeds": {
+    "message": "Beslemeleri yönet"
+  },
+  "w_rssFeed_settings": {
+    "message": "Ayarları değiştir"
+  },
+  "w_rssFeed_restoreDeleted": {
+    "message": "Silinmiş Öğeleri Geri Yükle"
+  },
+  "w_rssFeed_auth_text": {
+    "message": "RSS çeşitli beslemeleri tutarlı bir veri yapısı içerisinde almak için Google uygulama ara yüzünü kullanır. Devam etmek ve widget'a gerekli yetkiyi vermek için buraya tıkla."
+  },
+  "w_rssFeed_err_title": {
+    "message": "Besleme Yüklenemedi"
+  },
+  "w_rssFeed_CreateSyncFolder": {
+    "message": "Senkronizasyon Klasörü Oluştur"
+  },
+  "w_rssFeed_RemoveSyncFolder": {
+    "message": "Senkronizasyon Klasörünü Kaldır"
+  },
+  "w_rssFeed_MoveSyncFolder": {
+    "message": "Senkronizasyon Klasörünü Taşı"
+  },
+  "w_rssFeed_SyncroniseDeletedItems": {
+    "message": "Silinmiş öğeleri sekronize et"
+  },
+  "w_rssFeed_largeData": {
+    "message": "Veri miktarı Chrome'un senkronizasyon depolaması için çok yüksek. Bu nedenle silinmiş öğeleri saklamak için bir yer imleri klasörü oluşturuldu. Bu klasör Practical Startpage yer imi editöründe gösterilmeyecektir"
+  },
+  "w_topSites": {
+    "message": "Favori Sayfalar"
+  },
+  "w_topSites_help": {
+    "message": "En çok ziyaret edilen web sayfaları"
+  }
+}

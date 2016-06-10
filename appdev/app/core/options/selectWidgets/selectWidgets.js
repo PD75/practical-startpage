@@ -2,10 +2,10 @@
   'use strict';
 
   angular.module('ps.core.options')
-    .controller('EditLayoutCtrl', EditLayoutCtrl)
-    .directive('psEditLayout', EditLayoutDirective);
+    .controller('SelectWidgetsCtrl', SelectWidgetsCtrl)
+    .directive('psSelectWidgets', SelectWidgetsDirective);
 
-  function EditLayoutCtrl(dataService, i18n) {
+  function SelectWidgetsCtrl(dataService, i18n) {
     var vm = this;
     vm.columns = [];
     vm.checkDisabledCol = checkDisabledCol;
@@ -29,7 +29,12 @@
       secButton: dataService.data.styles.secondaryCol,
     };
 
-    getData();
+    activate();
+
+    function activate() {
+      getData();
+      dataService.setOnChangeData('layout', getData);
+    }
 
     function getData() {
       var layout = dataService.data.layout;
@@ -116,11 +121,11 @@
     }
   }
 
-  function EditLayoutDirective() {
+  function SelectWidgetsDirective() {
     return {
       restrict: 'E',
-      templateUrl: 'app/core/options/editLayout.html',
-      controller: 'EditLayoutCtrl',
+      templateUrl: 'app/core/options/selectWidgets/selectWidgets.html',
+      controller: 'SelectWidgetsCtrl',
       controllerAs: 'vm',
       scope: {},
     };

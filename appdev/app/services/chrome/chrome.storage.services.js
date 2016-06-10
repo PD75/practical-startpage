@@ -5,48 +5,44 @@
 
   function storageService($q) {
     return {
-      getLocalData: getLocalData,
-      setLocalData: setLocalData,
+      getData: getData,
+      setData: setData,
       clearData: clearData,
       getManifest: getManifest,
       setDataCB: setDataCB,
     };
 
-    function getLocalData() {
+    function getData(type,keys) {
+      // type = 'local';
       var deferred = $q.defer();
-      chrome.storage.local.get(function(response) {
+      chrome.storage[type].get(keys,function(response) {
         deferred.resolve(response);
       });
       return deferred.promise;
     }
 
-    function setLocalData(data) {
+    function setData(data, type) {
+      // type = 'local';
       var deferred = $q.defer();
-      chrome.storage.local.set(data, function() {
+      chrome.storage[type].set(data, function() {
         deferred.resolve();
       });
       return deferred.promise;
     }
 
-    function clearData(keys) {
-      var d1 = $q.defer();
-      var d2 = $q.defer();
+    function clearData(keys, type) {
+      // type = 'local';
+      var deferred = $q.defer();
       if (angular.isDefined(keys)) {
-        chrome.storage.local.remove(keys, function() {
-          d1.resolve();
-        });
-        chrome.storage.sync.remove(keys, function() {
-          d2.resolve();
+        chrome.storage[type].remove(keys, function() {
+          deferred.resolve();
         });
       } else {
-        chrome.storage.local.clear(function() {
-          d1.resolve();
-        });
-        chrome.storage.sync.clear(function() {
-          d2.resolve();
+        chrome.storage[type].clear(function() {
+          deferred.resolve();
         });
       }
-      return $q.all([d1, d2]);
+      return deferred.promise;
     }
 
     function getManifest() {
@@ -54,8 +50,8 @@
     }
 
     function setDataCB(CB) {
-      chrome.storage.onChanged.addListener(function(changes) {
-        CB(changes);
+      chrome.storage.onChanged.addListener(function(changes,areaName) {
+        CB(changes,areaName);
       });
     }
   }

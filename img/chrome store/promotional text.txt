@@ -1,7 +1,7 @@
-### english - en
+### English - en
 
 Practical Startpage is a simple yet powerful, allowing easy access to browser data, such as bookmarks and history.
-(Permissions are used by the widgets to show or edit the data as applicable, and storage to remember settings.)
+(For details on permissions that are needed, visit homepage)
 - Responsive Design, adjust to all screens
 - Configurable, you can decide what widgets go where
 - Open Source, you can develop your own widgets (GitHub)
@@ -10,14 +10,52 @@ Practical Startpage is a simple yet powerful, allowing easy access to browser da
 - History, Apps, etc. from chrome
 - RSS Feed for e.g. news
 
+
+### Deutch - de
+
+Practical Startpage ist einfach aber leistungsfähig, und erlaubt einfacher Zugriff auf Browser-Daten wie Lesezeichen und Geschichte.
+(Berechtigungen werden von Widgets verwendet um die Daten anzuzeigen, oder zu bearbeiten, und Einstellungen zu merken.)
+- Responsive Design, passt auf allen Bildschirmen
+- Konfigurierbar. Sie entscheiden, welche Widgets wohingehen
+- Open Source, Sie können Ihre eigenen Widgets (GitHub) entwickeln
+- Lesezeichenbaum mit Textsuche und Lesezeichen-Editor
+- Quicklinks mit Link von Lesezeichen-Ordner Ihrer Wahl
+- Geschichte, Apps etc. aus Chrome
+- RSS-Feed für zB Nachrichten
+
+
+### espanol - es
+
+Practical Startpage es simple pero eficaz, permitiendo acceder fácilmente a los datos del navegador como los marcadores o el historial.
+(Los permisos son utilizados por los widgets para mostrar o editar los datos según sea el caso, y el almacenamiento para recordar la configuración.)
+- Diseño responsive, adaptable a todas las pantallas
+- Configurable, tú decides qué widgets quieres y dónde van
+- Open Source, puedes desarrollar tus propios widgets (GitHub)
+- Vista de árbol con editor de marcadores y búsqueda de texto
+- Enlaces rápidos con enlace de una carpeta de marcadores de tu elección
+- Historial, aplicaciones, etc., de Chrome
+- Fuentes RSS para noticias, por ejemplo
+
+
 ### svenska - sv
 
 Practical Startpage är enkel men kraftfull, och ger snabb åtkomst till webläsarens data, som t.ex. bookmärken och besökta sidor.
-(Rättigheterna startsidan behöver är för att ladda informatoin, samt access till lokalt utrymme för att spara instälningen.)
+(För detaljer om rättigheter och hur dom används, besök hemsidan.)
 - Responsiv design, anpassar sig till alla skärmar
 - Konfigurerbar, du kan själv välja var saker ska vara
 - Öppen källkod, du kan utveckla dina egna manicker (GitHub)
-- Böökmarken med sökning och editor
-- Snabblänkar till bokmärken mappar
-- Besökta sidor, appar etc. från chromee
+- Bokmarken med sökning och editor
+- Snabblänkar till bokmärkes mappar
+- Besökta sidor, appar etc. från chrome
 - RSS flöde för t.ex. nyheter
+
+### Türkçe - tr
+
+Practical Startpage, yer imleri, sık kullanılanlar, tarihçe gibi verilerinize kolayca ve hızlı bir şekilde ulaşmanızı sağlar.
+- Duyarlı ve basit tasarımı: tüm ekran çözünürlükleri ve ayarlarıyla uyumludur
+- Ayarlanabilir ve kişiselleştirilebilir ara yüz
+- Açık Kaynak kodu, kendi Widget'larınızı geliştirmenizi mümkün kılar (Github)
+- Yer imleri ağaç görünümüyle ve metin arama fonksiyonuyla sunulur
+- Hızlı Bağlantılar özelliği sayesinde yer imlerinize kolayca ulaşabilirsiniz
+- Chome App'leriniz ve tarihçenize kolay erişim
+- Haberlere vs için RSS beslemelerine hızlı erişim

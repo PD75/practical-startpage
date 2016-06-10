@@ -1,0 +1,81 @@
+<div class="ui grid">
+  <div class="row">
+    <div class="sixteen wide column">
+      <table class="ui very basic unstackable compact table">
+        <thead>
+          <tr>
+            <th colspan="2" class="center aligned" ps-i18n="c_o_localStorage"></th>
+            <th colspan="2" class="center aligned" ps-i18n="c_o_SwitchStorage"></th>
+            <th colspan="2" class="center aligned" ps-i18n="c_o_syncStorage"></th>
+            <th ps-i18n="Settings"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="object in vm.data">
+
+            <td class="right aligned">
+              <i class="large checkmark icon" ng-class="vm.primaryCol" ng-if="object.local.storage"></i>
+            </td>
+            <td class="left aligned">
+              <span ng-if="object.local.exist" ps-i18n="c_o_hasData"></span>
+            </td>
+
+            <td class="center aligned">
+              <button class="ui basic icon compact button" ng-if="((!object.local.storage && object.sync.exist) || (object.local.storage && object.local.exist))" ng-click="vm.switchStorage(object,true)">
+                <i class="big icons">
+                  <i class="arrow icon" ng-class="{right: object.local.storage, left: !object.local.storage}"></i>
+                  <i class="corner copy icon"></i>
+                </i>
+              </button>
+            </td>
+
+            <td class="center aligned">
+              <button class="ui basic icon compact button" ng-click="vm.switchStorage(object,false)">
+                <i class="big icons">
+                  <i class="arrow icon" ng-class="{right: object.local.storage, left: !object.local.storage}"></i>
+                </i>
+              </button>
+            </td>
+
+            <td class="right aligned">
+              <i class="large checkmark icon" ng-class="vm.primaryCol" ng-if="!object.local.storage"></i>
+            </td>
+            <td class="left aligned">
+              <span ng-if="object.sync.exist" ps-i18n="c_o_hasData"></span>
+            </td>
+
+            <td>
+              <span ng-bind="object.title"></span>
+              <sup ng-if="object.syncException">
+                <i class="ui mini asterisk icon" style=""></i>
+              </sup>
+            </td>
+
+          </tr>
+          <tr ng-if="vm.data.length === 0">
+            <td colspan="3" ps-i18n="c_o_noData"> </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ui divider"></div>
+      <p>
+        <sup>
+          <i class="ui mini asterisk icon" style=""></i>
+        </sup>
+        <span ps-i18n="c_o_moreStorageSettings"></span>
+      </p>
+      <p>
+        <i class="big icons">
+          <i class="arrow left icon"></i>
+          <i class="corner copy icon"></i>
+        </i>
+        /
+        <i class="big icons">
+          <i class="arrow right icon"></i>
+          <i class="corner copy icon"></i>
+        </i>
+        <span ps-i18n="CopyData"></span>
+      </p>
+    </div>
+  </div>
+</div>

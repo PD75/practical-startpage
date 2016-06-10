@@ -1,13 +1,31 @@
 /*eslint camelcase: 0*/
 angular.module('ps.widgets')
-  .factory('bookmarkTreeService', function(dataService, bookmarkService, bookmarkConstant) {
+  .factory('bookmarkTreeService', function(dataService, bookmarkService, bookmarkConstant, urlService, i18n) {
     "use strict";
 
     return {
       getTreeConfig: getTreeConfig,
       getTreeData: getTreeData,
       openInNewTab: openInNewTab,
+      openNodeCB: openNodeCB,
+      closeNodeCB: closeNodeCB,
     };
+
+    function openNodeCB(e, data) {
+      if (data.node.type === 'folder') {
+        angular.element(e.target).jstree().set_icon(data.node, 'open folder icon');
+      } else {
+        angular.element(e.target).jstree().set_icon(data.node, 'open folder outline icon');
+      }
+    }
+
+    function closeNodeCB(e, data) {
+      if (data.node.type === 'folder') {
+        angular.element(e.target).jstree().set_icon(data.node, 'folder icon');
+      } else {
+        angular.element(e.target).jstree().set_icon(data.node, 'folder outline icon');
+      }
+    }
 
     function getTreeConfig() {
       var treeConfig = bookmarkTreeConfig();
@@ -15,15 +33,15 @@ angular.module('ps.widgets')
       return treeConfig;
     }
 
-    function getTreeData() {
-      return bookmarkService.getBookmarksTree()
+    function getTreeData(treeType) {
+      return bookmarkService.getBookmarksTree(treeType)
         .then(function(treeData) {
           return treeData;
         });
     }
 
     function openInNewTab(url) {
-      bookmarkService.openInNewTab(url);
+      urlService.openInNewTab(url);
     }
 
     function bookmarkTreeConfig() {
@@ -43,7 +61,7 @@ angular.module('ps.widgets')
         return {
           "openall": {
             "separator_before": false,
-            "label": "Open all links",
+            "label": i18n.get('OpenAllLinks'),
             "action": function() {
               openAllLinks(node.id);
             },
@@ -51,7 +69,7 @@ angular.module('ps.widgets')
           },
           "quicklinks": {
             "separator_before": false,
-            "label": "Use for Quick Links",
+            "label": i18n.get('UseForQuickLinks'),
             "action": function() {
               quickLinkNode(node.id);
             },
@@ -62,9 +80,9 @@ angular.module('ps.widgets')
         return {
           "newtab": {
             "separator_before": false,
-            "label": "Open in new tab",
+            "label": i18n.get('OpenInNewTab'),
             "action": function() {
-              bookmarkService.openInNewTab(node.a_attr.href);
+              urlService.openInNewTab(node.a_attr.href);
             },
             "icon": "mail forward icon",
           },
@@ -83,7 +101,7 @@ angular.module('ps.widgets')
       chrome.bookmarks.getChildren(nodeId, function(children) {
         for (var i = 0; i < children.length; i++) {
           if (angular.isDefined(children[i].url)) {
-            bookmarkService.openInNewTab(children[i].url);
+            urlService.openInNewTab(children[i].url);
           }
         }
       });

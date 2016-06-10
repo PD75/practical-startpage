@@ -1,7 +1,8 @@
-(function(angular) {
+(function() {
   "use strict";
 
-  angular.module('ps.core')
+  angular
+    .module('ps.core')
     .controller("HelpCtrl", HelpCtrl)
     .directive('psHelp', helpDirective);
 
@@ -25,17 +26,17 @@
       });
       vm.startpage = [{
         icon: 'block layout',
-        title:i18n.get('c_help_title_0'),
-        text:i18n.get('c_help_text_0'),
+        title: i18n.get('c_help_title_0'),
+        text: i18n.get('c_help_text_0'),
       }, {
-        icon: 'maximize layout',
-        title:i18n.get('c_help_title_1'),
-        text:i18n.get('c_help_text_1'),
-      }, {
-        icon: 'columns layout',
-        title:i18n.get('c_help_title_2'),
-        text:i18n.get('c_help_text_2'),
-      }];
+          icon: 'maximize layout',
+          title: i18n.get('c_help_title_1'),
+          text: i18n.get('c_help_text_1'),
+        }, {
+          icon: 'columns layout',
+          title: i18n.get('c_help_title_2'),
+          text: i18n.get('c_help_text_2'),
+        }];
     }
   }
 
@@ -46,4 +47,4 @@
       controllerAs: 'vm',
     };
   }
-})(angular);
+})();

@@ -2,11 +2,20 @@
   "About": {
     "message": "Om"
   },
+  "Badges": {
+    "message": "Emblem"
+  },
   "Check": {
     "message": "Kolla"
   },
+  "Clear": {
+    "message": "Rensa"
+  },
   "Close": {
     "message": "Stäng"
+  },
+  "CopyData": {
+    "message": "Kopiera Data"
   },
   "days": {
     "message": "dagar"
@@ -26,6 +35,9 @@
   "Delete": {
     "message": "Radera"
   },
+  "Homepage": {
+    "message": "Hemsida"
+  },
   "Help": {
     "message": "Hjälp"
   },
@@ -37,6 +49,12 @@
   },
   "NewFolder": {
     "message": "Ny mapp"
+  },
+  "OpenAllLinks": {
+    "message": "Öppna alla länkar"
+  },
+  "OpenInNewTab": {
+    "message": "Öppna i ny tab"
   },
   "Options": {
     "message": "Alternativ"
@@ -62,6 +80,9 @@
   "Url": {
     "message": "Länk"
   },
+  "UseForQuickLinks": {
+    "message": "Använd för snabblänkar"
+  },
   "WhatsNew": {
     "message": "Nyheter"
   },
@@ -81,7 +102,7 @@
     "message": "Ctrl+Shift+N"
   },
   "Save_key": {
-    "message": "Ctrl+ S"
+    "message": "Ctrl+S"
   },
   "SaveClose_key": {
     "message": "Ctrl+Shift+S"
@@ -91,6 +112,9 @@
   },
   "c_ps_slogan": {
     "message": "Flexibel startsida som visar din data i en enda vy."
+  },
+  "c_about_languages": {
+    "message": "Språk"
   },
   "c_about_libraries": {
     "message": "Änvända bibliotek"
@@ -105,7 +129,7 @@
     "message": "Sprid ordet till en vän med e-post"
   },
   "c_about_text_1": {
-    "message": "Klicka här för att skapa ett e-post till en vän. Om det inte fungerar, kopiera länken till Chrome Web Store ovan."
+    "message": "Klicka här för att skapa ett e-post till en vän."
   },
   "c_about_title_2": {
     "message": "Buggar, idéer eller bidra på GitHub"
@@ -124,6 +148,9 @@
   },
   "c_about_text_4": {
     "message": "På Waffle board"
+  },
+  "c_bottomMenu": {
+    "message": "Nedre menyn"
   },
   "c_help_title_0": {
     "message": "Konfigurerbara datalistor"
@@ -146,8 +173,32 @@
   "c_o_editLayout": {
     "message": "Redigera layouten"
   },
+  "c_o_badgeLayout": {
+    "message": "Emblem layout"
+  },
+  "c_o_chooseStorage": {
+    "message": "Välj Lagring"
+  },
   "c_o_clearSettings": {
     "message": "Rensa inställningar"
+  },
+  "c_o_localStorage": {
+    "message": "Local Lagring"
+  },
+  "c_o_SwitchStorage": {
+    "message": "Byta lagring"
+  },
+  "c_o_syncStorage": {
+    "message": "Synkad lagring"
+  },
+  "c_o_hasData": {
+    "message": "Har data"
+  },
+  "c_o_noData": {
+    "message": "Du har inga sparade inställningar."
+  },
+  "c_o_moreStorageSettings": {
+    "message": "Det finns ytterliggare inställningar från objektets redigeringsmenu för at data synkroniseringsen ska fungera helt."
   },
   "c_o_cleared": {
     "message": "Rensat!!!"
@@ -172,6 +223,21 @@
   },
   "c_l_right": {
     "message": "Höger kolumnen"
+  },
+  "c_auth_title": {
+    "message": "Rättigheter krävs för $url$, klicka för att godkänna!!!",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "mysite.com"
+      }
+    }
+  },
+  "b_gmail_connection": {
+    "message": "Hämtning av data mislyckades, kolla att du har nätverks kontakt och är inloggad på gmail.!"
+  },
+  "b_gmail_noUnRead": {
+    "message": "(Olästa mails!)"
   },
   "Widgets": {
     "message": "Manicker"
@@ -230,20 +296,41 @@
   "w_rssFeed_addFeed": {
     "message": "Lägg till flöde"
   },
-  "w_rssFeed_auth_title": {
-    "message": "Tillstånd att få tillgång till $$url$$ krävs !!!",
-    "placeholders": {
-      "url": {
-        "content": "$1",
-        "example": "mysite.com"
-      }
-    }
+  "w_rssFeed_hideVisited": {
+    "message": "Göm besökta"
+  },
+  "w_rssFeed_allowDelete": {
+    "message": "Tillåt readering"
+  },
+  "w_rssFeed_manageFeeds": {
+    "message": "Hantera Flöden"
+  },
+  "w_rssFeed_settings": {
+    "message": "Ändra Inställningar"
+  },
+  "w_rssFeed_restoreDeleted": {
+    "message": "Återskapa raderade artiklar"
   },
   "w_rssFeed_auth_text": {
     "message": "RSS använder Googles API: er för att få en enhetlig datastruktur från de olika flödena och kommer inte att fungera utan. Klicka här för att gå vidare och tillåta access för widgeten."
   },
   "w_rssFeed_err_title": {
     "message": "Error vid laddning av RSS flöde"
+  },
+  "w_rssFeed_CreateSyncFolder": {
+    "message": "Skapa synk-katalog"
+  },
+  "w_rssFeed_RemoveSyncFolder": {
+    "message": "Ta bord synk-katalog"
+  },
+  "w_rssFeed_MoveSyncFolder": {
+    "message": "Flytta sync katalogen"
+  },
+  "w_rssFeed_SyncroniseDeletedItems": {
+    "message": "Synkronisera raderade artiklar"
+  },
+  "w_rssFeed_largeData": {
+    "message": "The amount of data is too much for Chrome's sync storage, so a bookmarks folder is used to store the deleted Feed items.<br>The data will not show in the bookmark editor of Practical Startpage, but will show up in other bookmark tools"
   },
   "w_topSites": {
     "message": "Top Sidor"
