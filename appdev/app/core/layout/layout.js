@@ -195,7 +195,9 @@
           vm.modalUrl = 'app/core/bottomMenu/help.html';
           vm.modalData = {};
           vm.showModal = true;
-          return true;
+          return dataService.setData({
+            'version': manifest.version,
+          });
         }
       }
     }

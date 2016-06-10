@@ -30,7 +30,6 @@
         'version': newVersion,
       }).then(function() {
         var promise = $q.all([]);
-        // var p = 0;
         if (angular.isDefined(dataService.data.bookmarkid)) { // compensating for not deleting bokmarkid previously
           if (olderVersion('2.0.0', oldVersion)) {
             var data = {};
