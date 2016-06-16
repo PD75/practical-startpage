@@ -165,13 +165,27 @@ gulp.task('buildConfig', function(cb) {
 gulp.task('bumpPreRelease', function() {
   return gulp.src(src + '/manifest.json')
     .pipe(plugins.jsonEditor({
-      'version': bumpVersion('prerelease'),
+      'version': bumpVersion(3),
     }))
     .pipe(gulp.dest(src));
 });
 
-function bumpVersion(type) {
-  var index = versionIndex(type);
+gulp.task('bumpMinor', function() {
+  return gulp.src(src + '/manifest.json')
+    .pipe(plugins.jsonEditor({
+      'version': bumpVersion(1),
+    }))
+    .pipe(gulp.dest(src));
+});
+gulp.task('bumpPatch', function() {
+  return gulp.src(src + '/manifest.json')
+    .pipe(plugins.jsonEditor({
+      'version': bumpVersion(2),
+    }))
+    .pipe(gulp.dest(src));
+});
+
+function bumpVersion(index) {
   var versionArray = manifest.version.split('.');
   var i;
   for (i = 0; i <= index; i++) {
@@ -188,22 +202,14 @@ function bumpVersion(type) {
   return newVersion;
 }
 
-function versionIndex(type) {
-  switch (type) {
-    case 'major':
-      return 0;
-    case 'minor':
-      return 1;
-    case 'prerelease':
-      return 3;
-    case 'patch':
-    default:
-      return 2;
-  }
-}
-
 gulp.task('cleanRelease', function() {
   return del(['release']);
+});
+//Zip all files in deployment package for chrome
+gulp.task('createReleasePackage', ['build'], function() {
+  return gulp.src(build + '/**/*')
+    .pipe(plugins.zip('practical startpage ' + manifest.version + '.zip'))
+    .pipe(gulp.dest(release));
 });
 
 //Build test version
@@ -212,14 +218,14 @@ gulp.task('test', ['bumpPreRelease', 'cleanRelease'], function() {
     .pipe(plugins.zip('practical startpage test ' + manifest.version + '.zip'))
     .pipe(gulp.dest(release));
 });
-//Zip all files in deployment package for chrome
-gulp.task('release', ['build'], function() {
-  return gulp.src(build + '/**/*')
-    .pipe(plugins.zip('practical startpage ' + manifest.version + '.zip'))
-    .pipe(gulp.dest(release));
-});
-// Default Task
-gulp.task('default', ['test']);
 gulp.task('build', function(cb) {
   runSequence('clean', ['buildScripts', 'getDist', 'buildCss', 'buildConfig', 'getHtml', 'getLocales'], cb);
 });
+gulp.task('release', function(cb) {
+  runSequence('cleanRelease', 'bumpMinor', 'createReleasePackage', cb);
+});
+gulp.task('bugfix', function(cb) {
+  runSequence('cleanRelease', 'bumpPatch', 'createReleasePackage', cb);
+});
+// Default Task
+gulp.task('default', ['test']);
