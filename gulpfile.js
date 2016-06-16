@@ -25,8 +25,8 @@ var htmlmin = {
 //Copy libraries to correct place from node_modules during npm install
 gulp.task('installJSTree', function() {
   return gulp.src([srcNode + '/jstree/dist/**/*(*.js)', srcNode + '/jstree/dist/themes/default/**/*(*.min.css|*.png|*.gif)'], {
-    base: srcNode + '/jstree/dist',
-  })
+      base: srcNode + '/jstree/dist',
+    })
     .pipe(gulp.dest(dist + '/jstree'));
 });
 gulp.task('installjs', function() {
@@ -162,20 +162,64 @@ gulp.task('buildConfig', function(cb) {
 });
 
 
+gulp.task('bumpPreRelease', function() {
+  return gulp.src(src + '/manifest.json')
+    .pipe(plugins.jsonEditor({
+      'version': bumpVersion('prerelease'),
+    }))
+    .pipe(gulp.dest(src));
+});
+
+function bumpVersion(type) {
+  var index = versionIndex(type);
+  var versionArray = manifest.version.split('.');
+  var i;
+  for (i = 0; i <= index; i++) {
+    if (typeof versionArray[i] === 'undefined') {
+      versionArray[i] = '0';
+    }
+  }
+  versionArray[index]++;
+  var newVersion = versionArray[0];
+  for (i = 1; i <= index; i++) {
+    newVersion = newVersion + '.' + versionArray[i];
+  }
+  manifest.version = newVersion;
+  return newVersion;
+}
+
+function versionIndex(type) {
+  switch (type) {
+    case 'major':
+      return 0;
+    case 'minor':
+      return 1;
+    case 'prerelease':
+      return 3;
+    case 'patch':
+    default:
+      return 2;
+  }
+}
+
+gulp.task('cleanRelease', function() {
+  return del(['release']);
+});
+
+//Build test version
+gulp.task('test', ['bumpPreRelease', 'cleanRelease'], function() {
+  return gulp.src(src + '/**/*')
+    .pipe(plugins.zip('practical startpage test ' + manifest.version + '.zip'))
+    .pipe(gulp.dest(release));
+});
 //Zip all files in deployment package for chrome
 gulp.task('release', ['build'], function() {
   return gulp.src(build + '/**/*')
     .pipe(plugins.zip('practical startpage ' + manifest.version + '.zip'))
     .pipe(gulp.dest(release));
 });
-//Watch
-gulp.task('watch', function() {
-  gulp.watch(src + '/app/**/*.js', ['buildScripts']);
-  gulp.watch(src + '/app/**/*.css', ['buildCss']);
-  gulp.watch([src + '/app/**/*.html', src + '/app/**/*.json'], ['getHtml']);
-});
 // Default Task
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', ['test']);
 gulp.task('build', function(cb) {
   runSequence('clean', ['buildScripts', 'getDist', 'buildCss', 'buildConfig', 'getHtml', 'getLocales'], cb);
 });
