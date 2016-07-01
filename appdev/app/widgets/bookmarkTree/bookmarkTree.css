@@ -14,9 +14,9 @@ a.jstree-anchor:hover, a.jstree-anchor.jstree-clicked {
 .jstree-contextmenu {
   z-index: 1200;
 }
-#jstree-marker {
+/*#jstree-marker {
   z-index: 1200;
-}
+}*/
 ul.vakata-context {
   background-color: #ffffff;
   box-shadow: 0 0 0 1px rgba(39, 41, 43, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.05);

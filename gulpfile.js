@@ -98,7 +98,9 @@ gulp.task('buildCss', function() {
     .pipe(plugins.rename({
       suffix: '.min',
     }))
-    .pipe(plugins.cssnano())
+    .pipe(plugins.cssnano({
+      "zindex": false,
+    }))
     .pipe(gulp.dest(build + '/app'));
 });
 //Get distributions
