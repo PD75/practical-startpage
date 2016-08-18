@@ -1,0 +1,341 @@
+{
+  "About": {
+    "message": "Sobre"
+  },
+  "Badges": {
+    "message": "Insígnias"
+  },
+  "Check": {
+    "message": "Verificar"
+  },
+  "Clear": {
+    "message": "Limpar"
+  },
+  "Close": {
+    "message": "Fechar"
+  },
+  "CopyData": {
+    "message": "Copiar dados"
+  },
+  "days": {
+    "message": "dias"
+  },
+  "Display": {
+    "message": "Exibição"
+  },
+  "Edit": {
+    "message": "Editar"
+  },
+  "EditUrl": {
+    "message": "Editar Endereço"
+  },
+  "entries": {
+    "message": "entradas"
+  },
+  "Delete": {
+    "message": "Excluir"
+  },
+  "Homepage": {
+    "message": "Homepage"
+  },
+  "Help": {
+    "message": "Ajuda"
+  },
+  "LoadDefault": {
+    "message": "Carregar Padrão"
+  },
+  "Links": {
+    "message": "Links"
+  },
+  "NewFolder": {
+    "message": "Nova Pasta"
+  },
+  "OpenAllLinks": {
+    "message": "Abrir todos os links"
+  },
+  "OpenInNewTab": {
+    "message": "Abrir em uma nova guia"
+  },
+  "Options": {
+    "message": "Opções"
+  },
+  "Save": {
+    "message": "Salvar"
+  },
+  "SaveClose": {
+    "message": "Salvar e Fechar"
+  },
+  "Search": {
+    "message": "Pesquisar"
+  },
+  "SelectAll": {
+    "message": "Selecionar Tudo"
+  },
+  "Title": {
+    "message": "Título"
+  },
+  "UndoAll": {
+    "message": "Desfazer Tudo"
+  },
+  "Url": {
+    "message": "Endereço"
+  },
+  "UseForQuickLinks": {
+    "message": "Usar para Links Rápidos"
+  },
+  "WhatsNew": {
+    "message": "O que há de novo"
+  },
+  "Close_key": {
+    "message": "Esc"
+  },
+  "Edit_key": {
+    "message": "F2"
+  },
+  "EditUrl_key": {
+    "message": "Shift+F2"
+  },
+  "Delete_key": {
+    "message": "Del"
+  },
+  "NewFolder_key": {
+    "message": "Ctrl+Shift+N"
+  },
+  "Save_key": {
+    "message": "Ctrl+S"
+  },
+  "SaveClose_key": {
+    "message": "Ctrl+Shift+S"
+  },
+  "UndoAll_key": {
+    "message": "Ctrl+Shift+Z"
+  },
+  "c_ps_slogan": {
+    "message": "Página inicial flexível que mostra seus dados em uma única tela."
+  },
+  "c_about_languages": {
+    "message": "Idiomas"
+  },
+  "c_about_libraries": {
+    "message": "Bibliotecas Utilizadas"
+  },
+  "c_about_title_0": {
+    "message": "Practical Startpage na chrome web store"
+  },
+  "c_about_text_0": {
+    "message": "Aqui você pode dar like, criticar e avaliar a extensão."
+  },
+  "c_about_title_1": {
+    "message": "Espalhe a Palavra com um e-mail para um Amigo"
+  },
+  "c_about_text_1": {
+    "message": "Clique aqui para gerar um e-mail a um amigo."
+  },
+  "c_about_title_2": {
+    "message": "Bugs, Ideias ou Contribuir no GitHub"
+  },
+  "c_about_text_2": {
+    "message": "Se você tem alguma idéia para um widget que gostaria de desenvolver, o código está no GitHub. Aqui você também pode enviar bugs e problemas."
+  },
+  "c_about_title_3": {
+    "message": "Bugs, Ideias ou Perguntas no Google Groups"
+  },
+  "c_about_text_3": {
+    "message": "Usar o Google Groups para fazer perguntas e apresentar ideias e bugs."
+  },
+  "c_about_title_4": {
+    "message": "Verificar o progresso do desenvolvimento"
+  },
+  "c_about_text_4": {
+    "message": "Na página do Waffle"
+  },
+  "c_bottomMenu": {
+    "message": "Menu inferior"
+  },
+  "c_help_title_0": {
+    "message": "Listas de Dados Configuráveis"
+  },
+  "c_help_text_0": {
+    "message": "Você pode colocar widgets onde quiser através do menu de opções."
+  },
+  "c_help_title_1": {
+    "message": "Design flexível"
+  },
+  "c_help_text_1": {
+    "message": "As colunas e o conteúdo se ajustam para melhor experiência de visualização em telas de todas as larguras."
+  },
+  "c_help_title_2": {
+    "message": "Conteúdo"
+  },
+  "c_help_text_2": {
+    "message": "A página consiste em três colunas, mas para telas menores, a coluna da direita se funde com a coluna central para permitir que o conteúdo seja utilizável."
+  },
+  "c_o_editLayout": {
+    "message": "Editar Layout"
+  },
+  "c_o_badgeLayout": {
+    "message": "Layout das Insígnias"
+  },
+  "c_o_chooseStorage": {
+    "message": "Escolha o Armazenamento"
+  },
+  "c_o_clearSettings": {
+    "message": "Limpar Configurações"
+  },
+  "c_o_localStorage": {
+    "message": "Armazenamento Local"
+  },
+  "c_o_SwitchStorage": {
+    "message": "Trocar Armazenamento"
+  },
+  "c_o_syncStorage": {
+    "message": "Armazenamento Syncado"
+  },
+  "c_o_hasData": {
+    "message": "Contém Dados"
+  },
+  "c_o_noData": {
+    "message": "Você não tem configurações armazenadas."
+  },
+  "c_o_moreStorageSettings": {
+    "message": "Há configurações adicionais necessárias no menu de edição deste item para que seja possível sincronizar todos os dados."
+  },
+  "c_o_cleared": {
+    "message": "Tudo Limpo!!!"
+  },
+  "c_o_version": {
+    "message": "Checar Versão"
+  },
+  "c_o_layout": {
+    "message": "Layout dos Widgets"
+  },
+  "c_o_activeTabs": {
+    "message": "Abas Ativas"
+  },
+  "c_o_styles": {
+    "message": "Estilos, cores"
+  },
+  "c_l_left": {
+    "message": "Coluna da esquerda"
+  },
+  "c_l_middle": {
+    "message": "Coluna do meio"
+  },
+  "c_l_right": {
+    "message": "Coluna da direita"
+  },
+  "c_auth_title": {
+    "message": "É necessária permissão para acessar $url$, clique aqui para autorizar !!!",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "mysite.com"
+      }
+    }
+  },
+  "b_gmail_connection": {
+    "message": "Falha ao recuperar dados, verifique a conexão de rede e certifique-se de estar logado no Gmail!"
+  },
+  "b_gmail_noUnRead": {
+    "message": "(Sem emails não lidos!)"
+  },
+  "Widgets": {
+    "message": "Widgets"
+  },
+  "w_BL": {
+    "message": "Lista de Botões"
+  },
+  "w_GL": {
+    "message": "Lista Agrupada"
+  },
+  "w_bookmarkTree": {
+    "message": "Favoritos"
+  },
+  "w_bookmarkTree_help": {
+    "message": "Visualização em árvore de todos os favoritos, com pesquisa de texto.<br /><b>Nota:</b> Você escolhe os Links Rápidos aqui clicando com o botão direito na pasta onde deseja obter os Links Rápidos.<br /> Clique no botão Editar para entrar no editor de favoritos."
+  },
+  "w_bookmarkTree_edit_title": {
+    "message": "Editar Favoritos"
+  },
+  "w_chromeApps": {
+    "message": "Aplicativos"
+  },
+  "w_chromeApps_help": {
+    "message": "A lista de aplicativos instalado atualmente no Chrome. <br /> <b> Nota:</ B> apenas aplicações com uma página são listados."
+  },
+  "w_closedTabs": {
+    "message": "Fechados"
+  },
+  "w_closedTabs_help": {
+    "message": "Abas fechadas recentemente <br /> <b> Nota: </ b>: É limpa pelo chrome cada vez que o navegador é fechado."
+  },
+  "w_history": {
+    "message": "Histórico"
+  },
+  "w_history_help": {
+    "message": "Sites visitados."
+  },
+  "w_history_edit_title": {
+    "message": "Editar Histórico"
+  },
+  "w_quicklinks": {
+    "message": "Links Rápidos"
+  },
+  "w_quicklinks_help": {
+    "message": "Todos os links de uma patas dos favoritos. Selecione uma pasta a partir do widget de favoritos. <br /> <b>Note:</b> Você só pode selecionar uma pasta e os favoritos diretamente da pasta mostrada."
+  },
+  "w_rssFeed": {
+    "message": "RSS"
+  },
+  "w_rssFeed_help": {
+    "message": "Você decide quais feeds serão mostrados, p. ex. notícias"
+  },
+  "w_rssFeed_edit_title": {
+    "message": "Editar RSS"
+  },
+  "w_rssFeed_addFeed": {
+    "message": "Adicionar Feed"
+  },
+  "w_rssFeed_hideVisited": {
+    "message": "Esconder Visitados"
+  },
+  "w_rssFeed_allowDelete": {
+    "message": "Permitir Apagar"
+  },
+  "w_rssFeed_manageFeeds": {
+    "message": "Gerênciar Feeds"
+  },
+  "w_rssFeed_settings": {
+    "message": "Mudar Configurações"
+  },
+  "w_rssFeed_restoreDeleted": {
+    "message": "Restaurar Itens Excluídos"
+  },
+  "w_rssFeed_auth_text": {
+    "message": "RSS utiliza APIs do Google para obter uma estrutura de dados consistente dos vários feeds e não funciona sem essas APIs. Clique aqui para continuar e autorizar o widget."
+  },
+  "w_rssFeed_err_title": {
+    "message": "Erro ao Carregar Feed:"
+  },
+  "w_rssFeed_CreateSyncFolder": {
+    "message": "Criar Pastas Syncronizadas"
+  },
+  "w_rssFeed_RemoveSyncFolder": {
+    "message": "Remover Pastas Syncronizadas"
+  },
+  "w_rssFeed_MoveSyncFolder": {
+    "message": "Mover Pastas Syncronizadas"
+  },
+  "w_rssFeed_SyncroniseDeletedItems": {
+    "message": "Sincronizar Itens Excluídos"
+  },
+  "w_rssFeed_largeData": {
+    "message": "A quantidade de dados é muito grande para o armazenamento de sincronização do Chrome, então uma pasta de favoritos é usada para armazenar os itens deletados do Feed. <br> Os dados não serão exibidos no editor de favoritos do Practical Startpage, mas vai aparecer em outras ferramentas de Favoritos"
+  },
+  "w_topSites": {
+    "message": "Mais Visitados"
+  },
+  "w_topSites_help": {
+    "message": "Sites mais visitados."
+  }
+}

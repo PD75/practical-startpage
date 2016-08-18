@@ -36,6 +36,17 @@ Practical Startpage es simple pero eficaz, permitiendo acceder fácilmente a los
 - Historial, aplicaciones, etc., de Chrome
 - Fuentes RSS para noticias, por ejemplo
 
+### português (Brasil) - pt_BR
+
+Practical Startpage é uma página inicial simples mas mas poderosa, permitindo fácil acesso aos dados do navegador, como favoritos e histórico.
+(Para detalhes sobre as permissões necessárias, visite nossa homepage)
+- Design Flexível, se adapta a todas as telas
+- Configurável, você decide quais e onde ficarão os widgets
+- Open Source, você pode desenvolver seus próprios widgets (GitHub)
+- Favoritos em árvore com pesquisa de texto e editor de favoritos
+- Links Rápidos com links de pastas dos favoritos a sua escolha
+- Histórico, Aplicativos, etc. a partir do Chrome
+- RSS Feed para p. ex. notícias
 
 ### svenska - sv
 
