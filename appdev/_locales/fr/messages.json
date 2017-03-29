@@ -1,0 +1,341 @@
+{
+  "About": {
+    "message": "Sur"
+  },
+  "Badges": {
+    "message": "Badges"
+  },
+  "Check": {
+    "message": "Vérifier"
+  },
+  "Clear": {
+    "message": "Effacer"
+  },
+  "Close": {
+    "message": "Fermer"
+  },
+  "CopyData": {
+    "message": "Copier des données"
+  },
+  "days": {
+    "message": "journées"
+  },
+  "Display": {
+    "message": "Afficher"
+  },
+  "Edit": {
+    "message": "modifier"
+  },
+  "EditUrl": {
+    "message": "Modifier Url"
+  },
+  "entries": {
+    "message": "entrées"
+  },
+  "Delete": {
+    "message": "Effacer"
+  },
+  "Homepage": {
+    "message": "Page d'accueil"
+  },
+  "Help": {
+    "message": "Aide"
+  },
+  "LoadDefault": {
+    "message": "Télécharger le défaut"
+  },
+  "Links": {
+    "message": "Liens"
+  },
+  "NewFolder": {
+    "message": "Nouveau dossier"
+  },
+  "OpenAllLinks": {
+    "message": "Ouvrez tous les liens"
+  },
+  "OpenInNewTab": {
+    "message": "Ouvrir dans un nouvel onglet"
+  },
+  "Options": {
+    "message": "Options"
+  },
+  "Save": {
+    "message": "Sauvegarder"
+  },
+  "SaveClose": {
+    "message": "Sauvegarder et fermer"
+  },
+  "Search": {
+    "message": "Rechercher"
+  },
+  "SelectAll": {
+    "message": "Tout sélectionner "
+  },
+  "Title": {
+    "message": "Titre"
+  },
+  "UndoAll": {
+    "message": "Tout éffacer"
+  },
+  "Url": {
+    "message": "url"
+  },
+  "UseForQuickLinks": {
+    "message": "Utilisez pour Quick Links"
+  },
+  "WhatsNew": {
+    "message": "Nouveautés"
+  },
+  "Close_key": {
+    "message": "Esc"
+  },
+  "Edit_key": {
+    "message": "F2"
+  },
+  "EditUrl_key": {
+    "message": "Maj + F2"
+  },
+  "Delete_key": {
+    "message": "Del"
+  },
+  "NewFolder_key": {
+    "message": "Ctrl + Maj + N"
+  },
+  "Save_key": {
+    "message": "Ctrl + S"
+  },
+  "SaveClose_key": {
+    "message": "Ctrl + Maj + S"
+  },
+  "UndoAll_key": {
+    "message": "Ctrl + Maj + Z"
+  },
+  "c_ps_slogan": {
+    "message": "Page de démarrage flexible qui rend vos données disponibles en une seule vue."
+  },
+  "c_about_languages": {
+    "message": "Langues"
+  },
+  "c_about_libraries": {
+    "message": "Fichiers utilisés"
+  },
+  "c_about_title_0": {
+    "message": "Page de démarrage pratique dans la boutique chrome"
+  },
+  "c_about_text_0": {
+    "message": "Ici vous pouvez aimer, revoir et évaluer l'extension."
+  },
+  "c_about_title_1": {
+    "message": "Faites suivre à un ami par e-mail "
+  },
+  "c_about_text_1": {
+    "message": "Cliquez ici pour générer un e-mail à un ami."
+  },
+  "c_about_title_2": {
+    "message": "Signallez des bugs, idées ou contribuez sur GitHub"
+  },
+  "c_about_text_2": {
+    "message": "Si vous avez une idée pour un widget que vous souhaitez développer, le code est sur GitHub. Ici, vous pouvez également soumettre des bugs et des problèmes."
+  },
+  "c_about_title_3": {
+    "message": "Bugs, idées ou questions dans Google Groupes"
+  },
+  "c_about_text_3": {
+    "message": "Utilisez Google Groupes pour poser des questions, et envoyer des idées et des bugs."
+  },
+  "c_about_title_4": {
+    "message": "Contrôler le progrés du développement"
+  },
+  "c_about_text_4": {
+    "message": "Sur le plan Waffle"
+  },
+  "c_bottomMenu": {
+    "message": "Menu du bas"
+  },
+  "c_help_title_0": {
+    "message": "Listes de données modifiables"
+  },
+  "c_help_text_0": {
+    "message": "Vous pouvez mettre le widgets où vous les voulez dans le menu des options."
+  },
+  "c_help_title_1": {
+    "message": "Concept flexible"
+  },
+  "c_help_text_1": {
+    "message": "Les colonnes et le contenu s'ajustent pour donner la meilleure expérience visuelle pour toutes les largeurs d'écran."
+  },
+  "c_help_title_2": {
+    "message": "Contenu"
+  },
+  "c_help_text_2": {
+    "message": "La page est composée de trois colonnes, mais pour les petits écrans, la colonne de droite se fusionne avec la colonne centrale pour permettre que le contenu soit visble et usable."
+  },
+  "c_o_editLayout": {
+    "message": "Modifier la mise en page"
+  },
+  "c_o_badgeLayout": {
+    "message": "Badger la mise en page"
+  },
+  "c_o_chooseStorage": {
+    "message": "Choisissez lieu d'enregistrement"
+  },
+  "c_o_clearSettings": {
+    "message": "Effacer les paramètres"
+  },
+  "c_o_localStorage": {
+    "message": "Enregistrement local"
+  },
+  "c_o_SwitchStorage": {
+    "message": "Changer le lieu d'enregistrement"
+  },
+  "c_o_syncStorage": {
+    "message": "Synchroniser Storage"
+  },
+  "c_o_hasData": {
+    "message": "Données Has"
+  },
+  "c_o_noData": {
+    "message": "Vous n'avez pas de paramètres enregistrés."
+  },
+  "c_o_moreStorageSettings": {
+    "message": "Il existe des paramètres supplémentaires requis dans le menu d'édition de cet article pour être en mesure de synchroniser toutes les données."
+  },
+  "c_o_cleared": {
+    "message": "Effacé !!!"
+  },
+  "c_o_version": {
+    "message": "Vérification de version "
+  },
+  "c_o_layout": {
+    "message": "Disposition Widget"
+  },
+  "c_o_activeTabs": {
+    "message": "Onglets actifs"
+  },
+  "c_o_styles": {
+    "message": "Styles, couleurs"
+  },
+  "c_l_left": {
+    "message": "Colonne de gauche"
+  },
+  "c_l_middle": {
+    "message": "Colonne centrale"
+  },
+  "c_l_right": {
+    "message": "Colonne de droite"
+  },
+  "c_auth_title": {
+    "message": "L' autorisation d'accès $url$ est requis, cliquez ici pour autoriser !!!",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "mysite.com"
+      }
+    }
+  },
+  "b_gmail_connection": {
+    "message": "Échec de localisation de données, vérifiez la connexion de réseau et que vous êtes connectez à Gmail!"
+  },
+  "b_gmail_noUnRead": {
+    "message": "(Pas de mails non lus!)"
+  },
+  "Widgets": {
+    "message": "Widgets"
+  },
+  "w_BL": {
+    "message": "Liste des boutons"
+  },
+  "w_GL": {
+    "message": "Liste Groupée"
+  },
+  "w_bookmarkTree": {
+    "message": "Liste de signets"
+  },
+  "w_bookmarkTree_help": {
+    "message": "Une vue de tous les signets, avec recherche complète du texte <br /> <b> Note:.. </ B> Vous sélectionnez les Quicklinks- Liens Rapides- en cliquant à droite sur le dossier d'où vous voulez obtenir vos quicklinks <br /> Cliquez sur Modifier pour modifier les signets."
+  },
+  "w_bookmarkTree_edit_title": {
+    "message": "Modifier les signets"
+  },
+  "w_chromeApps": {
+    "message": "Applications"
+  },
+  "w_chromeApps_help": {
+    "message": "Une liste des applications de chrome actuellement installées dans le navigateur <br /> <b> Note:. </ B> uniquement les applications avec une page sont répertoriés."
+  },
+  "w_closedTabs": {
+    "message": "Fermé"
+  },
+  "w_closedTabs_help": {
+    "message": "Onglets récemment fermés <br /> <b> Remarque </ b>:. Est éffacé par chrome à chaque fois que le navigateur est fermé."
+  },
+  "w_history": {
+    "message": "Historique"
+  },
+  "w_history_help": {
+    "message": "Sites visités."
+  },
+  "w_history_edit_title": {
+    "message": "Modifier Historique"
+  },
+  "w_quicklinks": {
+    "message": "Liens rapides"
+  },
+  "w_quicklinks_help": {
+    "message": "Tous les liens dans un dossier du dossier de signets sont facilement accessible. Vous sélectionnez le dossier dans le widget de signets. <br /> <b> Remarque: </ b> Vous ne pouvez que sélectionner un dossier et seuls les signets dans ce dossier sont affichés."
+  },
+  "w_rssFeed": {
+    "message": "RSS"
+  },
+  "w_rssFeed_help": {
+    "message": "Vous décidez quel flux vous montrez, par exemple les nouvelles"
+  },
+  "w_rssFeed_edit_title": {
+    "message": "Modifier RSS"
+  },
+  "w_rssFeed_addFeed": {
+    "message": "Ajouter un flux"
+  },
+  "w_rssFeed_hideVisited": {
+    "message": "Cacher Sites Visités"
+  },
+  "w_rssFeed_allowDelete": {
+    "message": "Autorisation d'éffacer"
+  },
+  "w_rssFeed_manageFeeds": {
+    "message": "Gérer Flux"
+  },
+  "w_rssFeed_settings": {
+    "message": "Modifier les paramètres"
+  },
+  "w_rssFeed_restoreDeleted": {
+    "message": "Restaurer les articles supprimés"
+  },
+  "w_rssFeed_auth_text": {
+    "message": "RSS utilise les applications Google pour obtenir une structure de données cohérente des différents flux et ne fonctionnera pas sans. Cliquez ici pour continuer et autoriser le widget."
+  },
+  "w_rssFeed_err_title": {
+    "message": "Erreur lors du chargement Feed/ Flux:"
+  },
+  "w_rssFeed_CreateSyncFolder": {
+    "message": "Créer dossier de synchronisation"
+  },
+  "w_rssFeed_RemoveSyncFolder": {
+    "message": "Effacer dossier de synchronisation"
+  },
+  "w_rssFeed_MoveSyncFolder": {
+    "message": "Déplacer dossier de synchronisation"
+  },
+  "w_rssFeed_SyncroniseDeletedItems": {
+    "message": "Syncroniser articles supprimés"
+  },
+  "w_rssFeed_largeData": {
+    "message": "La quantité de données est trop pour le stockage de synchronisation de Chrome, donc un dossier de signets est utilisé pour stocker les éléments de feed/flux supprimés. <br> Les données ne seront pas affichées dans l'éditeur de signets de la page de démarrage, mais apparaîtra dans d'autres outils de signets"
+  },
+  "w_topSites": {
+    "message": "Sites Préférés"
+  },
+  "w_topSites_help": {
+    "message": "Les sites les plus visités."
+  }
+}
