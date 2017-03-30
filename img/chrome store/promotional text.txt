@@ -36,6 +36,18 @@ Practical Startpage es simple pero eficaz, permitiendo acceder fácilmente a los
 - Historial, aplicaciones, etc., de Chrome
 - Fuentes RSS para noticias, por ejemplo
 
+### français - fr
+
+Le Startpage Pratique est un outil simple mais puissant qui permet un accès facile aux données du navigateur, par exemple les signets et l'historique.
+(Pour plus de détails sur les autorisations nécessaires, veuillez visiter la page d'accueil)
+- De conception adaptable à tous les écrans
+- Configurable, vous pouvez décider où vont les widgets
+- Open Source, vous pouvez développer vos propres widgets (GitHub)
+- Un arbre de signets avec recherche de texte et éditeur de signets
+- Quicklinks avec liens de signets de votre choix
+- Historique, applications, etc.. de chrome
+- Flux RSS pour par exemple les nouvelles
+
 ### português (Brasil) - pt_BR
 
 Practical Startpage é uma página inicial simples mas mas poderosa, permitindo fácil acesso aos dados do navegador, como favoritos e histórico.

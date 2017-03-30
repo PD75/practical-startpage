@@ -1,0 +1,341 @@
+{
+  "About": {
+    "message": "About"
+  },
+  "Badges": {
+    "message": "Badges"
+  },
+  "Check": {
+    "message": "Check"
+  },
+  "Clear": {
+    "message": "Clear"
+  },
+  "Close": {
+    "message": "Close"
+  },
+  "CopyData": {
+    "message": "Copy data"
+  },
+  "days": {
+    "message": "days"
+  },
+  "Display": {
+    "message": "Display"
+  },
+  "Edit": {
+    "message": "Edit"
+  },
+  "EditUrl": {
+    "message": "Edit Url"
+  },
+  "entries": {
+    "message": "entries"
+  },
+  "Delete": {
+    "message": "Delete"
+  },
+  "Homepage": {
+    "message": "Homepage"
+  },
+  "Help": {
+    "message": "Help"
+  },
+  "LoadDefault": {
+    "message": "Load Default"
+  },
+  "Links": {
+    "message": "Links"
+  },
+  "NewFolder": {
+    "message": "New Folder"
+  },
+  "OpenAllLinks": {
+    "message": "Open all links"
+  },
+  "OpenInNewTab": {
+    "message": "Open in new tab"
+  },
+  "Options": {
+    "message": "Options"
+  },
+  "Save": {
+    "message": "Save"
+  },
+  "SaveClose": {
+    "message": "Save and Close"
+  },
+  "Search": {
+    "message": "Search"
+  },
+  "SelectAll": {
+    "message": "Select All"
+  },
+  "Title": {
+    "message": "Title"
+  },
+  "UndoAll": {
+    "message": "Undo All"
+  },
+  "Url": {
+    "message": "Url"
+  },
+  "UseForQuickLinks": {
+    "message": "Use for Quick Links"
+  },
+  "WhatsNew": {
+    "message": "What's New"
+  },
+  "Close_key": {
+    "message": "Esc"
+  },
+  "Edit_key": {
+    "message": "F2"
+  },
+  "EditUrl_key": {
+    "message": "Shift+F2"
+  },
+  "Delete_key": {
+    "message": "Del"
+  },
+  "NewFolder_key": {
+    "message": "Ctrl+Shift+N"
+  },
+  "Save_key": {
+    "message": "Ctrl+S"
+  },
+  "SaveClose_key": {
+    "message": "Ctrl+Shift+S"
+  },
+  "UndoAll_key": {
+    "message": "Ctrl+Shift+Z"
+  },
+  "c_ps_slogan": {
+    "message": "Flexible start page that makes your data available in a single view."
+  },
+  "c_about_languages": {
+    "message": "Languages"
+  },
+  "c_about_libraries": {
+    "message": "Libraries Used"
+  },
+  "c_about_title_0": {
+    "message": "Practical Startpage in chrome web store"
+  },
+  "c_about_text_0": {
+    "message": "Here you can like, review and rate the extension."
+  },
+  "c_about_title_1": {
+    "message": "Spread the Word with e-mail to a Friend"
+  },
+  "c_about_text_1": {
+    "message": "Click here to generate a mail to a friend."
+  },
+  "c_about_title_2": {
+    "message": "Bugs, Ideas or Contribute on GitHub"
+  },
+  "c_about_text_2": {
+    "message": "If you have any idea for a widget you would like to develop, the code is on GitHub. Here you can also submit bugs and issues."
+  },
+  "c_about_title_3": {
+    "message": "Bugs, Ideas or Questions in Google Groups"
+  },
+  "c_about_text_3": {
+    "message": "Use Google Groups to ask questions, and submit ideas and bugs."
+  },
+  "c_about_title_4": {
+    "message": "Check progress of development"
+  },
+  "c_about_text_4": {
+    "message": "On the Waffle board"
+  },
+  "c_bottomMenu": {
+    "message": "Bottom Menu"
+  },
+  "c_help_title_0": {
+    "message": "Configurable Data Lists"
+  },
+  "c_help_text_0": {
+    "message": "You can put the widgest where you watn them through the options menu."
+  },
+  "c_help_title_1": {
+    "message": "Responsive design"
+  },
+  "c_help_text_1": {
+    "message": "The columns and content adjusts to give best viewing experience for all screen widths."
+  },
+  "c_help_title_2": {
+    "message": "Content"
+  },
+  "c_help_text_2": {
+    "message": "The page consists of three columns, but for smaller screens, the right column merges with the center column to allow the content to be usable."
+  },
+  "c_o_editLayout": {
+    "message": "Edit Layout"
+  },
+  "c_o_badgeLayout": {
+    "message": "Badge Layout"
+  },
+  "c_o_chooseStorage": {
+    "message": "Choose Storage"
+  },
+  "c_o_clearSettings": {
+    "message": "Clear Settings"
+  },
+  "c_o_localStorage": {
+    "message": "Local Storage"
+  },
+  "c_o_SwitchStorage": {
+    "message": "Switch Storage"
+  },
+  "c_o_syncStorage": {
+    "message": "Sync Storage"
+  },
+  "c_o_hasData": {
+    "message": "Has Data"
+  },
+  "c_o_noData": {
+    "message": "You have no stored settings."
+  },
+  "c_o_moreStorageSettings": {
+    "message": "There are additional settings required from the edit menu of this item to be able to sync all data."
+  },
+  "c_o_cleared": {
+    "message": "Cleared!!!"
+  },
+  "c_o_version": {
+    "message": "Version Check"
+  },
+  "c_o_layout": {
+    "message": "Widget Layout"
+  },
+  "c_o_activeTabs": {
+    "message": "Active Tabs"
+  },
+  "c_o_styles": {
+    "message": "Styles, colors"
+  },
+  "c_l_left": {
+    "message": "Left column"
+  },
+  "c_l_middle": {
+    "message": "Middle column"
+  },
+  "c_l_right": {
+    "message": "Right column"
+  },
+  "c_auth_title": {
+    "message": "Permission to access $url$ is required, click here to authorize!!!",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "mysite.com"
+      }
+    }
+  },
+  "b_gmail_connection": {
+    "message": "Failed to retreive data, please check the network connection and that you are loged on to Gmail!"
+  },
+  "b_gmail_noUnRead": {
+    "message": "(No unread mails!)"
+  },
+  "Widgets": {
+    "message": "Widgets"
+  },
+  "w_BL": {
+    "message": "Button List"
+  },
+  "w_GL": {
+    "message": "Grouped List"
+  },
+  "w_bookmarkTree": {
+    "message": "Bookmarks"
+  },
+  "w_bookmarkTree_help": {
+    "message": "A Treeview of all the bookmarks, with full text search.<br /><b>Note:</b> You select the Quicklinks from here by right clicking the folder you want to get your quicklinks from.<br /> Click edit button to get bookmark editor."
+  },
+  "w_bookmarkTree_edit_title": {
+    "message": "Edit Bookmarks"
+  },
+  "w_chromeApps": {
+    "message": "Apps"
+  },
+  "w_chromeApps_help": {
+    "message": "A list of chrome apps presently installed in the browser.<br /> <b>Note:</b> only apps with a page are listed."
+  },
+  "w_closedTabs": {
+    "message": "Closed"
+  },
+  "w_closedTabs_help": {
+    "message": "Recently closed tabs.<br /><b>Note</b>: Is cleared by chrome each time the browser is closed."
+  },
+  "w_history": {
+    "message": "History"
+  },
+  "w_history_help": {
+    "message": "Visited sites."
+  },
+  "w_history_edit_title": {
+    "message": "Edit History"
+  },
+  "w_quicklinks": {
+    "message": "Quicklinks"
+  },
+  "w_quicklinks_help": {
+    "message": "All links in one folder of bookmark folder easily accessible. You select the folder from the bookmark widget. <br /> <b>Note:</b> You can only select one folder and only the bookmarks directly in that folder are shown."
+  },
+  "w_rssFeed": {
+    "message": "RSS"
+  },
+  "w_rssFeed_help": {
+    "message": "You decide what feeds you will show, E.g. news"
+  },
+  "w_rssFeed_edit_title": {
+    "message": "Edit RSS"
+  },
+  "w_rssFeed_addFeed": {
+    "message": "Add Feed"
+  },
+  "w_rssFeed_hideVisited": {
+    "message": "Hide Visited"
+  },
+  "w_rssFeed_allowDelete": {
+    "message": "Allow Delete"
+  },
+  "w_rssFeed_manageFeeds": {
+    "message": "Manage Feeds"
+  },
+  "w_rssFeed_settings": {
+    "message": "Change Settings"
+  },
+  "w_rssFeed_restoreDeleted": {
+    "message": "Restore Deleted Items"
+  },
+  "w_rssFeed_auth_text": {
+    "message": "RSS uses google apis to get a consistent data structure from the various feeds and will not function without. Click here to proceed and authorize the widget."
+  },
+  "w_rssFeed_err_title": {
+    "message": "Error Loading Feed:"
+  },
+  "w_rssFeed_CreateSyncFolder": {
+    "message": "Create Sync Folder"
+  },
+  "w_rssFeed_RemoveSyncFolder": {
+    "message": "Remove Sync Folder"
+  },
+  "w_rssFeed_MoveSyncFolder": {
+    "message": "Move Sync Folder"
+  },
+  "w_rssFeed_SyncroniseDeletedItems": {
+    "message": "Syncronise Deleted Items"
+  },
+  "w_rssFeed_largeData": {
+    "message": "The amount of data is too much for Chrome's sync storage, so a bookmarks folder is used to store the deleted Feed items.<br>The data will not show in the bookmark editor of Practical Startpage, but will show up in other bookmark tools"
+  },
+  "w_topSites": {
+    "message": "Top Sites"
+  },
+  "w_topSites_help": {
+    "message": "Most visited sites."
+  }
+}
